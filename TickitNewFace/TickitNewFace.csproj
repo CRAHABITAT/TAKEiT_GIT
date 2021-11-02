@@ -1,0 +1,883 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C6C89227-97FB-4632-8E55-084A3EDB285F}</ProjectGuid>
+    <ProjectTypeGuids>{E53F8FEA-EAE0-44A6-8774-FFD645390401};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TickitNewFace</RootNamespace>
+    <AssemblyName>TickitNewFace</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>false</UseIISExpress>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.4.1.10331.0\lib\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="HiQPdf, Version=12.0.0.0, Culture=neutral, PublicKeyToken=acd8b62594985b24, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\HiQPdf.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp">
+      <HintPath>..\..\..\..\..\Desktop\iText\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp.pdfa">
+      <HintPath>..\..\..\..\..\Desktop\iText\itextsharp.pdfa.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp.xtra">
+      <HintPath>..\..\..\..\..\Desktop\iText\itextsharp.xtra.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.WebPages.Deployment, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.DirectoryServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Const\ApplicationConsts.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="DAO\ConfigurationDao.cs" />
+    <Compile Include="DAO\ActiveDirectoryDao.cs" />
+    <Compile Include="DAO\ConfigurationBisDao.cs" />
+    <Compile Include="DAO\Produit_MagasinDao.cs" />
+    <Compile Include="DAO\EvenementDao.cs" />
+    <Compile Include="DAO\Description_RegletteDao.cs" />
+    <Compile Include="DAO\LangueDao.cs" />
+    <Compile Include="DAO\Description_DgccrfDao.cs" />
+    <Compile Include="DAO\Description_PlusDao.cs" />
+    <Compile Include="DAO\LibelleProduitDao.cs" />
+    <Compile Include="DAO\PrixDao.cs" />
+    <Compile Include="DAO\ProduitDao.cs" />
+    <Compile Include="DAO\RangeDao.cs" />
+    <Compile Include="DAO\Resultats_RechercheDao.cs" />
+    <Compile Include="DAO\Resultats_RecherchePLVDao.cs" />
+    <Compile Include="DAO\VariationDao.cs" />
+    <Compile Include="Form\ImpressionEnMasseForm.cs" />
+    <Compile Include="Form\EditProduitForm.cs" />
+    <Compile Include="Form\EditRangeForm.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Managers\ChevaletManager.cs" />
+    <Compile Include="Managers\CsvResponse.cs" />
+    <Compile Include="Managers\FicheProduitManager.cs" />
+    <Compile Include="Managers\HiqPdfManager.cs" />
+    <Compile Include="Managers\RechercheManager.cs" />
+    <Compile Include="Managers\TickitDataManager.cs" />
+    <Compile Include="Managers\UploadFichierManager.cs" />
+    <Compile Include="Models\ConfigurationBis.cs" />
+    <Compile Include="Models\T_IPLV_Association.cs" />
+    <Compile Include="Models\T_IPLV_Details.cs" />
+    <Compile Include="Models\T_Format_Fiche.cs" />
+    <Compile Include="Models\T_Gamme_PLV.cs" />
+    <Compile Include="Models\T_Prix_evol.cs" />
+    <Compile Include="Models\T_magasin.cs" />
+    <Compile Include="Models\T_PrixEdition.cs" />
+    <Compile Include="Models\T_Produit_A4.cs" />
+    <Compile Include="Models\T_Produit_Magasin.cs" />
+    <Compile Include="Models\T_Evenement.cs" />
+    <Compile Include="Models\T_Presentation_Gamme_PLV.cs" />
+    <Compile Include="Models\T_Presentation_Gamme_PLV_tmp.cs" />
+    <Compile Include="Models\T_Presentation_Sous_Gamme_PLV.cs" />
+    <Compile Include="Models\tailleTexteGammePlv.cs" />
+    <Compile Include="Models\RangeSimpleUpdateObject.cs" />
+    <Compile Include="Models\TickitUpdateObjectSimple.cs" />
+    <Compile Include="Models\T_Description_Reglette.cs" />
+    <Compile Include="Models\ResultatUploadFile.cs" />
+    <Compile Include="Models\TickitDataLuminaire.cs" />
+    <Compile Include="Models\T_Configuration.cs" />
+    <Compile Include="Models\RangeUpdateObject.cs" />
+    <Compile Include="Models\TickitDataChevalet.cs" />
+    <Compile Include="Models\TickitUpdateObject.cs" />
+    <Compile Include="Models\T_Description_Dgccrf.cs" />
+    <Compile Include="Models\T_Description_Plus.cs" />
+    <Compile Include="Models\T_Format_Impression.cs" />
+    <Compile Include="Models\T_Langue.cs" />
+    <Compile Include="Models\T_Libelle_Produit.cs" />
+    <Compile Include="Models\T_Prix.cs" />
+    <Compile Include="Models\T_Produit.cs" />
+    <Compile Include="Models\T_Produit_Impression.cs" />
+    <Compile Include="Models\T_produit_magasin_update.cs" />
+    <Compile Include="Models\T_Range.cs" />
+    <Compile Include="Models\TickitDataProduit.cs" />
+    <Compile Include="Models\T_Resultats_Recherche.cs" />
+    <Compile Include="Models\T_Resultats_Recherche_PLV.cs" />
+    <Compile Include="Models\T_Sous_Gamme_PLV.cs" />
+    <Compile Include="Models\T_Variation.cs" />
+    <Compile Include="PDFUtils\PlvA7RectoVersoUtils.cs" />
+    <Compile Include="PDFUtils\PlvA6RectoVersoUtils.cs" />
+    <Compile Include="PDFUtils\PlvChevaletA6Utils.cs" />
+    <Compile Include="PDFUtils\PlvChevaletA5Utils.cs" />
+    <Compile Include="PDFUtils\PlvChevaletA4Utils.cs" />
+    <Compile Include="PDFUtils\PlvLineaire653Utils.cs" />
+    <Compile Include="PDFUtils\PlvLineaireCarreUtils.cs" />
+    <Compile Include="PDFUtils\MergeFiles.cs" />
+    <Compile Include="PDFUtils\PLV.cs" />
+    <Compile Include="PDFUtils\PlvLineaireUtils.cs" />
+    <Compile Include="PDFUtils\PlvChevaletUtils.cs" />
+    <Compile Include="PDFUtils\PlvLuminaireUtils.cs" />
+    <Compile Include="PDFUtils\PlvPermanenteUtils.cs" />
+    <Compile Include="PDFUtils\PlvSoldesUtils.cs" />
+    <Compile Include="Utils\PoliceUtils.cs" />
+    <Compile Include="Resources\Langue.de.Designer.cs">
+      <DependentUpon>Langue.de.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Langue.es.Designer.cs">
+      <DependentUpon>Langue.es.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Langue.en.Designer.cs">
+      <DependentUpon>Langue.en.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Langue.fr.Designer.cs">
+      <DependentUpon>Langue.fr.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Langue.Designer.cs">
+      <DependentUpon>Langue.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Utils\DateUtils.cs" />
+    <Compile Include="Utils\SpecificMathUtils.cs" />
+    <Compile Include="Utils\StringUtils.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Doc_FR\tickit_user_guide.htm" />
+    <Content Include="Content\Doc_FR\tickit_user_guide_fichiers\colorschememapping.xml" />
+    <Content Include="Content\Doc_FR\tickit_user_guide_fichiers\filelist.xml" />
+    <Content Include="Content\Doc_FR\tickit_user_guide_fichiers\header.htm" />
+    <Content Include="Content\Doc_FR\tickit_user_guide_fichiers\image001.png" />
+    <Content Include="Content\Doc_FR\tickit_user_guide_fichiers\image002.jpg" />
+    <Content Include="Content\Doc_FR\tickit_user_guide_fichiers\image003.png" />
+    <Content Include="Content\Doc_FR\tickit_user_guide_fichiers\image004.jpg" />
+    <Content Include="Content\Doc_FR\tickit_user_guide_fichiers\image005.png" />
+    <Content Include="Content\Doc_FR\tickit_user_guide_fichiers\image006.jpg" />
+    <Content Include="Content\Doc_FR\tickit_user_guide_fichiers\image007.png" />
+    <Content Include="Content\Doc_FR\tickit_user_guide_fichiers\image008.jpg" />
+    <Content Include="Content\Doc_FR\tickit_user_guide_fichiers\image009.png" />
+    <Content Include="Content\Doc_FR\tickit_user_guide_fichiers\image010.jpg" />
+    <Content Include="Content\Doc_FR\tickit_user_guide_fichiers\image011.png" />
+    <Content Include="Content\Doc_FR\tickit_user_guide_fichiers\image012.jpg" />
+    <Content Include="Content\Doc_FR\tickit_user_guide_fichiers\image013.png" />
+    <Content Include="Content\Doc_FR\tickit_user_guide_fichiers\image014.jpg" />
+    <Content Include="Content\Doc_FR\tickit_user_guide_fichiers\image015.png" />
+    <Content Include="Content\Doc_FR\tickit_user_guide_fichiers\image016.jpg" />
+    <Content Include="Content\Doc_FR\tickit_user_guide_fichiers\image017.png" />
+    <Content Include="Content\Doc_FR\tickit_user_guide_fichiers\image018.jpg" />
+    <Content Include="Content\Doc_FR\tickit_user_guide_fichiers\image019.png" />
+    <Content Include="Content\Doc_FR\tickit_user_guide_fichiers\image020.jpg" />
+    <Content Include="Content\Doc_FR\tickit_user_guide_fichiers\image021.png" />
+    <Content Include="Content\Doc_FR\tickit_user_guide_fichiers\image022.jpg" />
+    <Content Include="Content\Doc_FR\tickit_user_guide_fichiers\image023.png" />
+    <Content Include="Content\Doc_FR\tickit_user_guide_fichiers\image024.jpg" />
+    <Content Include="Content\Doc_FR\tickit_user_guide_fichiers\image025.png" />
+    <Content Include="Content\Doc_FR\tickit_user_guide_fichiers\image026.jpg" />
+    <Content Include="Content\Doc_FR\tickit_user_guide_fichiers\image027.png" />
+    <Content Include="Content\Doc_FR\tickit_user_guide_fichiers\image028.jpg" />
+    <Content Include="Content\Doc_FR\tickit_user_guide_fichiers\image029.png" />
+    <Content Include="Content\Doc_FR\tickit_user_guide_fichiers\image030.jpg" />
+    <Content Include="Content\Doc_FR\tickit_user_guide_fichiers\image031.png" />
+    <Content Include="Content\Doc_FR\tickit_user_guide_fichiers\image032.jpg" />
+    <Content Include="Content\Doc_FR\tickit_user_guide_fichiers\image033.png" />
+    <Content Include="Content\Doc_FR\tickit_user_guide_fichiers\image034.jpg" />
+    <Content Include="Content\Doc_FR\tickit_user_guide_fichiers\image035.png" />
+    <Content Include="Content\Doc_FR\tickit_user_guide_fichiers\image036.jpg" />
+    <Content Include="Content\Doc_FR\tickit_user_guide_fichiers\image037.png" />
+    <Content Include="Content\Doc_FR\tickit_user_guide_fichiers\image038.jpg" />
+    <Content Include="Content\Doc_FR\tickit_user_guide_fichiers\image039.png" />
+    <Content Include="Content\Doc_FR\tickit_user_guide_fichiers\image040.jpg" />
+    <Content Include="Content\Doc_FR\tickit_user_guide_fichiers\image041.png" />
+    <Content Include="Content\Doc_FR\tickit_user_guide_fichiers\image042.jpg" />
+    <Content Include="Content\Doc_FR\tickit_user_guide_fichiers\image043.png" />
+    <Content Include="Content\Doc_FR\tickit_user_guide_fichiers\image044.jpg" />
+    <Content Include="Content\Doc_FR\tickit_user_guide_fichiers\image045.png" />
+    <Content Include="Content\Doc_FR\tickit_user_guide_fichiers\image046.jpg" />
+    <Content Include="Content\Doc_FR\tickit_user_guide_fichiers\image047.png" />
+    <Content Include="Content\Doc_FR\tickit_user_guide_fichiers\image048.jpg" />
+    <Content Include="Content\Doc_FR\tickit_user_guide_fichiers\image049.png" />
+    <Content Include="Content\Doc_FR\tickit_user_guide_fichiers\image050.jpg" />
+    <Content Include="Content\Doc_FR\tickit_user_guide_fichiers\image051.png" />
+    <Content Include="Content\Doc_FR\tickit_user_guide_fichiers\image052.jpg" />
+    <Content Include="Content\Doc_FR\tickit_user_guide_fichiers\image054.png" />
+    <Content Include="Content\Doc_FR\tickit_user_guide_fichiers\image055.png" />
+    <Content Include="Content\Doc_FR\tickit_user_guide_fichiers\image056.jpg" />
+    <Content Include="Content\Doc_FR\tickit_user_guide_fichiers\image058.png" />
+    <Content Include="Content\Doc_FR\tickit_user_guide_fichiers\image059.png" />
+    <Content Include="Content\Doc_FR\tickit_user_guide_fichiers\image060.jpg" />
+    <Content Include="Content\Doc_FR\tickit_user_guide_fichiers\image061.png" />
+    <Content Include="Content\Doc_FR\tickit_user_guide_fichiers\image062.jpg" />
+    <Content Include="Content\Doc_FR\tickit_user_guide_fichiers\item0001.xml" />
+    <Content Include="Content\Doc_FR\tickit_user_guide_fichiers\item0003.xml" />
+    <Content Include="Content\Doc_FR\tickit_user_guide_fichiers\plchdr.htm" />
+    <Content Include="Content\Doc_FR\tickit_user_guide_fichiers\props002.xml" />
+    <Content Include="Content\Doc_FR\tickit_user_guide_fichiers\props004.xml" />
+    <Content Include="Content\Doc_UK\tickit_user_guide.htm" />
+    <Content Include="Content\Doc_UK\tickit_user_guide_fichiers\colorschememapping.xml" />
+    <Content Include="Content\Doc_UK\tickit_user_guide_fichiers\filelist.xml" />
+    <Content Include="Content\Doc_UK\tickit_user_guide_fichiers\header.htm" />
+    <Content Include="Content\Doc_UK\tickit_user_guide_fichiers\image001.png" />
+    <Content Include="Content\Doc_UK\tickit_user_guide_fichiers\image002.jpg" />
+    <Content Include="Content\Doc_UK\tickit_user_guide_fichiers\image003.png" />
+    <Content Include="Content\Doc_UK\tickit_user_guide_fichiers\image004.jpg" />
+    <Content Include="Content\Doc_UK\tickit_user_guide_fichiers\image005.png" />
+    <Content Include="Content\Doc_UK\tickit_user_guide_fichiers\image006.jpg" />
+    <Content Include="Content\Doc_UK\tickit_user_guide_fichiers\image007.png" />
+    <Content Include="Content\Doc_UK\tickit_user_guide_fichiers\image008.jpg" />
+    <Content Include="Content\Doc_UK\tickit_user_guide_fichiers\image009.png" />
+    <Content Include="Content\Doc_UK\tickit_user_guide_fichiers\image010.jpg" />
+    <Content Include="Content\Doc_UK\tickit_user_guide_fichiers\image011.png" />
+    <Content Include="Content\Doc_UK\tickit_user_guide_fichiers\image012.jpg" />
+    <Content Include="Content\Doc_UK\tickit_user_guide_fichiers\image013.png" />
+    <Content Include="Content\Doc_UK\tickit_user_guide_fichiers\image014.jpg" />
+    <Content Include="Content\Doc_UK\tickit_user_guide_fichiers\image015.png" />
+    <Content Include="Content\Doc_UK\tickit_user_guide_fichiers\image016.jpg" />
+    <Content Include="Content\Doc_UK\tickit_user_guide_fichiers\image017.png" />
+    <Content Include="Content\Doc_UK\tickit_user_guide_fichiers\image018.jpg" />
+    <Content Include="Content\Doc_UK\tickit_user_guide_fichiers\image019.png" />
+    <Content Include="Content\Doc_UK\tickit_user_guide_fichiers\image020.jpg" />
+    <Content Include="Content\Doc_UK\tickit_user_guide_fichiers\image021.png" />
+    <Content Include="Content\Doc_UK\tickit_user_guide_fichiers\image022.jpg" />
+    <Content Include="Content\Doc_UK\tickit_user_guide_fichiers\image023.png" />
+    <Content Include="Content\Doc_UK\tickit_user_guide_fichiers\image024.jpg" />
+    <Content Include="Content\Doc_UK\tickit_user_guide_fichiers\image025.png" />
+    <Content Include="Content\Doc_UK\tickit_user_guide_fichiers\image026.jpg" />
+    <Content Include="Content\Doc_UK\tickit_user_guide_fichiers\image027.png" />
+    <Content Include="Content\Doc_UK\tickit_user_guide_fichiers\image028.jpg" />
+    <Content Include="Content\Doc_UK\tickit_user_guide_fichiers\image029.png" />
+    <Content Include="Content\Doc_UK\tickit_user_guide_fichiers\image030.jpg" />
+    <Content Include="Content\Doc_UK\tickit_user_guide_fichiers\image031.png" />
+    <Content Include="Content\Doc_UK\tickit_user_guide_fichiers\image032.jpg" />
+    <Content Include="Content\Doc_UK\tickit_user_guide_fichiers\image033.png" />
+    <Content Include="Content\Doc_UK\tickit_user_guide_fichiers\image034.jpg" />
+    <Content Include="Content\Doc_UK\tickit_user_guide_fichiers\image035.png" />
+    <Content Include="Content\Doc_UK\tickit_user_guide_fichiers\image036.jpg" />
+    <Content Include="Content\Doc_UK\tickit_user_guide_fichiers\image037.png" />
+    <Content Include="Content\Doc_UK\tickit_user_guide_fichiers\image038.jpg" />
+    <Content Include="Content\Doc_UK\tickit_user_guide_fichiers\image039.png" />
+    <Content Include="Content\Doc_UK\tickit_user_guide_fichiers\image040.jpg" />
+    <Content Include="Content\Doc_UK\tickit_user_guide_fichiers\image041.png" />
+    <Content Include="Content\Doc_UK\tickit_user_guide_fichiers\image042.jpg" />
+    <Content Include="Content\Doc_UK\tickit_user_guide_fichiers\image043.png" />
+    <Content Include="Content\Doc_UK\tickit_user_guide_fichiers\image044.jpg" />
+    <Content Include="Content\Doc_UK\tickit_user_guide_fichiers\image045.png" />
+    <Content Include="Content\Doc_UK\tickit_user_guide_fichiers\image046.jpg" />
+    <Content Include="Content\Doc_UK\tickit_user_guide_fichiers\image047.png" />
+    <Content Include="Content\Doc_UK\tickit_user_guide_fichiers\image048.jpg" />
+    <Content Include="Content\Doc_UK\tickit_user_guide_fichiers\image049.png" />
+    <Content Include="Content\Doc_UK\tickit_user_guide_fichiers\image050.jpg" />
+    <Content Include="Content\Doc_UK\tickit_user_guide_fichiers\image051.png" />
+    <Content Include="Content\Doc_UK\tickit_user_guide_fichiers\image052.jpg" />
+    <Content Include="Content\Doc_UK\tickit_user_guide_fichiers\image054.png" />
+    <Content Include="Content\Doc_UK\tickit_user_guide_fichiers\image055.png" />
+    <Content Include="Content\Doc_UK\tickit_user_guide_fichiers\image056.jpg" />
+    <Content Include="Content\Doc_UK\tickit_user_guide_fichiers\image058.png" />
+    <Content Include="Content\Doc_UK\tickit_user_guide_fichiers\image059.png" />
+    <Content Include="Content\Doc_UK\tickit_user_guide_fichiers\image060.jpg" />
+    <Content Include="Content\Doc_UK\tickit_user_guide_fichiers\image061.png" />
+    <Content Include="Content\Doc_UK\tickit_user_guide_fichiers\image062.jpg" />
+    <Content Include="Content\Doc_UK\tickit_user_guide_fichiers\item0001.xml" />
+    <Content Include="Content\Doc_UK\tickit_user_guide_fichiers\item0003.xml" />
+    <Content Include="Content\Doc_UK\tickit_user_guide_fichiers\plchdr.htm" />
+    <Content Include="Content\Doc_UK\tickit_user_guide_fichiers\props002.xml" />
+    <Content Include="Content\Doc_UK\tickit_user_guide_fichiers\props004.xml" />
+    <Content Include="Content\maquette_reglette\images\crops.jpg" />
+    <Content Include="Content\maquette_reglette\images\filet.jpg" />
+    <Content Include="Content\maquette_reglette\images\flag_europe.jpg" />
+    <Content Include="Content\maquette_reglette\images\flag_france.jpg" />
+    <Content Include="Content\maquette_reglette\images\pastille_promo_rose.jpg" />
+    <Content Include="Content\maquette_reglette\images\pastille_promo_rouge.jpg" />
+    <Content Include="Content\maquette_reglette\reglette.html" />
+    <Content Include="Content\maquette_reglette\webfonts\dinhabbold\stylesheet.css" />
+    <Content Include="Content\maquette_reglette\webfonts\dinhabbold\_notes\dwsync.xml" />
+    <Content Include="Content\maquette_reglette\webfonts\dinhabmedium\stylesheet.css" />
+    <Content Include="Content\maquette_reglette\webfonts\dinhabmedium\_notes\dwsync.xml" />
+    <Content Include="Content\themes\image\ad.gif" />
+    <Content Include="Content\themes\image\ae.gif" />
+    <Content Include="Content\themes\image\af.gif" />
+    <Content Include="Content\themes\image\ag.gif" />
+    <Content Include="Content\themes\image\ai.gif" />
+    <Content Include="Content\themes\image\AJ.gif" />
+    <Content Include="Content\themes\image\al.gif" />
+    <Content Include="Content\themes\image\am.gif" />
+    <Content Include="Content\themes\image\an.gif" />
+    <Content Include="Content\themes\image\ao.gif" />
+    <Content Include="Content\themes\image\ar.gif" />
+    <Content Include="Content\themes\image\as.gif" />
+    <Content Include="Content\themes\image\at.gif" />
+    <Content Include="Content\themes\image\au.gif" />
+    <Content Include="Content\themes\image\aw.gif" />
+    <Content Include="Content\themes\image\ax.gif" />
+    <Content Include="Content\themes\image\az.gif" />
+    <Content Include="Content\themes\image\ba.gif" />
+    <Content Include="Content\themes\image\bb.gif" />
+    <Content Include="Content\themes\image\bd.gif" />
+    <Content Include="Content\themes\image\be.gif" />
+    <Content Include="Content\themes\image\bf.gif" />
+    <Content Include="Content\themes\image\bg.gif" />
+    <Content Include="Content\themes\image\bh.gif" />
+    <Content Include="Content\themes\image\bi.gif" />
+    <Content Include="Content\themes\image\bj.gif" />
+    <Content Include="Content\themes\image\bm.gif" />
+    <Content Include="Content\themes\image\bn.gif" />
+    <Content Include="Content\themes\image\bo.gif" />
+    <Content Include="Content\themes\image\br.gif" />
+    <Content Include="Content\themes\image\bs.gif" />
+    <Content Include="Content\themes\image\bt.gif" />
+    <Content Include="Content\themes\image\bv.gif" />
+    <Content Include="Content\themes\image\bw.gif" />
+    <Content Include="Content\themes\image\by.gif" />
+    <Content Include="Content\themes\image\bz.gif" />
+    <Content Include="Content\themes\image\ca.gif" />
+    <Content Include="Content\themes\image\calendar.jpg" />
+    <Content Include="Content\themes\image\catalonia.gif" />
+    <Content Include="Content\themes\image\cc.gif" />
+    <Content Include="Content\themes\image\cd.gif" />
+    <Content Include="Content\themes\image\cf.gif" />
+    <Content Include="Content\themes\image\cg.gif" />
+    <Content Include="Content\themes\image\ch-de.gif" />
+    <Content Include="Content\themes\image\ch.gif" />
+    <Content Include="Content\themes\image\ci.gif" />
+    <Content Include="Content\themes\image\ck.gif" />
+    <Content Include="Content\themes\image\cl.gif" />
+    <Content Include="Content\themes\image\cm.gif" />
+    <Content Include="Content\themes\image\cn.gif" />
+    <Content Include="Content\themes\image\co.gif" />
+    <Content Include="Content\themes\image\ligne_verticale.png" />
+    <Content Include="Content\themes\image\st.gif" />
+    <Content Include="Content\themes\image\mf.gif" />
+    <Content Include="Content\themes\image\cr.gif" />
+    <Content Include="Content\themes\image\cs.gif" />
+    <Content Include="Content\themes\image\cu.gif" />
+    <Content Include="Content\themes\image\cv.gif" />
+    <Content Include="Content\themes\image\cx.gif" />
+    <Content Include="Content\themes\image\cy.gif" />
+    <Content Include="Content\themes\image\cz.gif" />
+    <Content Include="Content\themes\image\dj.gif" />
+    <Content Include="Content\themes\image\dk.gif" />
+    <Content Include="Content\themes\image\dm.gif" />
+    <Content Include="Content\themes\image\do.gif" />
+    <Content Include="Content\themes\image\doc.png" />
+    <Content Include="Content\themes\image\ds.gif" />
+    <Content Include="Content\themes\image\dz.gif" />
+    <Content Include="Content\themes\image\ec.gif" />
+    <Content Include="Content\themes\image\ee.gif" />
+    <Content Include="Content\themes\image\eg.gif" />
+    <Content Include="Content\themes\image\eh.gif" />
+    <Content Include="Content\themes\image\england.gif" />
+    <Content Include="Content\themes\image\er.gif" />
+    <Content Include="Content\themes\image\error.png" />
+    <Content Include="Content\themes\image\et.gif" />
+    <Content Include="Content\themes\image\europeanunion.gif" />
+    <Content Include="Content\themes\image\fam.gif" />
+    <Content Include="Content\themes\image\fi.gif" />
+    <Content Include="Content\themes\image\fj.gif" />
+    <Content Include="Content\themes\image\fk.gif" />
+    <Content Include="Content\themes\image\fm.gif" />
+    <Content Include="Content\themes\image\fo.gif" />
+    <Content Include="Content\themes\image\ga.gif" />
+    <Content Include="Content\themes\image\gb.gif" />
+    <Content Include="Content\themes\image\gd.gif" />
+    <Content Include="Content\themes\image\ge.gif" />
+    <Content Include="Content\themes\image\gf.gif" />
+    <Content Include="Content\themes\image\gh.gif" />
+    <Content Include="Content\themes\image\gi.gif" />
+    <Content Include="Content\themes\image\gl.gif" />
+    <Content Include="Content\themes\image\gm.gif" />
+    <Content Include="Content\themes\image\gn.gif" />
+    <Content Include="Content\themes\image\gp.gif" />
+    <Content Include="Content\themes\image\gq.gif" />
+    <Content Include="Content\themes\image\gr.gif" />
+    <Content Include="Content\themes\image\gs.gif" />
+    <Content Include="Content\themes\image\gt.gif" />
+    <Content Include="Content\themes\image\gu.gif" />
+    <Content Include="Content\themes\image\gw.gif" />
+    <Content Include="Content\themes\image\gy.gif" />
+    <Content Include="Content\themes\image\hk.gif" />
+    <Content Include="Content\themes\image\hm.gif" />
+    <Content Include="Content\themes\image\hn.gif" />
+    <Content Include="Content\themes\image\hr.gif" />
+    <Content Include="Content\themes\image\ht.gif" />
+    <Content Include="Content\themes\image\hu.gif" />
+    <Content Include="Content\themes\image\id.gif" />
+    <Content Include="Content\themes\image\ie.gif" />
+    <Content Include="Content\themes\image\il.gif" />
+    <Content Include="Content\themes\image\in.gif" />
+    <Content Include="Content\themes\image\io.gif" />
+    <Content Include="Content\themes\image\iq.gif" />
+    <Content Include="Content\themes\image\ir.gif" />
+    <Content Include="Content\themes\image\is.gif" />
+    <Content Include="Content\themes\image\it.gif" />
+    <Content Include="Content\themes\image\jm.gif" />
+    <Content Include="Content\themes\image\jo.gif" />
+    <Content Include="Content\themes\image\jp.gif" />
+    <Content Include="Content\themes\image\ke.gif" />
+    <Content Include="Content\themes\image\kg.gif" />
+    <Content Include="Content\themes\image\kh.gif" />
+    <Content Include="Content\themes\image\ki.gif" />
+    <Content Include="Content\themes\image\km.gif" />
+    <Content Include="Content\themes\image\kn.gif" />
+    <Content Include="Content\themes\image\kp.gif" />
+    <Content Include="Content\themes\image\kr.gif" />
+    <Content Include="Content\themes\image\kw.gif" />
+    <Content Include="Content\themes\image\ky.gif" />
+    <Content Include="Content\themes\image\kz.gif" />
+    <Content Include="Content\themes\image\la.gif" />
+    <Content Include="Content\themes\image\lb.gif" />
+    <Content Include="Content\themes\image\lc.gif" />
+    <Content Include="Content\themes\image\li.gif" />
+    <Content Include="Content\themes\image\lk.gif" />
+    <Content Include="Content\themes\image\loader3.gif" />
+    <Content Include="Content\themes\image\lr.gif" />
+    <Content Include="Content\themes\image\ls.gif" />
+    <Content Include="Content\themes\image\lt.gif" />
+    <Content Include="Content\themes\image\lu.gif" />
+    <Content Include="Content\themes\image\lv.gif" />
+    <Content Include="Content\themes\image\ly.gif" />
+    <Content Include="Content\themes\image\ma.gif" />
+    <Content Include="Content\themes\image\made_FR.png" />
+    <Content Include="Content\themes\image\made_IT.png" />
+    <Content Include="Content\themes\image\made_UE.png" />
+    <Content Include="Content\themes\image\mc.gif" />
+    <Content Include="Content\themes\image\md.gif" />
+    <Content Include="Content\themes\image\me.gif" />
+    <Content Include="Content\themes\image\mg.gif" />
+    <Content Include="Content\themes\image\mh.gif" />
+    <Content Include="Content\themes\image\mk.gif" />
+    <Content Include="Content\themes\image\ml.gif" />
+    <Content Include="Content\themes\image\mm.gif" />
+    <Content Include="Content\themes\image\mn.gif" />
+    <Content Include="Content\themes\image\mo.gif" />
+    <Content Include="Content\themes\image\mp.gif" />
+    <Content Include="Content\themes\image\mq.gif" />
+    <Content Include="Content\themes\image\mr.gif" />
+    <Content Include="Content\themes\image\ms.gif" />
+    <Content Include="Content\themes\image\mt.gif" />
+    <Content Include="Content\themes\image\mu.gif" />
+    <Content Include="Content\themes\image\mv.gif" />
+    <Content Include="Content\themes\image\mw.gif" />
+    <Content Include="Content\themes\image\mx.gif" />
+    <Content Include="Content\themes\image\my.gif" />
+    <Content Include="Content\themes\image\mz.gif" />
+    <Content Include="Content\themes\image\na.gif" />
+    <Content Include="Content\themes\image\nc.gif" />
+    <Content Include="Content\themes\image\ne.gif" />
+    <Content Include="Content\themes\image\nf.gif" />
+    <Content Include="Content\themes\image\ng.gif" />
+    <Content Include="Content\themes\image\ni.gif" />
+    <Content Include="Content\themes\image\nl.gif" />
+    <Content Include="Content\themes\image\no.gif" />
+    <Content Include="Content\themes\image\np.gif" />
+    <Content Include="Content\themes\image\nr.gif" />
+    <Content Include="Content\themes\image\nu.gif" />
+    <Content Include="Content\themes\image\nz.gif" />
+    <Content Include="Content\themes\image\om.gif" />
+    <Content Include="Content\themes\image\pa.gif" />
+    <Content Include="Content\themes\image\pdf.png" />
+    <Content Include="Content\themes\image\pe.gif" />
+    <Content Include="Content\themes\image\pf.gif" />
+    <Content Include="Content\themes\image\pg.gif" />
+    <Content Include="Content\themes\image\ph.gif" />
+    <Content Include="Content\themes\image\pk.gif" />
+    <Content Include="Content\themes\image\pl.gif" />
+    <Content Include="Content\themes\image\pm.gif" />
+    <Content Include="Content\themes\image\pn.gif" />
+    <Content Include="Content\themes\image\po.gif" />
+    <Content Include="Content\themes\image\pr.gif" />
+    <Content Include="Content\themes\image\print_fav.png" />
+    <Content Include="Content\themes\image\ps.gif" />
+    <Content Include="Content\themes\image\pt.gif" />
+    <Content Include="Content\themes\image\pw.gif" />
+    <Content Include="Content\themes\image\py.gif" />
+    <Content Include="Content\themes\image\qa.gif" />
+    <Content Include="Content\themes\image\re.gif" />
+    <Content Include="Content\themes\image\ro.gif" />
+    <Content Include="Content\themes\image\rs.gif" />
+    <Content Include="Content\themes\image\ru.gif" />
+    <Content Include="Content\themes\image\rw.gif" />
+    <Content Include="Content\themes\image\sa.gif" />
+    <Content Include="Content\themes\image\sb.gif" />
+    <Content Include="Content\themes\image\sc.gif" />
+    <Content Include="Content\themes\image\scotland.gif" />
+    <Content Include="Content\themes\image\sd.gif" />
+    <Content Include="Content\themes\image\se.gif" />
+    <Content Include="Content\themes\image\sg.gif" />
+    <Content Include="Content\themes\image\sh.gif" />
+    <Content Include="Content\themes\image\si.gif" />
+    <Content Include="Content\themes\image\sj.gif" />
+    <Content Include="Content\themes\image\sk.gif" />
+    <Content Include="Content\themes\image\sl.gif" />
+    <Content Include="Content\themes\image\sm.gif" />
+    <Content Include="Content\themes\image\sn.gif" />
+    <Content Include="Content\themes\image\so.gif" />
+    <Content Include="Content\themes\image\sr.gif" />
+    <Content Include="Content\themes\image\old_st.gif" />
+    <Content Include="Content\themes\image\sv.gif" />
+    <Content Include="Content\themes\image\sw.gif" />
+    <Content Include="Content\themes\image\sy.gif" />
+    <Content Include="Content\themes\image\sz.gif" />
+    <Content Include="Content\themes\image\tc.gif" />
+    <Content Include="Content\themes\image\td.gif" />
+    <Content Include="Content\themes\image\tf.gif" />
+    <Content Include="Content\themes\image\tg.gif" />
+    <Content Include="Content\themes\image\th.gif" />
+    <Content Include="Content\themes\image\tj.gif" />
+    <Content Include="Content\themes\image\tk.gif" />
+    <Content Include="Content\themes\image\tl.gif" />
+    <Content Include="Content\themes\image\tm.gif" />
+    <Content Include="Content\themes\image\tn.gif" />
+    <Content Include="Content\themes\image\to.gif" />
+    <Content Include="Content\themes\image\tr.gif" />
+    <Content Include="Content\themes\image\tt.gif" />
+    <Content Include="Content\themes\image\tv.gif" />
+    <Content Include="Content\themes\image\tw.gif" />
+    <Content Include="Content\themes\image\tz.gif" />
+    <Content Include="Content\themes\image\ua.gif" />
+    <Content Include="Content\themes\image\ug.gif" />
+    <Content Include="Content\themes\image\um.gif" />
+    <Content Include="Content\themes\image\us.gif" />
+    <Content Include="Content\themes\image\uy.gif" />
+    <Content Include="Content\themes\image\uz.gif" />
+    <Content Include="Content\themes\image\va.gif" />
+    <Content Include="Content\themes\image\vc.gif" />
+    <Content Include="Content\themes\image\ve.gif" />
+    <Content Include="Content\themes\image\vf.gif" />
+    <Content Include="Content\themes\image\vg.gif" />
+    <Content Include="Content\themes\image\vi.gif" />
+    <Content Include="Content\themes\image\vn.gif" />
+    <Content Include="Content\themes\image\vu.gif" />
+    <Content Include="Content\themes\image\wales.gif" />
+    <Content Include="Content\themes\image\warning.png" />
+    <Content Include="Content\themes\image\wf.gif" />
+    <Content Include="Content\themes\image\ws.gif" />
+    <Content Include="Content\themes\image\ye.gif" />
+    <Content Include="Content\themes\image\yt.gif" />
+    <Content Include="Content\themes\image\za.gif" />
+    <Content Include="Content\themes\image\zm.gif" />
+    <Content Include="Content\themes\image\zw.gif" />
+    <Content Include="Content\themes\jqueryMultiSelect.css" />
+    <Content Include="Content\themes\langage\dataTablesPLV.fr.txt" />
+    <Content Include="Content\themes\langage\dataTables.en.txt" />
+    <Content Include="Content\themes\langage\dataTables.es.txt" />
+    <Content Include="Content\themes\langage\dataTables.de.txt" />
+    <Content Include="Content\themes\langage\dataTables.fr.txt" />
+    <Content Include="Content\themes\image\table_add.png" />
+    <Content Include="Content\themes\image\info.png" />
+    <Content Include="Content\themes\image\product.png" />
+    <Content Include="Content\themes\jquery.ui.dialog.css" />
+    <Content Include="Content\themes\remises\20110361.jpg" />
+    <Content Include="Content\themes\remises\20110362.jpg" />
+    <Content Include="Content\themes\remises\20110363.jpg" />
+    <Content Include="Content\themes\remises\20110364.jpg" />
+    <Content Include="Content\themes\remises\20110365.jpg" />
+    <Content Include="Content\themes\remises\20110366.jpg" />
+    <Content Include="Content\themes\remises\20110367.jpg" />
+    <Content Include="Content\themes\remises\20110368.jpg" />
+    <Content Include="Content\themes\remises\20110369.jpg" />
+    <Content Include="Content\themes\remises\20110370.jpg" />
+    <Content Include="Content\themes\remises\20110371.jpg" />
+    <Content Include="Content\themes\remises\20110372.jpg" />
+    <Content Include="Content\themes\remises\20110373.jpg" />
+    <Content Include="Content\themes\remises\20110374.jpg" />
+    <Content Include="Content\themes\remises\20110375.jpg" />
+    <Content Include="Content\themes\remises\20110376.jpg" />
+    <Content Include="Content\themes\remises\20110377.jpg" />
+    <Content Include="Content\themes\remises\20110378.jpg" />
+    <Content Include="Content\themes\remises\20110379.jpg" />
+    <Content Include="Content\themes\remises\20110380.jpg" />
+    <Content Include="Content\themes\remises\20110381.jpg" />
+    <Content Include="Content\themes\remises\20110382.jpg" />
+    <Content Include="Content\themes\remises\20110383.jpg" />
+    <Content Include="Content\themes\remises\20110384.jpg" />
+    <Content Include="Content\themes\remises\20110385.jpg" />
+    <Content Include="Content\themes\remises\20110386.jpg" />
+    <Content Include="Content\themes\remises\20110387.jpg" />
+    <Content Include="Content\themes\remises\20110388.jpg" />
+    <Content Include="Content\themes\remises\20110389.jpg" />
+    <Content Include="Content\themes\remises\20110390.jpg" />
+    <Content Include="Content\themes\Site.css" />
+    <Content Include="Content\themes\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\jquery.ui.accordion.css" />
+    <Content Include="Content\themes\base\jquery.ui.all.css" />
+    <Content Include="Content\themes\base\jquery.ui.autocomplete.css" />
+    <Content Include="Content\themes\base\jquery.ui.base.css" />
+    <Content Include="Content\themes\base\jquery.ui.button.css" />
+    <Content Include="Content\themes\base\jquery.ui.core.css" />
+    <Content Include="Content\themes\base\jquery.ui.datepicker.css" />
+    <Content Include="Content\themes\base\jquery.ui.dialog.css" />
+    <Content Include="Content\themes\base\jquery.ui.progressbar.css" />
+    <Content Include="Content\themes\base\jquery.ui.resizable.css" />
+    <Content Include="Content\themes\base\jquery.ui.selectable.css" />
+    <Content Include="Content\themes\base\jquery.ui.slider.css" />
+    <Content Include="Content\themes\base\jquery.ui.tabs.css" />
+    <Content Include="Content\themes\base\jquery.ui.theme.css" />
+    <Content Include="Content\themes\css.css" />
+    <Content Include="Content\themes\Datatable.css" />
+    <Content Include="Content\themes\fonts.css" />
+    <Content Include="Content\themes\fonts\DINBold\din-bold-webfont.svg" />
+    <Content Include="Content\themes\fonts\DINMedium\din-m__-webfont.svg" />
+    <Content Include="Content\themes\fonts\DINRegular\din-rg_-webfont.svg" />
+    <Content Include="Content\themes\fonts\DINRounded\dinengschriftstd-webfont.svg" />
+    <Content Include="Content\themes\fonts\Garamond\agaramondpro-regular-webfont.svg" />
+    <Content Include="Content\themes\fonts\HelveticaBold\helvetica-bold-webfont.svg" />
+    <Content Include="Content\themes\fonts\Helvetica\helvetica-regular-webfont.svg" />
+    <Content Include="Content\themes\image\application_edit.png" />
+    <Content Include="Content\themes\image\chevalet.png" />
+    <Content Include="Content\themes\image\de.gif" />
+    <Content Include="Content\themes\image\en.png" />
+    <Content Include="Content\themes\image\es.gif" />
+    <Content Include="Content\themes\image\fr.gif" />
+    <Content Include="Content\themes\image\habitat.png" />
+    <Content Include="Content\themes\image\lampeAdd.png" />
+    <Content Include="Content\themes\image\Loader.gif" />
+    <Content Include="Content\themes\image\luminaire.png" />
+    <Content Include="Content\themes\image\printer.png" />
+    <Content Include="Content\themes\image\remove.png" />
+    <Content Include="Content\themes\image\search_btn.png" />
+    <Content Include="Content\themes\tableresponsive.css" />
+    <Content Include="Global.asax" />
+    <Content Include="Scripts\jquery-1.4.4.min.js" />
+    <Content Include="Scripts\jquery-1.6.2.min.js" />
+    <Content Include="Scripts\jquery-1.8.2.js" />
+    <Content Include="Scripts\jquery-1.9.0.ui.js" />
+    <Content Include="Scripts\jquery.dataTables.min.js" />
+    <Content Include="Scripts\jquery.editable-1.3.3.js" />
+    <Content Include="Scripts\jquery.jeditable.js" />
+    <Content Include="Scripts\jquery.js" />
+    <Content Include="Scripts\jqueryMultiSelect.js" />
+    <Content Include="Scripts\raphael-min.js" />
+    <Content Include="Scripts\raphael_linechart.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Home\Produits.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="packages.config" />
+    <None Include="Content\Doc_FR\tickit_user_guide_fichiers\image053.emz" />
+    <None Include="Content\Doc_FR\tickit_user_guide_fichiers\image057.emz" />
+    <None Include="Content\Doc_FR\tickit_user_guide_fichiers\oledata.mso" />
+    <None Include="Content\Doc_FR\tickit_user_guide_fichiers\themedata.thmx" />
+    <None Include="Content\Doc_UK\tickit_user_guide_fichiers\image053.emz" />
+    <None Include="Content\Doc_UK\tickit_user_guide_fichiers\image057.emz" />
+    <None Include="Content\Doc_UK\tickit_user_guide_fichiers\oledata.mso" />
+    <None Include="Content\Doc_UK\tickit_user_guide_fichiers\themedata.thmx" />
+    <None Include="Content\Fonts\DINHabBd.ttf" />
+    <None Include="Content\Fonts\DINHabHl.ttf" />
+    <None Include="Content\Fonts\DINHabLig.ttf" />
+    <None Include="Content\Fonts\DINHabRg.ttf" />
+    <None Include="Content\maquette_reglette\images\.DS_Store" />
+    <None Include="Content\maquette_reglette\webfonts\dinhabbold\dinhabbold-webfont.woff" />
+    <None Include="Content\maquette_reglette\webfonts\dinhabmedium\dinhabmedium-webfont.woff" />
+    <None Include="Content\PlvsVierges\Chevalet_gamme_A5.pdf" />
+    <None Include="Content\PlvsVierges\Chevalet_gamme_A6.pdf" />
+    <None Include="Content\PlvsVierges\Chevalet_vitrine_A5.pdf" />
+    <None Include="Content\PlvsVierges\Luminaire_A6.pdf" />
+    <None Include="Content\PlvsVierges\Luminaire_A7.pdf" />
+    <None Include="Content\PlvsVierges\Permanente_recto_verso_A5.pdf" />
+    <None Include="Content\PlvsVierges\Permanente_recto_verso_A6.pdf" />
+    <None Include="Content\PlvsVierges\Permanente_recto_verso_A7.pdf" />
+    <None Include="Content\PlvsVierges\Permanente_simple_A5.pdf" />
+    <None Include="Content\PlvsVierges\Permanente_simple_A6.pdf" />
+    <None Include="Content\PlvsVierges\Permanente_simple_A7.pdf" />
+    <None Include="Content\PlvsVierges\Solde_recto_verso_A5.pdf" />
+    <None Include="Content\PlvsVierges\Solde_recto_verso_A6.pdf" />
+    <None Include="Content\PlvsVierges\Solde_recto_verso_A7.pdf" />
+    <None Include="Content\PlvsVierges\Solde_simple_A5.pdf" />
+    <None Include="Content\PlvsVierges\Solde_simple_A6.pdf" />
+    <None Include="Content\PlvsVierges\Solde_simple_A7.pdf" />
+    <None Include="Content\themes\fonts\DINBold\din-bold-webfont.eot" />
+    <None Include="Content\themes\fonts\DINBold\din-bold-webfont.ttf" />
+    <None Include="Content\themes\fonts\DINBold\din-bold-webfont.woff" />
+    <None Include="Content\themes\fonts\DINMedium\din-m__-webfont.eot" />
+    <None Include="Content\themes\fonts\DINMedium\din-m__-webfont.ttf" />
+    <None Include="Content\themes\fonts\DINMedium\din-m__-webfont.woff" />
+    <None Include="Content\themes\fonts\DINRegular\din-rg_-webfont.eot" />
+    <None Include="Content\themes\fonts\DINRegular\din-rg_-webfont.ttf" />
+    <None Include="Content\themes\fonts\DINRegular\din-rg_-webfont.woff" />
+    <None Include="Content\themes\fonts\DINRounded\dinengschriftstd-webfont.eot" />
+    <None Include="Content\themes\fonts\DINRounded\dinengschriftstd-webfont.ttf" />
+    <None Include="Content\themes\fonts\DINRounded\dinengschriftstd-webfont.woff" />
+    <None Include="Content\themes\fonts\Garamond\agaramondpro-regular-webfont.eot" />
+    <None Include="Content\themes\fonts\Garamond\agaramondpro-regular-webfont.ttf" />
+    <None Include="Content\themes\fonts\Garamond\agaramondpro-regular-webfont.woff" />
+    <None Include="Content\themes\fonts\HelveticaBold\helvetica-bold-webfont.eot" />
+    <None Include="Content\themes\fonts\HelveticaBold\helvetica-bold-webfont.ttf" />
+    <None Include="Content\themes\fonts\HelveticaBold\helvetica-bold-webfont.woff" />
+    <None Include="Content\themes\fonts\Helvetica\helvetica-regular-webfont.eot" />
+    <None Include="Content\themes\fonts\Helvetica\helvetica-regular-webfont.ttf" />
+    <None Include="Content\themes\fonts\Helvetica\helvetica-regular-webfont.woff" />
+    <None Include="readme.txt" />
+    <Content Include="Views\Home\Chevalet.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Fiche.cshtml" />
+    <Content Include="Views\Home\Errors.cshtml" />
+    <Content Include="Views\Home\Administration.cshtml" />
+    <Content Include="Views\Home\MenuImpression.cshtml" />
+    <Content Include="Views\Home\EvolutionGraphiquePrix.cshtml" />
+    <Content Include="Views\Home\RangeDetails.cshtml" />
+    <Content Include="Views\Home\Success.cshtml" />
+    <Content Include="Views\Home\DownloadCenter.cshtml" />
+    <Content Include="Views\Home\Luminaire.cshtml" />
+    <Content Include="Views\Home\ImpressionEnMasse.cshtml" />
+    <Content Include="Views\Home\Message.cshtml" />
+    <Content Include="Views\Home\PLV.cshtml" />
+    <Content Include="Views\Home\GammePLV.cshtml" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\Home\MenuMatiere.cshtml" />
+    <Content Include="Views\Home\MenuCouleur.cshtml" />
+    <Content Include="Views\Home\MenuSkusassocie.cshtml" />
+    <Content Include="Views\Home\MenuSkusgroupe.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Langue.de.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Langue.de.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Langue.es.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Langue.es.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Langue.en.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Langue.en.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Langue.fr.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Langue.fr.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Langue.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Langue.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>51688</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

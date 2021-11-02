@@ -1,0 +1,306 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HDIProductDBModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="NewTickitDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Description_Dgccrf" EntityType="HDIProductDBModel.Description_Dgccrf" />
+    <EntitySet Name="Description_Plus" EntityType="HDIProductDBModel.Description_Plus" />
+    <EntitySet Name="Format_Impression" EntityType="HDIProductDBModel.Format_Impression" />
+    <EntitySet Name="Langue" EntityType="HDIProductDBModel.Langue" />
+    <EntitySet Name="Libelle_Produit" EntityType="HDIProductDBModel.Libelle_Produit" />
+    <EntitySet Name="Prix" EntityType="HDIProductDBModel.Prix" />
+    <EntitySet Name="Produit" EntityType="HDIProductDBModel.Produit" />
+    <EntitySet Name="Range" EntityType="HDIProductDBModel.Range" />
+    <EntitySet Name="Variation" EntityType="HDIProductDBModel.Variation" />
+    <EntitySet Name="resultats_recherche" EntityType="HDIProductDBModel.resultats_recherche" />
+    <AssociationSet Name="FK__Descripti__Langa__182C9B23" Association="HDIProductDBModel.FK__Descripti__Langa__182C9B23">
+      <End Role="Langue" EntitySet="Langue" />
+      <End Role="Description_Dgccrf" EntitySet="Description_Dgccrf" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Description__Sku__1920BF5C" Association="HDIProductDBModel.FK__Description__Sku__1920BF5C">
+      <End Role="Produit" EntitySet="Produit" />
+      <End Role="Description_Dgccrf" EntitySet="Description_Dgccrf" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Descripti__Langa__1DE57479" Association="HDIProductDBModel.FK__Descripti__Langa__1DE57479">
+      <End Role="Langue" EntitySet="Langue" />
+      <End Role="Description_Plus" EntitySet="Description_Plus" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Description__Sku__1ED998B2" Association="HDIProductDBModel.FK__Description__Sku__1ED998B2">
+      <End Role="Produit" EntitySet="Produit" />
+      <End Role="Description_Plus" EntitySet="Description_Plus" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Libelle_P__Langa__2D27B809" Association="HDIProductDBModel.FK__Libelle_P__Langa__2D27B809">
+      <End Role="Langue" EntitySet="Langue" />
+      <End Role="Libelle_Produit" EntitySet="Libelle_Produit" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Variation__Langa__0DAF0CB0" Association="HDIProductDBModel.FK__Variation__Langa__0DAF0CB0">
+      <End Role="Langue" EntitySet="Langue" />
+      <End Role="Variation" EntitySet="Variation" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Libelle_Pro__Sku__2E1BDC42" Association="HDIProductDBModel.FK__Libelle_Pro__Sku__2E1BDC42">
+      <End Role="Produit" EntitySet="Produit" />
+      <End Role="Libelle_Produit" EntitySet="Libelle_Produit" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Prix__Sku__1367E606" Association="HDIProductDBModel.FK__Prix__Sku__1367E606">
+      <End Role="Produit" EntitySet="Produit" />
+      <End Role="Prix" EntitySet="Prix" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Produit__RangeId__0519C6AF" Association="HDIProductDBModel.FK__Produit__RangeId__0519C6AF">
+      <End Role="Range" EntitySet="Range" />
+      <End Role="Produit" EntitySet="Produit" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Variation__Sku__0EA330E9" Association="HDIProductDBModel.FK__Variation__Sku__0EA330E9">
+      <End Role="Produit" EntitySet="Produit" />
+      <End Role="Variation" EntitySet="Variation" />
+    </AssociationSet>
+    <AssociationSet Name="Produit_Impression" Association="HDIProductDBModel.Produit_Impression">
+      <End Role="Format_Impression" EntitySet="Format_Impression" />
+      <End Role="Produit" EntitySet="Produit" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Description_Dgccrf">
+    <Key>
+      <PropertyRef Name="Sku" />
+      <PropertyRef Name="LangageId" />
+    </Key>
+    <Property Name="Sku" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="LangageId" Type="Int32" Nullable="false" />
+    <Property Name="LegalDescription" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="Langue" Relationship="HDIProductDBModel.FK__Descripti__Langa__182C9B23" FromRole="Description_Dgccrf" ToRole="Langue" />
+    <NavigationProperty Name="Produit" Relationship="HDIProductDBModel.FK__Description__Sku__1920BF5C" FromRole="Description_Dgccrf" ToRole="Produit" />
+  </EntityType>
+  <EntityType Name="Description_Plus">
+    <Key>
+      <PropertyRef Name="Sku" />
+      <PropertyRef Name="LangageId" />
+      <PropertyRef Name="Plus" />
+    </Key>
+    <Property Name="Sku" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="LangageId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Langue" Relationship="HDIProductDBModel.FK__Descripti__Langa__1DE57479" FromRole="Description_Plus" ToRole="Langue" />
+    <NavigationProperty Name="Produit" Relationship="HDIProductDBModel.FK__Description__Sku__1ED998B2" FromRole="Description_Plus" ToRole="Produit" />
+    <Property Type="String" Name="Plus" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Format_Impression">
+    <Key>
+      <PropertyRef Name="Format" />
+    </Key>
+    <Property Name="Format" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="Produit" Relationship="HDIProductDBModel.Produit_Impression" FromRole="Format_Impression" ToRole="Produit" />
+  </EntityType>
+  <EntityType Name="Langue">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="CountryCode" Type="String" MaxLength="2" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="Description_Dgccrf" Relationship="HDIProductDBModel.FK__Descripti__Langa__182C9B23" FromRole="Langue" ToRole="Description_Dgccrf" />
+    <NavigationProperty Name="Description_Plus" Relationship="HDIProductDBModel.FK__Descripti__Langa__1DE57479" FromRole="Langue" ToRole="Description_Plus" />
+    <NavigationProperty Name="Libelle_Produit" Relationship="HDIProductDBModel.FK__Libelle_P__Langa__2D27B809" FromRole="Langue" ToRole="Libelle_Produit" />
+    <NavigationProperty Name="Variation" Relationship="HDIProductDBModel.FK__Variation__Langa__0DAF0CB0" FromRole="Langue" ToRole="Variation" />
+  </EntityType>
+  <EntityType Name="Libelle_Produit">
+    <Key>
+      <PropertyRef Name="Sku" />
+      <PropertyRef Name="LangageId" />
+    </Key>
+    <Property Name="Sku" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="LangageId" Type="Int32" Nullable="false" />
+    <Property Name="Libelle" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="Langue" Relationship="HDIProductDBModel.FK__Libelle_P__Langa__2D27B809" FromRole="Libelle_Produit" ToRole="Langue" />
+    <NavigationProperty Name="Produit" Relationship="HDIProductDBModel.FK__Libelle_Pro__Sku__2E1BDC42" FromRole="Libelle_Produit" ToRole="Produit" />
+  </EntityType>
+  <EntityType Name="Prix">
+    <Key>
+      <PropertyRef Name="Sku" />
+      <PropertyRef Name="Date_debut" />
+      <PropertyRef Name="Date_fin" />
+    </Key>
+    <Property Name="Sku" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="Date_debut" Type="DateTime" Nullable="false" />
+    <Property Name="Date_fin" Type="DateTime" Nullable="false" />
+    <Property Name="Prix_produit" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Type_promo" Type="String" MaxLength="2" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="Produit" Relationship="HDIProductDBModel.FK__Prix__Sku__1367E606" FromRole="Prix" ToRole="Produit" />
+  </EntityType>
+  <EntityType Name="Produit">
+    <Key>
+      <PropertyRef Name="Sku" />
+    </Key>
+    <Property Name="Sku" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="Length" Type="Int32" />
+    <Property Name="Width" Type="Int32" />
+    <Property Name="Height" Type="Int32" />
+    <Property Name="Weight" Type="Int32" />
+    <Property Name="Volume" Type="Int32" />
+    <Property Name="RangeId" Type="Int32" Nullable="false" />
+    <Property Name="Self_Assembly" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="Statut" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="Description_Dgccrf" Relationship="HDIProductDBModel.FK__Description__Sku__1920BF5C" FromRole="Produit" ToRole="Description_Dgccrf" />
+    <NavigationProperty Name="Description_Plus" Relationship="HDIProductDBModel.FK__Description__Sku__1ED998B2" FromRole="Produit" ToRole="Description_Plus" />
+    <NavigationProperty Name="Libelle_Produit" Relationship="HDIProductDBModel.FK__Libelle_Pro__Sku__2E1BDC42" FromRole="Produit" ToRole="Libelle_Produit" />
+    <NavigationProperty Name="Prix" Relationship="HDIProductDBModel.FK__Prix__Sku__1367E606" FromRole="Produit" ToRole="Prix" />
+    <NavigationProperty Name="Range" Relationship="HDIProductDBModel.FK__Produit__RangeId__0519C6AF" FromRole="Produit" ToRole="Range" />
+    <NavigationProperty Name="Variation" Relationship="HDIProductDBModel.FK__Variation__Sku__0EA330E9" FromRole="Produit" ToRole="Variation" />
+    <NavigationProperty Name="Format_Impression" Relationship="HDIProductDBModel.Produit_Impression" FromRole="Produit" ToRole="Format_Impression" />
+  </EntityType>
+  <EntityType Name="Range">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="RangeName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="Produit" Relationship="HDIProductDBModel.FK__Produit__RangeId__0519C6AF" FromRole="Range" ToRole="Produit" />
+  </EntityType>
+  <EntityType Name="Variation">
+    <Key>
+      <PropertyRef Name="Sku" />
+      <PropertyRef Name="LangageId" />
+    </Key>
+    <Property Name="Sku" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="LangageId" Type="Int32" Nullable="false" />
+    <Property Name="VariationName" Type="String" Nullable="false" MaxLength="250" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="Langue" Relationship="HDIProductDBModel.FK__Variation__Langa__0DAF0CB0" FromRole="Variation" ToRole="Langue" />
+    <NavigationProperty Name="Produit" Relationship="HDIProductDBModel.FK__Variation__Sku__0EA330E9" FromRole="Variation" ToRole="Produit" />
+  </EntityType>
+  <EntityType Name="resultats_recherche">
+    <Key>
+      <PropertyRef Name="Sku" />
+      <PropertyRef Name="VariationName" />
+      <PropertyRef Name="Libelle" />
+      <PropertyRef Name="Date_debut" />
+      <PropertyRef Name="Date_fin" />
+    </Key>
+    <Property Name="Sku" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="RangeName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="VariationName" Type="String" Nullable="false" MaxLength="250" Unicode="false" FixedLength="false" />
+    <Property Name="Libelle" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Prix_produit" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Date_debut" Type="DateTime" Nullable="false" />
+    <Property Name="Date_fin" Type="DateTime" Nullable="false" />
+    <Property Name="statut" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="CountryCode" Type="String" MaxLength="2" Unicode="false" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK__Descripti__Langa__182C9B23">
+    <End Role="Langue" Type="HDIProductDBModel.Langue" Multiplicity="1" />
+    <End Role="Description_Dgccrf" Type="HDIProductDBModel.Description_Dgccrf" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Langue">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Description_Dgccrf">
+        <PropertyRef Name="LangageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Description__Sku__1920BF5C">
+    <End Role="Produit" Type="HDIProductDBModel.Produit" Multiplicity="1" />
+    <End Role="Description_Dgccrf" Type="HDIProductDBModel.Description_Dgccrf" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Produit">
+        <PropertyRef Name="Sku" />
+      </Principal>
+      <Dependent Role="Description_Dgccrf">
+        <PropertyRef Name="Sku" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Descripti__Langa__1DE57479">
+    <End Role="Langue" Type="HDIProductDBModel.Langue" Multiplicity="1" />
+    <End Role="Description_Plus" Type="HDIProductDBModel.Description_Plus" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Langue">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Description_Plus">
+        <PropertyRef Name="LangageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Description__Sku__1ED998B2">
+    <End Role="Produit" Type="HDIProductDBModel.Produit" Multiplicity="1" />
+    <End Role="Description_Plus" Type="HDIProductDBModel.Description_Plus" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Produit">
+        <PropertyRef Name="Sku" />
+      </Principal>
+      <Dependent Role="Description_Plus">
+        <PropertyRef Name="Sku" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Libelle_P__Langa__2D27B809">
+    <End Role="Langue" Type="HDIProductDBModel.Langue" Multiplicity="1" />
+    <End Role="Libelle_Produit" Type="HDIProductDBModel.Libelle_Produit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Langue">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Libelle_Produit">
+        <PropertyRef Name="LangageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Variation__Langa__0DAF0CB0">
+    <End Role="Langue" Type="HDIProductDBModel.Langue" Multiplicity="1" />
+    <End Role="Variation" Type="HDIProductDBModel.Variation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Langue">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Variation">
+        <PropertyRef Name="LangageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Libelle_Pro__Sku__2E1BDC42">
+    <End Role="Produit" Type="HDIProductDBModel.Produit" Multiplicity="1" />
+    <End Role="Libelle_Produit" Type="HDIProductDBModel.Libelle_Produit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Produit">
+        <PropertyRef Name="Sku" />
+      </Principal>
+      <Dependent Role="Libelle_Produit">
+        <PropertyRef Name="Sku" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Prix__Sku__1367E606">
+    <End Role="Produit" Type="HDIProductDBModel.Produit" Multiplicity="1" />
+    <End Role="Prix" Type="HDIProductDBModel.Prix" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Produit">
+        <PropertyRef Name="Sku" />
+      </Principal>
+      <Dependent Role="Prix">
+        <PropertyRef Name="Sku" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Produit__RangeId__0519C6AF">
+    <End Role="Range" Type="HDIProductDBModel.Range" Multiplicity="1" />
+    <End Role="Produit" Type="HDIProductDBModel.Produit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Range">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Produit">
+        <PropertyRef Name="RangeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Variation__Sku__0EA330E9">
+    <End Role="Produit" Type="HDIProductDBModel.Produit" Multiplicity="1" />
+    <End Role="Variation" Type="HDIProductDBModel.Variation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Produit">
+        <PropertyRef Name="Sku" />
+      </Principal>
+      <Dependent Role="Variation">
+        <PropertyRef Name="Sku" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Produit_Impression">
+    <End Role="Format_Impression" Type="HDIProductDBModel.Format_Impression" Multiplicity="*" />
+    <End Role="Produit" Type="HDIProductDBModel.Produit" Multiplicity="*" />
+  </Association>
+</Schema>

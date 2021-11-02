@@ -1,0 +1,17 @@
+﻿{
+"sProcessing":   "In progress...",
+"sLengthMenu":   "Display _MENU_ products",
+"sZeroRecords":  "No products to display",
+"sInfo":         "Display _START_ to _END_ from _TOTAL_ products",
+"sInfoEmpty":    "Pas de produits",
+"sInfoFiltered": "(filtred from _MAX_ products in total)",
+"sInfoPostFix":  "",
+"sSearch":       "refine your search",
+"sUrl":          "",
+"oPaginate": {
+		"sFirst":    "First",
+		"sPrevious": "Previous",
+		"sNext":     "Next",
+		"sLast":     "Last"
+	}
+}

@@ -1,0 +1,92 @@
+﻿<!-- Vue Chevalet de gamme -->
+<script type="text/javascript">
+    $(document).ready(function () {
+        document.getElementById('AjoutCouleur').style.visibility="visible";
+        document.getElementById('AjoutCouleurtexte').style.visibility="hidden";
+        $('#couleurTable tr td:last-child').click(function () {
+            var Couleur = $(this).parent().children()[0].innerHTML;
+            var Sku = @ViewBag.Sku;
+            var mapToSend = { "couleur": Couleur, "Sku":Sku };
+
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Content("~/Home/RemoveCouleurFromMenuCouleur")',
+                data: mapToSend,
+                success: function (data) {
+                    $('#MenuCouleur').html(data);
+                }
+            });
+        });
+
+        $('#AjoutCouleur').click(function () {
+            document.getElementById('AjoutCouleurtexte').style.visibility="visible";
+            document.getElementById('AjoutCouleur').style.visibility="hidden";
+        });
+
+        $('#AnnuleNewCouleur').click(function () {
+            document.getElementById('AjoutCouleur').style.visibility="visible";
+            document.getElementById('AjoutCouleurtexte').style.visibility="hidden";
+        });
+
+        $('#ConfirmNewCouleur').click(function () {
+            var Sku = @ViewBag.Sku;
+            var mapToSend = { "couleur": $('#NewCouleur').val(), "Sku":Sku };
+
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Content("~/Home/AddCouleurFromMenuCouleur")',
+                data: mapToSend,
+                success: function (data) {
+                    $('#MenuCouleur').html(data);
+                }
+            });
+
+        });
+    });
+</script>
+<td style="width:100px;border: 0px">
+        <b><p class="produitdetailsection">Couleurs</p></b>
+        <input id="AjoutCouleur" onmouseover="this.style.cursor='pointer'" class="boutonImprimPanier" type="button" value="Ajouter couleur" /> 
+</td>
+                        
+<td style="border: 0px; height:30px;width:100px;overflow:auto" align="center">
+@if (@ViewBag.couleurs != null)
+{
+    <table id="couleurTable" style="border: 0px">
+        @foreach (var item in @ViewBag.couleurs)
+        {
+            <tr style="border: 0px">
+                <td style="height:30px;width:100px;overflow:auto" align="center">@item
+                </td>
+                <td style="border: 0px">
+                    <img alt="" id="RemoveDessous" title="Supprimer la couleur @item" onmouseover="this.style.cursor='pointer'" src="@Url.Content("~/Content/themes/image/remove.png")"></img>
+                </td>
+            </tr>
+        }
+
+    </table>
+    <div id="AjoutCouleurtexte">
+        <table style="border: 0px">
+            <tr style="border: 0px">
+                <td style="border: 0px">
+                    <input id ="NewCouleur" class="policeInfo" type="text" size="5" placeholder="Couleur en hexa #XXXXXX" /><span class="produitdetailinfo"></span>
+                </td>
+            </tr>
+            <tr style="border: 0px">
+                <td style="border: 0px">
+                    <button id ="ConfirmNewCouleur" type="button">Ajouter</button>
+                    <button id ="AnnuleNewCouleur" type="button">Annuler</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+}
+else
+{ 
+    <div id="AjoutCouleurtexte">
+        <input id ="NewCouleur" class="policeInfo" type="text" size="5" /><span class="produitdetailinfo"></span>
+        <input id ="ConfirmNewCouleur" class="policeInfo" type="button" size="5"/><span class="produitdetailinfo"></span>
+        <input id ="AnnuleNewCouleur" class="policeInfo" type="button" size="5"/><span class="produitdetailinfo"></span>
+    </div> 
+}
+</td>

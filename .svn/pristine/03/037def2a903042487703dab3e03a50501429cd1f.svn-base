@@ -1,0 +1,2 @@
+﻿<!-- Affiche des informations sur une opération déroulée avec succès. L'information affichée provient du serveur d'application -->
+<span class="policeInfo" style="color: Green">@ViewBag.textInfo</span>

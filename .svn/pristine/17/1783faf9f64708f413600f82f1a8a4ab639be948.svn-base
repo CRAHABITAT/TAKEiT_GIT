@@ -1,0 +1,338 @@
+body
+{
+    margin: 0;
+    background-position: right;
+    background-repeat: no-repeat;
+}
+
+a
+{
+    text-decoration: none;
+}
+
+p
+{
+    margin: 0;
+}
+
+.visu {
+    background: 10px 15px #F5F5F5;
+    border: 1px solid #C0C0C0;
+    border-radius: 10px 10px 10px 10px;
+    box-shadow: 3px 3px 6px 0 #A9A9A9;
+    color: #404040;
+    padding: 0 10px 10px 100px;
+}
+
+.Degrade {
+	background-image:linear-gradient(#CCCCCC, white);
+}
+
+.boutonImprimPanier {
+    background: none repeat scroll 0 0 #CDCDCD;
+    border: 0 none;
+    color: #FFFFFF;
+    font: 18px DINRounded,sans-serif;
+    height: 27px;
+    padding: 0 20px;
+    text-transform: uppercase;
+}
+
+.boutonImprimPanier:hover {
+    background-color: #D7D7D7;
+}
+
+.searchButton {
+    border: medium none;
+    float: right;
+    height: 26px;
+    width: 26px;
+}
+
+.divSearch {
+    background: none repeat scroll 0 0 #FFFFFF;
+}
+
+.search_block  {	
+	color: #B5B5B5;
+    float: left;
+    font: italic 11px/26px Arial,sans-serif;
+    height: 26px;
+    padding-left: 10px;
+    width: 500px;
+}
+
+#page
+{
+    margin-left: auto;
+    margin-right: auto;
+    width: 1010px;
+}
+
+#logoettitre
+{
+    margin-top: 25px;
+}
+
+#top
+{
+    /*background:green;*/
+}
+
+#content
+{
+    min-height: 500px;
+    width: 960px;
+}
+
+#footer
+{
+}
+
+#logo
+{
+    padding-right: 20px;
+}
+
+#titre
+{
+    font-family: DINRegular,sans-serif;
+    font-size: 50px;
+    
+    color: #404040;
+}
+
+.miniature
+{
+    float: left;
+    position: relative;
+    margin: 3px;
+    background: #FFFFFF;
+}
+
+.miniaturePhoto
+{
+    width: 231px;
+    height: 150px;
+    border: solid 1px #CCCCCC;
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    background-image: url('./miniaturebk.png');
+}
+
+.miniatureTexte
+{
+    /*font-family: DINRegular,sans-serif;*/
+    width: 320px;
+    background: none repeat scroll 0 0 #F7F7F7;
+    padding: 10px;
+    border-left: solid 1px #CCCCCC;
+    border-right: solid 1px #CCCCCC;
+    border-bottom: solid 1px #CCCCCC;
+	border-top: solid 1px #CCCCCC;
+}
+
+.clear
+{
+    clear: both;
+}
+
+.miniatureTexteSku
+{
+    font-family: DINRegular,sans-serif;
+    color: #404040;
+    font-size: 12px;
+    text-align: right;
+    float: right;
+}
+
+.miniatureTexteVariation
+{
+    font-family: DINRegular,sans-serif;
+    color: #404040;
+    font-size: 12px;
+}
+
+.miniatureTexteTitre
+{
+    font-family: DINBold,sans-serif;
+    color: #404040;
+    font-size: 14px;
+}
+
+#ficheproduitgauche
+{
+    width: 975px;
+    height: 650px;
+    border: solid 1px #CCCCCC;
+    background: #F7F7F7;
+    float: left;
+    margin-top: 0;
+    
+    padding: 15px;
+}
+#ficheproduitdroit
+{
+    float: left;
+    width: 300px;
+    margin: 3px;
+    margin-top: 0;
+    margin-left: 3px;
+    margin-right: 0px;
+}
+#ficheproduitvisuel
+{
+    float: left;
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    width: 600px;
+}
+
+#ficheproduitvisuelpreview
+{
+    float: right;
+    display: table-cell;
+    text-align: center;
+    vertical-align: top;
+    width: 150px;
+    background: #FFFFFF;
+}
+
+#ficheproduitinfo
+{
+background: #F7F7F7;
+border: solid 1px #CCCCCC;
+}
+
+.produitdetailTitre
+{
+    font-family: DINBold,sans-serif;
+    font-size: 16px;
+    color: #404040;
+}
+
+.produitdetailinfo
+{
+    font-family: DINRegular,sans-serif;
+    text-align: justify;
+    font-size: 12px;
+    margin-bottom: 15px;
+}
+
+.policeInfo
+{
+    font-family: DINRegular,sans-serif;
+    text-align: justify;
+    font-size: 12px;
+}
+
+.infoPanier
+{
+    font-family: DINRegular,sans-serif;
+    text-align: justify;
+    font-size: 12px;
+}
+
+.produitdetailsection
+{
+    margin-bottom: 10px;
+    margin-top: 5px;
+    font-family: DINRegular,sans-serif;
+    font-size: 12px;
+    color: #404040;
+}
+
+.imageborder
+{
+    border: solid 1px #CCCCCC;
+    margin-right: 3px;
+}
+
+.icone
+{
+    margin: 2px;
+    float: right;
+}
+
+.ficheproduitpreview
+{
+    /*border: solid 1px #CCCCCC;*/
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    background-image: url('./miniaturebk.png');
+    margin-right: 5px;
+    margin-top: 5px;
+}
+
+#visuels
+{
+    border: solid 1px #CCCCCC;
+    background-image: url('./bkgros.png');
+}
+
+.drapeau
+{
+    margin-right: 15px;
+    border: solid 1px #CCCCCC;
+}
+
+
+
+.ImpressionOptionGauche
+{
+    float: left;
+    width: 50px;
+    height:200Px;
+    display:table-cell;
+    vertical-align:middle;
+}
+
+.impressionOptionPanel
+{
+    width:600px;
+    margin-top:20px;
+    margin-left:50px;
+    border-top: solid 1px #CCCCCC;
+}
+
+.impressionOptionPanelLeft
+{
+    float:left;
+}
+
+.impressionOptionPanelRight
+{
+    float:left;
+    margin-left:20px;
+}
+
+.btnImprimer
+{
+    text-align:right;
+}
+
+.btnAddDelete
+{
+    vertical-align:middle;
+    border:2px solid #FFFFFF;
+}
+
+.impressionRadioDiv
+{
+    float:left;
+}
+
+.impressionRadio
+{
+    margin-top:50px;
+    margin-right:20px;
+}
+
+.popupContent
+{
+    margin:10px;
+    width:500px;
+}

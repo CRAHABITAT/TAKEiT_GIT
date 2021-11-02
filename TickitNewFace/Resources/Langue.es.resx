@@ -1,0 +1,393 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="EtatConnexion" xml:space="preserve">
+    <value>está conectado</value>
+  </data>
+  <data name="MenuImpression_BoutonCalculer" xml:space="preserve">
+    <value>Calcular</value>
+  </data>
+  <data name="MenuImpression_Date" xml:space="preserve">
+    <value>Fecha</value>
+  </data>
+  <data name="MenuImpression_DemarqueLocale" xml:space="preserve">
+    <value>Distinguido locales</value>
+  </data>
+  <data name="MenuImpression_FormatImpression" xml:space="preserve">
+    <value>Formato</value>
+  </data>
+  <data name="MenuImpression_NoticeDemarqueLocale" xml:space="preserve">
+    <value>Por favor, marque esta casilla en caso de que desee especificar un porcentaje de promoción específica</value>
+  </data>
+  <data name="MenuImpression_nouveauPrix" xml:space="preserve">
+    <value>El nuevo precio será</value>
+  </data>
+  <data name="MenuImpression_TypeEtiquette" xml:space="preserve">
+    <value>Sólo una etiqueta</value>
+  </data>
+  <data name="MenuImpression_TypePromoSoldes" xml:space="preserve">
+    <value>Promo / Ventas</value>
+  </data>
+  <data name="LibelleRechercheProduits" xml:space="preserve">
+    <value>Buscar</value>
+  </data>
+  <data name="MenuAdministration" xml:space="preserve">
+    <value>Administración</value>
+  </data>
+  <data name="MenuRecherche" xml:space="preserve">
+    <value>Buscar Productos</value>
+  </data>
+  <data name="ResultatsRecherche_Actions" xml:space="preserve">
+    <value>Valores</value>
+  </data>
+  <data name="ResultatsRecherche_Libelle" xml:space="preserve">
+    <value>Idioma</value>
+  </data>
+  <data name="ResultatsRecherche_Prix" xml:space="preserve">
+    <value>Precio actual</value>
+  </data>
+  <data name="ResultatsRecherche_Range" xml:space="preserve">
+    <value>Alcance</value>
+  </data>
+  <data name="ResultatsRecherche_Statut" xml:space="preserve">
+    <value>Estado</value>
+  </data>
+  <data name="ResultatsRecherche_Variation" xml:space="preserve">
+    <value>Variación</value>
+  </data>
+  <data name="MenuImpression_BoutonAnnuler" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="MenuImpression_BoutonImprimer" xml:space="preserve">
+    <value>Imprimir</value>
+  </data>
+  <data name="MenuImpression_TitreMenu" xml:space="preserve">
+    <value>Imprimir Menu</value>
+  </data>
+  <data name="MenuImpression_AncienPrix" xml:space="preserve">
+    <value>Precio anterior</value>
+  </data>
+  <data name="MenuImpression_PourcentageRecution" xml:space="preserve">
+    <value>Porcentaje de reducción</value>
+  </data>
+  <data name="Fiche_AncienPrix" xml:space="preserve">
+    <value>Precio anterior</value>
+  </data>
+  <data name="Fiche_BoutonEditer" xml:space="preserve">
+    <value>Editar</value>
+  </data>
+  <data name="Fiche_BoutonImprimer" xml:space="preserve">
+    <value>Imprimir</value>
+  </data>
+  <data name="Fiche_DGCCRF" xml:space="preserve">
+    <value>Descripción Legal (DGCCRF)</value>
+  </data>
+  <data name="Fiche_Hauteur" xml:space="preserve">
+    <value>Altura</value>
+  </data>
+  <data name="Fiche_InformationsGenerales" xml:space="preserve">
+    <value>Información General</value>
+  </data>
+  <data name="Fiche_Largeur" xml:space="preserve">
+    <value>Ancho</value>
+  </data>
+  <data name="Fiche_Longueur" xml:space="preserve">
+    <value>Longitud</value>
+  </data>
+  <data name="Fiche_Montage" xml:space="preserve">
+    <value>Montaje</value>
+  </data>
+  <data name="Fiche_Montage_aMonterSoiMeme" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Fiche_Montage_aNePasMonterSoiMeme" xml:space="preserve">
+    <value>No auto-ensamblaje</value>
+  </data>
+  <data name="Fiche_Plus" xml:space="preserve">
+    <value>Más</value>
+  </data>
+  <data name="Fiche_Pourcentage" xml:space="preserve">
+    <value>Porcentaje</value>
+  </data>
+  <data name="Fiche_PrixActuel" xml:space="preserve">
+    <value>Precio actual</value>
+  </data>
+  <data name="Fiche_Statut" xml:space="preserve">
+    <value>Estado</value>
+  </data>
+  <data name="Fiche_Statut_continued" xml:space="preserve">
+    <value>Continuo</value>
+  </data>
+  <data name="Fiche_Statut_Discontinued" xml:space="preserve">
+    <value>Discontinuo</value>
+  </data>
+  <data name="Fiche_Volume" xml:space="preserve">
+    <value>Volumen</value>
+  </data>
+  <data name="UploadFile_ErrorFormat" xml:space="preserve">
+    <value>[Error de formato]: el archivo seleccionado tiene un formato incorrecto.</value>
+  </data>
+  <data name="UploadFile_ErrorLigne" xml:space="preserve">
+    <value>[Error línea</value>
+  </data>
+  <data name="UploadFile_FichierInexistant" xml:space="preserve">
+    <value>[Error archivo no existente]: el archivo especificado no existe</value>
+  </data>
+  <data name="UploadFile_FichierVide" xml:space="preserve">
+    <value>El archivo descargado está vacío</value>
+  </data>
+  <data name="UploadFile_SkuInexistant" xml:space="preserve">
+    <value>Sku no existe en el repositorio.</value>
+  </data>
+  <data name="UploadFile_ChargerFichier" xml:space="preserve">
+    <value>descargar el archivo</value>
+  </data>
+  <data name="TickitDataManager_aMonterSoiMeme" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TickitDataManager_PrixAEmporter" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TickitDataManager_PrixLivrer" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ConfirmJS_question" xml:space="preserve">
+    <value>estas seguro de que desea borrar el puente?</value>
+  </data>
+  <data name="DescriptionRange_SaveSuccess" xml:space="preserve">
+    <value>Rango guardado correctamente</value>
+  </data>
+  <data name="Alimentation_Descriptions_Ranges" xml:space="preserve">
+    <value>Descripciones comida varía</value>
+  </data>
+  <data name="Alimentation_Details_Produits" xml:space="preserve">
+    <value>Detalles de los productos alimentarios</value>
+  </data>
+  <data name="Alimentation_Parametrage" xml:space="preserve">
+    <value>ajuste</value>
+  </data>
+  <data name="AlimentationRange_MAJ_directe" xml:space="preserve">
+    <value>Actualizacion directa de un rango</value>
+  </data>
+  <data name="AlimentationRange_MAJ_uploadFile" xml:space="preserve">
+    <value>Descarga de actualizaciones de archivos Rangos</value>
+  </data>
+  <data name="Chevalet_De_Gamme_Titre" xml:space="preserve">
+    <value>Caballete rango</value>
+  </data>
+  <data name="Chevalet_Vider" xml:space="preserve">
+    <value>empty ticket</value>
+  </data>
+  <data name="MenuImpression_DemarqueLocaleTypeError" xml:space="preserve">
+    <value>Distinguido tipo digital local</value>
+  </data>
+  <data name="MenuImpression_FormatNonSpecifie" xml:space="preserve">
+    <value>formato de impresión no se especifica, el archivo no se puede generar. Thank you alimentar la base de datos.</value>
+  </data>
+  <data name="Chevalet_supprimerProduit" xml:space="preserve">
+    <value>Eliminar este extremo del puente</value>
+  </data>
+  <data name="Global_recherche" xml:space="preserve">
+    <value>Buscar</value>
+  </data>
+  <data name="Global_sauvegarder" xml:space="preserve">
+    <value>ahorrar</value>
+  </data>
+  <data name="Chevalet_capaciteAtteinte" xml:space="preserve">
+    <value>La capacidad del puente se alcanza. Se limita a 14 productos.</value>
+  </data>
+  <data name="Chevalet_gammeError" xml:space="preserve">
+    <value>Usted ha elegido diferentes rangos. El puente es ahora la ventana de tipo</value>
+  </data>
+  <data name="Chevalet_produitDejaExistant" xml:space="preserve">
+    <value>Este producto ya existe en el extremo</value>
+  </data>
+  <data name="AlimentationProduits_MAJ_uploadFile" xml:space="preserve">
+    <value>Descarga de actualizaciones de archivos Productos</value>
+  </data>
+  <data name="Administration_MAJ_configuration" xml:space="preserve">
+    <value>Actualizacion de la configuracion</value>
+  </data>
+  <data name="MenuDownload" xml:space="preserve">
+    <value>Centro de descargas</value>
+  </data>
+  <data name="LesPlus" xml:space="preserve">
+    <value>extras</value>
+  </data>
+  <data name="AMonterSoiMeme" xml:space="preserve">
+    <value>AutoConstruccion</value>
+  </data>
+  <data name="LesInfos" xml:space="preserve">
+    <value />
+  </data>
+  <data name="NombreColis" xml:space="preserve">
+    <value>N° Bultos</value>
+  </data>
+  <data name="Chevalet_capaciteAtteinteReglette" xml:space="preserve">
+    <value>La impresion de las tiras se limita a 10 productos</value>
+  </data>
+  <data name="Alimentation_Prix" xml:space="preserve">
+    <value>Adición de precio</value>
+  </data>
+  <data name="AlimentationPrix_MAJ_uploadFile" xml:space="preserve">
+    <value>precios de carga</value>
+  </data>
+  <data name="MenuImpressionEnMasse" xml:space="preserve">
+    <value>Impresión múltiple</value>
+  </data>
+  <data name="MenuImpressionEnMasse_BtnImpressionMasse" xml:space="preserve">
+    <value>masa de impresión</value>
+  </data>
+  <data name="MenuImpressionEnMasse_FieldsetImpressionMasseLegend" xml:space="preserve">
+    <value>2 - Impresión Misa</value>
+  </data>
+  <data name="MenuImpressionEnMasse_FieldsetUploadFileLegend" xml:space="preserve">
+    <value>1 - Descargar archivo de impresión masiva</value>
+  </data>
+  <data name="MenuImpressionEnMasse_NombreDeProduits" xml:space="preserve">
+    <value>Número de productos seleccionados :</value>
+  </data>
+  <data name="MenuImpressionEnMasse_ProduitsInexistants" xml:space="preserve">
+    <value>No hay productos que concuerden con los siguientes criterios</value>
+  </data>
+  <data name="Chevalet_ImprimerChevaletVitrine" xml:space="preserve">
+    <value>Print a display ticket</value>
+  </data>
+  <data name="Chevalet_ImprimerReglette" xml:space="preserve">
+    <value>print a shelf edge</value>
+  </data>
+  <data name="Chevalet_ImrpimerChevaletGamme" xml:space="preserve">
+    <value>Print a  range  ticket</value>
+  </data>
+  <data name="Derniere_Demarque" xml:space="preserve">
+    <value>Ultima Rebaja</value>
+  </data>
+  <data name="Deuxieme_Demarque" xml:space="preserve">
+    <value>Segunda Rebaja</value>
+  </data>
+  <data name="Ultime_Demarque" xml:space="preserve">
+    <value>Ultima Rebaja</value>
+  </data>
+  <data name="Chevalet_ImprimerReglettebis" xml:space="preserve">
+    <value>Print a square shelf edge</value>
+  </data>
+  <data name="Chevalet_ImprimerReglette653" xml:space="preserve">
+    <value>réglette new</value>
+  </data>
+</root>

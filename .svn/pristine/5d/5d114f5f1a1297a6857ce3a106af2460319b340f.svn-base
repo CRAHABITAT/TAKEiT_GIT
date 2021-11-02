@@ -1,0 +1,28 @@
+﻿<!-- Affiche les informations d'un range -->
+<script type="text/javascript" src="@Url.Content("~/Scripts/jquery-1.8.2.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/Scripts/jquery-1.9.0.ui.js")"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $('#savePlusRange').click(function () {
+
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Content("~/Home/SaveRange")',
+                data: $('#rangeForm').serialize(),
+                success: function (data) {
+                    $('#resultatRange').html(data);
+                }
+            });
+        });
+    });
+</script>
+<br />
+<div>
+    <form id="rangeForm" action="">
+    <input style="display:none" type="text" name="rangeName" id="rn" value="@ViewBag.rangeName"/>
+    <textarea name="plusRange" rows="5" cols="120" class="policeInfo">@ViewBag.plusRange</textarea>
+    <br />
+    <input id="savePlusRange" class="boutonImprimPanier" type="button" value="Sauvegarder" />
+    </form>
+</div>

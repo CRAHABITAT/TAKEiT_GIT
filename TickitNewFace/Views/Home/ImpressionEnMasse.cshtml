@@ -1,0 +1,256 @@
+﻿<script type="text/javascript">
+    $(document).ready(function () {
+
+        $("#search_input_date_impression_masse").datepicker({
+            showOn: "none"
+        });
+        $(".calendar").click(function () {
+            $("#search_input_date_impression_masse").datepicker('show');
+        });
+
+        // Vérifie s'il existe des produits.
+        function VerifProduitsMagasinExist() {
+
+            var mapToSend = {
+                "TypePrix": $("#TypePrix").val(),
+                "Division": $("#Division").val(),
+                "Departement": $("#Departement").val(),
+                "Classe": $("#Classe").val(),
+                "rechercheDate": $('#search_input_date_impression_masse').val()
+            };
+
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Content("~/Home/VerifProduitsMagasinExist")',
+                data: mapToSend,
+                success: function (data) {
+
+                    var dataJson = eval('(' + data + ')');
+
+                    if (dataJson.MESSAGE == "PRODUITS_MAGASIN_NOT_EXISTS") {
+                        $('#BTN_IMPRESSION_MASSE').hide();
+                        $('#MESSAGE_IMPRESSION_MASSE').css('color', 'red');
+                        $('#Division_print').css('color', 'red');
+                        $('#Departement_print').css('color', 'red');
+                        $('#Classe_print').css('color', 'red');
+                        document.getElementById('MESSAGE_IMPRESSION_MASSE').innerHTML = "@TickitNewFace.Resources.Langue.MenuImpressionEnMasse_ProduitsInexistants";
+                        document.getElementById('Division_print').innerHTML = "- Division :  " + $("#Division").val();
+                        document.getElementById('Departement_print').innerHTML = "- Departement :  " + $("#Departement").val();
+                        document.getElementById('Classe_print').innerHTML = "- Classe :  " + $("#Classe").val();
+                    }
+                    else {
+                        $('#MESSAGE_IMPRESSION_MASSE').css('color', 'green');
+                        $('#Division_print').css('color', 'green');
+                        $('#Departement_print').css('color', 'green');
+                        $('#Classe_print').css('color', 'green');
+                        document.getElementById('MESSAGE_IMPRESSION_MASSE').innerHTML = "@TickitNewFace.Resources.Langue.MenuImpressionEnMasse_NombreDeProduits " + dataJson.NBRE_PRODUITS;
+                        document.getElementById('Division_print').innerHTML = "- Division :  " + $("#Division").val();
+                        document.getElementById('Departement_print').innerHTML = "- Departement :  " + $("#Departement").val();
+                        document.getElementById('Classe_print').innerHTML = "- Classe :  " + $("#Classe").val();
+                        $('#BTN_IMPRESSION_MASSE').show();
+                    }
+                }
+            });
+        }
+
+        VerifProduitsMagasinExist();
+
+        $('#Division').change(function () {
+            VerifProduitsMagasinExist();
+        });
+        $('#Departement').change(function () {
+            VerifProduitsMagasinExist();
+        });
+        $('#Classe').change(function () {
+            VerifProduitsMagasinExist();
+        });
+        $('#search_input_date_impression_masse').change(function () {
+            VerifProduitsMagasinExist();
+        });
+        $('#TypePrix').change(function () {
+            VerifProduitsMagasinExist();
+        });
+
+        $('#BTN_IMPRESSION_MASSE').click(function () {
+
+            var downloadUrl = '@Url.Content("~/Home/PrintPlvEnMasse?")'
+            + "Format=" + $("#Format").val()
+            + "&Division=" + $("#Division").val()
+            + "&Departement=" + $("#Departement").val()
+            + "&Classe=" + $("#Classe").val()
+            + "&rechercheDate=" + $("#search_input_date_impression_masse").val()
+            + "&TypePrix=" + $("#TypePrix").val();
+
+            if ($("#Format").val() == "Reglette_new") {
+                downloadUrl = '@Url.Content("~/Home/PrintPlvEnMasseRegletteNew?")'  
+                + "Format=" + $("#Format").val()
+                + "&Division=" + $("#Division").val()
+                + "&Departement=" + $("#Departement").val()
+                + "&Classe=" + $("#Classe").val()
+                + "&rechercheDate=" + $("#search_input_date_impression_masse").val()
+                + "&TypePrix=" + $("#TypePrix").val();
+            }
+
+            window.location.href = downloadUrl;
+        });
+
+        $('#BTN_IMPRESSION_PRIX_MASSE').click(function () {
+            var downloadUrl = '@Url.Content("~/Home/PrintPrixEnMasse")'
+            window.location.href = downloadUrl;
+        });
+
+        // 'Select All' text changed
+        $("#control").multiSelect({ selectAllText: "Deselect all" });
+
+    });
+</script>
+
+
+<fieldset>
+    <legend class="produitdetailsection">@TickitNewFace.Resources.Langue.MenuImpressionEnMasse_FieldsetUploadFileLegend</legend>
+    <br />
+    @using (Html.BeginForm("UploadfileProduitsMagasins", "home", FormMethod.Post, new { ContentType = "application/vnd.ms-excel", enctype = "multipart/form-data" }))
+    {
+        <input id="files-to-upload" type="file" name="FileUpload" />
+        <br /> 
+        if (null != @Session["isAdmin"] && @Session["isAdmin"].Equals(true) && null != @Session["franchiseName"] && @Session["franchiseName"].Equals(@TickitNewFace.Const.ApplicationConsts.nonFranchise))
+        {
+			 <br /><p>Par défaut, tous les fichiers de <b>tous les magasins</b> internes France sont selectionnés et seront mis à jour, veuillez sélectionner le(s) magasin(s) à mettre à jour !<br /> Si aucun magasin n'est sélectionné le fichier correspondant à votre magasin sera mis à jour</p>
+			<p>
+				<select id="control" name="control" multiple="multiple" size="40">
+					<option value=""></option>
+                    @foreach(var mag in ViewBag.listMagasins){
+                        <option value="@mag.Magasin_id" selected="selected">@mag.Magasin_id - @mag.Magasin_nom</option>
+                    }	
+							
+				</select>
+
+			</p>		
+			<p>
+                <input id="chargement" type="submit" class="boutonImprimPanier" value="@TickitNewFace.Resources.Langue.UploadFile_ChargerFichier"/>
+			</p>		
+            
+        }
+        else
+        {
+        <p><input id="chargement2" type="submit" class="boutonImprimPanier" value="@TickitNewFace.Resources.Langue.UploadFile_ChargerFichier"/></p>
+        }
+    }    
+    <br />
+    
+    <div style="background: #F7F7F7;">
+        @if (@ViewBag.nombreProduitsSuccess != null)
+        {
+            <span style="color: Green;" class="produitdetailinfo">- [Succès mise à jour] : @ViewBag.nombreProduitsSuccess
+                lignes mises à jour dans @ViewBag.nombreMagasinsSuccess magasins</span><br />
+            <div style="border-bottom: 1px dotted #D2D4CD; margin-bottom: 15px; margin-top: 15px">
+            </div>
+        }
+        @if (@ViewBag.uploadProduitsErrors != null && @ViewBag.uploadProduitsErrors.Count != 0)
+        {
+            foreach (var error in ViewBag.uploadProduitsErrors)
+            {
+            <span style="color: Red;" class="produitdetailinfo">- @error</span><br />
+            }
+        }
+    </div>
+
+</fieldset>
+
+<fieldset>
+    <legend class="produitdetailsection">@TickitNewFace.Resources.Langue.MenuImpressionEnMasse_FieldsetImpressionMasseLegend</legend>
+    
+    <table style="border: 0px;">
+        <tr style="border: 0px">
+            <td style="border: 0px" class="produitdetailinfo">
+                <div class="search-button">
+                    <input value="@ViewBag.initialDate" id="search_input_date_impression_masse" type="text" style="float: left; width: 75px; margin-top: 2px;"/>
+                    <div class="calendar" style="float:right"></div>
+                </div>
+            </td>
+        </tr>
+    </table>
+    
+    <br />
+        Type de prix / Division / Département / Classe / Format : 
+    <span class="produitdetailinfo">
+            <select id="TypePrix">
+                <option value="N">Permanent</option>
+                <option value="P">Promotion</option>
+                <option value="S">Solde</option>
+            </select> /
+            <select id="Division"> 
+                <option value="0">D0</option>
+                <option value="1">D1</option>
+                <option value="2">D2</option>
+                <option value="3">D3</option>
+                <option value="4">D4</option>
+                <option value="5">D5</option>
+                <option value="6">D6</option>
+                <option value="7">D7</option>
+                <option value="8">D8</option>
+                <option value="9">D9</option>
+            </select> / 
+            <select id="Departement"> 
+                <option value=""></option>
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+            </select> / 
+            <select id="Classe">
+                <option value=""></option>
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+            </select> / 
+            <select id="Format">
+                <option value="Reglette">Reglette</option>
+
+                @if (@ViewBag.viewRegletteNew)
+                {
+                    <option style="color:red" value="Reglette_new">Reglette new</option>
+                }                
+
+                <option value="A5_recto_verso">A5_recto_verso</option>
+                <option value="A5_simple">A5_simple</option>
+                <option value="A6_recto_verso">A6_recto_verso</option>
+                <option value="A6_simple">A6_simple</option>
+                <option value="A7_recto_verso">A7_recto_verso</option>
+                <option value="A7_simple">A7_simple</option>
+            </select>
+        <br />
+        <input id="BTN_IMPRESSION_MASSE" type="button" class="boutonImprimPanier" value="@TickitNewFace.Resources.Langue.MenuImpressionEnMasse_BtnImpressionMasse"/>
+        <br />
+        <br />
+    </span>
+    <div style="background: #F7F7F7;" id="DIV_IMPRESSION_MASSE">
+        <span style="color: Red" id="MESSAGE_IMPRESSION_MASSE"></span><br/>
+        <span style="color: Red" id="Division_print"></span><br/>
+        <span style="color: Red" id="Departement_print"></span><br/>
+        <span style="color: Red" id="Classe_print"></span>
+    </div>
+</fieldset>
+
+
+<fieldset>
+    <legend class="produitdetailsection">3- Export des prix articles</legend>
+    <input id="BTN_IMPRESSION_PRIX_MASSE" type="button" class="boutonImprimPanier" value="IMPRIMER TOUS LES PRIX"/>
+    <br/><br/>
+    <div style="background: #F7F7F7;">
+        <span style="color: Red">Attention cet export est volumineux et peut mettre à 1 à 2 minutes.</span>
+    </div>
+</fieldset>

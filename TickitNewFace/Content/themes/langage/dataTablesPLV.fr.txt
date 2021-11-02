@@ -1,0 +1,17 @@
+﻿{
+"sProcessing":   "Traitement en cours...",
+"sLengthMenu":   "Afficher _MENU_ gammes",
+"sZeroRecords":  "Aucune gamme &agrave; afficher",
+"sInfo":         "Affichage _START_ &agrave; _END_ sur _TOTAL_ gammes",
+"sInfoEmpty":    "Pas de gammes",
+"sInfoFiltered": "(filtr&eacute; de _MAX_ gammes au total)",
+"sInfoPostFix":  "",
+"sSearch":       "Affiner votre recherche",
+"sUrl":          "",
+"oPaginate": {
+		"sFirst":    "Premier",
+		"sPrevious": "Pr&eacute;c",
+		"sNext":     "Suiv",
+		"sLast":     "Dernier"
+	}
+}

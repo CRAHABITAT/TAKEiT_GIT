@@ -1,0 +1,97 @@
+﻿<!-- Vue produits. Affiche les résultats d'une recherche sous forme de datatable -->
+<html>
+<head>
+    <title></title>
+    <script type="text/javascript">
+	        $(document).ready(function () {
+                
+                oTable = $('#example').dataTable({
+	                "bAutoWidth": true,
+                    "aLengthMenu": [10, 25, 50],
+                    "bAutoWidth": false,
+                    "aoColumnDefs": [
+                        { 'bSortable': false, 'aTargets': [ 4 ] }
+                    ],
+					"bJQueryUI": true,
+					"oLanguage": {
+                        "sUrl": "@Url.Content("~/Content/themes/langage/dataTablesPLV.fr.txt")"
+                    },
+	                "sPaginationType" : "full_numbers"
+	            });
+                
+	            $(".fastPrint").click(function () {
+                    
+
+                    // initialement la date utilisée est la date du jour.
+                    var ladate = new Date();
+                    var ladateText = ladate.getDate() + "/" + (ladate.getMonth() + 1) + "/" + ladate.getFullYear();
+	                var rowIndex = oTable.fnGetPosition($(this).closest('tr')[0]);
+
+                    $('#DialogImpression').html('<IMG style="margin-left:180px;margin-top:70px" src="@Url.Content("~/Content/themes/image/Loader.gif")" alt="">')
+
+                    var downloadUrl = '@Url.Content("~/Home/ImpressionPLV?")'
+                    + "date=" + $('#search_input_date').val()
+                    + "&Gamme=" + oTable.fnGetData(rowIndex)[0];
+                    window.location.href = downloadUrl;
+                     $('#DialogImpression').html('')
+	            });
+                
+               
+	        });
+    </script>
+</head>
+<body>
+    <div id="DialogImpression" title="@TickitNewFace.Resources.Langue.MenuImpression_TitreMenu" />
+    <div id="fw_container">
+        <div class="full_width">
+            <table id="example" cellpadding="0" cellspacing="0" border="0" class="display">
+                <thead>
+                    <tr align="center">
+                        <th>Gamme
+                        </th>
+                        <th>Skus
+                        </th>
+                        <th>DescriptionDgccrf
+                        </th>
+                        <th>Format
+                        </th>
+                        <th style="width: 135px">@TickitNewFace.Resources.Langue.ResultatsRecherche_Actions
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        var a =  "...";
+                        foreach (var item in ViewBag.gammes)
+                        {
+                        <tr class="gradeA">
+                            <td>@item.Gamme
+                            </td>
+                            <td>@item.sousGammes.Substring(0, Math.Min(@item.sousGammes.Length, 70))
+                            @if (item.sousGammes.Length > 70)
+                            {
+                            @a
+                            }
+                            </td>
+                            <td>@item.DescriptionDgccrf.Substring(0, Math.Min(@item.DescriptionDgccrf.Length,40))
+                             @if(item.DescriptionDgccrf.Length>40)
+                            {
+                            @a
+                            }
+                            </td>
+                            <td>@item.Format
+                            </td>
+                            <td align="left">
+                               
+                                    <img class="fastPrint" title="Impression ticket" onmouseover="this.style.cursor='pointer'" src="@Url.Content("~/Content/themes/image/printer.png")" alt="" /> 
+                            </td>
+                        </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <input id="dateQueryPLVs" style="display:none" value="@ViewBag.dateQuery" name="dateQueryPLVs"/>
+</body>
+</html>

@@ -1,0 +1,203 @@
+﻿<!-- Vue Chevalet de gamme -->
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $('#imprimChevaletDeGamme').click(function () {
+            var downloadUrl = '@Url.Content("~/Home/PrintChevaletDeGammePdf?")' + "format=" + $("#format_impression_chevalet").val();
+            window.location.href = downloadUrl;
+        });
+
+        $('#imprimChevaletVitrine').click(function () {
+            var downloadUrl = '@Url.Content("~/Home/PrintChevaletVitrinePdf?")' + "format=" + $("#format_impression_chevalet").val();
+            window.location.href = downloadUrl;
+        });
+        
+        $('#imprimChevaletLineaire').click(function () {
+
+            /*
+          //limitation impression reglette
+            if(@ViewBag.Chevalet.produitsData.Count > 15)
+            {
+            alert("@TickitNewFace.Resources.Langue.Chevalet_capaciteAtteinteReglette");
+            }
+            else*/
+            {
+                var downloadUrl = '@Url.Content("~/Home/PrintChevaletLineairePdf?")' + "format=" + $("#format_impression_chevalet").val() + "&dateQuery=" + "@ViewBag.dateQuery";
+                window.location.href = downloadUrl;
+            }
+        });
+        
+        $('#chevaletTable tr td:last-child').click(function () {
+            var Sku = $(this).parent().children()[0].innerHTML;
+            var mapToSend = { "Sku": Sku, dateQuery : "@ViewBag.dateQuery"};
+
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Content("~/Home/RemoveProduitFromChevalet")',
+                data: mapToSend,
+                success: function (data) {
+                    $('#panierImpression').html(data);
+                }
+            });
+        });
+        
+        $('#viderChevalet').click(function () {
+            if (confirm("@TickitNewFace.Resources.Langue.ConfirmJS_question")) {
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Content("~/Home/ViderChevalet")',
+                    success: function (data) {
+                        $('#panierImpression').html(data);
+                    }
+                });
+            }
+        });
+
+        $('#imprim_A5_simple').click(function () {
+            var downloadUrl =   '@Url.Content("~/Home/PrintPdf?")' + "&" + "dateQuery=" + $("#datepicker").val() ;
+            window.location.href = downloadUrl;
+        });
+
+    });
+</script>
+@if (@ViewBag.Chevalet.produitsData.Count != 0)
+{
+    <br />
+    <div style="margin-left: 15%; margin-right: 15%">
+        <fieldset>
+            <legend class="produitdetailsection">Panier d'impression : @ViewBag.Chevalet.produitsData.Count
+                produit(s)</legend>
+            <div class="icone">
+                @if (@ViewBag.Chevalet.formatImpressionEtiquettesSimples != null)
+                {
+                    <input id="imprim_A5_simple" onmouseover="this.style.cursor='pointer'" class="boutonImprimPanier" type="button" value="imprimer @ViewBag.Chevalet.formatImpressionEtiquettesSimples" />
+                }
+                @if (@ViewBag.Chevalet.formatImpressionEtiquettesSimples == null)
+                {
+                    if (!@ViewBag.ChevaletCapaciteAtteinte)
+                    {
+                    <span class="produitdetailinfo">
+                        <select id="format_impression_chevalet">
+                            <option value="@TickitNewFace.Const.ApplicationConsts.format_A5_recto_verso">Format
+                                A5</option>
+                            <option value="@TickitNewFace.Const.ApplicationConsts.format_A6_recto_verso">Format
+                                A6</option>
+                            <option value="@TickitNewFace.Const.ApplicationConsts.format_A7_recto_verso">Format
+                                A7</option>
+                        </select>
+                    </span>
+                    
+                        if (@ViewBag.isChevaletDeGamme)
+                        {
+                    <input id="imprimChevaletDeGamme" onmouseover="this.style.cursor='pointer'" class="boutonImprimPanier"
+                        type="button" value="@TickitNewFace.Resources.Langue.Chevalet_ImrpimerChevaletGamme" />
+                        }
+                    <input id="imprimChevaletVitrine" onmouseover="this.style.cursor='pointer'" class="boutonImprimPanier"
+                        type="button" value="@TickitNewFace.Resources.Langue.Chevalet_ImprimerChevaletVitrine" />
+                    }
+                    <input id="imprimChevaletLineaire" onmouseover="this.style.cursor='pointer'" class="boutonImprimPanier"
+                        type="button" value="@TickitNewFace.Resources.Langue.Chevalet_ImprimerReglette" />
+                }
+                    <input id="viderChevalet" onmouseover="this.style.cursor='pointer'" class="boutonImprimPanier" 
+                        type="button" value="@TickitNewFace.Resources.Langue.Chevalet_Vider" />
+            </div>
+            <br />
+            <table style="margin-left: 5%; border: 0px">
+                <tr id="chevalet" style="border: 0px">
+                    <td style="border: 0px">
+                        <img alt="" src="@Url.Content("~/Content/themes/image/chevalet.png")"></img>
+                    </td>
+                    <td style="border: 0px">
+                        <div style="width: 15px">
+                        </div>
+                    </td>
+                    <td style="border: 0px">
+                        <div>
+                            @if (@ViewBag.isChevaletDeGamme)
+                            {
+                                <span class="produitdetailTitre">@ViewBag.Chevalet.rangeChevalet </span>
+                                if (@ViewBag.Chevalet.typePrix == @TickitNewFace.Const.ApplicationConsts.typePrix_solde)
+                                {                            
+                                    <span class="produitdetailTitre" style="color: red">Solde (@ViewBag.Chevalet.pourcentageReduction%)</span>
+                                }
+
+                                if (@ViewBag.Chevalet.typePrix == @TickitNewFace.Const.ApplicationConsts.typePrix_promo)
+                                {
+                                    <span class="produitdetailTitre" style="color: red">Promo (@ViewBag.Chevalet.pourcentageReduction%)</span>
+                                }
+                                <br />
+                                <br />
+                            }
+                            <table id="chevaletTable" style="border: 0px">
+                                @{
+                                    foreach (var item in ViewBag.Chevalet.produitsData)
+                                    {
+                                        <tr style="border: 0px">
+                                            <td style="border: 0px">@item.sku</td>
+                                            <td style="border: 0px">@item.variation
+                                            </td>
+                                            <td style="border: 0px">@item.range
+                                            </td>
+                                            <td style="border: 0px; color: red">
+                                                <s>@item.prixPermanent</s>
+                                            </td>
+                                            <td style="border: 0px">@item.prix
+                                            </td>
+                                            @if (@item.demarqueLocale != null && @item.demarqueLocale != "")
+                                            {
+                                                <td style="border: 0px; color: red">
+                                                    ( démarque locale : @item.demarqueLocale % )
+                                                </td>
+                                            }
+                                            <td style="border: 0px">
+                                                <img alt="" title="@TickitNewFace.Resources.Langue.Chevalet_supprimerProduit @item.sku du Chevalet" onmouseover="this.style.cursor='pointer'" src="@Url.Content("~/Content/themes/image/remove.png")"></img>
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            @if (@ViewBag.typePromoPourcentageIncompatible == true)
+            {
+                <br />
+                <div style="text-align: center">
+                    <span class="infoPanier" style="color: red">Type de prix (et / ou) pourcentage de réduction
+                        incompatibles. Vous ne pouvez ajouter dans votre chevalet que des produits avec
+                        le même type de prix (soldé, permanent..)</span>
+                    <br />
+                    <span class="infoPanier" style="color: red">En cas de solde / promo, les pourcentages
+                        de réductions des différents produits doivent être identiques</span>
+                </div>
+            }
+            @if (@ViewBag.isChevaletDeGamme == false)
+            {
+                <br />
+                <div style="text-align: center">
+                    <span class="infoPanier" style="color: red">@TickitNewFace.Resources.Langue.Chevalet_gammeError</span></div>
+            }
+            @if (@ViewBag.ProduitDejaExistant == true)
+            {
+                <div style="text-align: center">
+                    <span class="infoPanier" style="color: red">@TickitNewFace.Resources.Langue.Chevalet_produitDejaExistant</span></div>
+            }
+            @if (@ViewBag.ChevaletCapaciteAtteinte == true)
+            {
+                <div style="text-align: center">
+                    <span class="infoPanier" style="color: red">@TickitNewFace.Resources.Langue.Chevalet_capaciteAtteinte</span></div>
+            }
+            @if (@ViewBag.formatsImpressionIncompatibles == true)
+            {
+                <div style="text-align: center">
+                    <span class="infoPanier" style="color: red">Formats d'impression incompatibles</span></div>
+            }
+            @if (@ViewBag.originesDifferentes == true)
+            {
+                <div style="text-align: center">
+                    <span class="infoPanier" style="color: red">Les deux types de paniers sont incompatibles</span></div>
+            }
+        </fieldset>
+    </div>
+}

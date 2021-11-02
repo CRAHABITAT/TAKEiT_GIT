@@ -1,0 +1,168 @@
+﻿<!-- Vue Chevalet de gamme -->
+<script type="text/javascript">
+    $(document).ready(function () {
+        document.getElementById('AjoutSkusassocie').style.visibility="visible";
+        document.getElementById('AjoutSkusassocietexte').style.visibility="hidden";
+
+        $('#skusassocieTable tr td:last-child').click(function () {
+            var Skusassocie = $(this).parent().children()[3].innerHTML;
+            var Sku = @ViewBag.Sku;
+            var mapToSend = { "skusassocie": Skusassocie, "Sku":Sku };
+
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Content("~/Home/RemoveSkusassocieFromMenuSkusassocie")',
+                data: mapToSend,
+                success: function (data) {
+                    $('#MenuSkusassocie').html(data);
+                }
+            });
+        });
+
+        $('#AjoutSkusassocie').click(function () {
+            document.getElementById('AjoutSkusassocietexte').style.visibility="visible";
+            document.getElementById('AjoutSkusassocie').style.visibility="hidden";
+        });
+
+        $('#AnnuleNewSkusassocie').click(function () {
+            document.getElementById('AjoutSkusassocie').style.visibility="visible";
+            document.getElementById('AjoutSkusassocietexte').style.visibility="hidden";
+        });
+
+        $('#ConfirmNewSkusassocie').click(function () {
+            var Sku = @ViewBag.Sku;
+            var Rang = $('#NewSkusassocieRang').val();
+            var mapToSend = { "skusassocie": $('#NewSkusassocie').val(), "Sku":Sku, "Rang":Rang };
+
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Content("~/Home/AddSkusassocieFromMenuSkusassocie")',
+                data: mapToSend,
+                success: function (data) {
+                    $('#MenuSkusassocie').html(data);
+                }
+            });
+
+        });
+        
+        $('#skusassocieTable tr td:nth-child(5)').click(function () {
+            var Sku = @ViewBag.Sku;
+            var Skuaup = $(this).parent().children()[3].innerHTML;
+            var mapToSend = { "Skuaup": Skuaup, "Sku":Sku };
+
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Content("~/Home/UpSkusassocieFromMenuSkusassocie")',
+                data: mapToSend,
+                success: function (data) {
+                    $('#MenuSkusassocie').html(data);
+                }
+            });
+
+        });
+
+         $('#skusassocieTable tr td:nth-child(6)').click(function () {
+            var Sku = @ViewBag.Sku;
+            var Skuadown = $(this).parent().children()[3].innerHTML;
+            var mapToSend = { "Skuadown": Skuadown, "Sku":Sku };
+
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Content("~/Home/downSkusassocieFromMenuSkusassocie")',
+                data: mapToSend,
+                success: function (data) {
+                    $('#MenuSkusassocie').html(data);
+                }
+            });
+
+        });
+
+    });
+</script>
+<td style="width:100px;border: 0px">
+        <b><p class="produitdetailsection">Skus associés</p></b> 
+</td>
+                        
+<td style="border: 0px; height:30px;width:100px;overflow:auto" align="center">
+@if (@ViewBag.skusassocies != null)
+{
+    <table id="skusassocieTable" style="border: 0px">
+    @if (@ViewBag.skusassocies.Count != 0)
+    {
+        <tr style="border: 0px">
+            <td style="border: 0px"> </td>
+            <td style="height:30px;width:100px;overflow:auto;border: 0px" align="center;">Variation
+                </td>
+            <td style="height:30px;width:100px;overflow:auto;border: 0px" align="center;">Rang
+                </td>
+                <td style="height:30px;width:100px;overflow:auto;border: 0px" align="center">Sku
+                </td>
+                <td style="border: 0px">
+                  
+                </td>
+                <td style="border: 0px">
+
+                </td>
+                <td style="border: 0px">
+
+                </td>
+            </tr>
+        }
+        @foreach (var item in @ViewBag.skusassocies)
+        {
+            <tr style="border: 0px">
+             <td style="height:30px;width:100px;overflow:auto;border: 0px" align="center">
+             @if (@item.limg != null)
+            {
+                if (@item.limg.Count != 0)
+                {
+            <img src="@item.limg[0]" alt="Smiley face" width="50"/>
+                }
+            }
+                </td>
+                <td style="height:30px;width:100px;overflow:auto;border: 0px" align="center">@item.variation
+                </td>
+            <td style="height:30px;width:100px;overflow:auto;border: 0px" align="center">@item.rang
+                </td>
+                <td style="height:30px;width:100px;overflow:auto;border: 0px" align="center">@item.sku
+                </td>
+                <td style="border: 0px">
+                   <button type="button" value="@item.sku">Mettre avant</button>
+                </td>
+                <td style="border: 0px">
+                   <button type="button" value="@item.sku">Mettre en arriere</button>
+                </td>
+                <td style="border: 0px">
+                    <img alt="" title="Supprimer le sku associé @item.sku" onmouseover="this.style.cursor='pointer'" src="@Url.Content("~/Content/themes/image/remove.png")"></img>
+                </td>
+            </tr>
+        }
+
+    </table>
+    <div id="AjoutSkusassocietexte">
+        <table style="border: 0px">
+            <tr style="border: 0px">
+                <td style="border: 0px">
+                    <input id ="NewSkusassocie" class="policeInfo" type="text" size="5" placeholder="SKU" /><span class="produitdetailinfo"></span>
+                    <input id ="NewSkusassocieRang" class="policeInfo" type="text" size="5" placeholder="Rang" /><span class="produitdetailinfo"></span>
+                </td>
+            </tr>
+            <tr style="border: 0px">
+                <td style="border: 0px">
+                    <button id ="ConfirmNewSkusassocie" type="button">Ajouter</button>
+                    <button id ="AnnuleNewSkusassocie" type="button">Annuler</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+}
+else
+{ 
+    <div id="AjoutSkusassocietexte">
+        <input id ="NewSkusassocie" class="policeInfo" type="text" size="5" /><span class="produitdetailinfo"></span>
+        <input id ="ConfirmNewSkusassocie" class="policeInfo" type="button" size="5"/><span class="produitdetailinfo"></span>
+        <input id ="AnnuleNewSkusassocie" class="policeInfo" type="button" size="5"/><span class="produitdetailinfo"></span>
+    </div> 
+}
+ <input id="AjoutSkusassocie" onmouseover="this.style.cursor='pointer'" class="boutonImprimPanier" type="button" value="Ajouter skus associe" /> 
+</td>

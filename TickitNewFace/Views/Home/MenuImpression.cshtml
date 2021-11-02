@@ -1,0 +1,116 @@
+﻿<!-- Menu impression des tickets -->
+<script type="text/javascript">
+    $(document).ready(function () {
+        
+        // Cette date ne sert plus à grand chose vu que nous faisons la choisissons dans la recherche principale.
+        $("#dateMenuImpression").hide();
+        
+        $("#datepicker").datepicker({
+            onSelect: function (date) {
+                checkDateAndSendAjaxRequest(date);
+            }
+        });
+        
+        $("#datepicker").keyup(function (e) {
+            checkDateAndSendAjaxRequest($("#datepicker").val());
+        });
+
+        function checkDateAndSendAjaxRequest(date) {
+            if (isDate(date)) {
+                
+                var mapToSend = { "Sku": @ViewBag.sku, "date": date };
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Content("~/Home/MenuImpression")',
+                    data: mapToSend,
+                    success: function (data) {
+                        $('#DialogImpression').html(data);
+                    }
+                });
+            }
+        }
+        
+        // test de format date.
+        function isDate(sDate) {
+            if (!sDate.match("^[0-9]{2}/[0-9]{2}/[0-9]{4}$")) return false;
+            return true;
+        }
+
+        // permet de calculer le prix après la démarque spécifique.
+        $("#demarqueLocale").keyup(function (e) {
+            
+            demarqueLocale = $('#demarqueLocale').val();
+            prix = @ViewBag.prixDeBaseDemarqueLocale;
+
+            if (isNaN(demarqueLocale)) {
+                $('#prixApresDemarque').html('<div style="background: #F7F7F7;"><span style="color:Red" class="produitdetailinfo">Démarque locale de type numérique</span><br/></div>');
+            }
+            else {
+                prixApresDemarqueSpecifique = prix - (prix * demarqueLocale) / 100;
+                $('#prixApresDemarque').html('<div style="background: #F7F7F7;"><span class="policeInfo" style="color:Green">Le nouveau prix sera ' + prixApresDemarqueSpecifique + ' @ViewBag.codeMonnaie</span></div>');
+            }
+        });
+    });
+</script>
+<form id="ImpressionForm" action="">
+<input id="skuForPrint" style="display:none" value="@ViewBag.sku" name="sku"/>
+<div>
+    <span class="produitdetailTitre" style="color: gray">@ViewBag.sku @ViewBag.range @ViewBag.variation
+        (@ViewBag.prix @ViewBag.codeMonnaie)</span></div>
+@if (@ViewBag.pourcentage != null && @ViewBag.prixPermanent != null)
+{
+    <div>
+        <span class="produitdetailinfo" style="color: gray">@TickitNewFace.Resources.Langue.MenuImpression_AncienPrix
+            @ViewBag.prixPermanent @ViewBag.codeMonnaie (@TickitNewFace.Resources.Langue.MenuImpression_PourcentageRecution
+            : @ViewBag.pourcentage %)</span></div>
+}
+<div>
+    <br />
+    <div class="impressionOptionPanelLeft">
+    </div>
+    <div class="impressionOptionPanelRight">
+        <span class="produitdetailTitre" style="color: gray">@TickitNewFace.Resources.Langue.MenuImpression_TypeEtiquette</span>
+        <table style="border: 0px">
+            <tr id="dateMenuImpression">
+                <td style="border: 0px">
+                    <span class="produitdetailinfo">@TickitNewFace.Resources.Langue.MenuImpression_Date</span>
+                </td>
+                <td style="border: 0px">
+                    <span class="produitdetailinfo">
+                        <input type="text" id="datepicker" value="@ViewBag.initialDate"/></span>
+                </td>
+            </tr>
+            <tr>
+                <td style="border: 0px">
+                    <span class="produitdetailinfo">@TickitNewFace.Resources.Langue.MenuImpression_FormatImpression</span>
+                </td>
+                <td style="border: 0px">
+                    <span class="produitdetailinfo">
+                        <select id="format" name="format_selected">
+                            @{
+                                foreach (var item in ViewBag.formatsImpression)
+                                {
+                                <option value="@item">@item</option>
+                                }
+                            }
+                        </select>
+                    </span>
+                </td>
+            </tr>
+            <tr id="lineSpecificPromo">
+                <td style="border: 0px">
+                    <span class="produitdetailinfo">@TickitNewFace.Resources.Langue.MenuImpression_DemarqueLocale
+                        %</span>
+                </td>
+                <td style="border: 0px">
+                    <span class="produitdetailinfo">
+                        <input id="demarqueLocale" title="@TickitNewFace.Resources.Langue.MenuImpression_NoticeDemarqueLocale" type="text"/></span>
+                </td>
+            </tr>
+        </table>
+        <br />
+        <div id="prixApresDemarque">
+        </div>
+    </div>
+</div>
+</form>

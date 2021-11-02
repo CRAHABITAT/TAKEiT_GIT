@@ -1,0 +1,184 @@
+﻿<!-- Vue produits. Affiche les résultats d'une recherche sous forme de datatable -->
+<html>
+<head>
+    <title></title>
+    <script type="text/javascript">
+	        $(document).ready(function () {
+                
+                oTable = $('#example').dataTable({
+	                "bAutoWidth": true,
+                    "aLengthMenu": [10, 25, 50],
+                    "bAutoWidth": false,
+                    "aoColumnDefs": [
+                        { 'bSortable': false, 'aTargets': [ 6 ] }
+                    ],
+					"bJQueryUI": true,
+					"oLanguage": {
+                        "sUrl": "@Url.Content("~/Content/themes/langage/dataTables." + @ViewBag.lang + ".txt")"
+                    },
+	                "sPaginationType" : "full_numbers"
+	            });
+                
+	            $('.addChevalet').click(function () {
+	                var rowIndex = oTable.fnGetPosition($(this).closest('tr')[0]);
+	                var mapToSend = { "Sku": oTable.fnGetData(rowIndex)[0], dateQuery : "@ViewBag.dateQuery", "origine" : "CHEVALET" };
+                    
+	                $.ajax({
+	                    type: 'POST',
+                        url: '@Url.Content("~/Home/Chevalet")',
+	                    data: mapToSend,
+	                    success: function (data) {
+	                        $('#panierImpression').html(data);
+	                    }
+	                });
+	            });
+                
+	            $('.addLuminaire').click(function () {
+	                var rowIndex = oTable.fnGetPosition($(this).closest('tr')[0]);
+	                var mapToSend = { "Sku": oTable.fnGetData(rowIndex)[0], dateQuery : "@ViewBag.dateQuery" };
+                    
+	                $.ajax({
+	                    type: 'POST',
+                        url: '@Url.Content("~/Home/Luminaire")',
+	                    data: mapToSend,
+	                    success: function (data) {
+	                        $('#MenuImpressionLuminaire').html(data);
+	                    }
+	                });
+	            });
+                
+	            $('.getFiche').click(function () {
+                    
+	                var rowIndex = oTable.fnGetPosition($(this).closest('tr')[0]);
+	                var mapToSend = { "Sku": oTable.fnGetData(rowIndex)[0] };
+
+	                $.ajax({
+	                    type: 'POST',
+                        url: '@Url.Content("~/Home/Fiche")',
+	                    data: mapToSend,
+	                    success: function (data) {
+	                        $('#fw_container').html(data);
+	                    }
+	                });
+	            });
+                
+	            $(".fastPrint").click(function () {
+                    
+                    // initialement la date utilisée est la date du jour.
+                    var ladate = new Date();
+                    var ladateText = ladate.getDate() + "/" + (ladate.getMonth() + 1) + "/" + ladate.getFullYear();
+	                var rowIndex = oTable.fnGetPosition($(this).closest('tr')[0]);
+	                var mapToSend = { "Sku": oTable.fnGetData(rowIndex)[0] , "date" : "@ViewBag.dateQuery"};
+
+                    $('#DialogImpression').html('<IMG style="margin-left:180px;margin-top:70px" src="@Url.Content("~/Content/themes/image/Loader.gif")" alt="">')
+                    
+	                $.ajax({
+	                    type: 'POST',
+                        url: '@Url.Content("~/Home/MenuImpression")',
+	                    data: mapToSend,
+	                    success: function (data) {
+	                        $('#DialogImpression').html(data);
+	                    }
+	                });
+
+	                $("#DialogImpression").dialog("open");
+	            });
+                
+                $("#DialogImpression").dialog({
+	                autoOpen: false,
+	                height: 360,
+	                width: 450,
+	                modal: true,
+	                buttons: {
+	                    "Ajouter au panier" : function () {
+                            var mapToSend = { "Sku": $("#skuForPrint").val(), dateQuery : $("#dateQueryPLVs").val(), "format" : $("#format").val() , "demarqueLocale" : $("#demarqueLocale").val() , "origine" : "PLVS" };
+	                        $.ajax({
+	                            type: 'POST',
+                                url: '@Url.Content("~/Home/Chevalet")',
+	                            data: mapToSend,
+	                            success: function (data) {
+	                                $('#panierImpression').html(data);
+	                            }
+	                        });
+                            $(this).dialog("close");
+	                    },
+	                    @TickitNewFace.Resources.Langue.MenuImpression_BoutonAnnuler : function () {
+	                        $(this).dialog("close");
+	                    }
+	                }
+	            });
+	        });
+    </script>
+</head>
+<body>
+    <div id="DialogImpression" title="@TickitNewFace.Resources.Langue.MenuImpression_TitreMenu" />
+    <div id="fw_container">
+        <div class="full_width">
+            <table id="example" cellpadding="0" cellspacing="0" border="0" class="display">
+                <thead>
+                    <tr align="center">
+                        <th>
+                            Sku
+                        </th>
+                        <th>@TickitNewFace.Resources.Langue.ResultatsRecherche_Range
+                        </th>
+                        <th>@TickitNewFace.Resources.Langue.ResultatsRecherche_Variation
+                        </th>
+                        <th>@TickitNewFace.Resources.Langue.ResultatsRecherche_Libelle
+                        </th>
+                        <th>@TickitNewFace.Resources.Langue.ResultatsRecherche_Prix
+                        </th>
+                        <th>
+                            Type de prix
+                        </th>
+                        <th style="width: 135px">@TickitNewFace.Resources.Langue.ResultatsRecherche_Actions
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        foreach (var item in ViewBag.produits)
+                        {
+                        <tr class="gradeA">
+                            <td>@item.Sku
+                            </td>
+                            <td>@item.RangeName
+                            </td>
+                            <td>@item.VariationName
+                            </td>
+                            <td>@item.Libelle
+                            </td>
+                            <td>@item.Prix_produit
+                            </td>
+                            <td>
+                                @item.Type_promo
+                                @if (@item.Pourcentage_reduction != null)
+                                {
+                                    <span style="color: red">(@item.Pourcentage_reduction %)</span>   
+                                }
+                            </td>
+                            <td align="left">
+                                <a href="@Url.Content("~/Home/Fiche?Sku=" + @item.Sku)">
+                                    <img title="Accès à la fiche du produit @item.Sku" style="border:0px" src="@Url.Content("~/Content/themes/image/product.png")" alt="" /></a>
+                                <span>|</span>
+                                <img class="addChevalet" title="Ajout du produit @item.Sku au chevalet de gamme" onmouseover="this.style.cursor='pointer'" src="@Url.Content("~/Content/themes/image/table_add.png")" alt=""/>
+                                @if (@item.Division == 2 || @item.Division == 3 || @item.Division == 5)
+                                {
+                                    <span>|</span><img title="Ajout du produit @item.Sku à l'ensemble du luminaire" class="addLuminaire" onmouseover="this.style.cursor='pointer'" src="@Url.Content("~/Content/themes/image/lampeAdd.png")" alt=""/>
+                                }
+                                @if (@item.NombreFormatsImpressionDisponibles != 0)
+                                {
+                                    <span>|</span>
+                                    <img class="fastPrint" title="Impression ticket" onmouseover="this.style.cursor='pointer'" src="@Url.Content("~/Content/themes/image/printer.png")" alt="" />
+                                }
+                            </td>
+                        </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <input id="dateQueryPLVs" style="display:none" value="@ViewBag.dateQuery" name="dateQueryPLVs"/>
+</body>
+</html>

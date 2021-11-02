@@ -1,0 +1,76 @@
+﻿<script type="text/javascript">
+    $(document).ready(function () {
+        var w = 800;
+        var h1 = Raphael('chart1', w, 400);
+        var h1_source = "d2";
+
+        h1.lineChart({
+            data_holder: h1_source,
+            width: w,
+            show_area: true,
+            mouse_coords: 'rect',
+            x_labels_step: 3,
+            y_labels_count: 5,
+            colors: {
+                master: '#085FBD'
+            }
+        });
+    });
+</script>
+<div id="main" style="background-color: #F5F5F5">
+    <div class="box" style="background-color: #F5F5F5">
+        <div class="inner">
+            <div id="chart1">
+            </div>
+        </div>
+    </div>
+</div>
+<table id="d2" style="display: none;">
+
+ <!-- data -->
+    <tfoot>
+        <tr>
+            @{
+                foreach (var item in ViewBag.dates)
+                {
+                <th>@item.Date.Day/@item.Date.Month/@item.Date.Year
+                </th>
+                }
+            }
+        </tr>
+    </tfoot>
+    <tbody class="data">
+        <tr>
+            @{
+                foreach (var item in ViewBag.dates)
+                { 
+                <td>@item.Prix_produit.ToString().Replace(",", ".")
+                </td>
+                }
+            }
+        </tr>
+    </tbody>
+    <!-- label -->
+    <tbody class="line1">
+        <tr>
+            @{
+                foreach (var item in ViewBag.dates)
+                { 
+                <td>@item.Prix_produit @ViewBag.codeMonnaie (@item.Type_promo)
+                </td>
+                }
+            }
+        </tr>
+    </tbody>
+    <tbody class="line2">
+        <tr>
+            @{
+                foreach (var item in ViewBag.dates)
+                { 
+                <td>@item.Date.Day/@item.Date.Month/@item.Date.Year
+                </td>
+                }
+            }
+        </tr>
+    </tbody>
+</table>

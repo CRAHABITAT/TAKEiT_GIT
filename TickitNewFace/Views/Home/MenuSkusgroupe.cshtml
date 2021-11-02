@@ -1,0 +1,229 @@
+﻿<!-- Vue Chevalet de gamme -->
+<script type="text/javascript">
+    $(document).ready(function () {
+        document.getElementById('AjoutSkusgroupe').style.visibility="visible";
+        document.getElementById('AjoutSkusgroupetexte').style.visibility="hidden";
+        document.getElementById('ConfirmnameNewSkusgroupe').style.visibility="hidden";
+        document.getElementById('NewnomambuSkusgroupe').style.visibility="hidden";
+        document.getElementById('AnnuleNewnameSkusgroupe').style.visibility="hidden";
+        document.getElementById('AjoutnameSkusgroupe').style.visibility="visible";
+
+        
+
+        $('#skusgroupeTable tr td:last-child').click(function () {
+            var Skusgroupe = $(this).parent().children()[3].innerHTML;
+            var Sku = @ViewBag.Sku;
+            var mapToSend = { "skusgroupe": Skusgroupe, "Sku":Sku };
+
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Content("~/Home/RemoveSkusgroupeFromMenuSkusgroupe")',
+                data: mapToSend,
+                success: function (data) {
+                    $('#MenuSkusgroupe').html(data);
+                }
+            });
+        });
+
+        $('#AjoutnameSkusgroupe2').click(function () {
+            alert("Merci d'ajouter un sku dans le groupe de sku avant");
+        });
+
+        $('#AjoutnameSkusgroupe').click(function () {
+            document.getElementById('ConfirmnameNewSkusgroupe').style.visibility="visible";
+            document.getElementById('NewnomambuSkusgroupe').style.visibility="visible";
+            document.getElementById('AnnuleNewnameSkusgroupe').style.visibility="visible";
+            document.getElementById('AjoutnameSkusgroupe').style.visibility="hidden";
+        });
+
+        $('#AnnuleNewnameSkusgroupe').click(function () {
+            document.getElementById('ConfirmnameNewSkusgroupe').style.visibility="hidden";
+            document.getElementById('NewnomambuSkusgroupe').style.visibility="hidden";
+            document.getElementById('AnnuleNewnameSkusgroupe').style.visibility="hidden";
+            document.getElementById('AjoutnameSkusgroupe').style.visibility="visible";
+        });
+
+        $('#AjoutSkusgroupe').click(function () {
+            document.getElementById('AjoutSkusgroupetexte').style.visibility="visible";
+            document.getElementById('AjoutSkusgroupe').style.visibility="hidden";
+        });
+
+        $('#AnnuleNewSkusgroupe').click(function () {
+            document.getElementById('AjoutSkusgroupe').style.visibility="visible";
+            document.getElementById('AjoutSkusgroupetexte').style.visibility="hidden";
+        });
+
+        $('#ConfirmnameNewSkusgroupe').click(function () {
+            var Sku = @ViewBag.Sku;
+            var mapToSend = { "nom": $('#NewnomambuSkusgroupe').val(), "Sku":Sku};
+
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Content("~/Home/editnameSkusgroupeFromMenuSkusgroupe")',
+                data: mapToSend,
+                success: function (data) {
+                    $('#MenuSkusgroupe').html(data);
+                }
+            });
+
+        });
+
+        $('#ConfirmNewSkusgroupe').click(function () {
+            var Sku = @ViewBag.Sku;
+            var Rang = $('#NewSkusgroupeRang').val();
+            var mapToSend = { "skusgroupe": $('#NewSkusgroupe').val(), "Sku":Sku, "Rang":Rang };
+
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Content("~/Home/AddSkusgroupeFromMenuSkusgroupe")',
+                data: mapToSend,
+                success: function (data) {
+                    $('#MenuSkusgroupe').html(data);
+                }
+            });
+
+        });
+        
+        $('#skusgroupeTable tr td:nth-child(5)').click(function () {
+            var Sku = @ViewBag.Sku;
+            var Skuaup = $(this).parent().children()[3].innerHTML;
+            var mapToSend = { "Skuaup": Skuaup, "Sku":Sku };
+
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Content("~/Home/UpSkusgroupeFromMenuSkusgroupe")',
+                data: mapToSend,
+                success: function (data) {
+                    $('#MenuSkusgroupe').html(data);
+                }
+            });
+
+        });
+
+         $('#skusgroupeTable tr td:nth-child(6)').click(function () {
+            var Sku = @ViewBag.Sku;
+            var Skuadown = $(this).parent().children()[3].innerHTML;
+            var mapToSend = { "Skuadown": Skuadown, "Sku":Sku };
+
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Content("~/Home/downSkusgroupeFromMenuSkusgroupe")',
+                data: mapToSend,
+                success: function (data) {
+                    $('#MenuSkusgroupe').html(data);
+                }
+            });
+
+        });
+
+    });
+</script>
+<td style="width:100px;border: 0px">
+        <b><p class="produitdetailsection">Skus de groupes</p></b>
+        <table style="border: 0px">
+            <tr style="border: 0px">
+                <td style="border: 0px">
+                    @if (@ViewBag.nomgroupe != null)
+                    {
+                        <p>@ViewBag.nomgroupe</p>
+                        }else { 
+                         <p>Aucun nom</p>
+                        }
+
+                </td>
+            </tr>
+            <tr style="border: 0px">
+                <td style="border: 0px">
+                    <input id="AjoutnameSkusgroupe" onmouseover="this.style.cursor='pointer'" class="boutonImprimPanier" type="button" value="Creer/Modifier nom" /> 
+                    <input id ="NewnomambuSkusgroupe" class="policeInfo" type="text" size="5" placeholder="nom ambiance" /><span class="produitdetailinfo"></span>
+                   <button id ="ConfirmnameNewSkusgroupe" type="button">Valider</button>
+                    <button id ="AnnuleNewnameSkusgroupe" type="button">Annuler</button>
+                    
+                </td>
+            </tr>
+        </table>
+</td>
+                        
+<td style="border: 0px; height:30px;width:100px;overflow:auto" align="center">
+@if (@ViewBag.skusgroupes != null)
+{
+    <table id="skusgroupeTable" style="border: 0px">
+    @if (@ViewBag.skusgroupes.Count != 0)
+    {
+        <tr style="border: 0px">
+            <td style="border: 0px"> </td>
+            <td style="height:30px;width:100px;overflow:auto;border: 0px" align="center;">Variation
+                </td>
+            <td style="height:30px;width:100px;overflow:auto;border: 0px" align="center;">Rang
+                </td>
+                <td style="height:30px;width:100px;overflow:auto;border: 0px" align="center">Sku
+                </td>
+                <td style="border: 0px">
+                  
+                </td>
+                <td style="border: 0px">
+
+                </td>
+                <td style="border: 0px">
+
+                </td>
+            </tr>
+    }
+        @foreach (var item in @ViewBag.skusgroupes)
+        {
+            <tr style="border: 0px">
+            <td style="height:30px;width:100px;overflow:auto;border: 0px" align="center">
+             @if (@item.limg != null)
+             {
+                 if (@item.limg.Count != 0)
+                 {
+            <img src="@item.limg[0]" alt="Smiley face" width="50"/>
+                 }
+             }
+                </td>
+                <td style="height:30px;width:100px;overflow:auto;border: 0px" align="center">@item.variation
+                </td>
+            <td style="height:30px;width:100px;overflow:auto;border: 0px" align="center">@item.rang
+                </td>
+                <td style="height:30px;width:100px;overflow:auto;border: 0px" align="center">@item.sku
+                </td>
+                <td style="border: 0px">
+                   <button type="button" value="@item.sku">Mettre avant</button>
+                </td>
+                <td style="border: 0px">
+                   <button type="button" value="@item.sku">Mettre en arriere</button>
+                </td>
+                <td style="border: 0px">
+                    <img alt="" title="Supprimer le sku groupe @item.sku" onmouseover="this.style.cursor='pointer'" src="@Url.Content("~/Content/themes/image/remove.png")"></img>
+                </td>
+            </tr>
+        }
+
+    </table>
+    <div id="AjoutSkusgroupetexte">
+        <table style="border: 0px">
+            <tr style="border: 0px">
+                <td style="border: 0px">
+                    <input id ="NewSkusgroupe" class="policeInfo" type="text" size="5" placeholder="SKU" /><span class="produitdetailinfo"></span>
+                    <input id ="NewSkusgroupeRang" class="policeInfo" type="text" size="5" placeholder="Rang" /><span class="produitdetailinfo"></span>
+                </td>
+            </tr>
+            <tr style="border: 0px">
+                <td style="border: 0px">
+                    <button id ="ConfirmNewSkusgroupe" type="button">Ajouter</button>
+                    <button id ="AnnuleNewSkusgroupe" type="button">Annuler</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+}
+else
+{ 
+    <div id="AjoutSkusgroupetexte">
+        <input id ="NewSkusassocie" class="policeInfo" type="text" size="5" /><span class="produitdetailinfo"></span>
+        <input id ="ConfirmNewSkusgroupe" class="policeInfo" type="button" size="5"/><span class="produitdetailinfo"></span>
+        <input id ="AnnuleNewSkusgroupe" class="policeInfo" type="button" size="5"/><span class="produitdetailinfo"></span>
+    </div> 
+}
+ <input id="AjoutSkusgroupe" onmouseover="this.style.cursor='pointer'" class="boutonImprimPanier" type="button" value="Ajouter skus groupes" /> 
+</td>

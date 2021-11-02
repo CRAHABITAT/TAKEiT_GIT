@@ -1,0 +1,92 @@
+﻿<!-- Vue Chevalet de gamme -->
+<script type="text/javascript">
+    $(document).ready(function () {
+        document.getElementById('AjoutMatiere').style.visibility="visible";
+        document.getElementById('AjoutMatieretexte').style.visibility="hidden";
+        $('#matiereTable tr td:last-child').click(function () {
+            var Matiere = $(this).parent().children()[0].innerHTML;
+            var Sku = @ViewBag.Sku;
+            var mapToSend = { "matiere": Matiere, "Sku":Sku };
+
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Content("~/Home/RemoveMatiereFromMenuMatiere")',
+                data: mapToSend,
+                success: function (data) {
+                    $('#MenuMatiere').html(data);
+                }
+            });
+        });
+
+        $('#AjoutMatiere').click(function () {
+            document.getElementById('AjoutMatieretexte').style.visibility="visible";
+            document.getElementById('AjoutMatiere').style.visibility="hidden";
+        });
+
+        $('#AnnuleNewMatiere').click(function () {
+            document.getElementById('AjoutMatiere').style.visibility="visible";
+            document.getElementById('AjoutMatieretexte').style.visibility="hidden";
+        });
+
+        $('#ConfirmNewMatiere').click(function () {
+            var Sku = @ViewBag.Sku;
+            var mapToSend = { "matiere": $('#NewMatiere').val(), "Sku":Sku };
+
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Content("~/Home/AddMatiereFromMenuMatiere")',
+                data: mapToSend,
+                success: function (data) {
+                    $('#MenuMatiere').html(data);
+                }
+            });
+
+        });
+    });
+</script>
+<td style="width:100px;border: 0px">
+        <b><p class="produitdetailsection">Matieres</p></b>
+        <input id="AjoutMatiere" onmouseover="this.style.cursor='pointer'" class="boutonImprimPanier" type="button" value="Ajouter matiere" /> 
+</td>
+                        
+<td style="border: 0px; height:30px;width:100px;overflow:auto" align="center">
+@if (@ViewBag.matieres != null)
+{
+    <table id="matiereTable" style="border: 0px">
+        @foreach (var item in @ViewBag.matieres)
+        {
+            <tr style="border: 0px">
+                <td style="height:30px;width:100px;overflow:auto" align="center">@item
+                </td>
+                <td style="border: 0px">
+                    <img alt="" id="RemoveDessous" title="Supprimer la matiere @item" onmouseover="this.style.cursor='pointer'" src="@Url.Content("~/Content/themes/image/remove.png")"></img>
+                </td>
+            </tr>
+        }
+
+    </table>
+    <div id="AjoutMatieretexte">
+        <table style="border: 0px">
+            <tr style="border: 0px">
+                <td style="border: 0px">
+                    <input id ="NewMatiere" class="policeInfo" type="text" size="5" placeholder="Nom de matiere" /><span class="produitdetailinfo"></span>
+                </td>
+            </tr>
+            <tr style="border: 0px">
+                <td style="border: 0px">
+                    <button id ="ConfirmNewMatiere" type="button">Ajouter</button>
+                    <button id ="AnnuleNewMatiere" type="button">Annuler</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+}
+else
+{ 
+    <div id="AjoutMatieretexte">
+        <input id ="NewMatiere" class="policeInfo" type="text" size="5" /><span class="produitdetailinfo"></span>
+        <input id ="ConfirmNewMatiere" class="policeInfo" type="button" size="5"/><span class="produitdetailinfo"></span>
+        <input id ="AnnuleNewMatiere" class="policeInfo" type="button" size="5"/><span class="produitdetailinfo"></span>
+    </div> 
+}
+</td>

@@ -1,0 +1,54 @@
+@font-face {
+    font-family: 'DINBold';
+    src: url('./fonts/DINBold/din-bold-webfont.eot');
+    src: url('./fonts/DINBold/din-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('./fonts/DINBold/din-bold-webfont.woff') format('woff'),
+         url('./fonts/DINBold/din-bold-webfont.ttf') format('truetype'),
+         url('./fonts/DINBold/din-bold-webfont.svg#DINBold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'DINMedium';
+    src: url('./fonts/DINMedium/din-m__-webfont.eot');
+    src: url('./fonts/DINMedium/din-m__-webfont.eot?#iefix') format('embedded-opentype'),
+         url('./fonts/DINMedium/din-m__-webfont.woff') format('woff'),
+         url('./fonts/DINMedium/din-m__-webfont.ttf') format('truetype'),
+         url('./fonts/DINMedium/din-m__-webfont.svg#DINMedium') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'DINRegular';
+    src: url('./fonts/DINRegular/din-rg_-webfont.eot');
+    src: url('./fonts/DINRegular/din-rg_-webfont.eot?#iefix') format('embedded-opentype'),
+         url('./fonts/DINRegular/din-rg_-webfont.woff') format('woff'),
+         url('./fonts/DINRegular/din-rg_-webfont.ttf') format('truetype'),
+         url('./fonts/DINRegular/din-rg_-webfont.svg#DINRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'DINRounded';
+    src: url('./fonts/DINRounded/dinengschriftstd-webfont.eot');
+    src: url('./fonts/DINRounded/dinengschriftstd-webfont.eot?#iefix') format('embedded-opentype'),
+         url('./fonts/DINRounded/dinengschriftstd-webfont.woff') format('woff'),
+         url('./fonts/DINRounded/dinengschriftstd-webfont.ttf') format('truetype'),
+         url('./fonts/DINRounded/dinengschriftstd-webfont.svg#DIN1451StdEngschrift') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Garamond';
+    src: url('./fonts/Garamond/agaramondpro-regular-webfont.eot');
+    src: url('./fonts/Garamond/agaramondpro-regular-webfont.eot?#iefix') format('embedded-opentype'),
+    url('./fonts/Garamond/agaramondpro-regular-webfont.woff') format('woff'),
+    url('./fonts/Garamond/agaramondpro-regular-webfont.ttf') format('truetype'),
+    url('./fonts/Garamond/agaramondpro-regular-webfont.svg#AdobeGaramondProRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}

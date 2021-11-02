@@ -1,0 +1,182 @@
+﻿<!DOCTYPE html>
+<!-- Master page. Fait appel aussi à toutes les librairies dont les autres vues auront besoin. Cette page inclue toutes les vues qui constituent l'IHM -->
+<html>
+<head>
+
+    <link rel="icon" type="image/png" href="@Url.Content("~/Content/themes/image/print_fav.png")" />
+    <title>TAKEiT </title>
+    <link href="@Url.Content("~/Content/themes/css.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/themes/fonts.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/themes/Datatable.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/themes/Site.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/themes/jquery.ui.dialog.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/themes/jqueryMultiSelect.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/themes/tableresponsive.css")" rel="stylesheet" type="text/css" />
+
+    <!-- <script type="text/javascript" src="@Url.Content("~/Scripts/jquery.js")"></script> -->
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery2.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery-1.8.2.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery-1.9.0.ui.js")"></script>
+	<!-- <script type="text/javascript" src="@Url.Content("~/Scripts/jquery.dimensions.js")"></script> -->
+	<script type="text/javascript" src="@Url.Content("~/Scripts/jqueryMultiSelect.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery.dataTables.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/raphael-min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/raphael_linechart.js")"></script>
+    <script type="text/javascript">
+            $(document).ready(function () {
+
+                // Choix de la documentation adéquate par langue.
+                $('#DocHelp').click(function () {
+                    if (!("@Session["langue"]".indexOf("fr") == -1 && "@Session["langue"]".indexOf("FR") == -1)) {
+                        window.open("@Url.Content("~/Content/Doc_FR/tickit_user_guide.htm")");
+                     }
+                     else {
+                        window.open("@Url.Content("~/Content/Doc_UK/tickit_user_guide.htm")");
+                     }
+                });
+
+                $.datepicker.regional['fr'] = { clearText: 'Effacer', clearStatus: '',
+
+                    closeText: 'Fermer', closeStatus: 'Fermer sans modifier',
+                    prevText: '<Préc', prevStatus: 'Voir le mois précédent',
+                    nextText: 'Suiv>', nextStatus: 'Voir le mois suivant',
+                    currentText: 'Courant', currentStatus: 'Voir le mois courant',
+                    monthNames: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin',
+					        'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
+                    monthNamesShort: ['Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Jun',
+					        'Jul', 'Aoû', 'Sep', 'Oct', 'Nov', 'Déc'],
+                    monthStatus: 'Voir un autre mois', yearStatus: 'Voir un autre année',
+                    weekHeader: 'Sm', weekStatus: '',
+                    dayNames: ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'],
+                    dayNamesShort: ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'],
+                    dayNamesMin: ['Di', 'Lu', 'Ma', 'Me', 'Je', 'Ve', 'Sa'],
+                    dayStatus: 'Utiliser DD comme premier jour de la semaine', dateStatus: 'Choisir le DD, MM d',
+                    dateFormat: 'dd/mm/yy', firstDay: 0,
+                    initStatus: 'Choisir la date', isRTL: false
+                };
+
+                $.datepicker.setDefaults($.datepicker.regional['fr']);
+            });
+
+
+    </script>
+</head>
+<body>
+
+    <table  class="pp">
+        <tr>
+            <td VALIGN="top"  >
+                <div class="page">
+                    <div id="header">
+                        <div id="title">
+                            <a href="@Url.Content("~/")">
+                                <img src="@Url.Content("~/Content/themes/image/habitat.png")" alt="Habitat" border="0" /></a>
+                        </div>
+                        <div id="logindisplay">
+                            <div title="Doc TAKEiT" style="position:relative; float: right; margin-left: 15px;">
+                                <span id="DocHelp">
+                                    <span id="doc-shadow">
+                                        <img src="@Url.Content("~/Content/themes/image/doc.png")" alt=doc"" style="position:absolute;right:80px"/>
+                                        Doc TAKEiT
+                                    </span>
+                                </span>
+                            </div>
+                            @if (null != @Session["franchiseName"] && @Session["franchiseName"].Equals(@TickitNewFace.Const.ApplicationConsts.nonFranchise))
+                            {
+                                <div style="display: inline; margin-right: 5px" title="CH">
+                                    <a href="@Url.Content("~/Home/changeLangue?lang=ch")">
+                                        <img onmouseover="this.style.cursor='pointer'" style="border:0px" src="@Url.Content("~/Content/themes/image/ch.gif")" alt="ch" /></a>
+                                </div>
+                                
+                                <div style="display: inline; margin-right: 5px" title="FR">
+                                    <a href="@Url.Content("~/Home/changeLangue?lang=fr")">
+                                        <img onmouseover="this.style.cursor='pointer'" style="border:0px" src="@Url.Content("~/Content/themes/image/fr.gif")" alt=fr"" /></a>
+                                </div>
+                    
+                                <div style="display: inline; margin-right: 5px" title="DE">
+                                    <a href="@Url.Content("~/Home/changeLangue?lang=de")">
+                                        <img onmouseover="this.style.cursor='pointer'" style="border:0px" src="@Url.Content("~/Content/themes/image/de.gif")" alt="de" /></a>
+                                </div>
+
+                                <div style="display: inline; margin-right: 5px" title="ES">
+                                    <a href="@Url.Content("~/Home/changeLangue?lang=es")">
+                                        <img onmouseover="this.style.cursor='pointer'" style="border:0px" src="@Url.Content("~/Content/themes/image/es.gif")" alt="es" /></a>
+                                </div>
+                                
+                                <div style="display: inline; margin-right: 5px" title="EN">
+                                    <a href="@Url.Content("~/Home/changeLangue?lang=en")">
+                                        <img onmouseover="this.style.cursor='pointer'" style="border:0px" src="@Url.Content("~/Content/themes/image/en.png")" alt="en" /></a>
+                                </div>
+                            }
+                            else
+                            {
+                                <div style="display:inline; margin-right:5px" title="@Session["franchiseName"]">
+                                    <a href="@Url.Content("~/Home/changeLangue?lang=" + @Session["franchiseName"])">
+                                        <img onmouseover="this.style.cursor='pointer'" style="border:0px" src="@Url.Content("~/Content/themes/image/" + @Session["franchiseName"] + ".gif")" alt="@Session["franchiseName"]" /></a>
+                                </div>
+                            }
+                            <strong>@User.Identity.Name</strong> @TickitNewFace.Resources.Langue.EtatConnexion
+                        </div>
+                        <div id="menucontainer">
+                            <ul style="color: Black" id="menu">
+
+                                 @if (null != @Session["onglet"] && @Session["onglet"].Equals("recherche"))
+                                 {
+                                    <li class="actif">@Html.ActionLink(TickitNewFace.Resources.Langue.MenuRecherche, "Index", "Home")</li>
+                                 }
+                                 else
+                                 {
+                                     <li>@Html.ActionLink(TickitNewFace.Resources.Langue.MenuRecherche, "Index", "Home")</li>
+                                 }
+                                
+
+                                <!--
+                                 @if (null != @Session["isAdmin"] && @Session["isAdmin"].Equals(true) && null != @Session["franchiseName"] && @Session["franchiseName"].Equals(@TickitNewFace.Const.ApplicationConsts.nonFranchise))
+                                 {
+                                     if (null != @Session["onglet"] && @Session["onglet"].Equals("PLV"))
+                                     {
+                                        <li class="actif">@Html.ActionLink("Recherche Gamme", "PLV", "Home")</li>
+                                     }
+                                     else
+                                     {
+                                         <li>@Html.ActionLink("Recherche Gamme", "PLV", "Home")</li>
+                                     }
+                                 }
+                                -->
+
+                                 @if (null != @Session["onglet"] && @Session["onglet"].Equals("ImpressionEnMasse"))
+                                 {
+                                    <li class="actif">@Html.ActionLink(TickitNewFace.Resources.Langue.MenuImpressionEnMasse, "ImpressionEnMasse", "Home")</li>
+                                 }
+                                 else
+                                 {
+                                     <li>@Html.ActionLink(TickitNewFace.Resources.Langue.MenuImpressionEnMasse, "ImpressionEnMasse", "Home")</li>
+                                 }
+
+                                @if (null != @Session["isAdmin"] && @Session["isAdmin"].Equals(true))
+                                {
+                                    if (null != @Session["onglet"] && @Session["onglet"].Equals("admin"))
+                                    {
+                                        <li class="actif">@Html.ActionLink(TickitNewFace.Resources.Langue.MenuAdministration, "Administration", "Home")</li>
+                                    }
+                                    else
+                                    {
+                                        <li>@Html.ActionLink(TickitNewFace.Resources.Langue.MenuAdministration, "Administration", "Home")</li> 
+                                    }
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                    <div id="shadow">
+                        <div id="main">
+                            @RenderBody()
+                        </div>
+                        <div id="footer">
+                        </div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

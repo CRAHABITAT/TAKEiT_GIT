@@ -1,0 +1,232 @@
+﻿<!-- Vue Administration. Permet de télecharger les fichier d'alimentation de la source de données ainsi que le paramétrage de la configuration générale de l'application -->
+<script type="text/javascript">
+    $(document).ready(function () {
+        
+        $("#tabs").tabs({ selected: @ViewBag.positionTabs});
+        
+        $('.searchRangeAction').click(function () {
+            $('#resultatRange').html('<IMG src="@Url.Content("~/Content/themes/image/Loader.gif")" alt="">')
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Content("~/Home/RangeDetails")',
+                data: { rechercheText: $('#searchRange').val() },
+                success: function (data) {
+                    $('#resultatRange').html(data);
+                }
+            });
+        });
+        
+        $('#searchRange').keypress(function (event) {
+            if (event.keyCode == 13) {
+                event.preventDefault();
+                if ($('#searchRange').val() == "") {
+                    $('#resultatRange').html('<br/><div style="background: #F7F7F7;"><span style="color:Red" class="produitdetailinfo">Merci de saisir un range</span><br/></div>');
+                }
+                else {
+                    $('#resultatRange').html('<IMG src="@Url.Content("~/Content/themes/image/Loader.gif")" alt="">')
+                    $.ajax({
+                        type: 'POST',
+                        url: '@Url.Content("~/Home/RangeDetails")',
+                        data: { rechercheText: $('#searchRange').val() },
+                        success: function (data) {
+                            $('#resultatRange').html(data);
+                        }
+                    });
+                }
+            }
+        });
+
+        $('#SaveConfiguration').click(function () {
+            $('#resultSaveConfig').hide();
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Content("~/Home/SaveConfiguration")',
+                data: $('#configurationForm').serialize(),
+                success: function (data) {
+                    $('#resultSaveConfig').show();
+                    $('#resultSaveConfig').html(data);
+                }
+            });
+        });
+    });
+</script>
+<div id="tabs">
+    <ul>
+        <li><a href="#tabs-1"><span style="color: gray" class="produitdetailsection">@TickitNewFace.Resources.Langue.Alimentation_Details_Produits</span></a></li>
+        <li><a href="#tabs-2"><span style="color: gray" class="produitdetailsection">@TickitNewFace.Resources.Langue.Alimentation_Descriptions_Ranges</span></a></li>
+        <li><a href="#tabs-3"><span style="color: gray" class="produitdetailsection">@TickitNewFace.Resources.Langue.Alimentation_Parametrage</span></a></li>
+    </ul>
+    <div id="tabs-1">
+        @if (null != @Session["franchiseName"] && @Session["franchiseName"].Equals(@TickitNewFace.Const.ApplicationConsts.nonFranchise))
+        {
+            <fieldset>
+                <legend class="produitdetailsection">@TickitNewFace.Resources.Langue.AlimentationProduits_MAJ_uploadFile</legend>
+                <br />
+                @using (Html.BeginForm("UploadfileProduits", "home", FormMethod.Post, new { ContentType = "application/vnd.ms-excel", enctype = "multipart/form-data" }))
+                {
+                    <input id="files-to-upload" type="file" name="FileUpload" />
+                    <br />
+                    <input id="chargement" type="submit" class="boutonImprimPanier" value="@TickitNewFace.Resources.Langue.UploadFile_ChargerFichier"/>
+                }
+            </fieldset>
+
+            <br />
+            
+            
+            <fieldset>
+                <legend class="produitdetailsection">Téléchargement fichier mise à jours Gamme PLV</legend>
+                <br />
+                @using (Html.BeginForm("UploadfilePLVGamme", "home", FormMethod.Post, new { ContentType = "application/vnd.ms-excel", enctype = "multipart/form-data" }))
+                {
+                    <input id="files-to-upload2" type="file" name="FileUpload" />
+                    <br />
+                    <input id="chargement2" type="submit" class="boutonImprimPanier" value="@TickitNewFace.Resources.Langue.UploadFile_ChargerFichier"/>
+                }
+            </fieldset>
+
+            <br />
+        
+            <div style="background: #F7F7F7;">
+                @if (@ViewBag.nombreProduitsSuccess != null)
+                {
+                    <span style="color: Green;" class="produitdetailinfo">- [Succès mise à jour] : @ViewBag.nombreProduitsSuccess
+                        lignes mises à jour</span><br />
+                    <div style="border-bottom: 1px dotted #D2D4CD; margin-bottom: 15px; margin-top: 15px">
+                    </div>
+                }
+                @if (@ViewBag.uploadProduitsErrors != null && @ViewBag.uploadProduitsErrors.Count != 0)
+                {
+                    foreach (var error in ViewBag.uploadProduitsErrors)
+                    {
+                    <span style="color: Red;" class="produitdetailinfo">- @error</span><br />
+                    }
+                }
+            </div>
+        }
+        else
+        {
+            
+            <fieldset>
+                <legend class="produitdetailsection">@TickitNewFace.Resources.Langue.AlimentationProduits_MAJ_uploadFile</legend>
+                <br />
+                @using (Html.BeginForm("UploadfileProduitsFranchise", "home", FormMethod.Post, new { ContentType = "application/vnd.ms-excel", enctype = "multipart/form-data" }))
+                {
+                    <input id="files-to-upload" type="file" name="FileUpload" />
+                    <br />
+                    <input id="chargement" type="submit" class="boutonImprimPanier" value="@TickitNewFace.Resources.Langue.UploadFile_ChargerFichier"/>
+                }
+            </fieldset>
+
+            <br />
+            <fieldset>
+                <legend class="produitdetailsection">@TickitNewFace.Resources.Langue.AlimentationPrix_MAJ_uploadFile</legend>
+                <br />
+                @using (Html.BeginForm("UploadfilePrix", "home", FormMethod.Post, new { ContentType = "application/vnd.ms-excel", enctype = "multipart/form-data" }))
+                {
+                    <input id="files-to-upload2" type="file" name="FileUpload" />
+                    <br />
+                    <input id="chargement2" type="submit" class="boutonImprimPanier" value="@TickitNewFace.Resources.Langue.UploadFile_ChargerFichier"/>
+                }
+            </fieldset>
+
+            <br />
+        
+            <div style="background: #F7F7F7;">
+                @if (@ViewBag.nombreProduitsSuccess != null)
+                {
+                    <span style="color: Green;" class="produitdetailinfo">- [Succès mise à jour] : @ViewBag.nombreProduitsSuccess
+                        lignes mises à jour</span><br />
+                    <div style="border-bottom: 1px dotted #D2D4CD; margin-bottom: 15px; margin-top: 15px">
+                    </div>
+                }
+                @if (@ViewBag.uploadProduitsErrors != null && @ViewBag.uploadProduitsErrors.Count != 0)
+                {
+                    foreach (var error in ViewBag.uploadProduitsErrors)
+                    {
+                    <span style="color: Red;" class="produitdetailinfo">- @error</span><br />
+                    }
+                }
+            </div>
+        }
+    </div>
+    <div id="tabs-2">
+        <fieldset>
+            <legend class="produitdetailsection">@TickitNewFace.Resources.Langue.AlimentationRange_MAJ_uploadFile</legend>
+            <br />
+            @if (null != @Session["franchiseName"] && @Session["franchiseName"].Equals(@TickitNewFace.Const.ApplicationConsts.nonFranchise))
+            {
+                using (Html.BeginForm("UploadfileRange", "home", FormMethod.Post, new { ContentType = "application/vnd.ms-excel", enctype = "multipart/form-data" }))
+                {
+                <input type="file" name="FileUpload" />
+                <br />
+                <input type="submit" class="boutonImprimPanier" value="@TickitNewFace.Resources.Langue.UploadFile_ChargerFichier"/>
+                }
+            }
+            else
+            {
+                using (Html.BeginForm("UploadfileRangeFranchise", "home", FormMethod.Post, new { ContentType = "application/vnd.ms-excel", enctype = "multipart/form-data" }))
+                {
+                <input type="file" name="FileUpload" />
+                <br />
+                <input type="submit" class="boutonImprimPanier" value="@TickitNewFace.Resources.Langue.UploadFile_ChargerFichier"/>
+                }
+            }
+        </fieldset>
+        <br />
+        <div style="background: #F7F7F7;">
+            @if (@ViewBag.nombreRangesSuccess != null)
+            {
+                <span style="color: Green;" class="produitdetailinfo">- [Succès mise à jour] : @ViewBag.nombreRangesSuccess
+                    lignes mises à jour</span><br />
+                <div style="border-bottom: 1px dotted #D2D4CD; margin-bottom: 15px; margin-top: 15px">
+                </div>
+            }
+            @if (@ViewBag.uploadRangeErrors != null && @ViewBag.uploadRangeErrors.Count != 0)
+            {
+                foreach (var error in ViewBag.uploadRangeErrors)
+                {
+                <span style="color: Red;" class="produitdetailinfo">- @error</span><br />
+                }
+            }
+        </div>
+        <div style="border-bottom: 1px dotted #D2D4CD;">
+        </div>
+        <br />
+        <fieldset>
+            <legend class="produitdetailsection">@TickitNewFace.Resources.Langue.AlimentationRange_MAJ_directe</legend>
+            <br />
+            <div>
+                <form action="">
+                <input id="searchRange" type="text" size="200" style="height: 20px" /><br />
+                <input class="boutonImprimPanier searchRangeAction" type="button" value="@TickitNewFace.Resources.Langue.Global_recherche"/>
+                </form>
+            </div>
+            <div id="resultatRange">
+            </div>
+        </fieldset>
+    </div>
+    <div id="tabs-3">
+        <fieldset>
+            <legend class="produitdetailsection">@TickitNewFace.Resources.Langue.Administration_MAJ_configuration</legend>
+            <br />
+            <form id="configurationForm" action="">
+            <div>
+                <input id="SaveConfiguration" class="boutonImprimPanier icone" type="button" value="@TickitNewFace.Resources.Langue.Global_sauvegarder" />
+            </div>
+            <table style="border: 0px">
+                <tr>
+                    <td style="border: 0px">
+                        <span class="produitdetailsection">Seuil_Minimal_Livraison_Incluse</span>
+                    </td>
+                    <td style="border: 0px">
+                        <span class="produitdetailsection">
+                            <input type="text" name="Seuil_Minimal_Livraison_Incluse" value="@ViewBag.config.Seuil_Minimal_Livraison_Incluse"/></span>
+                    </td>
+                </tr>
+            </table>
+            </form>
+            <div id="resultSaveConfig">
+            </div>
+        </fieldset>
+    </div>
+</div>

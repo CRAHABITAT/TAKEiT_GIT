@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="HDIProductDBModelStoreContainer" CdmEntityContainer="HDIProductDBEntities">
+    <EntitySetMapping Name="Description_Dgccrf">
+      <EntityTypeMapping TypeName="HDIProductDBModel.Description_Dgccrf">
+        <MappingFragment StoreEntitySet="Description_Dgccrf">
+          <ScalarProperty Name="Sku" ColumnName="Sku" />
+          <ScalarProperty Name="LangageId" ColumnName="LangageId" />
+          <ScalarProperty Name="LegalDescription" ColumnName="LegalDescription" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Description_Marketing">
+      <EntityTypeMapping TypeName="HDIProductDBModel.Description_Marketing">
+        <MappingFragment StoreEntitySet="Description_Marketing">
+          <ScalarProperty Name="Sku" ColumnName="Sku" />
+          <ScalarProperty Name="LangageId" ColumnName="LangageId" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Description_Plus">
+      <EntityTypeMapping TypeName="HDIProductDBModel.Description_Plus">
+        <MappingFragment StoreEntitySet="Description_Plus">
+          <ScalarProperty Name="Sku" ColumnName="Sku" />
+          <ScalarProperty Name="LangageId" ColumnName="LangageId" />
+          <ScalarProperty Name="Plus" ColumnName="Plus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Format_Impression">
+      <EntityTypeMapping TypeName="HDIProductDBModel.Format_Impression">
+        <MappingFragment StoreEntitySet="Format_Impression">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FORMAT" ColumnName="FORMAT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Langue">
+      <EntityTypeMapping TypeName="HDIProductDBModel.Langue">
+        <MappingFragment StoreEntitySet="Langue">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Prix">
+      <EntityTypeMapping TypeName="HDIProductDBModel.Prix">
+        <MappingFragment StoreEntitySet="Prix">
+          <ScalarProperty Name="Sku" ColumnName="Sku" />
+          <ScalarProperty Name="Date_debut" ColumnName="Date_debut" />
+          <ScalarProperty Name="Date_fin" ColumnName="Date_fin" />
+          <ScalarProperty Name="Prix1" ColumnName="Prix" />
+          <ScalarProperty Name="Type_promo" ColumnName="Type_promo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Produit">
+      <EntityTypeMapping TypeName="HDIProductDBModel.Produit">
+        <MappingFragment StoreEntitySet="Produit">
+          <ScalarProperty Name="Statut" ColumnName="Statut" />
+          <ScalarProperty Name="Sku" ColumnName="Sku" />
+          <ScalarProperty Name="Length" ColumnName="Length" />
+          <ScalarProperty Name="Width" ColumnName="Width" />
+          <ScalarProperty Name="Height" ColumnName="Height" />
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+          <ScalarProperty Name="Volume" ColumnName="Volume" />
+          <ScalarProperty Name="RangeId" ColumnName="RangeId" />
+          <ScalarProperty Name="Self_Assembly" ColumnName="Self_Assembly" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Range">
+      <EntityTypeMapping TypeName="HDIProductDBModel.Range">
+        <MappingFragment StoreEntitySet="Range">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="RangeName" ColumnName="RangeName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Titre_Produit">
+      <EntityTypeMapping TypeName="HDIProductDBModel.Titre_Produit">
+        <MappingFragment StoreEntitySet="Titre_Produit">
+          <ScalarProperty Name="LangageId" ColumnName="LangageId" />
+          <ScalarProperty Name="titre" ColumnName="titre" />
+          <ScalarProperty Name="Sku" ColumnName="Sku" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Variation">
+      <EntityTypeMapping TypeName="HDIProductDBModel.Variation">
+        <MappingFragment StoreEntitySet="Variation">
+          <ScalarProperty Name="LangageId" ColumnName="LangageId" />
+          <ScalarProperty Name="VariationName" ColumnName="VariationName" />
+          <ScalarProperty Name="Sku" ColumnName="Sku" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="Produit_Impression" TypeName="HDIProductDBModel.Produit_Impression" StoreEntitySet="Produit_Impression">
+      <EndProperty Name="Format_Impression">
+        <ScalarProperty Name="Id" ColumnName="Id_format" />
+      </EndProperty>
+      <EndProperty Name="Produit">
+        <ScalarProperty Name="Sku" ColumnName="Sku" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <EntitySetMapping Name="resultats_recherche">
+      <EntityTypeMapping TypeName="HDIProductDBModel.resultats_recherche">
+        <MappingFragment StoreEntitySet="resultats_recherche">
+          <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+          <ScalarProperty Name="statut" ColumnName="statut" />
+          <ScalarProperty Name="Date_fin" ColumnName="Date_fin" />
+          <ScalarProperty Name="Date_debut" ColumnName="Date_debut" />
+          <ScalarProperty Name="Prix" ColumnName="Prix" />
+          <ScalarProperty Name="titre" ColumnName="titre" />
+          <ScalarProperty Name="VariationName" ColumnName="VariationName" />
+          <ScalarProperty Name="RangeName" ColumnName="RangeName" />
+          <ScalarProperty Name="Sku" ColumnName="Sku" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

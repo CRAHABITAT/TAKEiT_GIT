@@ -1,0 +1,121 @@
+﻿<!-- Vue Chevalet de gamme -->
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $('#imprimLuminaire').click(function () {
+            var downloadUrl = '@Url.Content("~/Home/PrintLuminairePdf?")' + "format=" + $("#format_impression_luminaire").val() + "&dateQuery=" + "@ViewBag.dateQuery";
+            window.location.href = downloadUrl;
+        });
+
+        $('#chevaletTable tr td:last-child').click(function () {
+            var Sku = $(this).parent().children()[0].innerHTML;
+            var mapToSend = { "Sku": Sku };
+
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Content("~/Home/RemoveProduitFromLuminaire")',
+                data: mapToSend,
+                success: function (data) {
+                    $('#MenuImpressionLuminaire').html(data);
+                }
+            });
+        });
+
+        $('#viderLuminaire').click(function () {
+            if (confirm("@TickitNewFace.Resources.Langue.ConfirmJS_question")) {
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Content("~/Home/ViderLuminaire")',
+                    success: function (data) {
+                        $('#MenuImpressionLuminaire').html(data);
+                    }
+                });
+            }
+        });
+    });
+</script>
+@if (@ViewBag.Luminaire.produitDessus != null || @ViewBag.Luminaire.produitDessous != null)
+{
+    <br />
+    
+    <div style="margin-left: 15%; margin-right: 15%">
+        <fieldset>
+            <legend class="produitdetailsection">Impression luminaire : @ViewBag.Count produit(s)</legend>
+            <div class="icone">
+                @if (@ViewBag.Luminaire.produitDessus != null && @ViewBag.Luminaire.produitDessous != null)
+                {
+                    <span class="produitdetailinfo">
+                        <select id="format_impression_luminaire">
+                            <option value="@TickitNewFace.Const.ApplicationConsts.format_A6_simple">Format A6</option>
+                            <option value="@TickitNewFace.Const.ApplicationConsts.format_A7_simple">Format A7</option>
+                        </select>
+                    </span>
+                    <input id="imprimLuminaire" onmouseover="this.style.cursor='pointer'" class="boutonImprimPanier"
+                        type="button" value="Imprimer luminaire" />
+                }
+                <input id="viderLuminaire" onmouseover="this.style.cursor='pointer'" class="boutonImprimPanier"
+                    type="button" value="vider luminaire" />
+            </div>
+            <br />
+            <table style="margin-left: 5%; border: 0px">
+                <tr id="chevalet" style="border: 0px">
+                    <td style="border: 0px">
+                        <img alt="" src="@Url.Content("~/Content/themes/image/luminaire.png")"></img>
+                    </td>
+                    <td style="border: 0px">
+                        <div style="width: 15px">
+                        </div>
+                    </td>
+                    <td style="border: 0px">
+                        <div>
+                            <table id="chevaletTable" style="border: 0px">
+                                @if (@ViewBag.Luminaire.produitDessus != null)
+                                {
+                                    <tr style="border: 0px">
+                                        <td style="border: 0px">@ViewBag.Luminaire.produitDessus.sku
+                                        </td>
+                                        <td style="border: 0px">@ViewBag.Luminaire.produitDessus.variation
+                                        </td>
+                                        <td style="border: 0px">@ViewBag.Luminaire.produitDessus.range
+                                        </td>
+                                        <td style="border: 0px">@ViewBag.Luminaire.produitDessus.prix
+                                        </td>
+                                        <td style="border: 0px">
+                                            <img alt="" id="RemoveDessus" title="@TickitNewFace.Resources.Langue.Chevalet_supprimerProduit @ViewBag.Luminaire.produitDessus.sku du Chevalet" onmouseover="this.style.cursor='pointer'" src="@Url.Content("~/Content/themes/image/remove.png")"></img>
+                                        </td>
+                                    </tr>
+                                }
+                                @if (@ViewBag.Luminaire.produitDessous != null)
+                                {
+                                    <tr style="border: 0px">
+                                        <td style="border: 0px">@ViewBag.Luminaire.produitDessous.sku
+                                        </td>
+                                        <td style="border: 0px">@ViewBag.Luminaire.produitDessous.variation
+                                        </td>
+                                        <td style="border: 0px">@ViewBag.Luminaire.produitDessous.range
+                                        </td>
+                                        <td style="border: 0px">@ViewBag.Luminaire.produitDessous.prix
+                                        </td>
+                                        <td style="border: 0px">
+                                            <img alt="" id="RemoveDessous" title="@TickitNewFace.Resources.Langue.Chevalet_supprimerProduit @ViewBag.Luminaire.produitDessous.sku du Chevalet" onmouseover="this.style.cursor='pointer'" src="@Url.Content("~/Content/themes/image/remove.png")"></img>
+                                        </td>
+                                    </tr>
+                                }
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            @if (@ViewBag.ProduitDejaExistant == true)
+            {
+                <div style="text-align: center">
+                    <span class="infoPanier" style="color: red">le produit existe déja dans l'ensemble luminaire.</span></div>
+            }
+            @if (@ViewBag.LuminaireCapaciteAtteinte == true)
+            {
+                <div style="text-align: center">
+                    <span class="infoPanier" style="color: red">La capacité du luminaire est atteinte</span></div>
+            }
+        </fieldset>
+    </div>
+}

@@ -1,0 +1,118 @@
+﻿<!-- point d'entrée de l'application -->
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $("#search_input_date").datepicker({
+            showOn: "none"
+        });
+        $(".calendar").click(function () {
+            $("#search_input_date").datepicker('show');
+        });
+
+        function dateFormat(date, format) {
+            // Calculate date parts and replace instances in format string accordingly
+            format = format.replace("DD", (date.getDate() < 10 ? '0' : '') + date.getDate()); // Pad with '0' if needed
+            format = format.replace("MM", (date.getMonth() < 9 ? '0' : '') + (date.getMonth() + 1)); // Months are zero-based
+            format = format.replace("YYYY", date.getFullYear());
+            return format;
+        }
+
+        var now = new Date();
+        jour = now.getDate();
+        mois = (now.getMonth() + 1);
+
+        // to do !!!
+        if (jour < 10) {
+            jour = "0" + jour;
+        }
+
+        if (mois < 10) {
+            mois = "0" + mois;
+        }
+
+        $("#search_input_date").attr("value", jour + "/" + mois + "/" + now.getFullYear());
+
+        // test de format date.
+        function isDate(sDate) {
+            if (!sDate.match("^[0-9]{2}/[0-9]{2}/[0-9]{4}$")) return false;
+            return true;
+        }
+
+        $('.searchAction').click(function () {
+
+            if (($('#search_input').val() == "") || !isDate($('#search_input_date').val())) {
+                // à externaliser
+                $('#resultatRecherche2').html('<br/><div style="background: #F7F7F7;"><span style="color:Red" class="produitdetailinfo">Merci de saisir une date (jj/mm/aaaa) (et / ou) un nom de PLV Gamme Valides</span><br/></div>');
+            }
+            else {
+                $('#resultatRecherche2').html('<IMG src="@Url.Content("~/Content/themes/image/Loader.gif")" alt="">')
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Content("~/Home/GammePLV")',
+                    data: { rechercheText: $('#search_input').val(), rechercheDate: $('#search_input_date').val() },
+                    success: function (data) {
+                        $('#resultatRecherche2').html(data);
+                    }
+                });
+            }
+        });
+
+        function sendQueryOnKeyPressed(event) {
+            // touche 'enter'
+            if (event.keyCode == 13) {
+                event.preventDefault();
+                if (($('#search_input').val() == "") || !isDate($('#search_input_date').val())) {
+                    // à externaliser
+                    $('#resultatRecherche2').html('<br/><div style="background: #F7F7F7;"><span style="color:Red" class="produitdetailinfo">Merci de saisir une date (jj/mm/aaaa) (et / ou) un nom de PLV Gamme Valides</span><br/></div>');
+                }
+                else {
+                    $('#resultatRecherche2').html('<IMG src="@Url.Content("~/Content/themes/image/Loader.gif")" alt="">')
+                    $.ajax({
+                        type: 'POST',
+                        url: '@Url.Content("~/Home/GammePLV")',
+                        data: { rechercheText: $('#search_input').val(), rechercheDate: $('#search_input_date').val() },
+                        success: function (data) {
+                            $('#resultatRecherche2').html(data);
+                        }
+                    });
+                }
+            }
+        }
+
+        // Touche "entrer" sur la zone Sku / Range
+        $('#search_input').keypress(function (event) {
+            sendQueryOnKeyPressed(event);
+        });
+
+        // Touche "entrer" sur la zone date
+        $('#search_input_date').keypress(function (event) {
+            sendQueryOnKeyPressed(event);
+        });
+    });
+</script>
+<div>
+    <form action="#">
+    <table style="border: 0px;">
+        <tr style="border: 0px">
+            <td style="border: 0px" class="produitdetailinfo">
+                <div class="search-button">
+                    <input value="@ViewBag.initialDate" id="search_input_date" type="text" placeholder="20/02/13" style="float: left; width: 75px; margin-top: 2px;"/>
+                    <div class="calendar" style="float:right"></div>
+                </div>
+            </td>
+            <td style="border: 0px" class="produitdetailinfo">
+                <div class="search-button">
+                    <input id="search_input" type="text" size="200" placeholder="Nom PLV Gamme" style="float:left" />
+                    <input class="boutonImprimPanier searchAction" onmouseover="this.style.cursor='pointer'" type="button" style="float:right" value=""/>
+                </div>
+            </td>
+        </tr>
+    </table>
+    </form>
+</div>
+<div id="resultatRecherche2">
+</div>
+<div id="MenuImpressionLuminaire">
+</div>
+<div id="panierImpression">
+</div>

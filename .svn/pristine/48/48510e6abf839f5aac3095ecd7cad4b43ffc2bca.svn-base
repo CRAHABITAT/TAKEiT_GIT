@@ -1,0 +1,1602 @@
+﻿<!-- Vue Fiche. Affiche les détails d'un produit et permet de le mettre à jour -->
+<script type="text/javascript">
+    $(document).ready(function () {
+        
+        $("#tabs").tabs();
+        /*
+        $.ajax({
+        type: 'POST',
+        url: '@Url.Content("~/Home/MenuSkusassocie")',
+        data: { "Sku": $('#skuToSend').val() },
+        success: function (data) {
+        $('#MenuSkusassocie').html(data);
+        }
+        });
+        $.ajax({
+        type: 'POST',
+        url: '@Url.Content("~/Home/MenuSkusgroupe")',
+        data: { "Sku": $('#skuToSend').val() },
+        success: function (data) {
+        $('#MenuSkusgroupe').html(data);
+        }
+        });
+        $.ajax({
+        type: 'POST',
+        url: '@Url.Content("~/Home/MenuMatiere")',
+        data: { "Sku": $('#skuToSend').val() },
+        success: function (data) {
+        $('#MenuMatiere').html(data);
+        }
+        });
+        $.ajax({
+        type: 'POST',
+        url: '@Url.Content("~/Home/MenuCouleur")',
+        data: { "Sku": $('#skuToSend').val() },
+        success: function (data) {
+        $('#MenuCouleur').html(data);
+        }
+        });
+        */
+
+        $('#graphicData').html('<IMG src="@Url.Content("~/Content/themes/image/Loader.gif")" alt="">')
+        var mapToSend = { "Sku": $('#skuToSend').val() };
+        $.ajax({
+            type: 'POST',
+            url: '@Url.Content("~/Home/EvolutionGraphiquePrix")',
+            data: mapToSend,
+            success: function (data) {
+                $('#graphicData').html(data);
+            }
+        });
+
+        $('#skuToSend').hide();
+        $('#visualisationDetails').show();
+        $('#modificationDetails').hide();
+
+        $('#editerProduit').click(function () {
+            $('#visualisationDetails').hide();
+            $('#modificationDetails').show();
+        });
+
+        $('#annulerModif').click(function () {
+            $('#visualisationDetails').show();
+            $('#modificationDetails').hide();
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Content("~/Home/MenuSkusassocie")',
+                data: { "Sku": $('#skuToSend').val() },
+                success: function (data) {
+                    $('#MenuSkusassocie').html(data);
+                }
+            });
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Content("~/Home/MenuSkusgroupe")',
+                data: { "Sku": $('#skuToSend').val() },
+                success: function (data) {
+                    $('#MenuSkusgroupe').html(data);
+                }
+            });
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Content("~/Home/MenuMatiere")',
+                data: { "Sku": $('#skuToSend').val() },
+                success: function (data) {
+                    $('#MenuMatiere').html(data);
+                }
+            });
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Content("~/Home/MenuCouleur")',
+                data: { "Sku": $('#skuToSend').val() },
+                success: function (data) {
+                    $('#MenuCouleur').html(data);
+                }
+            });
+        });
+
+        $('#saveModif').click(function () {
+
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Content("~/Home/SaveFiche")',
+                data: $('#editForm').serialize(),
+                success: function (data) {
+                    window.location = 'Fiche?Sku=' + $('#skuToSend').val();
+                }
+            });
+
+            $('#visualisationDetails').show();
+            $('#modificationDetails').hide();
+        });
+
+
+
+
+        $('#skuToSend2').hide();
+        $('#visualisationDetails2').show();
+        $('#modificationDetails2').hide();
+
+        $('#editerProduit2').click(function () {
+            $('#visualisationDetails2').hide();
+            $('#modificationDetails2').show();
+        });
+
+        $('#annulerModif2').click(function () {
+            $('#visualisationDetails2').show();
+            $('#modificationDetails2').hide();
+        });
+
+        $('#saveModif2').click(function () {
+            $('loadhere').show();
+            $('loadheretoo').show();
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Content("~/Home/SaveFicheIPLV")',
+                data: $('#editForm2').serialize(),
+                success: function (data) {
+
+                    window.location = 'Fiche?Sku=' + $('#skuToSend2').val();
+                }
+            });
+
+            $('#visualisationDetails2').show();
+            $('#modificationDetails2').hide();
+        });
+    });
+</script>
+    
+<div id="tabs">
+
+@if (null != @Session["isAdmin"] && @Session["isAdmin"].Equals(true))
+{
+    
+    <ul>
+        <!--<li><a href="#tabs-2">PLV électronique</a></li>-->
+        <li><a href="#tabs-1">Fiche produit</a></li>
+    </ul>
+}    
+    <div id="tabs-1">
+        <p>
+            <br />
+            <div id="visualisationDetails">
+                <div>
+                    @if (null != @Session["isAdmin"] && @Session["isAdmin"].Equals(true))
+                    {
+                        <input id="editerProduit" class="boutonImprimPanier icone" onmouseover="this.style.cursor='pointer'" type="button" value="@TickitNewFace.Resources.Langue.Fiche_BoutonEditer" />
+                    }
+                </div>
+                <table style="border: 0px">
+                    <tr>
+                        <td style="border: 0px">
+                            <div>
+                                <p style="border-bottom: 1px dotted #D2D4CD;">
+                                    <span class="produitdetailTitre">@ViewBag.RangeName</span> <span class="produitdetailinfo">
+                                        <br />@ViewBag.variation.VariationName</span></p>
+                                <br />
+                                <table style="border: 0px">
+                                    <tr>
+                                        <td style="border: 0px">
+                                            <p class="produitdetailsection">@TickitNewFace.Resources.Langue.Fiche_InformationsGenerales</p>
+                                            <table style="border: 0px" class="produitdetailinfo">
+                                                <tr>
+                                                    <td style="border: 0px">
+                                                        <span class="produitdetailinfo">Sku</span>
+                                                    </td>
+                                                    <td style="border: 0px">
+                                                        <span class="produitdetailinfo">@ViewBag.produit.Sku</span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: 0px">
+                                                        <span class="produitdetailinfo">@TickitNewFace.Resources.Langue.Fiche_Statut</span>
+                                                    </td>
+                                                    <td style="border: 0px">
+                                                        <span class="produitdetailinfo">@ViewBag.produit.Statut</span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: 0px">
+                                                        <span class="produitdetailinfo">@TickitNewFace.Resources.Langue.Fiche_Montage</span>
+                                                    </td>
+                                                    <td style="border: 0px">
+                                                        <span class="editselect produitdetailinfo">@ViewBag.produit.Self_Assembly</span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: 0px">
+                                                        <span class="produitdetailinfo">@TickitNewFace.Resources.Langue.Fiche_PrixActuel</span>
+                                                    </td>
+                                                    <td style="border: 0px">
+                                                        <span class="produitdetailinfo">@ViewBag.prix.Prix_produit @ViewBag.codeMonnaie</span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: 0px">
+                                                        <span class="produitdetailinfo">@TickitNewFace.Resources.Langue.Fiche_Longueur</span>
+                                                    </td>
+                                                    <td style="border: 0px">
+                                                        <span class="produitdetailinfo editable">@ViewBag.produit.Longueur</span><span class="produitdetailinfo">
+                                                            cm</span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: 0px">
+                                                        <span class="produitdetailinfo">@TickitNewFace.Resources.Langue.Fiche_Largeur</span>
+                                                    </td>
+                                                    <td style="border: 0px">
+                                                        <span class="produitdetailinfo editable">@ViewBag.produit.Largeur</span><span class="produitdetailinfo">
+                                                            cm</span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: 0px">
+                                                        <span class="produitdetailinfo">@TickitNewFace.Resources.Langue.Fiche_Hauteur</span>
+                                                    </td>
+                                                    <td style="border: 0px">
+                                                        <span class="produitdetailinfo editable">@ViewBag.produit.Hauteur</span><span class="produitdetailinfo">
+                                                            cm</span>
+                                                    </td>
+                                                </tr>
+
+
+
+                                                <tr>
+                                                    <td style="border: 0px">
+                                                        <span class="produitdetailinfo">Profondeur</span>
+                                                    </td>
+                                                    <td style="border: 0px">
+                                                        <span class="produitdetailinfo editable">@ViewBag.produit.Profondeur</span><span class="produitdetailinfo">
+                                                            cm</span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: 0px">
+                                                        <span class="produitdetailinfo">Diametre</span>
+                                                    </td>
+                                                    <td style="border: 0px">
+                                                        <span class="produitdetailinfo editable">@ViewBag.produit.Diametre</span><span class="produitdetailinfo">
+                                                            cm</span>
+                                                    </td>
+                                                </tr>
+
+
+
+                                                <tr>
+                                                    <td style="border: 0px">
+                                                        <span class="produitdetailinfo">@TickitNewFace.Resources.Langue.Fiche_Volume</span>
+                                                    </td>
+                                                    <td style="border: 0px">
+                                                        <span class="produitdetailinfo editable">@ViewBag.produit.Volume</span><span class="produitdetailinfo">
+                                                            m3</span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: 0px">
+                                                        <span class="produitdetailinfo">Variation</span>
+                                                    </td>
+                                                    <td style="border: 0px">
+                                                        <span class="produitdetailinfo">@ViewBag.variation.VariationName</span>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="border: 0px">
+                                            <table class="produitdetailinfo" style="border: 0px">
+                                                <p class="produitdetailsection">@TickitNewFace.Resources.Langue.Fiche_Plus</p>
+                                                @{
+                                                    if (@ViewBag.plus.Count == 0)
+                                                    { 
+                                                        <tr>
+                                                            <td style="border: 0px">
+                                                                <span class="produitdetailinfo">Aucun plus n a été saisie</span>
+                                                            </td>
+                                                        </tr>
+                                                    }
+                                                    else
+                                                    {
+
+                                                        foreach (var item in ViewBag.plus)
+                                                        {
+                                                        <tr>
+                                                            <td style="border: 0px">
+                                                                <span class="produitdetailinfo">- @item.Plus</span>
+                                                            </td>
+                                                        </tr>
+                                                        }
+                                                    }
+                                                }
+                                            </table>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td style="border: 0px">
+                                            <table class="produitdetailinfo" style="border: 0px">
+                                                <p class="produitdetailsection">Format impression</p>
+                                                @if (@ViewBag.formatfiche.formatA5RV == "A5_recto_verso")
+                                                {
+                                                    <tr>
+                                                        <td style="border: 0px">
+                                                            <span class="produitdetailinfo">- A5 recto verso <b>OUI</b></span>
+                                                        </td>
+                                                    </tr>
+                                                }
+                                                else
+                                                { 
+                                                    <tr>
+                                                        <td style="border: 0px">
+                                                            <span class="produitdetailinfo">- A5 recto verso <b>NON</b></span>
+                                                        </td>
+                                                    </tr>
+                                                }
+                                                @if (@ViewBag.formatfiche.formatA5S == "A5_simple")
+                                                {
+                                                    <tr>
+                                                        <td style="border: 0px">
+                                                            <span class="produitdetailinfo">- A5 simple <b>OUI</b></span>
+                                                        </td>
+                                                    </tr>
+                                                }
+                                                else
+                                                { 
+                                                    <tr>
+                                                        <td style="border: 0px">
+                                                            <span class="produitdetailinfo">- A5 simple <b>NON</b></span>
+                                                        </td>
+                                                    </tr>
+                                                }
+
+
+                                                @if (@ViewBag.formatfiche.formatA6RV == "A6_recto_verso")
+                                                {
+                                                    <tr>
+                                                        <td style="border: 0px">
+                                                            <span class="produitdetailinfo">- A6 recto verso <b>OUI</b></span>
+                                                        </td>
+                                                    </tr>
+                                                }
+                                                else
+                                                { 
+                                                    <tr>
+                                                        <td style="border: 0px">
+                                                            <span class="produitdetailinfo">- A6 recto verso <b>NON</b></span>
+                                                        </td>
+                                                    </tr>
+                                                }
+                                                @if (@ViewBag.formatfiche.formatA6S == "A6_simple")
+                                                {
+                                                    <tr>
+                                                        <td style="border: 0px">
+                                                            <span class="produitdetailinfo">- A6 simple <b>OUI</b></span>
+                                                        </td>
+                                                    </tr>
+                                                }
+                                                else
+                                                { 
+                                                    <tr>
+                                                        <td style="border: 0px">
+                                                            <span class="produitdetailinfo">- A6 simple <b>NON</b></span>
+                                                        </td>
+                                                    </tr>
+                                                }
+
+
+                                                @if (@ViewBag.formatfiche.formatA7RV == "A7_recto_verso")
+                                                {
+                                                    <tr>
+                                                        <td style="border: 0px">
+                                                            <span class="produitdetailinfo">- A7 recto verso <b>OUI</b></span>
+                                                        </td>
+                                                    </tr>
+                                                }
+                                                else
+                                                { 
+                                                    <tr>
+                                                        <td style="border: 0px">
+                                                            <span class="produitdetailinfo">- A7 recto verso <b>NON</b></span>
+                                                        </td>
+                                                    </tr>
+                                                }
+                                                @if (@ViewBag.formatfiche.formatA7S == "A7_simple")
+                                                {
+                                                    <tr>
+                                                        <td style="border: 0px">
+                                                            <span class="produitdetailinfo">- A7 simple <b>OUI</b></span>
+                                                        </td>
+                                                    </tr>
+                                                }
+                                                else
+                                                { 
+                                                    <tr>
+                                                        <td style="border: 0px">
+                                                            <span class="produitdetailinfo">- A7 simple <b>NON</b></span>
+                                                        </td>
+                                                    </tr>
+                                                }
+                               
+                                            </table>
+                                           
+                                        </td>
+                                    </tr>
+
+                                </table>
+                            </div>
+                        </td>
+                        <td style="border: 0px">
+                            <div style="width: 10px">
+                            </div>
+                        </td>
+                        <td style="border: 0px">
+                            <div id="graphicData">
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                <p class="produitdetailsection">@TickitNewFace.Resources.Langue.Fiche_DGCCRF</p>
+                <div style="width: 50%">
+                    <span class="produitdetailinfo">@ViewBag.dgccrf</span></div>
+            </div>
+            <div id="modificationDetails" style="margin-left: 25px">
+                <form id="editForm" action="">
+                <input id="annulerModif" class="boutonImprimPanier icone" type="button" value="ANNULER" />
+                <input id="saveModif" class="boutonImprimPanier icone" type="button" value="@TickitNewFace.Resources.Langue.Global_sauvegarder" />
+                <p>
+                    <span class="produitdetailTitre">@ViewBag.RangeName</span> <span class="produitdetailinfo">
+                        <br />@ViewBag.variation.VariationName</span></p>
+                <br />
+                <input type="text" name="Sku" id="skuToSend" value="@ViewBag.produit.Sku"/>
+                <table style="border: 0px">
+                    <tr>
+                        <td style="border: 0px">
+                            <p class="produitdetailsection">@TickitNewFace.Resources.Langue.Fiche_InformationsGenerales</p>
+                            <table style="border: 0px" class="produitdetailinfo">
+                                <tr>
+                                    <td style="border: 0px">
+                                        <span class="produitdetailinfo">Sku</span>
+                                    </td>
+                                    <td style="border: 0px">
+                                        <span class="produitdetailinfo">@ViewBag.produit.Sku</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="border: 0px">
+                                        <span class="produitdetailinfo">@TickitNewFace.Resources.Langue.Fiche_PrixActuel</span>
+                                    </td>
+                                    <td style="border: 0px">
+                                        <span class="produitdetailinfo">@ViewBag.prix.Prix_produit @ViewBag.codeMonnaie</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="border: 0px">
+                                        <span class="produitdetailinfo">@TickitNewFace.Resources.Langue.Fiche_Statut</span>
+                                    </td>
+                                    <td style="border: 0px">
+                                        <span class="produitdetailinfo">@ViewBag.produit.Statut</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="border: 0px">
+                                        <span class="produitdetailinfo">@TickitNewFace.Resources.Langue.Fiche_Montage</span>
+                                    </td>
+                                    <td style="border: 0px">
+                                        <select name="Montage">
+                                            <option class="policeInfo" value="YES">@TickitNewFace.Resources.Langue.Fiche_Montage_aMonterSoiMeme</option>
+                                            <option class="policeInfo" value="NO">@TickitNewFace.Resources.Langue.Fiche_Montage_aNePasMonterSoiMeme</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="border: 0px">
+                                        <span class="produitdetailinfo">@TickitNewFace.Resources.Langue.Fiche_Longueur</span>
+                                    </td>
+                                    <td style="border: 0px">
+                                        <input name="Length" class="policeInfo" type="text" size="5" value="@ViewBag.produit.Longueur" /><span
+                                            class="produitdetailinfo"> cm</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="border: 0px">
+                                        <span class="produitdetailinfo">@TickitNewFace.Resources.Langue.Fiche_Largeur</span>
+                                    </td>
+                                    <td style="border: 0px">
+                                        <input name="Width" class="policeInfo" type="text" size="5" value="@ViewBag.produit.Largeur" /><span
+                                            class="produitdetailinfo"> cm</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="border: 0px">
+                                        <span class="produitdetailinfo">@TickitNewFace.Resources.Langue.Fiche_Hauteur</span>
+                                    </td>
+                                    <td style="border: 0px">
+                                        <input name="Height" class="policeInfo" type="text" size="5" value="@ViewBag.produit.Hauteur" /><span
+                                            class="produitdetailinfo"> cm</span>
+                                    </td>
+                                </tr>
+
+
+                                 <tr>
+                                    <td style="border: 0px">
+                                        <span class="produitdetailinfo">Profondeur</span>
+                                    </td>
+                                    <td style="border: 0px">
+                                        <input name="Profondeur" class="policeInfo" type="text" size="5" value="@ViewBag.produit.Profondeur" /><span
+                                            class="produitdetailinfo"> cm</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="border: 0px">
+                                        <span class="produitdetailinfo">Diametre</span>
+                                    </td>
+                                    <td style="border: 0px">
+                                        <input name="Diametre" class="policeInfo" type="text" size="5" value="@ViewBag.produit.Diametre" /><span
+                                            class="produitdetailinfo"> cm</span>
+                                    </td>
+                                </tr>
+
+
+
+                                <tr>
+                                    <td style="border: 0px">
+                                        <span class="produitdetailinfo">@TickitNewFace.Resources.Langue.Fiche_Volume</span>
+                                    </td>
+                                    <td style="border: 0px">
+                                        <input name="Volume" class="policeInfo" type="text" size="5" value="@ViewBag.produit.Volume" /><span
+                                            class="produitdetailinfo"> m3</span>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="border: 0px">
+                                        <span class="produitdetailinfo">Variation</span>
+                                    </td>
+                                    <td style="border: 0px">
+                                        <input name="Variation" class="policeInfo" type="text" size="5" value="@ViewBag.variation.VariationName" />(250 char max)<span
+                                            class="produitdetailinfo"></span>
+                                    </td>
+                                </tr>
+
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="border: 0px">
+                            <p class="produitdetailsection">@TickitNewFace.Resources.Langue.Fiche_Plus</p>
+                            <table style="border: 0px" class="produitdetailinfo">
+                                @{
+                                    if (ViewBag.plus.Count == 0)
+                                    {
+                                    <tr>
+                                        <td style="border: 0px">
+                                            <input name="Plus1" class="policeInfo" type="text" size="5" value="" />(50 char max)<span
+                                            class="produitdetailinfo"></span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="border: 0px">
+                                            <input name="Plus2" class="policeInfo" type="text" size="5" value="" />(50 char max)<span
+                                            class="produitdetailinfo"></span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="border: 0px">
+                                            <input name="Plus3" class="policeInfo" type="text" size="5" value="" />(50 char max)<span
+                                            class="produitdetailinfo"></span>
+                                        </td>
+                                    </tr>
+                                    } if (ViewBag.plus.Count == 1)
+                                    {
+                                    <tr>
+                                        <td style="border: 0px">
+                                            <input name="Plus1" class="policeInfo" type="text" size="5" value="@ViewBag.plus[0].Plus" />(50 char max)<span
+                                            class="produitdetailinfo"></span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="border: 0px">
+                                            <input name="Plus2" class="policeInfo" type="text" size="5" value="" />(50 char max)<span
+                                            class="produitdetailinfo"></span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="border: 0px">
+                                            <input name="Plus3" class="policeInfo" type="text" size="5" value="" />(50 char max)<span
+                                            class="produitdetailinfo"></span>
+                                        </td>
+                                    </tr>
+                                    } if (ViewBag.plus.Count == 2)
+                                    {
+                                    <tr>
+                                        <td style="border: 0px">
+                                            <input name="Plus1" class="policeInfo" type="text" size="5" value="@ViewBag.plus[0].Plus" />(50 char max)<span
+                                            class="produitdetailinfo"></span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="border: 0px">
+                                            <input name="Plus2" class="policeInfo" type="text" size="5" value="@ViewBag.plus[1].Plus" />(50 char max)<span
+                                            class="produitdetailinfo"></span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="border: 0px">
+                                            <input name="Plus3" class="policeInfo" type="text" size="5" value="" />(50 char max)<span
+                                            class="produitdetailinfo"></span>
+                                        </td>
+                                    </tr>
+                                    } if (ViewBag.plus.Count == 3)
+                                    {
+                                    <tr>
+                                        <td style="border: 0px">
+                                            <input name="Plus1" class="policeInfo" type="text" size="5" value="@ViewBag.plus[0].Plus" />(50 char max)<span
+                                            class="produitdetailinfo"></span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="border: 0px">
+                                            <input name="Plus2" class="policeInfo" type="text" size="5" value="@ViewBag.plus[1].Plus" />(50 char max)<span
+                                            class="produitdetailinfo"></span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="border: 0px">
+                                            <input name="Plus3" class="policeInfo" type="text" size="5" value="@ViewBag.plus[2].Plus" />(50 char max)<span
+                                            class="produitdetailinfo"></span>
+                                        </td>
+                                    </tr>
+                                    }
+                                }
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="border: 0px">
+                            <p class="produitdetailsection">Format impression</p>
+                            <table style="border: 0px" class="produitdetailinfo">
+                                @if (null != @Session["isAdmin"] && @Session["isAdmin"].Equals(true) && null != @Session["franchiseName"] && @Session["franchiseName"].Equals(@TickitNewFace.Const.ApplicationConsts.nonFranchise))
+                                {
+
+
+                                    if (@ViewBag.formatfiche.formatA5RV == "A5_recto_verso")
+                                    {
+                                        <tr>
+                                            <td style="border: 0px">
+                                                 <input type="checkbox" checked="checked" name="formatA5RV" value="A5_recto_verso"/>A5 recto verso<br />
+                                            </td>
+                                        </tr>
+                                    }
+                                    else
+                                    { 
+                                        <tr>
+                                            <td style="border: 0px">
+                                                 <input type="checkbox" name="formatA5RV" value="A5_recto_verso"/>A5 recto verso<br />
+                                            </td>
+                                        </tr>
+                                    }
+                                    if (@ViewBag.formatfiche.formatA5S == "A5_simple")
+                                    {
+                                        <tr>
+                                            <td style="border: 0px">
+                                                 <input type="checkbox" checked="checked" name="formatA5S" value="A5_simple"/>A5 simple<br />
+                                            </td>
+                                        </tr>
+                                    }
+                                    else
+                                    { 
+                                        <tr>
+                                            <td style="border: 0px">
+                                                 <input type="checkbox" name="formatA5S" value="A5_simple"/>A5 simple<br />
+                                            </td>
+                                        </tr>
+                                    }
+
+
+                                    if (@ViewBag.formatfiche.formatA6RV == "A6_recto_verso")
+                                    {
+                                        <tr>
+                                            <td style="border: 0px">
+                                                <input type="checkbox" checked="checked" name="formatA6RV" value="A6_recto_verso"/>A6 recto verso<br />
+                                            </td>
+                                        </tr>
+                                    }
+                                    else
+                                    { 
+                                        <tr>
+                                            <td style="border: 0px">
+                                                <input type="checkbox" name="formatA6RV" value="A6_recto_verso"/>A6 recto verso<br />
+                                            </td>
+                                        </tr>
+                                    }
+                                    if (@ViewBag.formatfiche.formatA6S == "A6_simple")
+                                    {
+                                        <tr>
+                                            <td style="border: 0px">
+                                                <input type="checkbox" checked="checked" name="formatA6S" value="A6_simple"/>A6 simple<br />
+                                            </td>
+                                        </tr>
+                                    }
+                                    else
+                                    { 
+                                        <tr>
+                                            <td style="border: 0px">
+                                                <input type="checkbox" name="formatA6S" value="A6_simple"/>A6 simple<br />
+                                            </td>
+                                        </tr>
+                                    }
+
+
+                                    if (@ViewBag.formatfiche.formatA7RV == "A7_recto_verso")
+                                    {
+                                        <tr>
+                                            <td style="border: 0px">
+                                                <input type="checkbox" checked="checked" name="formatA7RV" value="A7_recto_verso"/>A7 recto verso<br />
+                                            </td>
+                                        </tr>
+                                    }
+                                    else
+                                    { 
+                                        <tr>
+                                            <td style="border: 0px">
+                                                <input type="checkbox" name="formatA7RV" value="A7_recto_verso"/>A7 recto verso<br />
+                                            </td>
+                                        </tr>
+                                    }
+                                    if (@ViewBag.formatfiche.formatA7S == "A7_simple")
+                                    {
+                                        <tr>
+                                            <td style="border: 0px">
+                                                <input type="checkbox" checked="checked" name="formatA7S" value="A7_simple"/>A7 simple<br />
+                                            </td>
+                                        </tr>
+                                    }
+                                    else
+                                    { 
+                                        <tr>
+                                            <td style="border: 0px">
+                                                <input type="checkbox" name="formatA7S" value="A7_simple"/>A7 simple<br />
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+                                else
+                                {
+
+                                    if (@ViewBag.formatfiche.formatA5RV == "A5_recto_verso")
+                                    {
+                                        <tr>
+                                            <td style="border: 0px">
+                                                <span class="produitdetailinfo">- A5 recto verso <b>OUI</b></span>
+                                            </td>
+                                        </tr>
+                                    }
+                                    else
+                                    { 
+                                        <tr>
+                                            <td style="border: 0px">
+                                                <span class="produitdetailinfo">- A5 recto verso <b>NON</b></span>
+                                            </td>
+                                        </tr>
+                                    }
+                                    if (@ViewBag.formatfiche.formatA5S == "A5_simple")
+                                    {
+                                        <tr>
+                                            <td style="border: 0px">
+                                                <span class="produitdetailinfo">- A5 simple <b>OUI</b></span>
+                                            </td>
+                                        </tr>
+                                    }
+                                    else
+                                    { 
+                                        <tr>
+                                            <td style="border: 0px">
+                                                <span class="produitdetailinfo">- A5 simple <b>NON</b></span>
+                                            </td>
+                                        </tr>
+                                    }
+
+
+                                    if (@ViewBag.formatfiche.formatA6RV == "A6_recto_verso")
+                                    {
+                                        <tr>
+                                            <td style="border: 0px">
+                                                <span class="produitdetailinfo">- A6 recto verso <b>OUI</b></span>
+                                            </td>
+                                        </tr>
+                                    }
+                                    else
+                                    { 
+                                        <tr>
+                                            <td style="border: 0px">
+                                                <span class="produitdetailinfo">- A6 recto verso <b>NON</b></span>
+                                            </td>
+                                        </tr>
+                                    }
+                                    if (@ViewBag.formatfiche.formatA6S == "A6_simple")
+                                    {
+                                        <tr>
+                                            <td style="border: 0px">
+                                                <span class="produitdetailinfo">- A6 simple <b>OUI</b></span>
+                                            </td>
+                                        </tr>
+                                    }
+                                    else
+                                    { 
+                                        <tr>
+                                            <td style="border: 0px">
+                                                <span class="produitdetailinfo">- A6 simple <b>NON</b></span>
+                                            </td>
+                                        </tr>
+                                    }
+
+
+                                    if (@ViewBag.formatfiche.formatA7RV == "A7_recto_verso")
+                                    {
+                                        <tr>
+                                            <td style="border: 0px">
+                                                <span class="produitdetailinfo">- A7 recto verso <b>OUI</b></span>
+                                            </td>
+                                        </tr>
+                                    }
+                                    else
+                                    { 
+                                        <tr>
+                                            <td style="border: 0px">
+                                                <span class="produitdetailinfo">- A7 recto verso <b>NON</b></span>
+                                            </td>
+                                        </tr>
+                                    }
+                                    if (@ViewBag.formatfiche.formatA7S == "A7_simple")
+                                    {
+                                        <tr>
+                                            <td style="border: 0px">
+                                                <span class="produitdetailinfo">- A7 simple <b>OUI</b></span>
+                                            </td>
+                                        </tr>
+                                    }
+                                    else
+                                    { 
+                                        <tr>
+                                            <td style="border: 0px">
+                                                <span class="produitdetailinfo">- A7 simple <b>NON</b></span>
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+             
+                             </table>
+                        </td>
+                    </tr>
+                </table>
+                <p class="produitdetailsection">@TickitNewFace.Resources.Langue.Fiche_DGCCRF</p>
+                <textarea name="Dgccrf" rows="5" cols="120" class="policeInfo">@ViewBag.dgccrf</textarea>
+                </form>
+           
+
+
+        @if (ViewBag.updateSuccess != null)
+        { 
+                <div id="resultatEdit" style="color: Green">
+                    Fiche sauvegardé avec succès</div>
+        }
+
+        @if (ViewBag.error != null)
+        { 
+                <div id="resultatEdit2" style="color: Red">
+                    @ViewBag.error</div>
+        }
+                <div id="DialogImpression2" title="@TickitNewFace.Resources.Langue.MenuImpression_TitreMenu" />
+
+                </div>
+            </div>
+        </p>
+    </div>
+    <!--<div id="tabs-2">
+        <p>
+            <div id="visualisationDetails2">
+                <div>
+                    @if (null != @Session["isAdmin"] && @Session["isAdmin"].Equals(true))
+                    {
+                        <input id="editerProduit2" class="boutonImprimPanier icone" onmouseover="this.style.cursor='pointer'" type="button" value="@TickitNewFace.Resources.Langue.Fiche_BoutonEditer" />
+                    }
+                </div>
+                <table style="border: 0px">
+                    <tr>
+                        <td style="border: 0px">
+                             <div>
+                           
+                                <p style="border-bottom: 1px dotted #D2D4CD;">
+                                    <FONT size="8pt"><b>@ViewBag.RangeName</b></FONT> <span class="produitdetailinfo">
+                                        <br />@ViewBag.variation.VariationName</span></p>
+                                <br />
+                                <table style="border: 0px">
+                                    <tr>
+                                        <td style="border: 0px">
+                                            <FONT size="4pt">@TickitNewFace.Resources.Langue.Fiche_InformationsGenerales</FONT>
+                                            <table style="border: 0px" class="produitdetailinfo">
+                                            <tr>
+                                                    <td style="border: 0px">
+                                                       <b> <span class="produitdetailinfo"></span></b>
+                                                    </td>
+                                                    <td style="border: 0px">
+                                                        <span class="produitdetailinfo"></span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: 0px">
+                                                       <b> <span class="produitdetailinfo">Sku</span></b>
+                                                    </td>
+                                                    <td style="border: 0px">
+                                                        <span class="produitdetailinfo">@ViewBag.produit.Sku</span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: 0px">
+                                                       <b> <span class="produitdetailinfo">@TickitNewFace.Resources.Langue.Fiche_PrixActuel</span></b>
+                                                    </td>
+                                                    <td style="border: 0px">
+                                                        <span class="produitdetailinfo">@ViewBag.prix.Prix_produit @ViewBag.codeMonnaie</span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: 0px">
+                                                        <b><span class="produitdetailinfo">Variation</span></b>
+                                                    </td>
+                                                    <td style="border: 0px">
+                                                        <span class="produitdetailinfo">@ViewBag.variation.VariationName</span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: 0px">
+                                                        <b><span class="produitdetailinfo">Designer</span></b>
+                                                    </td>
+                                                    <td style="border: 0px">
+                                                    @if (@ViewBag.Designer != null)
+                                                    { 
+                                                        <span class="produitdetailinfo">@ViewBag.Designer</span>
+                                                    }
+                                                    else { 
+                                                        <span class="produitdetailinfo">Aucun nom trouvé</span>
+                                                    }
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: 0px">
+                                                       <b> <span class="produitdetailinfo">Designed Habitat</span></b>
+                                                    </td>
+                                                    <td style="border: 0px">
+                                                    @if (@ViewBag.IPLVDetails.designed_habitat != null)
+                                                    { 
+                                                        if (@ViewBag.IPLVDetails.designed_habitat == "TRUE")
+                                                        { 
+                                                            <span class="produitdetailinfo">YES</span>
+                                                        }
+                                                        else
+                                                        {
+                                                            <span class="produitdetailinfo">NO</span>
+                                                        }
+                                                    }
+                                                    else { 
+                                                        <span class="produitdetailinfo">aucun statut trouvé</span>
+                                                    }
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: 0px">
+                                                        
+                                                    </td>
+                                                    <td style="border: 0px">
+                                                        
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2" style="border: 0px">
+                                                        <b><p class="produitdetailsection">@TickitNewFace.Resources.Langue.Fiche_Plus</p></b>
+                                                        <table class="produitdetailinfo" style="border: 0px">
+                                               
+                                                            @{
+                                                                if (@ViewBag.plus.Count == 0)
+                                                                { 
+                                                                    <tr>
+                                                                        <td style="border: 0px">
+                                                                            <span class="produitdetailinfo">Aucun plus n a été saisie</span>
+                                                                        </td>
+                                                                    </tr>
+                                                                }
+                                                                else
+                                                                {
+
+                                                                    foreach (var item in ViewBag.plus)
+                                                                    {
+                                                                    <tr>
+                                                                        <td style="border: 0px">
+                                                                            <span class="produitdetailinfo">- @item.Plus</span>
+                                                                        </td>
+                                                                    </tr>
+                                                                    }
+                                                                }
+                                                            }
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    
+                                </table>
+                            </div>
+                        </td>
+                        <td style="border: 0px">
+                            <div style="width: 10px">
+                            </div>
+                        </td>
+                        <td style="border: 0px">
+                        @if(@ViewBag.limg != null){
+                            if(@ViewBag.limg.Count != 0){
+                                <img src="@ViewBag.limg[0]" alt="Smiley face" width="420"/>
+                            }
+                        }
+                        </td>
+                    </tr>
+                </table>
+                <br />
+                 
+                 <table style="border: 0px">
+                    <tr>
+                        <td style="border: 0px">
+                             <b><p class="produitdetailsection">Matieres</p></b>
+                        </td>
+                        <td style="border: 0px">
+                            <table style="border: 0px">
+                                <tr>
+                                @if (@ViewBag.IPLVDetails.matieres != null)
+                                {
+                                    foreach (var item in @ViewBag.IPLVDetails.matieres)
+                                    {
+                                        <td style="height:30px;width:100px;overflow:auto" align="center">@item
+                                        </td>
+                                    }
+                                }
+                                else { 
+                                    <td style="height:30px;width:100px;overflow:auto" align="center">Aucune Matiere
+                                        </td>
+                                }
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="border: 0px">
+                             <b><p class="produitdetailsection">Couleurs</p></b>
+                        </td>
+                        <td style="border: 0px">
+                            <table style="border: 0px">
+                                <tr>
+                                @if (@ViewBag.IPLVDetails.couleurs != null)
+                                {
+                                    foreach (var item in @ViewBag.IPLVDetails.couleurs)
+                                    {
+                                        <td style="border: 0px">
+                                            <table>
+                                                <tr>
+                                                    <td style="height:30%; width:100px;overflow:auto" align="center" bgcolor="@item">
+                                                    </td>
+                               
+                                                </tr>
+                                                <tr>
+                                                    <td style="height:70%; width:100px;overflow:auto" align="center"><FONT size="2pt">@item</FONT>
+                                                    </td>
+                               
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    }
+                                }else{
+                                    <td style="border: 0px">Aucune couleur</td>
+                                }
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+                <br />
+                <div class="visu">
+                 <br />
+                <FONT size="4pt">Caracteristiques</FONT>
+                <table style="border: 0px">
+                    <tr>
+                        <td style="border: 0px">
+                            <b><p class="produitdetailsection">Description Marketing</p></b>
+                            
+                            @if (@ViewBag.DrescMaketing != null)
+                            {
+                                <div style="width: 90%">
+                                <span class="produitdetailinfo">@ViewBag.DrescMaketing</span></div>
+                            }
+                            else
+                            {
+                                <div style="width: 90%">
+                                 <span class="produitdetailinfo">Aucune description marketing</span></div> 
+                            }
+                        </td>
+                    </tr>
+                </table>
+                <table style="border: 0px">
+                    <tr>
+                        <td style="border: 0px">
+                            <b><p class="produitdetailsection">Description technique</p></b>
+                            @if (@ViewBag.dgccrf != null)
+                            { 
+                            <div style="width: 90%">
+                                <span class="produitdetailinfo">@ViewBag.dgccrf</span></div>
+                            }
+                            else { 
+                                 <div style="width: 90%">
+                                <span class="produitdetailinfo">Aucune dgccrf pour ce produit</span></div>
+                            }
+                         </td>
+                    </tr>
+                </table>
+                <table style="border: 0px">
+                    <tr>
+                        <td style="border: 0px">
+                            <b><p class="produitdetailsection">Dimension du produit</p></b>
+                            @if (@ViewBag.IPLVDetails.dimension_produit != null)
+                            {
+                            <div style="width: 100%">
+                                <span class="produitdetailinfo">@ViewBag.IPLVDetails.dimension_produit</span></div>
+                            }
+                            else { 
+                            <div style="width: 100%">
+                                <span class="produitdetailinfo">Aucune dimension produit</span></div>
+                            }
+                         </td>
+                    </tr>
+                </table>
+                <table style="border: 0px">
+                    <tr>
+                        <td style="border: 0px">
+                            <b><p class="produitdetailsection">Dimension et poids des colis</p></b>
+                            @if (@ViewBag.IPLVDetails.dimension_colis != null)
+                            {
+                            <div style="width: 100%">
+                                <span class="produitdetailinfo">@ViewBag.IPLVDetails.dimension_colis</span></div>
+                            }
+                            else { 
+                            <div style="width: 100%">
+                                <span class="produitdetailinfo">Aucune dimension colis</span></div>
+                            }
+                         </td>
+                    </tr>
+                </table>
+            </div>
+             <br />
+                <table style="border: 0px">
+                    <tr>
+                        <td style="border: 0px">
+                            <b><p class="produitdetailsection">Skus Associés</p></b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="border: 0px">
+                            @if (@ViewBag.SkusAssocies != null)
+                            {
+                            <table style="border: 0px">
+                                @if (@ViewBag.SkusAssocies.Count != 0)
+                                {
+                                <tr style="border: 0px">
+                                    <td style="border: 0px"> </td>
+                                    <td style="height:30px;width:100px;overflow:auto;border: 0px" align="center;">Variation
+                                    </td>
+                                    <td style="height:30px;width:100px;overflow:auto;border: 0px" align="center;">Rang
+                                    </td>
+                                     <td style="height:30px;width:100px;overflow:auto;border: 0px" align="center">Sku
+                                    </td>
+                                </tr>
+                                }
+                                @foreach (var item in @ViewBag.SkusAssocies)
+                                {
+                                <tr style="border: 0px">
+                                     <td style="height:30px;width:100px;overflow:auto;border: 0px" align="center">
+                                    @if (@item.limg != null)
+                                    {
+                                        if (@item.limg.Count != 0)
+                                        {
+                                        <img src="@item.limg[0]" alt="Smiley face" width="50"/>
+                                        }
+                                    }
+                                    </td>
+                                    <td style="height:30px;width:100px;overflow:auto;border: 0px" align="center"><a href="Fiche?Sku=@item.sku"> @item.variation </a>
+                                    </td>
+                                    <td style="height:30px;width:100px;overflow:auto;border: 0px" align="center">@item.rang
+                                    </td>
+                                    <td style="height:30px;width:100px;overflow:auto;border: 0px" align="center">@item.sku
+                                    </td>
+                                </tr>
+                                }
+                           
+                            </table> 
+                            if (@ViewBag.SkusGroupe.Count == 0)
+                                {
+                                    <p>Aucun sku associé</p>
+                                }
+                            }
+                            else
+                            { 
+                                    <p>Aucun sku associé</p>
+                            }
+                        </td>
+                    </tr>
+                </table>
+                <br />
+                <br />
+                <table style="border: 0px">
+                    <tr>
+                        <td style="border: 0px">
+                            <b><p class="produitdetailsection">Skus du groupe</p></b>
+                        </td>
+                    </tr>
+                    <tr style="border: 0px">
+                        <td style="border: 0px">
+                            @if (@ViewBag.SkusGroupe != null)
+                            {
+                                if (@ViewBag.SkusGroupe.Count != 0)
+                                {
+                                <p>@ViewBag.SkusGroupe[0].nom</p>
+                                }
+                                else
+                                { 
+                                <p>Aucun nom</p>
+                                }
+                            }
+                            else
+                            { 
+                         <p>Aucun nom</p>
+                            }
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="border: 0px">
+                            @if (@ViewBag.SkusGroupe != null)
+                            {
+                            <table style="border: 0px">
+                                @if (@ViewBag.SkusGroupe.Count != 0)
+                                {
+                                <tr style="border: 0px">
+                                    <td style="border: 0px"> </td>
+                                    <td style="height:30px;width:100px;overflow:auto;border: 0px" align="center;">Variation
+                                    </td>
+                                    <td style="height:30px;width:100px;overflow:auto;border: 0px" align="center;">Rang
+                                    </td>
+                                     <td style="height:30px;width:100px;overflow:auto;border: 0px" align="center">Sku
+                                    </td>
+                                </tr>
+                                }
+                                @foreach (var item in @ViewBag.SkusGroupe)
+                                {
+                                <tr style="border: 0px">
+                                     <td style="height:30px;width:100px;overflow:auto;border: 0px" align="center">
+                                    @if (@item.limg != null)
+                                    {
+                                        if (@item.limg.Count != 0)
+                                        {
+                                        <img src="@item.limg[0]" alt="Smiley face" width="50"/>
+                                        }
+                                    }
+                                    </td>
+                                    <td style="height:30px;width:100px;overflow:auto;border: 0px" align="center"><a href="Fiche?Sku=@item.sku"> @item.variation </a>
+                                    </td>
+                                    <td style="height:30px;width:100px;overflow:auto;border: 0px" align="center">@item.rang
+                                    </td>
+                                    <td style="height:30px;width:100px;overflow:auto;border: 0px" align="center">@item.sku
+                                    </td>
+                                </tr>
+                                }
+                           
+                            </table> 
+                                if (@ViewBag.SkusGroupe.Count == 0)
+                                {
+                                    <p>Aucun sku du groupe</p>
+                                }
+                            }
+                            else
+                            { 
+                                    <p>Aucun sku du groupe</p>
+                            }
+                            
+                        </td>   
+                    </tr>
+                </table>
+            </div>
+            <div id="modificationDetails2">
+                <form id="editForm2" action="">
+                <input id="annulerModif2" class="boutonImprimPanier icone" type="button" value="ANNULER" />
+                <input id="saveModif2" class="boutonImprimPanier icone" type="button" value="@TickitNewFace.Resources.Langue.Global_sauvegarder" />
+                <input type="text" name="Sku" id="skuToSend2" value="@ViewBag.produit.Sku"/>
+                <table style="border: 0px">
+                    <tr>
+                        <td style="border: 0px">
+                            <div>
+                                <p  style="border-bottom: 1px dotted #D2D4CD;">
+                                    <FONT size="8pt"><b>@ViewBag.RangeName</b></FONT> <span class="produitdetailinfo">
+                                        <br />@ViewBag.variation.VariationName</span></p>
+                                <br />
+                                <table style="border: 0px">
+                                    <tr>
+                                        <td style="border: 0px">
+                                            <FONT size="4pt">@TickitNewFace.Resources.Langue.Fiche_InformationsGenerales</FONT>
+                                            <table style="border: 0px" class="produitdetailinfo">
+                                                <tr>
+                                                    <td style="border: 0px">
+                                                       <b> <span class="produitdetailinfo"></span></b>
+                                                    </td>
+                                                    <td style="border: 0px">
+                                                        <span class="produitdetailinfo"></span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: 0px">
+                                                       <b> <span class="produitdetailinfo">Sku</span></b>
+                                                    </td>
+                                                    <td style="border: 0px">
+                                                        <span class="produitdetailinfo">@ViewBag.produit.Sku</span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: 0px">
+                                                       <b> <span class="produitdetailinfo">@TickitNewFace.Resources.Langue.Fiche_PrixActuel</span></b>
+                                                    </td>
+                                                    <td style="border: 0px">
+                                                        <span class="produitdetailinfo">@ViewBag.prix.Prix_produit @ViewBag.codeMonnaie</span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: 0px">
+                                                        <b><span class="produitdetailinfo">Variation </span></b>(250 char max)
+                                                    </td>
+                                                     <td style="border: 0px">
+                                                        <input name="Variation" class="policeInfo" type="text" size="5" value="@ViewBag.variation.VariationName" /><span
+                                            class="produitdetailinfo"></span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: 0px">
+                                                        <b><span class="produitdetailinfo">Designer </span></b>(250 char max)
+                                                    </td>
+                                                     <td style="border: 0px">
+                                                        <input name="Designer" class="policeInfo" type="text" size="5" value="@ViewBag.Designer" /><span
+                                            class="produitdetailinfo"></span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: 0px">
+                                                       <b> <span class="produitdetailinfo">Designed Habitat</span></b>
+                                                    </td>
+                                                    <td style="border: 0px">
+                                                    @if (@ViewBag.IPLVDetails.designed_habitat == "FALSE")
+                                                    { 
+                                                        <select name="designed_habitat">
+                                                            <option value="FALSE">NO</option>
+                                                            <option value="TRUE">YES</option>
+                                                        </select>
+                                                    }
+                                                    else
+                                                    {
+                                                        <select name="designed_habitat">
+                                                            <option value="TRUE">YES</option>
+                                                            <option value="FALSE">NO</option>
+                                                        </select>
+                                                    }
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border: 0px">
+                                                        
+                                                    </td>
+                                                    <td style="border: 0px">
+                                                        
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2" style="border: 0px">
+                                                        <b><span class="produitdetailinfo">@TickitNewFace.Resources.Langue.Fiche_Plus</span></b> (50 char max par champ)
+                                                        <table style="border: 0px" class="produitdetailinfo">
+                                                            @{
+                                                                if (ViewBag.plus.Count == 0)
+                                                                {
+                                                                <tr>
+                                                                    <td style="border: 0px">
+                                                                        <input name="Plus1" class="policeInfo" type="text" size="5" value="" /><span
+                                                                        class="produitdetailinfo"></span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="border: 0px">
+                                                                        <input name="Plus2" class="policeInfo" type="text" size="5" value="" /><span
+                                                                        class="produitdetailinfo"></span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="border: 0px">
+                                                                        <input name="Plus3" class="policeInfo" type="text" size="5" value="" /><span
+                                                                        class="produitdetailinfo"></span>
+                                                                    </td>
+                                                                </tr>
+                                                                } if (ViewBag.plus.Count == 1)
+                                                                {
+                                                                <tr>
+                                                                    <td style="border: 0px">
+                                                                        <input name="Plus1" class="policeInfo" type="text" size="5" value="@ViewBag.plus[0].Plus" /><span
+                                                                        class="produitdetailinfo"></span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="border: 0px">
+                                                                        <input name="Plus2" class="policeInfo" type="text" size="5" value="" /><span
+                                                                        class="produitdetailinfo"></span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="border: 0px">
+                                                                        <input name="Plus3" class="policeInfo" type="text" size="5" value="" /><span
+                                                                        class="produitdetailinfo"></span>
+                                                                    </td>
+                                                                </tr>
+                                                                } if (ViewBag.plus.Count == 2)
+                                                                {
+                                                                <tr>
+                                                                    <td style="border: 0px">
+                                                                        <input name="Plus1" class="policeInfo" type="text" size="5" value="@ViewBag.plus[0].Plus" /><span
+                                                                        class="produitdetailinfo"></span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="border: 0px">
+                                                                        <input name="Plus2" class="policeInfo" type="text" size="5" value="@ViewBag.plus[1].Plus" /><span
+                                                                        class="produitdetailinfo"></span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="border: 0px">
+                                                                        <input name="Plus3" class="policeInfo" type="text" size="5" value="" /><span
+                                                                        class="produitdetailinfo"></span>
+                                                                    </td>
+                                                                </tr>
+                                                                } if (ViewBag.plus.Count == 3)
+                                                                {
+                                                                <tr>
+                                                                    <td style="border: 0px">
+                                                                        <input name="Plus1" class="policeInfo" type="text" size="5" value="@ViewBag.plus[0].Plus" /><span
+                                                                        class="produitdetailinfo"></span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="border: 0px">
+                                                                        <input name="Plus2" class="policeInfo" type="text" size="5" value="@ViewBag.plus[1].Plus" /><span
+                                                                        class="produitdetailinfo"></span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="border: 0px">
+                                                                        <input name="Plus3" class="policeInfo" type="text" size="5" value="@ViewBag.plus[2].Plus" /><span
+                                                                        class="produitdetailinfo"></span>
+                                                                    </td>
+                                                                </tr>
+                                                                }
+                                                            }
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    
+                                </table>
+                            </div>
+                        </td>
+                        <td style="border: 0px">
+                            <div style="width: 10px">
+                            </div>
+                        </td>
+                        <td style="border: 0px">
+                        @if (@ViewBag.limg != null)
+                        {
+                            if (@ViewBag.limg.Count != 0)
+                            {
+                                <img src="@ViewBag.limg[0]" alt="Smiley face" width="420"/> 
+                            }
+                        }
+                        </td>
+                    </tr>
+                </table>
+                <br />
+                 
+                  <table style="border: 0px">
+                    <tr>
+                        <div id="MenuMatiere">
+                        </div>
+                    </tr>
+                    <tr>
+                        <div id="MenuCouleur">
+                        </div>
+                    </tr>
+                </table>
+                <br />
+                <div class="visu">
+                 <br />
+                <FONT size="4pt">Caracteristiques</FONT>
+                <table style="border: 0px">
+                    <tr>
+                        <td style="border: 0px">
+                            <b><p class="produitdetailsection">Description Marketing</p></b>
+                            <div style="width: 90%">
+                                <textarea name="Dmark" rows="6" cols="105" class="policeInfo">@ViewBag.DrescMaketing</textarea>
+                                </div>
+                        </td>
+                    </tr>
+                </table>
+                <table style="border: 0px">
+                    <tr>
+                        <td style="border: 0px">
+                            <b><p class="produitdetailsection">Description technique</p></b>
+                            <div style="width: 90%">
+                                <textarea name="Dgccrf" rows="6" cols="105" class="policeInfo">@ViewBag.dgccrf</textarea>
+                                </div>
+                         </td>
+                    </tr>
+                </table>
+                <table style="border: 0px">
+                    <tr>
+                        <td style="border: 0px">
+                            <b><p class="produitdetailsection">Dimension du produit</p></b>
+                            <div style="width: 100%">
+                             <input name="dimprod" size="100" type="text" value="@ViewBag.IPLVDetails.dimension_produit" />
+                         </td>
+                    </tr>
+                </table>
+                <table style="border: 0px">
+                    <tr>
+                        <td style="border: 0px">
+                            <b><p class="produitdetailsection">Dimension et poids des colis</p></b>
+                            <div style="width: 100%">
+                                <input name="dimcolis" size="200" type="text" value="@ViewBag.IPLVDetails.dimension_colis" />
+                         </td>
+                    </tr>
+                </table>
+            </div>
+            <br />
+                <table style="border: 1px">
+                    <tr>
+                        <div id="MenuSkusassocie">
+                        </div>
+                    </tr>
+                </table>
+                <br />
+                <br />
+                <br />
+                <table style="border: 1px">
+                    <tr>
+                        <div id="MenuSkusgroupe">
+                        </div>
+                    </tr>
+                </table>
+            </div>
+        @if (ViewBag.updateSuccess != null)
+        { 
+            <div id="resultatEdit3" style="color: Green">
+                Fiche sauvegardé avec succès</div>
+        }
+
+        @if (ViewBag.error != null)
+        { 
+            <div id="resultatEdit4" style="color: Red">
+                @ViewBag.error</div>
+        }
+        <div id="DialogImpression2" title="@TickitNewFace.Resources.Langue.MenuImpression_TitreMenu" /></div>-->
+        </p>
+    </div>
+</div>
+
+
+    
