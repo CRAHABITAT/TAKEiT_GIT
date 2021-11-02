@@ -427,6 +427,8 @@ namespace TickitNewFace.Controllers
                 ViewBag.positionTabs = 0;
                 ViewBag.initialDate = DateUtils.getFormatDateFr(DateTime.Now);
 
+
+                //Users pour les nouvelles PLV
                 string userName = (string)Session["userName"];
                 Boolean viewRegletteNew = false;
                 if (
