@@ -428,7 +428,7 @@ namespace TickitNewFace.Controllers
                 ViewBag.initialDate = DateUtils.getFormatDateFr(DateTime.Now);
 
 
-                //Users pour les nouvelles PLV + magasins (nice et wagram)
+                //Users pour les nouvelles PLV + magasins (Nice et Wagram)
                 string userName = (string)Session["userName"];
                 Boolean viewRegletteNew = false;
                 if (
