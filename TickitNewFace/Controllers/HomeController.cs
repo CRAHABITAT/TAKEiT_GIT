@@ -438,7 +438,13 @@ namespace TickitNewFace.Controllers
                     userName == "mbastide" ||
                     userName == "oouba" ||
                     userName == "mfauvage" ||
-                    userName == "kchaudot")
+                    userName == "kchaudot"  ||
+                    userName == "cdoue"  ||
+                    userName == "awagram" || 
+                    userName == "dwagram" ||
+                    userName == "dnice" ||
+                    userName == "anice" 
+                    )
                 {
                     viewRegletteNew = true;
                 }
@@ -568,7 +574,12 @@ namespace TickitNewFace.Controllers
                     userName == "mbastide" ||
                     userName == "oouba" ||
                     userName == "mfauvage" ||
-                    userName == "kchaudot")
+                    userName == "kchaudot" ||
+                    userName == "cdoue"  ||
+                    userName == "awagram" || 
+                    userName == "dwagram" ||
+                    userName == "dnice" ||
+                    userName == "anice" )
                 {
                     viewRegletteNew = true;
                 }
@@ -1456,7 +1467,12 @@ namespace TickitNewFace.Controllers
                     userName == "mbastide" ||
                     userName == "oouba" ||
                     userName == "mfauvage" ||
-                    userName == "kchaudot")
+                    userName == "kchaudot" ||
+                    userName == "cdoue"  ||
+                    userName == "awagram" || 
+                    userName == "dwagram" ||
+                    userName == "dnice" ||
+                    userName == "anice" )
                 {
                     viewRegletteNew = true;
                 }
@@ -1528,7 +1544,12 @@ namespace TickitNewFace.Controllers
                     userName == "mbastide" ||
                     userName == "oouba" ||
                     userName == "mfauvage" ||
-                    userName == "kchaudot")
+                    userName == "kchaudot" ||
+                    userName == "cdoue"  ||
+                    userName == "awagram" || 
+                    userName == "dwagram" ||
+                    userName == "dnice" ||
+                    userName == "anice" )
                 {
                     viewRegletteNew = true;
                 }
