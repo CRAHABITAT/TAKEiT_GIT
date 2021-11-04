@@ -428,7 +428,7 @@ namespace TickitNewFace.Controllers
                 ViewBag.initialDate = DateUtils.getFormatDateFr(DateTime.Now);
 
 
-                //Users pour les nouvelles PLV
+                //Users pour les nouvelles PLV + magasin
                 string userName = (string)Session["userName"];
                 Boolean viewRegletteNew = false;
                 if (
@@ -575,7 +575,7 @@ namespace TickitNewFace.Controllers
                     userName == "oouba" ||
                     userName == "mfauvage" ||
                     userName == "kchaudot" ||
-                    userName == "cdoue"  ||
+                    userName == "cdoue"   ||
                     userName == "awagram" || 
                     userName == "dwagram" ||
                     userName == "dnice" ||
