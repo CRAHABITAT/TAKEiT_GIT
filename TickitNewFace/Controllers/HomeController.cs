@@ -159,6 +159,7 @@ namespace TickitNewFace.Controllers
         }
 
         /// <summary>
+        /// Author : Msridi
         /// Retourne la objectsToUpdate des produits correspondants au critère de recherche
         /// </summary>
         /// <param name="rechercheText"></param>
