@@ -94,6 +94,8 @@ namespace TickitNewFace.PDFUtils
                 codeHtml = codeHtml + "		}";
             }
 
+
+          
             codeHtml = codeHtml + "				";
             codeHtml = codeHtml + "		.filet {";
             codeHtml = codeHtml + "         background-image: url(" + baseUrlImages + "filet.jpg);";
