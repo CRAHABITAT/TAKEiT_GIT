@@ -50,7 +50,8 @@ namespace TickitNewFace.DAO
                 prix.Code_Pays = (int)reader.GetValue(5);
                 prix.Eco_mobilier = (decimal)reader.GetValue(6);
                 prix.TypeTarifCbr = reader.GetValue(7) == DBNull.Value ? null : (string)reader.GetValue(7);
-                prix.Prix_produit = prix.Prix_produit - prix.Eco_mobilier;
+             //mis en commentaire par Cillia
+                //prix.Prix_produit = prix.Prix_produit - prix.Eco_mobilier;
             }
             
             reader.Dispose();
@@ -99,10 +100,10 @@ namespace TickitNewFace.DAO
                 prix.Type_promo = reader.GetValue(4) == DBNull.Value ? null : (string)reader.GetValue(4);
                 prix.Code_Pays = (int)reader.GetValue(5);
                 prix.Prix_produit = (Decimal)reader.GetValue(3);
-                
-                if (ecoMobilier != null) { 
+            //mis en commentaire par Cillia    
+             /*   if (ecoMobilier != null) { 
                 prix.Prix_produit = prix.Prix_produit - (decimal)ecoMobilier;
-                }
+                }*/
             }
             
             reader.Dispose();
@@ -152,10 +153,11 @@ namespace TickitNewFace.DAO
                 prix.Code_Pays = (int)reader.GetValue(5);
                 prix.Prix_produit = (Decimal)reader.GetValue(3);
 
-                if (ecoMobilier != null)
-                {
-                    prix.Prix_produit = prix.Prix_produit - (decimal)ecoMobilier;
-                }
+             // mis en commentaire par Cillia (reste à verifier)
+                /*  if (ecoMobilier != null)
+                  {
+                      prix.Prix_produit = prix.Prix_produit - (decimal)ecoMobilier;
+                  } */
             }
 
             reader.Dispose();
