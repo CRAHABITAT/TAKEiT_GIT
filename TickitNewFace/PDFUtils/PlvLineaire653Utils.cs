@@ -203,6 +203,15 @@ namespace TickitNewFace.PDFUtils
                     prixDroite = data.prix;
                 }
 
+                // ajouter par Cillia (ne pas afficher de prix barre quand le type_prix est permanent)
+
+                if (chevalet.typePrix == ApplicationConsts.typePrix_permanent && data.pourcentage != null)
+               {
+                   prixGauche = "";
+                   prixDroite = data.prixPermanent ;
+
+               }
+
                 codeHtml = codeHtml + "										<td width=\"68\" height=\"22\" valign=\"bottom\" style=\"font-family: DINHabRg; font-size: 11px; text-decoration: line-through; text-align: right; line-height:20px;\">" + prixGauche.Replace(".00", "") + "</td>";
                 codeHtml = codeHtml + "										<td width=\"72\" height=\"22\" style=\"font-family: dinhabbold; font-size: 16px; text-align: right; line-height:-15px;\"><span style=\"font-family: dinhabbold\">" + prixDroite.Replace(".00", "") + "</span></td>";
                 codeHtml = codeHtml + "										<td> </td>";

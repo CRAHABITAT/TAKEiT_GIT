@@ -13,5 +13,7 @@ namespace TickitNewFace.Models
         public decimal Eco_mobilier { get; set; }
         public DateTime Date_maj { get; set; }
         public string TypeTarifCbr { get; set; }
+
+        public decimal Prix_produit1 { get; set; }
     }
 }

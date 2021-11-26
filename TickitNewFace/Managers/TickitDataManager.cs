@@ -348,7 +348,13 @@ namespace TickitNewFace.Managers
                 {
                     data.prixPermanent = StringUtils.getAriaryMonnaieFormat(Managers.FicheProduitManager.getPrixPermanentPrecedent(prix).Prix_produit) + LangueDao.getCodeMonnaieByMagasinId(langageId);
                 }
-                decimal? pourcentage = 100 - (((prix.Prix_produit - (produit.Eco_mobilier == null ? 0 : produit.Eco_mobilier)) * 100) / Managers.FicheProduitManager.getPrixPermanentPrecedent(prix).Prix_produit);
+              
+               // decimal? pourcentage = 100 - (((prix.Prix_produit - (produit.Eco_mobilier == null ? 0 : produit.Eco_mobilier)) * 100) / Managers.FicheProduitManager.getPrixPermanentPrecedent(prix).Prix_produit);
+
+                //Cillia
+
+                decimal? pourcentage = 100 - (((prix.Prix_produit - (produit.Eco_mobilier == null ? 0 : produit.Eco_mobilier)) * 100) / ((Managers.FicheProduitManager.getPrixPermanentPrecedent(prix).Prix_produit) - (produit.Eco_mobilier == null ? 0 : produit.Eco_mobilier)));
+
 
                 pourcentage = Utils.SpecificMathUtils.getRoundDecimal(pourcentage);
                 data.pourcentage = pourcentage.ToString();

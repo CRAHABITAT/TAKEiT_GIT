@@ -103,8 +103,11 @@ namespace TickitNewFace.DAO
                 prix.Type_promo = reader.GetValue(4) == DBNull.Value ? null : (string)reader.GetValue(4);
                 prix.Code_Pays = (int)reader.GetValue(5);
                 prix.Prix_produit = (Decimal)reader.GetValue(3);
-            //mis en commentaire par Cillia    
-             /*   if (ecoMobilier != null) { 
+
+                prix.Prix_produit1 = (Decimal)reader.GetValue(3);
+
+            //mis en commentaire par Cillia //retirer par la suite    
+                /*   if (ecoMobilier != null) { 
                 prix.Prix_produit = prix.Prix_produit - (decimal)ecoMobilier;
                 }*/
             }
@@ -156,11 +159,14 @@ namespace TickitNewFace.DAO
                 prix.Code_Pays = (int)reader.GetValue(5);
                 prix.Prix_produit = (Decimal)reader.GetValue(3);
 
+            //ajouter par Cillia
+               // prix.Prix_produit1 = (Decimal)reader.GetValue(3);
+
              // mis en commentaire par Cillia (reste à verifier)
-               /* if (prix.Type_promo=="P" && ecoMobilier != null )
-                  {
-                      prix.Prix_produit = prix.Prix_produit - (decimal)ecoMobilier;
-                  } */
+               //if (prix.Type_promo=="P" && ecoMobilier != null )
+                 //{
+                   //  prix.Prix_produit = prix.Prix_produit - (decimal)ecoMobilier;
+                 // } 
             }
 
             reader.Dispose();
