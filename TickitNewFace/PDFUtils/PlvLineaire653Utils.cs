@@ -122,7 +122,7 @@ namespace TickitNewFace.PDFUtils
                     codeHtml = codeHtml + "		<tr>";
                 }
 
-                codeHtml = codeHtml + "			<td style=\"padding: 0 0 22px 0\">";
+                codeHtml = codeHtml + "			<td style=\"padding: 0 0 22px 5px\">";
                 codeHtml = codeHtml + "				<div class=\"divReglette\">";
                 codeHtml = codeHtml + "					<table width=\"245\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">";
                 codeHtml = codeHtml + "						<tr>";
