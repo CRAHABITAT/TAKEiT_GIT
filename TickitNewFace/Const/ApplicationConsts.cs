@@ -40,6 +40,9 @@ namespace TickitNewFace.Const
         public const string made_in_BE = "BE";
         public const string made_in_EU = "EU";
         public const string made_in_UE = "UE";
+//ajouter par Cillia
+        public const string made_in_IN = "IN";
+
         
         // Code pays
         public const int codePays_GB = 2;
