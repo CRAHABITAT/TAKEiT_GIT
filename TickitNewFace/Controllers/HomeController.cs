@@ -1143,10 +1143,10 @@ namespace TickitNewFace.Controllers
 
                     if (prixPermanent != null)
                     {
-                        decimal? pourcentage = 100 - (((prix.Prix_produit - (produit.Eco_mobilier == null ? 0 : produit.Eco_mobilier)) * 100) / prixPermanent.Prix_produit);
+                       // a remettre decimal? pourcentage = 100 - (((prix.Prix_produit - (produit.Eco_mobilier == null ? 0 : produit.Eco_mobilier)) * 100) / prixPermanent.Prix_produit);
 
                         //Cillia
-                        //decimal? pourcentage = 100 - (((prix.Prix_produit - (produit.Eco_mobilier == null ? 0 : produit.Eco_mobilier)) * 100) / prixPermanent.Prix_produit -(produit.Eco_mobilier == null ? 0 : produit.Eco_mobilier));
+                        decimal? pourcentage = 100 - (((prix.Prix_produit - (produit.Eco_mobilier == null ? 0 : produit.Eco_mobilier)) * 100) / prixPermanent.Prix_produit -(produit.Eco_mobilier == null ? 0 : produit.Eco_mobilier));
 
 
                         pourcentage = Utils.SpecificMathUtils.getRoundDecimal(pourcentage);
@@ -1401,13 +1401,15 @@ namespace TickitNewFace.Controllers
                     }
 
                     // Si promo ou solde.
-                    if (prixProduit.Type_promo == ApplicationConsts.typePrix_promo || prixProduit.Type_promo == ApplicationConsts.typePrix_solde)
+                 //cillia   if (prixProduit.Type_promo == ApplicationConsts.typePrix_promo || prixProduit.Type_promo == ApplicationConsts.typePrix_solde)
+
+                    if  (prixProduit.Type_promo != ApplicationConsts.typePrix_permanent)
                     {
                         T_Prix prixProduitReference = Managers.FicheProduitManager.getPrixPermanentPrecedent(prixProduit);
-                        pourcentageReduction = 100 - (((prixProduit.Prix_produit - prixProduit.Eco_mobilier) * 100) / prixProduitReference.Prix_produit);
+                       // pourcentageReduction = 100 - (((prixProduit.Prix_produit - prixProduit.Eco_mobilier) * 100) / prixProduitReference.Prix_produit);
 
-                        //Cillia
-                       // pourcentageReduction = 100 - (((prixProduit.Prix_produit - prixProduit.Eco_mobilier) * 100) / prixProduitReference.Prix_produit-prixProduit.Eco_mobilier);
+                        //Cillia 04/01/2022
+                      pourcentageReduction = 100 - (((prixProduit.Prix_produit - prixProduit.Eco_mobilier) * 100) / (prixProduitReference.Prix_produit - prixProduit.Eco_mobilier));
 
                         // Arrondit un pourcentage très proche de 0 (chiffre après virgule < 0.05)
                         pourcentageReduction = Utils.SpecificMathUtils.getRoundDecimal(pourcentageReduction);

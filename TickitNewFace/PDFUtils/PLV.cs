@@ -94,6 +94,7 @@ namespace TickitNewFace.PDFUtils
                 T_Prix prixProduitReference = Managers.FicheProduitManager.getPrixPermanentPrecedent(prixProduitreduct);
                 pourcentageReductionreduct = 100 - (((prixProduitreduct.Prix_produit - prixProduitreduct.Eco_mobilier) * 100) / prixProduitReference.Prix_produit);
 
+                
                 // Arrondit un pourcentage très proche de 0 (chiffre après virgule < 0.05)
                 pourcentageReductionreduct = Utils.SpecificMathUtils.getRoundDecimal(pourcentageReductionreduct);
             }
@@ -520,7 +521,7 @@ namespace TickitNewFace.PDFUtils
             {
                 T_Prix prixProduitReference = Managers.FicheProduitManager.getPrixPermanentPrecedent(prixProduitreduct);
                 pourcentageReductionreduct = 100 - (((prixProduitreduct.Prix_produit - prixProduitreduct.Eco_mobilier) * 100) / prixProduitReference.Prix_produit);
-
+                
                 // Arrondit un pourcentage très proche de 0 (chiffre après virgule < 0.05)
                 pourcentageReductionreduct = Utils.SpecificMathUtils.getRoundDecimal(pourcentageReductionreduct);
             }
@@ -626,6 +627,8 @@ namespace TickitNewFace.PDFUtils
                     {
                         T_Prix prixProduitReference = Managers.FicheProduitManager.getPrixPermanentPrecedent(prixProduit);
                         decimal? pourcentageReduction = 100 - (((prixProduit.Prix_produit - prixProduit.Eco_mobilier) * 100) / prixProduitReference.Prix_produit);
+
+                       
 
                         // Arrondit un pourcentage très proche de 0 (chiffre après virgule < 0.05)
                         pourcentageReduction = Utils.SpecificMathUtils.getRoundDecimal(pourcentageReduction);

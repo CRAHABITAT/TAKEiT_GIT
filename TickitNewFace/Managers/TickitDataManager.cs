@@ -95,7 +95,13 @@ namespace TickitNewFace.Managers
                 // Si pas de démarque locale
                 if (demarqueLocale == "")
                 {
-                    Decimal? pourcentage = 100 - (((prixAtDate.Prix_produit - (produit.Eco_mobilier == null ? 0 : produit.Eco_mobilier)) * 100) / prixPermanent.Prix_produit);
+                    //Decimal? pourcentage = 100 - (((prixAtDate.Prix_produit - (produit.Eco_mobilier == null ? 0 : produit.Eco_mobilier)) * 100) / prixPermanent.Prix_produit);
+
+                    //Cillia 04/01/2022
+
+                    Decimal? pourcentage = 100 - (((prixAtDate.Prix_produit - (produit.Eco_mobilier == null ? 0 : produit.Eco_mobilier)) * 100) / (prixPermanent.Prix_produit -(produit.Eco_mobilier == null ? 0 : produit.Eco_mobilier)) );
+
+
                     pourcentage = SpecificMathUtils.getRoundDecimal(pourcentage);
 
                     int posPoint2 = pourcentage.ToString().IndexOf(".");
