@@ -51,7 +51,7 @@ namespace TickitNewFace.DAO
                 prix.Eco_mobilier = (decimal)reader.GetValue(6);
                 prix.TypeTarifCbr = reader.GetValue(7) == DBNull.Value ? null : (string)reader.GetValue(7);
                //mis en commentaire par Cillia
-                if (prix.Type_promo == "N" || prix.Type_promo == "P")
+                if (prix.Type_promo == "N" || prix.Type_promo == "P" || prix.Type_promo == "S")
                 {
                      prix.Prix_produit = prix.Prix_produit - prix.Eco_mobilier;
                 }
