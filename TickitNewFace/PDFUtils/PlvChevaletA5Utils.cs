@@ -611,7 +611,8 @@ namespace TickitNewFace.PDFUtils
             codeHtml = codeHtml + "									<td align=\"center\" style=\"padding: 40px 0 0 100px\">";
             codeHtml = codeHtml + "										<table align=\"center\" width=\"200\" heigth=\"200\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" valign=\"top\">";
             codeHtml = codeHtml + "											<tr>";
-            codeHtml = codeHtml + "												<td width=\"200\" height=\"200\" align=\"center\" valign=\"top\" class=\"" + typePastille + "\" style=\"text-align: center; font-family: dinhabbold; font-size: 40pt; color: #FFFFFF; line-height: 120px;\">-10% &nbsp;&nbsp;</td>";
+
+            codeHtml = codeHtml + "												<td width=\"200\" height=\"200\" align=\"center\" valign=\"top\" class=\"" + typePastille + "\" style=\"text-align: center; font-family: dinhabbold; font-size: 40pt; color: #FFFFFF; line-height: 120px;\">" + pourcentagetexte + " &nbsp;&nbsp;</td>";
             codeHtml = codeHtml + "											</tr>";
             codeHtml = codeHtml + "										</table>";
             codeHtml = codeHtml + "									</td>";
