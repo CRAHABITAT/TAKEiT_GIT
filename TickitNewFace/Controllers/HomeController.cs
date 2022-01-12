@@ -1398,12 +1398,13 @@ namespace TickitNewFace.Controllers
                         prixProduit.Type_promo = ApplicationConsts.typePrix_demarqueLocale;
                         pourcentageReduction = decimal.Parse(demarqueLocale);
                         typePrixProduit = "reduction";
+  
                     }
 
                     // Si promo ou solde.
                  //cillia   if (prixProduit.Type_promo == ApplicationConsts.typePrix_promo || prixProduit.Type_promo == ApplicationConsts.typePrix_solde)
 
-                    if  (prixProduit.Type_promo != ApplicationConsts.typePrix_permanent)
+                    if (prixProduit.Type_promo != ApplicationConsts.typePrix_permanent && prixProduit.Type_promo !=ApplicationConsts.typePrix_demarqueLocale)
                     {
                         T_Prix prixProduitReference = Managers.FicheProduitManager.getPrixPermanentPrecedent(prixProduit);
                        // pourcentageReduction = 100 - (((prixProduit.Prix_produit - prixProduit.Eco_mobilier) * 100) / prixProduitReference.Prix_produit);
