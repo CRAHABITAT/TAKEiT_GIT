@@ -387,29 +387,37 @@ namespace TickitNewFace.Managers
             // Dimension à afficher dans le ticket
             data.dimension = "";
 
-            // Largeur
-            if (produit.Largeur != null)
-            {
-                if (produit.Largeur == (int)produit.Largeur)
-                {
-                    data.dimension = data.dimension + ApplicationConsts.symboleDimensionLargeur + " " + (int)produit.Largeur;
-                }
-                else
-                {
-                    data.dimension = data.dimension + ApplicationConsts.symboleDimensionLargeur + " " + produit.Largeur;
-                }
-            }
-
             // Diamètre
             if (produit.Diametre != null)
             {
                 if (produit.Diametre == (int)produit.Diametre)
                 {
                     data.dimension = data.dimension + ApplicationConsts.symboleDimensionDiametre + " " + (int)produit.Diametre;
+                   
+                }
+               else
+                {
+                    data.dimension = data.dimension + ApplicationConsts.symboleDimensionDiametre + " " + produit.Diametre;
+                 
+                    
+                }
+            }
+
+
+            // Longueur
+            if (produit.Longueur != null)
+            {
+                if (produit.Longueur == (int)produit.Longueur)
+                {
+                   // data.dimension = data.dimension + " " + ApplicationConsts.symboleSeparateurDimension + " " + ApplicationConsts.symboleDimensionLongueur + " " + (int)produit.Longueur;
+                    data.dimension = data.dimension + " " + ApplicationConsts.symboleDimensionLongueur + " " + (int)produit.Longueur;
+
+
                 }
                 else
                 {
-                    data.dimension = data.dimension + ApplicationConsts.symboleDimensionDiametre + " " + produit.Diametre;
+                   // data.dimension = data.dimension + " " + ApplicationConsts.symboleSeparateurDimension + " " + ApplicationConsts.symboleDimensionLongueur + " " + produit.Longueur;
+                    data.dimension = data.dimension + " " + ApplicationConsts.symboleDimensionLongueur + " " + produit.Longueur;
                 }
             }
 
@@ -426,18 +434,6 @@ namespace TickitNewFace.Managers
                 }
             }
 
-            // Longueur
-            if (produit.Longueur != null)
-            {
-                if (produit.Longueur == (int)produit.Longueur)
-                {
-                    data.dimension = data.dimension + " " + ApplicationConsts.symboleSeparateurDimension + " " + ApplicationConsts.symboleDimensionLongueur + " " + (int)produit.Longueur;
-                }
-                else
-                {
-                    data.dimension = data.dimension + " " + ApplicationConsts.symboleSeparateurDimension + " " + ApplicationConsts.symboleDimensionLongueur + " " + produit.Longueur;
-                }
-            }
 
             // Profondeur
             if (produit.Profondeur != null)
@@ -452,6 +448,21 @@ namespace TickitNewFace.Managers
                 }
             }
 
+            /*  // Largeur
+            if (produit.Largeur != null)
+            {
+                if (produit.Largeur == (int)produit.Largeur)
+                {
+                    data.dimension = data.dimension + ApplicationConsts.symboleDimensionLargeur + " " + (int)produit.Largeur;
+                }
+                else
+                {
+                    data.dimension = data.dimension + ApplicationConsts.symboleDimensionLargeur + " " + produit.Largeur;
+                }
+            }
+            */
+           
+           
             // Dimension
             if (data.dimension != "")
             {
