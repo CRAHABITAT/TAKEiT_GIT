@@ -45,7 +45,8 @@ namespace TickitNewFace.Const
         public const string made_in_JP = "JP";
         public const string made_in_TH = "TH";
         public const string made_in_GB = "GB";
-
+        public const string made_in_VN = "VN";
+        public const string made_in_EG = "EG";
 
 
         

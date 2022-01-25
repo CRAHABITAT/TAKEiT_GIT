@@ -15,7 +15,7 @@
     <file relUrl="Views/Home/Message.cshtml" publishTime="06/04/2018 15:00:29" />
     <file relUrl="Content/themes/remises/20110390.jpg" publishTime="06/04/2018 15:00:34" />
     <file relUrl="Content/Doc_UK/tickit_user_guide_fichiers/header.htm" publishTime="06/04/2018 15:00:32" />
-    <file relUrl="bin/en/TickitNewFace.resources.dll" publishTime="01/24/2022 10:41:22" />
+    <file relUrl="bin/en/TickitNewFace.resources.dll" publishTime="01/25/2022 15:13:52" />
     <file relUrl="Content/themes/image/np.gif" publishTime="06/04/2018 15:00:34" />
     <file relUrl="Content/themes/image/tt.gif" publishTime="06/04/2018 15:00:34" />
     <file relUrl="bin/HiQPdf.rda" publishTime="09/01/2021 17:38:45" />
@@ -97,7 +97,7 @@
     <file relUrl="Content/Doc_UK/tickit_user_guide.htm" publishTime="06/04/2018 15:00:31" />
     <file relUrl="Content/themes/remises/20110369.jpg" publishTime="06/04/2018 15:00:35" />
     <file relUrl="Content/Doc_UK/tickit_user_guide_fichiers/item0003.xml" publishTime="06/04/2018 15:00:32" />
-    <file relUrl="bin/es/TickitNewFace.resources.dll" publishTime="01/24/2022 10:41:21" />
+    <file relUrl="bin/es/TickitNewFace.resources.dll" publishTime="01/25/2022 15:13:52" />
     <file relUrl="Content/themes/image/europeanunion.gif" publishTime="06/04/2018 15:00:34" />
     <file relUrl="Content/themes/remises/20110381.jpg" publishTime="06/04/2018 15:00:34" />
     <file relUrl="Content/Doc_UK/tickit_user_guide_fichiers/image060.jpg" publishTime="06/04/2018 15:00:32" />
@@ -116,7 +116,7 @@
     <file relUrl="Content/themes/image/pn.gif" publishTime="06/04/2018 15:00:32" />
     <file relUrl="Content/themes/image/an.gif" publishTime="06/04/2018 15:00:33" />
     <file relUrl="Content/themes/image/kh.gif" publishTime="06/04/2018 15:00:32" />
-    <file relUrl="bin/de/TickitNewFace.resources.dll" publishTime="01/24/2022 10:41:21" />
+    <file relUrl="bin/de/TickitNewFace.resources.dll" publishTime="01/25/2022 15:13:52" />
     <file relUrl="Content/themes/image/ma.gif" publishTime="06/04/2018 15:00:34" />
     <file relUrl="bin/Microsoft.Web.Infrastructure.dll" publishTime="01/05/2011 15:45:38" />
     <file relUrl="Content/Doc_FR/tickit_user_guide_fichiers/image044.jpg" publishTime="06/04/2018 15:00:31" />
@@ -363,7 +363,7 @@
     <file relUrl="Content/Doc_UK/tickit_user_guide_fichiers/image027.png" publishTime="06/04/2018 15:00:32" />
     <file relUrl="Content/themes/image/tv.gif" publishTime="06/04/2018 15:00:33" />
     <file relUrl="Views/Home/Index.cshtml" publishTime="09/08/2021 11:47:51" />
-    <file relUrl="bin/TickitNewFace.pdb" publishTime="01/24/2022 10:41:21" />
+    <file relUrl="bin/TickitNewFace.pdb" publishTime="01/25/2022 15:13:50" />
     <file relUrl="Content/Doc_UK/tickit_user_guide_fichiers/props004.xml" publishTime="06/04/2018 15:00:32" />
     <file relUrl="Content/themes/image/st.gif" publishTime="06/04/2018 15:00:33" />
     <file relUrl="packages.config" publishTime="06/04/2018 15:00:37" />
@@ -446,7 +446,7 @@
     <file relUrl="Content/themes/image/fr.gif" publishTime="06/04/2018 15:00:34" />
     <file relUrl="Content/themes/image/cs.gif" publishTime="06/04/2018 15:00:33" />
     <file relUrl="Content/Doc_FR/tickit_user_guide_fichiers/image031.png" publishTime="06/04/2018 15:00:30" />
-    <file relUrl="bin/fr/TickitNewFace.resources.dll" publishTime="01/24/2022 10:41:22" />
+    <file relUrl="bin/fr/TickitNewFace.resources.dll" publishTime="01/25/2022 15:13:52" />
     <file relUrl="Content/Doc_FR/tickit_user_guide_fichiers/image003.png" publishTime="06/04/2018 15:00:31" />
     <file relUrl="Content/themes/image/dj.gif" publishTime="06/04/2018 15:00:33" />
     <file relUrl="Content/themes/image/chevalet.png" publishTime="06/04/2018 15:00:33" />
@@ -496,7 +496,7 @@
     <file relUrl="Content/themes/image/bs.gif" publishTime="06/04/2018 15:00:34" />
     <file relUrl="Views/_ViewStart.cshtml" publishTime="06/04/2018 15:00:28" />
     <file relUrl="Content/themes/image/ad.gif" publishTime="06/04/2018 15:00:34" />
-    <file relUrl="bin/TickitNewFace.dll" publishTime="01/24/2022 10:41:21" />
+    <file relUrl="bin/TickitNewFace.dll" publishTime="01/25/2022 15:13:51" />
     <file relUrl="Content/themes/image/gh.gif" publishTime="06/04/2018 15:00:34" />
     <file relUrl="Content/Doc_FR/tickit_user_guide_fichiers/image030.jpg" publishTime="06/04/2018 15:00:31" />
     <file relUrl="bin/System.Web.Helpers.xml" publishTime="12/19/2010 23:59:38" />

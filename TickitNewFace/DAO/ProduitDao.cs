@@ -890,7 +890,10 @@ namespace TickitNewFace.DAO
                 Made_In == Const.ApplicationConsts.made_in_IN ||
                 Made_In == Const.ApplicationConsts.made_in_JP ||
                 Made_In == Const.ApplicationConsts.made_in_TH ||
-                Made_In == Const.ApplicationConsts.made_in_GB 
+                Made_In == Const.ApplicationConsts.made_in_GB ||
+                Made_In == Const.ApplicationConsts.made_in_VN ||
+                Made_In == Const.ApplicationConsts.made_in_EG 
+
                 )
                 {
                     madeInOut = Made_In;

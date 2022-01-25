@@ -83,6 +83,7 @@ namespace TickitNewFace.PDFUtils
                 plus2 = "&bull; &nbsp; " + listePlus[1];
                 plus3 = "&bull; &nbsp; " + listePlus[2];
             }
+          
 
             string comp = DAO.RangeDao.getDescriptionCompositionByRangeId(RangeId, magasinId, 1);
 
