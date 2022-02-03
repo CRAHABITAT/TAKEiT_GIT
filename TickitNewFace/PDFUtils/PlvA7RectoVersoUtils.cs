@@ -291,9 +291,15 @@ namespace TickitNewFace.PDFUtils
                 codeHtml = codeHtml + "								<table align=\"left\" width=\"350\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" bgcolor=\"ffffff\">";
                 codeHtml = codeHtml + "									<tr>";
                 codeHtml = codeHtml + "										<td width=\"40\" align=\"center\" style=\"padding:5px 0 0 0px\">" + imageMadeIn + "</td>";
-                codeHtml = codeHtml + "										<td width=\"800\" align=\"right\" style=\"text-align: right; font-family: DINHabRg; font-size: 14px; padding: 5px 0 0px 0px\"> </td>";
-                codeHtml = codeHtml + "										<td align=\"left\" width=\"50\" border=\"0\" alt=\"\" title=\"\" style=\"display:block; padding: 5px 0 0 10px\"></td>";
+
+                codeHtml = codeHtml + "	                                   <td width=\"800\" align=\"right\" style=\"text-align: right; font-family: DINHabRg; font-size: 7px; padding:0 0 0 0\">" + texteDur3 + "";
+                codeHtml = codeHtml + "											<br><strong>" + texteDur4 + "</strong> </td>";
+                codeHtml = codeHtml + "										<td width=\"55\" align=\"left\"><img src=\"" + baseUrlImages + "Camion_livraison.png\" width=\"40\" border=\"0\" alt=\"camion\" title=\"camion livraison\" style=\"display:block; padding: 5px 0 0px 10px\"></td>";
                 codeHtml = codeHtml + "									</tr>";
+
+               // codeHtml = codeHtml + "										<td width=\"800\" align=\"right\" style=\"text-align: right; font-family: DINHabRg; font-size: 14px; padding: 5px 0 0px 0px\"> </td>";
+                //codeHtml = codeHtml + "										<td align=\"left\" width=\"50\" border=\"0\" alt=\"\" title=\"\" style=\"display:block; padding: 5px 0 0 10px\"></td>";
+                //codeHtml = codeHtml + "									</tr>";
                 codeHtml = codeHtml + "								</table>";
                 codeHtml = codeHtml + "							</td>";
                 codeHtml = codeHtml + "						</tr>";
@@ -389,9 +395,9 @@ namespace TickitNewFace.PDFUtils
                 codeHtml = codeHtml + "								<table align=\"left\" width=\"350\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" bgcolor=\"ffffff\">";
                 codeHtml = codeHtml + "									<tr>";
                 codeHtml = codeHtml + "										<td width=\"40\" align=\"center\" style=\"padding:5px 0 0 30px\">" + imageMadeIn + "</td>";
-                codeHtml = codeHtml + "										<td width=\"800\" align=\"right\" style=\"text-align: right; font-family: DINHabRg; font-size: 14px; padding:5px 0 0px 0px\">" + texteDur3 + "";
+                codeHtml = codeHtml + "										<td width=\"800\" align=\"right\" style=\"text-align: right; font-family: DINHabRg; font-size: 7px; padding:0 0 0 0\">" + texteDur3 + "";
                 codeHtml = codeHtml + "											<br><strong>" + texteDur4 + "</strong> </td>";
-                codeHtml = codeHtml + "										<td width=\"55\" align=\"left\"><img src=\"" + baseUrlImages + "Camion_livraison.png\" width=\"50\" border=\"0\" alt=\"camion\" title=\"camion livraison\" style=\"display:block; padding: 5px 0 0px 10px\"></td>";
+                codeHtml = codeHtml + "										<td width=\"55\" align=\"left\"><img src=\"" + baseUrlImages + "Camion_livraison.png\" width=\"40\" border=\"0\" alt=\"camion\" title=\"camion livraison\" style=\"display:block; padding: 5px 0 0px 10px\"></td>";
                 codeHtml = codeHtml + "									</tr>";
                 codeHtml = codeHtml + "								</table>";
                 codeHtml = codeHtml + "							</td>";

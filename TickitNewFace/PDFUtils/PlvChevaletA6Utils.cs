@@ -655,6 +655,9 @@ namespace TickitNewFace.PDFUtils
             codeHtml = codeHtml + "						</td>";
             codeHtml = codeHtml + "					</tr>";
             codeHtml = codeHtml + "			</table>";
+            codeHtml = codeHtml + "			<table width=\"100%\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\">";
+	       codeHtml = codeHtml + "			<tr>";
+		   codeHtml = codeHtml + "			<td style=\"font-size: 1px; padding-bottom: 10px\"> </td> </tr></table>";
             codeHtml = codeHtml + "	</body>";
             codeHtml = codeHtml + "</html>";
             return codeHtml;

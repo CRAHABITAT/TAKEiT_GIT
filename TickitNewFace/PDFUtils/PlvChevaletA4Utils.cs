@@ -615,7 +615,14 @@ namespace TickitNewFace.PDFUtils
             listeProduitsA4.Add(pro8);
 
             string APartirDe = "";
-            if (DAO.RangeDao.isRangeBarAtissu(RangeId))
+            if (DAO.RangeDao.isRangeBarAtissu(RangeId)  )
+            {
+                APartirDe = DAO.ConfigurationBisDao.getValeurByCleAndMagasinId("PLV_A4_TEXTE_DUR_5", magasinId);
+            }
+
+//cillia
+            if (DAO.RangeDao.isRangeTissu_Cuir_A_partir(RangeId))
+
             {
                 APartirDe = DAO.ConfigurationBisDao.getValeurByCleAndMagasinId("PLV_A4_TEXTE_DUR_5", magasinId);
             }

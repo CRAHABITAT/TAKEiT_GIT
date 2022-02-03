@@ -344,10 +344,10 @@ namespace TickitNewFace.PDFUtils
                 codeHtml = codeHtml + "											</table>";
                 codeHtml = codeHtml + "											<table align=\"left\" width=\"1000\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" bgcolor=\"ffffff\">";
                 codeHtml = codeHtml + "												<tr>";
-                codeHtml = codeHtml + "													<td width=\"75\" align=\"center\" style=\"padding:20px 0 0 40px\">" + imageMadeIn + "</td>";
-                codeHtml = codeHtml + "													<td width=\"800\" align=\"right\" style=\"text-align: right; font-family: DINHabRg; font-size: 20px; padding: 20px 0 0px 0px\">" + texteDur3 + "";
+                codeHtml = codeHtml + "													<td width=\"75\" align=\"center\" style=\"padding:20px 0 20px 40px\">" + imageMadeIn + "</td>";
+                codeHtml = codeHtml + "													<td width=\"800\" align=\"right\" style=\"text-align: right; font-family: DINHabRg; font-size: 25px; padding: 20px 0 0px 0px\">" + texteDur3 + "";
                 codeHtml = codeHtml + "														<br><strong>" + texteDur4 + "</strong> </td>";
-                codeHtml = codeHtml + "													<td width=\"55\" align=\"left\"><img src=\"" + baseUrlImages + "Camion_livraison.png\" width=\"80\" border=\"0\" alt=\"camion\" title=\"camion livraison\" style=\"display:block; padding: 20px 0 0px 10px\"></td>";
+                codeHtml = codeHtml + "													<td width=\"100\" align=\"left\"><img src=\"" + baseUrlImages + "Camion_livraison.png\" width=\"100\" border=\"0\" alt=\"camion\" title=\"camion livraison\" style=\"display:block; padding: 20px 0 0px 10px\"></td>";
                 codeHtml = codeHtml + "												</tr>";
                 codeHtml = codeHtml + "											</table>";
                 codeHtml = codeHtml + "										</td>";
@@ -484,10 +484,10 @@ namespace TickitNewFace.PDFUtils
                 codeHtml = codeHtml + "											</table>";
                 codeHtml = codeHtml + "											<table align=\"left\" width=\"1000\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" bgcolor=\"ffffff\">";
                 codeHtml = codeHtml + "												<tr>";
-                codeHtml = codeHtml + "													<td width=\"75\" align=\"center\" style=\"padding:20px 0 0 40px\">" + imageMadeIn + "</td>";
-                codeHtml = codeHtml + "													<td width=\"800\" align=\"right\" style=\"text-align: right; font-family: DINHabRg; font-size: 20px; padding: 20px 0 0px 0px\">" + texteDur3 + "";
+                codeHtml = codeHtml + "													<td width=\"75\" align=\"center\" style=\"padding:20px 0 20px 40px\">" + imageMadeIn + "</td>";
+                codeHtml = codeHtml + "													<td width=\"800\" align=\"right\" style=\"text-align: right; font-family: DINHabRg; font-size: 25px; padding: 20px 0 0px 0px\">" + texteDur3 + "";
                 codeHtml = codeHtml + "														<br><strong>" + texteDur4 + "</strong> </td>";
-                codeHtml = codeHtml + "													<td width=\"55\" align=\"left\"><img src=\"" + baseUrlImages + "Camion_livraison.png\" width=\"80\" border=\"0\" alt=\"camion\" title=\"camion livraison\" style=\"display:block; padding: 20px 0 0px 10px\"></td>";
+                codeHtml = codeHtml + "													<td width=\"100\" align=\"left\"><img src=\"" + baseUrlImages + "Camion_livraison.png\" width=\"100\" border=\"0\" alt=\"camion\" title=\"camion livraison\" style=\"display:block; padding: 20px 0 0px 10px\"></td>";
                 codeHtml = codeHtml + "												</tr>";
                 codeHtml = codeHtml + "											</table>";
                 codeHtml = codeHtml + "										</td>";
@@ -501,6 +501,10 @@ namespace TickitNewFace.PDFUtils
                 codeHtml = codeHtml + "		</tr>";
             }
             codeHtml = codeHtml + "	</table>";
+            //Cillia
+            codeHtml = codeHtml + "			<table width=\"100%\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\">";
+            codeHtml = codeHtml + "			<tr>";
+            codeHtml = codeHtml + "			<td style=\"font-size: 1px; padding-bottom: 50px\"> </td> </tr></table>";
             codeHtml = codeHtml + "</body>";
             codeHtml = codeHtml + "";
             codeHtml = codeHtml + "</html>";

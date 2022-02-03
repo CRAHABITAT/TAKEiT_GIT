@@ -82,6 +82,7 @@ namespace TickitNewFace.DAO
             sqlQuery = sqlQuery + " where ";
             sqlQuery = sqlQuery + " Id = " + rangeId;
 
+
             SqlConnection connection;
             Const.ApplicationConsts.connections.TryGetValue(HttpContext.Current.Session.SessionID, out connection);
 
@@ -103,7 +104,41 @@ namespace TickitNewFace.DAO
             cmd.Dispose();
 
             return isBarATissu;
+            
         }
+
+
+        //Cillia 
+        public static bool isRangeTissu_Cuir_A_partir(int rangeId)
+        {
+            string sqlQuery = "";
+            sqlQuery = sqlQuery + " select ISNULL(T_C_A_Partir, 'N') as T_C_A_Partir from range ";
+            sqlQuery = sqlQuery + " where ";
+            sqlQuery = sqlQuery + " Id = " + rangeId;
+
+            SqlConnection connection;
+            Const.ApplicationConsts.connections.TryGetValue(HttpContext.Current.Session.SessionID, out connection);
+
+            SqlCommand cmd = new SqlCommand(sqlQuery, connection);
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            bool isT_C = false;
+
+            if (reader.HasRows)
+            {
+                reader.Read();
+                if ((string)reader.GetValue(0) == "O")
+                    isT_C = true;
+
+            }
+
+            reader.Dispose();
+            reader.Close();
+            cmd.Dispose();
+
+            return isT_C;
+        }
+
 
         /// <summary>
         /// Renvoie la description globale de la gamme
