@@ -1786,6 +1786,35 @@ namespace TickitNewFace.Controllers
             return HiqPdfManager.mergePdf(listePathPdfFiles, prefixFileName, "A5.pdf");
         }
 
+        public ActionResult PrintChevaletA5meuble(string format, string dateQuery)
+        {
+            string prefixFileName = "A5_NEW_MEUBLE";
+            string[] split = dateQuery.Split(ApplicationConsts.separateurDate);
+            DateTime dateObj = new DateTime(int.Parse(split[2]), int.Parse(split[1]), int.Parse(split[0]));
+
+            this.setLang();
+            int langageId = (int)Session["langueId"];
+            this.setDecimalFormat();
+
+            TickitDataChevalet chevaletToPrint = (TickitDataChevalet)Session["Chevalet"];
+
+            List<string> listePathPdfFiles = new List<string>();
+
+            string htmlCode = PDFUtils.PlvChevaletA5meubleUtils.getHtmlA5(chevaletToPrint, format, langageId, dateObj);
+            string urlTest = "http://2997fr-mssql04/product/Content/maquette_A5/A5_meuble.html";
+            urlTest = "";
+            HiqPdfManager.ConvertToPdf(PlvChevaletA5meubleUtils.getHtmlToPdfModel(), htmlCode, "1", prefixFileName, urlTest);
+            listePathPdfFiles.Add(Const.ApplicationConsts.dossierTraitementPdf + prefixFileName + Const.ApplicationConsts.SessionID + "_1" + ".pdf");
+
+            return HiqPdfManager.mergePdf(listePathPdfFiles, prefixFileName, "A5_meuble.pdf");
+        }
+
+
+        //Cillia 
+        //A5 meuble
+
+
+
 
         /// <summary>
         /// Renvoie la nouvelle version du format A6.
@@ -1999,6 +2028,55 @@ namespace TickitNewFace.Controllers
 
             }
 
+
+
+        //Cillia 
+        //Impression en masse A4
+
+        public ActionResult PrintPlvEnMasseA4(string Division, string Departement, string Classe, string Format, string rechercheDate, string TypePrix)
+        {
+           // string prefixFileName = "A4_NEW_";
+         //   string[] split = dateQuery.Split(ApplicationConsts.separateurDate);
+          //  DateTime dateObj = new DateTime(int.Parse(split[2]), int.Parse(split[1]), int.Parse(split[0]));
+
+            string[] split = rechercheDate.Split(ApplicationConsts.separateurDate);
+            DateTime datePrint = new DateTime(int.Parse(split[2]), int.Parse(split[1]), int.Parse(split[0]));
+            //DateTime datePrint = new DateTime(int.Parse(split[2]), int.Parse(split[1]), int.Parse(split[0]));
+
+
+            this.setLang();
+            int langageId = (int)Session["langueId"];
+            string magId = langageId.ToString();
+            if (langageId == 4 || langageId == 5 || langageId == 6) // pays avec plusieurs magasin
+            {
+                magId = (string)Session["magid"];
+            }
+            this.setDecimalFormat();
+
+            Division = Division == "" ? "%" : Division;
+            Departement = Departement == "" ? "%" : Departement;
+            Classe = Classe == "" ? "%" : Classe;
+
+            List<string> ProduitsMagasin = DAO.Produit_MagasinDao.getSkusByMagasinIdDivision(magId, langageId, Division + Departement + Classe, datePrint, TypePrix);
+
+            TickitDataChevalet chevaletToPrint = new TickitDataChevalet();
+            chevaletToPrint.originePanier = "CHEVALET";
+
+            string prefixFileName = "CHEVALET_A4_";
+            DateTime dateObj = new DateTime(int.Parse(split[2]), int.Parse(split[1]), int.Parse(split[0]));
+
+
+           // TickitDataChevalet chevaletToPrint = (TickitDataChevalet)Session["Chevalet"];
+
+            List<string> listePathPdfFiles = new List<string>();
+
+            string htmlCode = PDFUtils.PlvChevaletA4Utils.getHtmlA4(chevaletToPrint, Format, langageId, dateObj);
+            HiqPdfManager.ConvertToPdf(PlvChevaletA4Utils.getHtmlToPdfModel(), htmlCode, "", prefixFileName, "");
+            listePathPdfFiles.Add(Const.ApplicationConsts.dossierTraitementPdf + prefixFileName + Const.ApplicationConsts.SessionID + "_1" + ".pdf");
+
+            return HiqPdfManager.mergePdf(listePathPdfFiles, prefixFileName, "A4.pdf");
+        }
+        
 
         /// <summary>
         /// Renvoie prix en masse

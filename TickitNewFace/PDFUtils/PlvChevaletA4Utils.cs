@@ -677,6 +677,27 @@ namespace TickitNewFace.PDFUtils
             return urlImage;
         }
 
+        //Cillia
+
+      /*  public static List<TickitDataChevalet> MergeChevalet(TickitDataChevalet chevalet)
+        {
+            List<TickitDataChevalet> chevalets = new List<TickitDataChevalet>();
+
+                TickitDataChevalet chevaletCurrentPage = new TickitDataChevalet();
+                chevaletCurrentPage.originePanier = chevalet.originePanier;
+                chevaletCurrentPage.pourcentageReduction = chevalet.pourcentageReduction;
+                chevaletCurrentPage.rangeChevalet = chevalet.rangeChevalet;
+                chevaletCurrentPage.typePrix = chevalet.typePrix;
+               // chevaletCurrentPage.formatImpressionEtiquettesSimples = chevalet.formatImpressionEtiquettesSimples;
+                chevaletCurrentPage.produitsData = new List<TickitDataProduit>();
+
+
+                chevalets.Add(chevaletCurrentPage);
+            
+
+            return chevalets;
+        }*/
+
         /// <summary>
         /// Renvoie le modèle de convertisseur html.
         /// </summary>

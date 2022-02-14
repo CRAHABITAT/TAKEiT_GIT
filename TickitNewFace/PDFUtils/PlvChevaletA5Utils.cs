@@ -531,7 +531,7 @@ namespace TickitNewFace.PDFUtils
             codeHtml = codeHtml + "									<td width=\"75\" align=\"center\" style=\"padding:0 0 0 45px\">" + imageMadeIn + "</td>";
 
             codeHtml = codeHtml + "									<td width=\"700\" align=\"right\" style=\"text-align: right; font-family: DINHabRg; font-size: 20px; padding: 0px 0 0px 0px\">" + texteDur3 + "";
-            codeHtml = codeHtml + "										<br><strong>" + texteDur3 + "</strong> </td>";
+            codeHtml = codeHtml + "										<br><strong>" + texteDur4 + "</strong> </td>";
             codeHtml = codeHtml + "									<td width=\"55\" align=\"left\"><img src=\"" + baseUrlImages + "Camion_livraison.png\" width=\"80\" border=\"0\" alt=\"camion\" title=\"camion livraison\" style=\"display:block; padding: 0px 0 0px 10px\"></td>";
             codeHtml = codeHtml + "								</tr>";
             codeHtml = codeHtml + "							</table>";
@@ -903,11 +903,11 @@ namespace TickitNewFace.PDFUtils
             codeHtml = codeHtml + "							</table>";
             codeHtml = codeHtml + "							<table style=\"vertical-align: top; padding:10px 0 0 0;\" align=\"left\" width=\"1500\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" bgcolor=\"ffffff\">";
             codeHtml = codeHtml + "								<tr style=\"vertical-align: top;\">";
-            codeHtml = codeHtml + "									<td width=\"75\" align=\"center\" style=\"padding:0 0 0 45px\">" + imageMadeIn + "</td>";
+            codeHtml = codeHtml + "									<td width=\"75\" align=\"center\" style=\"padding:0 0 0 45px\">" + imageMadeIn  +"</td>";
 
 
             codeHtml = codeHtml + "									<td width=\"700\" align=\"right\" style=\"text-align: right; font-family: DINHabRg; font-size: 20px; padding: 0px 0 0px 0px\">" + texteDur3 + "";
-            codeHtml = codeHtml + "										<br><strong>" + texteDur3 + "</strong> </td>";
+            codeHtml = codeHtml + "										<br><strong>" + texteDur4 + "</strong> </td>";
             codeHtml = codeHtml + "									<td width=\"55\" align=\"left\"><img src=\"" + baseUrlImages + "Camion_livraison.png\" width=\"80\" border=\"0\" alt=\"camion\" title=\"camion livraison\" style=\"display:block; padding: 0px 0 0px 10px\"></td>";
             codeHtml = codeHtml + "								</tr>";
             codeHtml = codeHtml + "							</table>";

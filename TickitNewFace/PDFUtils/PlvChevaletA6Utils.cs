@@ -507,7 +507,7 @@ namespace TickitNewFace.PDFUtils
             codeHtml = codeHtml + "							<div class=\"footer\">";
             codeHtml = codeHtml + "										<table align=\"left\" width=\"1200\" valign=\"top\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\">";
             codeHtml = codeHtml + "											<tr style=\"height: 125px;\">";
-            codeHtml = codeHtml + "												<td style=\"padding:120px 0 0 50px\">";
+            codeHtml = codeHtml + "												<td style=\"padding:120px 0 80px 50px\">";
             codeHtml = codeHtml + "";
             codeHtml = codeHtml + "";
             codeHtml = codeHtml + "														<table align=\"left\" width=\"1000\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\">";
@@ -626,7 +626,7 @@ namespace TickitNewFace.PDFUtils
             codeHtml = codeHtml + "							<div class=\"footer\">";
             codeHtml = codeHtml + "										<table align=\"left\" width=\"1200\" valign=\"top\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\">";
             codeHtml = codeHtml + "											<tr style=\"height: 125px;\">";
-            codeHtml = codeHtml + "												<td style=\"padding:50px 0 0 50px\">";
+            codeHtml = codeHtml + "												<td style=\"padding:50px 0 80px 50px\">";
             codeHtml = codeHtml + "";
             codeHtml = codeHtml + "";
             codeHtml = codeHtml + "														<table align=\"left\" width=\"1000\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\">";
@@ -655,9 +655,9 @@ namespace TickitNewFace.PDFUtils
             codeHtml = codeHtml + "						</td>";
             codeHtml = codeHtml + "					</tr>";
             codeHtml = codeHtml + "			</table>";
-            codeHtml = codeHtml + "			<table width=\"100%\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\">";
+            /*codeHtml = codeHtml + "			<table width=\"100%\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\">";
 	       codeHtml = codeHtml + "			<tr>";
-		   codeHtml = codeHtml + "			<td style=\"font-size: 1px; padding-bottom: 10px\"> </td> </tr></table>";
+		   codeHtml = codeHtml + "			<td style=\"font-size: 1px; padding-bottom: 10px\"> </td> </tr></table>";*/
             codeHtml = codeHtml + "	</body>";
             codeHtml = codeHtml + "</html>";
             return codeHtml;

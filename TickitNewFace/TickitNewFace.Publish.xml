@@ -2,7 +2,7 @@
 <publishData>
   <publishProfile publishUrl="E:\inetpub\product" deleteExistingFiles="False" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="False" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="Profile1" publishMethod="FileSystem" replaceMatchingFiles="True" userName="" savePWD="False" userPWD="" SelectedForPublish="True">
     <file relUrl="Content/themes/image/pw.gif" publishTime="06/04/2018 15:00:33" />
-    <file relUrl="Content/themes/image/ni.gif" publishTime="06/04/2018 15:00:33" />
+    <file relUrl="Content/themes/base/jquery.ui.resizable.css" publishTime="06/04/2018 15:00:36" />
     <file relUrl="Content/Doc_FR/tickit_user_guide_fichiers/image021.png" publishTime="06/04/2018 15:00:31" />
     <file relUrl="Content/maquette_reglette/webfonts/dinhabmedium/_notes/dwsync.xml" publishTime="08/11/2021 17:50:43" />
     <file relUrl="Content/themes/image/us.gif" publishTime="06/04/2018 15:00:34" />
@@ -15,8 +15,9 @@
     <file relUrl="Views/Home/Message.cshtml" publishTime="06/04/2018 15:00:29" />
     <file relUrl="Content/themes/remises/20110390.jpg" publishTime="06/04/2018 15:00:34" />
     <file relUrl="Content/Doc_UK/tickit_user_guide_fichiers/header.htm" publishTime="06/04/2018 15:00:32" />
-    <file relUrl="bin/en/TickitNewFace.resources.dll" publishTime="02/02/2022 17:33:03" />
+    <file relUrl="bin/en/TickitNewFace.resources.dll" publishTime="02/14/2022 16:25:29" />
     <file relUrl="Content/themes/image/np.gif" publishTime="06/04/2018 15:00:34" />
+    <file relUrl="Content/themes/image/tt.gif" publishTime="06/04/2018 15:00:34" />
     <file relUrl="bin/HiQPdf.rda" publishTime="09/01/2021 17:38:45" />
     <file relUrl="bin/System.Web.WebPages.Razor.dll" publishTime="01/05/2011 15:45:38" />
     <file relUrl="Content/themes/image/pt.gif" publishTime="06/04/2018 15:00:33" />
@@ -26,7 +27,6 @@
     <file relUrl="Content/themes/remises/20110361.jpg" publishTime="06/04/2018 15:00:34" />
     <file relUrl="Content/themes/image/calendar.jpg" publishTime="06/04/2018 15:00:33" />
     <file relUrl="Content/Doc_UK/tickit_user_guide_fichiers/image026.jpg" publishTime="06/04/2018 15:00:32" />
-    <file relUrl="Content/themes/image/re.gif" publishTime="06/04/2018 15:00:33" />
     <file relUrl="Content/Doc_UK/tickit_user_guide_fichiers/image045.png" publishTime="06/04/2018 15:00:31" />
     <file relUrl="Content/themes/remises/20110389.jpg" publishTime="06/04/2018 15:00:35" />
     <file relUrl="Content/themes/image/ua.gif" publishTime="06/04/2018 15:00:33" />
@@ -52,7 +52,6 @@
     <file relUrl="Content/themes/image/ci.gif" publishTime="06/04/2018 15:00:34" />
     <file relUrl="Content/themes/image/fk.gif" publishTime="06/04/2018 15:00:33" />
     <file relUrl="Content/themes/image/tr.gif" publishTime="06/04/2018 15:00:33" />
-    <file relUrl="Content/themes/image/ly.gif" publishTime="06/04/2018 15:00:33" />
     <file relUrl="Content/themes/image/info.png" publishTime="06/04/2018 15:00:34" />
     <file relUrl="Content/maquette_reglette/reglette.html" publishTime="08/11/2021 17:50:43" />
     <file relUrl="Content/themes/remises/20110378.jpg" publishTime="06/04/2018 15:00:35" />
@@ -60,6 +59,8 @@
     <file relUrl="Content/themes/image/lb.gif" publishTime="06/04/2018 15:00:34" />
     <file relUrl="Content/themes/image/tc.gif" publishTime="06/04/2018 15:00:33" />
     <file relUrl="Content/themes/images/ui-bg_flat_0_aaaaaa_40x100.png" publishTime="06/04/2018 15:00:34" />
+    <file relUrl="Content/Doc_FR/tickit_user_guide_fichiers/image033.png" publishTime="06/04/2018 15:00:30" />
+    <file relUrl="Content/Doc_FR/tickit_user_guide_fichiers/image023.png" publishTime="06/04/2018 15:00:31" />
     <file relUrl="Content/themes/image/id.gif" publishTime="06/04/2018 15:00:33" />
     <file relUrl="Content/themes/image/ls.gif" publishTime="06/04/2018 15:00:32" />
     <file relUrl="Content/Doc_FR/tickit_user_guide_fichiers/image062.jpg" publishTime="06/04/2018 15:00:31" />
@@ -69,84 +70,80 @@
     <file relUrl="Content/Doc_FR/tickit_user_guide_fichiers/image041.png" publishTime="06/04/2018 15:00:31" />
     <file relUrl="Content/themes/base/jquery.ui.tabs.css" publishTime="06/04/2018 15:00:36" />
     <file relUrl="Content/Doc_FR/tickit_user_guide_fichiers/image006.jpg" publishTime="06/04/2018 15:00:31" />
-    <file relUrl="Content/themes/image/gh.gif" publishTime="06/04/2018 15:00:34" />
+    <file relUrl="Content/Doc_FR/tickit_user_guide_fichiers/image027.png" publishTime="06/04/2018 15:00:31" />
     <file relUrl="Content/themes/remises/20110365.jpg" publishTime="06/04/2018 15:00:35" />
     <file relUrl="Content/themes/image/yt.gif" publishTime="06/04/2018 15:00:33" />
     <file relUrl="Content/themes/image/cd.gif" publishTime="06/04/2018 15:00:33" />
-    <file relUrl="Content/Doc_UK/tickit_user_guide_fichiers/image023.png" publishTime="06/04/2018 15:00:32" />
     <file relUrl="Content/themes/image/lampeAdd.png" publishTime="06/04/2018 15:00:34" />
-    <file relUrl="Views/Home/ImpressionEnMasse.cshtml" publishTime="11/01/2021 22:57:33" />
-    <file relUrl="Content/maquette_reglette/images/filet.jpg" publishTime="08/11/2021 17:50:43" />
+    <file relUrl="Views/Home/Index.cshtml" publishTime="09/08/2021 11:47:51" />
+    <file relUrl="Content/themes/image/mt.gif" publishTime="06/04/2018 15:00:33" />
     <file relUrl="bin/itextsharp.dll" publishTime="06/04/2018 15:00:30" />
     <file relUrl="Scripts/jquery.js" publishTime="06/04/2018 15:00:28" />
-    <file relUrl="Content/themes/image/ky.gif" publishTime="06/04/2018 15:00:33" />
     <file relUrl="Content/themes/image/gf.gif" publishTime="06/04/2018 15:00:33" />
     <file relUrl="Content/themes/image/ir.gif" publishTime="06/04/2018 15:00:34" />
     <file relUrl="Content/themes/image/bv.gif" publishTime="06/04/2018 15:00:34" />
     <file relUrl="Content/Doc_UK/tickit_user_guide_fichiers/props002.xml" publishTime="06/04/2018 15:00:32" />
+    <file relUrl="Content/themes/image/co.gif" publishTime="06/04/2018 15:00:33" />
     <file relUrl="Content/themes/image/um.gif" publishTime="06/04/2018 15:00:33" />
     <file relUrl="Content/themes/image/vg.gif" publishTime="06/04/2018 15:00:33" />
     <file relUrl="Content/Doc_UK/tickit_user_guide_fichiers/image014.jpg" publishTime="06/04/2018 15:00:32" />
     <file relUrl="Content/themes/image/fam.gif" publishTime="06/04/2018 15:00:33" />
-    <file relUrl="Content/themes/image/ye.gif" publishTime="06/04/2018 15:00:33" />
+    <file relUrl="Content/themes/image/kg.gif" publishTime="06/04/2018 15:00:34" />
     <file relUrl="Content/themes/image/pr.gif" publishTime="06/04/2018 15:00:32" />
     <file relUrl="Content/Doc_FR/tickit_user_guide_fichiers/image056.jpg" publishTime="06/04/2018 15:00:30" />
-    <file relUrl="Content/themes/image/uz.gif" publishTime="06/04/2018 15:00:34" />
-    <file relUrl="Content/themes/image/AJ.gif" publishTime="06/04/2018 15:00:33" />
     <file relUrl="Content/themes/image/cv.gif" publishTime="06/04/2018 15:00:32" />
-    <file relUrl="Content/themes/image/vi.gif" publishTime="06/04/2018 15:00:34" />
     <file relUrl="Content/themes/image/dz.gif" publishTime="06/04/2018 15:00:33" />
-    <file relUrl="bin/fr/TickitNewFace.resources.dll" publishTime="02/02/2022 17:33:04" />
     <file relUrl="Content/themes/image/as.gif" publishTime="06/04/2018 15:00:33" />
     <file relUrl="Content/themes/image/bi.gif" publishTime="06/04/2018 15:00:33" />
     <file relUrl="Content/Doc_UK/tickit_user_guide.htm" publishTime="06/04/2018 15:00:31" />
     <file relUrl="Content/themes/remises/20110369.jpg" publishTime="06/04/2018 15:00:35" />
     <file relUrl="Content/Doc_UK/tickit_user_guide_fichiers/item0003.xml" publishTime="06/04/2018 15:00:32" />
-    <file relUrl="bin/es/TickitNewFace.resources.dll" publishTime="02/02/2022 17:33:03" />
+    <file relUrl="bin/es/TickitNewFace.resources.dll" publishTime="02/14/2022 16:25:29" />
     <file relUrl="Content/themes/image/europeanunion.gif" publishTime="06/04/2018 15:00:34" />
     <file relUrl="Content/themes/remises/20110381.jpg" publishTime="06/04/2018 15:00:34" />
     <file relUrl="Content/Doc_UK/tickit_user_guide_fichiers/image060.jpg" publishTime="06/04/2018 15:00:32" />
     <file relUrl="Content/themes/image/va.gif" publishTime="06/04/2018 15:00:34" />
     <file relUrl="Content/Doc_UK/tickit_user_guide_fichiers/image012.jpg" publishTime="06/04/2018 15:00:32" />
     <file relUrl="Content/Doc_FR/tickit_user_guide_fichiers/image017.png" publishTime="06/04/2018 15:00:31" />
-    <file relUrl="Content/Doc_FR/tickit_user_guide_fichiers/image035.png" publishTime="06/04/2018 15:00:30" />
     <file relUrl="Content/themes/image/mp.gif" publishTime="06/04/2018 15:00:33" />
     <file relUrl="Content/themes/image/to.gif" publishTime="06/04/2018 15:00:33" />
     <file relUrl="Content/Doc_FR/tickit_user_guide_fichiers/image052.jpg" publishTime="06/04/2018 15:00:30" />
     <file relUrl="Content/themes/image/ds.gif" publishTime="06/04/2018 15:00:33" />
-    <file relUrl="Content/themes/image/ru.gif" publishTime="06/04/2018 15:00:33" />
     <file relUrl="Content/themes/image/is.gif" publishTime="06/04/2018 15:00:33" />
     <file relUrl="Content/themes/image/in.gif" publishTime="06/04/2018 15:00:34" />
     <file relUrl="Content/Doc_UK/tickit_user_guide_fichiers/image040.jpg" publishTime="06/04/2018 15:00:32" />
     <file relUrl="Content/themes/image/pn.gif" publishTime="06/04/2018 15:00:32" />
     <file relUrl="Content/themes/image/an.gif" publishTime="06/04/2018 15:00:33" />
-    <file relUrl="Content/themes/image/at.gif" publishTime="06/04/2018 15:00:34" />
     <file relUrl="Content/themes/image/kh.gif" publishTime="06/04/2018 15:00:32" />
-    <file relUrl="bin/de/TickitNewFace.resources.dll" publishTime="02/02/2022 17:33:03" />
+    <file relUrl="bin/de/TickitNewFace.resources.dll" publishTime="02/14/2022 16:25:28" />
     <file relUrl="Content/themes/image/ma.gif" publishTime="06/04/2018 15:00:34" />
     <file relUrl="bin/Microsoft.Web.Infrastructure.dll" publishTime="01/05/2011 15:45:38" />
     <file relUrl="Content/Doc_FR/tickit_user_guide_fichiers/image044.jpg" publishTime="06/04/2018 15:00:31" />
     <file relUrl="Content/themes/image/ch.gif" publishTime="06/04/2018 15:00:33" />
+    <file relUrl="Content/Doc_FR/tickit_user_guide_fichiers/image022.jpg" publishTime="06/04/2018 15:00:30" />
+    <file relUrl="Content/themes/fonts.css" publishTime="06/04/2018 15:00:32" />
     <file relUrl="Scripts/jquery-1.6.2.min.js" publishTime="06/04/2018 15:00:28" />
     <file relUrl="Content/Doc_FR/tickit_user_guide_fichiers/image058.png" publishTime="06/04/2018 15:00:31" />
     <file relUrl="Content/Doc_UK/tickit_user_guide_fichiers/image044.jpg" publishTime="06/04/2018 15:00:32" />
     <file relUrl="Content/themes/remises/20110371.jpg" publishTime="06/04/2018 15:00:34" />
+    <file relUrl="Content/themes/image/cn.gif" publishTime="06/04/2018 15:00:32" />
     <file relUrl="Content/themes/image/bz.gif" publishTime="06/04/2018 15:00:34" />
+    <file relUrl="Content/themes/image/remove.png" publishTime="06/04/2018 15:00:34" />
     <file relUrl="Content/themes/image/ga.gif" publishTime="06/04/2018 15:00:34" />
     <file relUrl="Content/Doc_UK/tickit_user_guide_fichiers/image055.png" publishTime="06/04/2018 15:00:32" />
-    <file relUrl="Content/Doc_UK/tickit_user_guide_fichiers/image038.jpg" publishTime="06/04/2018 15:00:32" />
     <file relUrl="Content/themes/image/sg.gif" publishTime="06/04/2018 15:00:33" />
     <file relUrl="Content/themes/image/nl.gif" publishTime="06/04/2018 15:00:34" />
     <file relUrl="Content/themes/image/kz.gif" publishTime="06/04/2018 15:00:33" />
+    <file relUrl="Content/themes/image/tf.gif" publishTime="06/04/2018 15:00:33" />
     <file relUrl="Content/themes/image/kw.gif" publishTime="06/04/2018 15:00:34" />
     <file relUrl="Content/Doc_UK/tickit_user_guide_fichiers/image056.jpg" publishTime="06/04/2018 15:00:32" />
+    <file relUrl="Content/themes/image/printer.png" publishTime="06/04/2018 15:00:33" />
+    <file relUrl="Content/Doc_UK/tickit_user_guide_fichiers/image041.png" publishTime="06/04/2018 15:00:32" />
     <file relUrl="Content/themes/image/cz.gif" publishTime="06/04/2018 15:00:32" />
     <file relUrl="Content/Doc_FR/tickit_user_guide_fichiers/image040.jpg" publishTime="06/04/2018 15:00:31" />
     <file relUrl="Views/Home/Administration.cshtml" publishTime="05/13/2019 18:37:23" />
     <file relUrl="Content/themes/image/io.gif" publishTime="06/04/2018 15:00:33" />
     <file relUrl="Content/themes/image/lc.gif" publishTime="06/04/2018 15:00:32" />
-    <file relUrl="Content/Doc_UK/tickit_user_guide_fichiers/image046.jpg" publishTime="06/04/2018 15:00:32" />
-    <file relUrl="Content/themes/fonts/HelveticaBold/helvetica-bold-webfont.svg" publishTime="06/04/2018 15:00:36" />
     <file relUrl="Content/themes/fonts/DINRounded/dinengschriftstd-webfont.svg" publishTime="06/04/2018 15:00:35" />
     <file relUrl="Content/themes/image/ao.gif" publishTime="06/04/2018 15:00:33" />
     <file relUrl="Content/themes/remises/20110375.jpg" publishTime="06/04/2018 15:00:35" />
@@ -156,23 +153,21 @@
     <file relUrl="Content/Doc_FR/tickit_user_guide_fichiers/image032.jpg" publishTime="06/04/2018 15:00:31" />
     <file relUrl="Content/Doc_UK/tickit_user_guide_fichiers/image008.jpg" publishTime="06/04/2018 15:00:32" />
     <file relUrl="Content/themes/image/sj.gif" publishTime="06/04/2018 15:00:32" />
-    <file relUrl="Content/themes/langage/dataTablesPLV.fr.txt" publishTime="06/04/2018 15:00:32" />
     <file relUrl="Views/Shared/Error.cshtml" publishTime="06/04/2018 15:00:28" />
     <file relUrl="Content/themes/image/sa.gif" publishTime="06/04/2018 15:00:34" />
     <file relUrl="Content/themes/image/mz.gif" publishTime="06/04/2018 15:00:33" />
+    <file relUrl="Content/maquette_reglette/webfonts/dinhabmedium/stylesheet.css" publishTime="08/12/2021 01:08:39" />
     <file relUrl="Content/Doc_UK/tickit_user_guide_fichiers/image001.png" publishTime="06/04/2018 15:00:32" />
     <file relUrl="Content/themes/remises/20110382.jpg" publishTime="06/04/2018 15:00:35" />
     <file relUrl="Content/themes/image/py.gif" publishTime="06/04/2018 15:00:34" />
     <file relUrl="Content/themes/remises/20110364.jpg" publishTime="06/04/2018 15:00:35" />
     <file relUrl="Content/Doc_UK/tickit_user_guide_fichiers/image049.png" publishTime="06/04/2018 15:00:32" />
     <file relUrl="Content/Doc_UK/tickit_user_guide_fichiers/image003.png" publishTime="06/04/2018 15:00:32" />
-    <file relUrl="Content/Doc_UK/tickit_user_guide_fichiers/image019.png" publishTime="06/04/2018 15:00:32" />
+    <file relUrl="Content/themes/image/cc.gif" publishTime="06/04/2018 15:00:33" />
     <file relUrl="Content/themes/image/bw.gif" publishTime="06/04/2018 15:00:34" />
-    <file relUrl="Content/Doc_UK/tickit_user_guide_fichiers/image052.jpg" publishTime="06/04/2018 15:00:32" />
     <file relUrl="Content/themes/image/search_btn.png" publishTime="06/04/2018 15:00:33" />
     <file relUrl="Content/themes/image/ng.gif" publishTime="06/04/2018 15:00:34" />
     <file relUrl="Content/Doc_FR/tickit_user_guide_fichiers/image036.jpg" publishTime="06/04/2018 15:00:31" />
-    <file relUrl="Content/themes/image/table_add.png" publishTime="06/04/2018 15:00:32" />
     <file relUrl="Content/themes/image/cf.gif" publishTime="06/04/2018 15:00:34" />
     <file relUrl="Content/Doc_FR/tickit_user_guide_fichiers/item0003.xml" publishTime="06/04/2018 15:00:31" />
     <file relUrl="Content/themes/image/ch-de.gif" publishTime="07/14/2020 23:17:33" />
@@ -186,7 +181,8 @@
     <file relUrl="Content/Doc_UK/tickit_user_guide_fichiers/item0001.xml" publishTime="06/04/2018 15:00:32" />
     <file relUrl="Content/themes/image/sk.gif" publishTime="06/04/2018 15:00:33" />
     <file relUrl="Content/themes/image/sv.gif" publishTime="06/04/2018 15:00:32" />
-    <file relUrl="Content/themes/image/sd.gif" publishTime="06/04/2018 15:00:33" />
+    <file relUrl="Content/Doc_FR/tickit_user_guide_fichiers/item0001.xml" publishTime="06/04/2018 15:00:31" />
+    <file relUrl="Content/themes/remises/20110383.jpg" publishTime="06/04/2018 15:00:35" />
     <file relUrl="Content/themes/remises/20110372.jpg" publishTime="06/04/2018 15:00:34" />
     <file relUrl="Content/Doc_FR/tickit_user_guide_fichiers/image045.png" publishTime="06/04/2018 15:00:31" />
     <file relUrl="Content/themes/jqueryMultiSelect.css" publishTime="06/04/2018 15:00:32" />
@@ -195,11 +191,11 @@
     <file relUrl="Content/themes/image/en.png" publishTime="06/04/2018 15:00:32" />
     <file relUrl="Content/themes/image/england.gif" publishTime="06/04/2018 15:00:34" />
     <file relUrl="Content/themes/image/jp.gif" publishTime="06/04/2018 15:00:34" />
+    <file relUrl="Content/Doc_UK/tickit_user_guide_fichiers/image047.png" publishTime="06/04/2018 15:00:32" />
     <file relUrl="Content/themes/images/ui-icons_2e83ff_256x240.png" publishTime="06/04/2018 15:00:34" />
     <file relUrl="Content/themes/remises/20110379.jpg" publishTime="06/04/2018 15:00:35" />
-    <file relUrl="Content/maquette_reglette/images/flag_france.jpg" publishTime="08/11/2021 17:50:43" />
     <file relUrl="Content/themes/base/jquery.ui.slider.css" publishTime="06/04/2018 15:00:36" />
-    <file relUrl="Content/themes/base/jquery.ui.datepicker.css" publishTime="06/04/2018 15:00:36" />
+    <file relUrl="Content/themes/base/jquery.ui.button.css" publishTime="06/04/2018 15:00:36" />
     <file relUrl="Content/Doc_FR/tickit_user_guide.htm" publishTime="06/04/2018 15:00:31" />
     <file relUrl="Global.asax" publishTime="06/04/2018 15:00:28" />
     <file relUrl="Content/themes/image/cg.gif" publishTime="06/04/2018 15:00:33" />
@@ -212,8 +208,9 @@
     <file relUrl="Content/themes/image/made_FR.png" publishTime="06/04/2018 15:00:33" />
     <file relUrl="Content/themes/image/bj.gif" publishTime="06/04/2018 15:00:34" />
     <file relUrl="Content/themes/image/catalonia.gif" publishTime="06/04/2018 15:00:32" />
-    <file relUrl="Content/Doc_FR/tickit_user_guide_fichiers/item0001.xml" publishTime="06/04/2018 15:00:31" />
+    <file relUrl="Views/Web.config" publishTime="06/04/2018 15:00:28" />
     <file relUrl="Content/Doc_UK/tickit_user_guide_fichiers/image042.jpg" publishTime="06/04/2018 15:00:32" />
+    <file relUrl="Views/Home/RangeDetails.cshtml" publishTime="06/04/2018 15:00:28" />
     <file relUrl="Content/Doc_UK/tickit_user_guide_fichiers/image061.png" publishTime="06/04/2018 15:00:32" />
     <file relUrl="Content/themes/image/sw.gif" publishTime="06/04/2018 15:00:33" />
     <file relUrl="Content/themes/fonts/DINRegular/din-rg_-webfont.svg" publishTime="06/04/2018 15:00:36" />
@@ -221,50 +218,53 @@
     <file relUrl="Scripts/jquery.dataTables.min.js" publishTime="06/04/2018 15:00:28" />
     <file relUrl="Content/themes/image/ml.gif" publishTime="06/04/2018 15:00:33" />
     <file relUrl="Content/themes/image/gr.gif" publishTime="06/04/2018 15:00:33" />
-    <file relUrl="Content/themes/base/jquery.ui.base.css" publishTime="06/04/2018 15:00:36" />
     <file relUrl="Content/themes/Site.css" publishTime="06/04/2018 15:00:32" />
-    <file relUrl="Content/themes/image/si.gif" publishTime="06/04/2018 15:00:34" />
+    <file relUrl="Content/Doc_FR/tickit_user_guide_fichiers/image015.png" publishTime="06/04/2018 15:00:31" />
     <file relUrl="Content/themes/image/nr.gif" publishTime="06/04/2018 15:00:33" />
     <file relUrl="Content/themes/image/fm.gif" publishTime="06/04/2018 15:00:34" />
-    <file relUrl="Content/themes/image/ge.gif" publishTime="06/04/2018 15:00:34" />
     <file relUrl="bin/System.Web.WebPages.Razor.xml" publishTime="12/20/2010 10:52:36" />
     <file relUrl="Content/Doc_FR/tickit_user_guide_fichiers/image013.png" publishTime="06/04/2018 15:00:31" />
     <file relUrl="Content/themes/remises/20110363.jpg" publishTime="06/04/2018 15:00:34" />
     <file relUrl="Content/Doc_FR/tickit_user_guide_fichiers/image039.png" publishTime="06/04/2018 15:00:30" />
+    <file relUrl="bin/System.Web.WebPages.Deployment.xml" publishTime="12/20/2010 10:52:36" />
     <file relUrl="Content/Doc_UK/tickit_user_guide_fichiers/image024.jpg" publishTime="06/04/2018 15:00:32" />
     <file relUrl="Content/themes/fonts/Helvetica/helvetica-regular-webfont.svg" publishTime="06/04/2018 15:00:36" />
     <file relUrl="Content/themes/image/sz.gif" publishTime="06/04/2018 15:00:32" />
     <file relUrl="Content/themes/tableresponsive.css" publishTime="06/04/2018 15:00:32" />
     <file relUrl="Content/themes/image/ug.gif" publishTime="06/04/2018 15:00:34" />
-    <file relUrl="Views/Home/MenuSkusgroupe.cshtml" publishTime="06/04/2018 15:00:28" />
+    <file relUrl="Content/Doc_FR/tickit_user_guide_fichiers/image019.png" publishTime="06/04/2018 15:00:31" />
     <file relUrl="Content/Doc_FR/tickit_user_guide_fichiers/image016.jpg" publishTime="06/04/2018 15:00:30" />
+    <file relUrl="Content/Doc_FR/tickit_user_guide_fichiers/image012.jpg" publishTime="06/04/2018 15:00:30" />
     <file relUrl="Content/themes/image/mw.gif" publishTime="06/04/2018 15:00:33" />
     <file relUrl="Content/Doc_UK/tickit_user_guide_fichiers/image004.jpg" publishTime="06/04/2018 15:00:32" />
     <file relUrl="Content/themes/image/made_UE.png" publishTime="06/04/2018 15:00:34" />
+    <file relUrl="Content/Doc_UK/tickit_user_guide_fichiers/image033.png" publishTime="06/04/2018 15:00:32" />
     <file relUrl="Content/themes/remises/20110362.jpg" publishTime="06/04/2018 15:00:34" />
     <file relUrl="Content/themes/image/tj.gif" publishTime="06/04/2018 15:00:33" />
     <file relUrl="bin/itextsharp.pdfa.dll" publishTime="06/04/2018 15:00:30" />
     <file relUrl="Content/themes/image/la.gif" publishTime="06/04/2018 15:00:33" />
     <file relUrl="Views/Home/Luminaire.cshtml" publishTime="06/04/2018 15:00:29" />
+    <file relUrl="Content/themes/image/lr.gif" publishTime="06/04/2018 15:00:34" />
     <file relUrl="Content/themes/image/am.gif" publishTime="06/04/2018 15:00:32" />
     <file relUrl="Content/themes/image/bg.gif" publishTime="06/04/2018 15:00:34" />
     <file relUrl="Content/themes/remises/20110367.jpg" publishTime="06/04/2018 15:00:35" />
     <file relUrl="Content/themes/image/gs.gif" publishTime="06/04/2018 15:00:33" />
-    <file relUrl="Content/themes/image/kr.gif" publishTime="06/04/2018 15:00:33" />
     <file relUrl="bin/System.Web.WebPages.xml" publishTime="12/19/2010 23:59:38" />
-    <file relUrl="Content/themes/image/doc.png" publishTime="06/04/2018 15:00:34" />
+    <file relUrl="Content/themes/images/ui-bg_flat_75_ffffff_40x100.png" publishTime="06/04/2018 15:00:34" />
     <file relUrl="Content/themes/image/ck.gif" publishTime="06/04/2018 15:00:33" />
     <file relUrl="Content/themes/image/warning.png" publishTime="06/04/2018 15:00:33" />
     <file relUrl="Content/Doc_UK/tickit_user_guide_fichiers/image035.png" publishTime="06/04/2018 15:00:32" />
     <file relUrl="Content/Doc_FR/tickit_user_guide_fichiers/image020.jpg" publishTime="06/04/2018 15:00:30" />
     <file relUrl="Content/themes/image/rw.gif" publishTime="06/04/2018 15:00:34" />
     <file relUrl="Content/Doc_UK/tickit_user_guide_fichiers/image011.png" publishTime="06/04/2018 15:00:32" />
-    <file relUrl="Views/Home/MenuMatiere.cshtml" publishTime="06/04/2018 15:00:28" />
+    <file relUrl="Content/Doc_UK/tickit_user_guide_fichiers/image058.png" publishTime="06/04/2018 15:00:32" />
     <file relUrl="Content/Doc_UK/tickit_user_guide_fichiers/image059.png" publishTime="06/04/2018 15:00:32" />
     <file relUrl="Content/themes/remises/20110366.jpg" publishTime="06/04/2018 15:00:35" />
+    <file relUrl="Content/themes/image/it.gif" publishTime="06/04/2018 15:00:33" />
+    <file relUrl="bin/HiQPdf.dep" publishTime="09/01/2021 17:38:45" />
     <file relUrl="Content/Doc_FR/tickit_user_guide_fichiers/image060.jpg" publishTime="06/04/2018 15:00:31" />
     <file relUrl="Content/Doc_UK/tickit_user_guide_fichiers/image037.png" publishTime="06/04/2018 15:00:32" />
-    <file relUrl="Content/Doc_UK/tickit_user_guide_fichiers/image058.png" publishTime="06/04/2018 15:00:32" />
+    <file relUrl="Content/maquette_reglette/images/filet.jpg" publishTime="08/11/2021 17:50:43" />
     <file relUrl="bin/System.Web.WebPages.Deployment.dll" publishTime="01/05/2011 15:45:38" />
     <file relUrl="Content/maquette_reglette/webfonts/dinhabbold/_notes/dwsync.xml" publishTime="08/11/2021 17:50:43" />
     <file relUrl="Content/themes/image/vn.gif" publishTime="06/04/2018 15:00:34" />
@@ -275,31 +275,35 @@
     <file relUrl="Views/Home/Success.cshtml" publishTime="06/04/2018 15:00:28" />
     <file relUrl="Scripts/jquery-1.4.4.min.js" publishTime="06/04/2018 15:00:28" />
     <file relUrl="Content/themes/image/cm.gif" publishTime="06/04/2018 15:00:34" />
-    <file relUrl="Views/Web.config" publishTime="06/04/2018 15:00:28" />
+    <file relUrl="Content/Doc_UK/tickit_user_guide_fichiers/image043.png" publishTime="06/04/2018 15:00:31" />
     <file relUrl="Content/themes/image/lv.gif" publishTime="06/04/2018 15:00:34" />
     <file relUrl="Content/Doc_FR/tickit_user_guide_fichiers/image024.jpg" publishTime="06/04/2018 15:00:31" />
     <file relUrl="Content/themes/image/dm.gif" publishTime="06/04/2018 15:00:32" />
     <file relUrl="bin/EntityFramework.dll" publishTime="06/04/2018 15:00:26" />
     <file relUrl="Content/themes/fonts/DINMedium/din-m__-webfont.svg" publishTime="06/04/2018 15:00:35" />
-    <file relUrl="packages.config" publishTime="06/04/2018 15:00:37" />
+    <file relUrl="bin/EntityFramework.xml" publishTime="06/04/2018 15:00:26" />
+    <file relUrl="Content/themes/image/bh.gif" publishTime="06/04/2018 15:00:33" />
+    <file relUrl="Content/Doc_UK/tickit_user_guide_fichiers/image022.jpg" publishTime="06/04/2018 15:00:32" />
     <file relUrl="Content/themes/images/ui-bg_glass_95_fef1ec_1x400.png" publishTime="06/04/2018 15:00:34" />
     <file relUrl="Content/Doc_FR/tickit_user_guide_fichiers/image029.png" publishTime="06/04/2018 15:00:31" />
     <file relUrl="Views/Home/MenuImpression.cshtml" publishTime="06/04/2018 15:00:28" />
     <file relUrl="Content/Doc_UK/tickit_user_guide_fichiers/image016.jpg" publishTime="06/04/2018 15:00:32" />
     <file relUrl="Content/Doc_FR/tickit_user_guide_fichiers/image061.png" publishTime="06/04/2018 15:00:31" />
-    <file relUrl="Content/themes/langage/dataTables.fr.txt" publishTime="06/04/2018 15:00:32" />
+    <file relUrl="Content/themes/remises/20110368.jpg" publishTime="06/04/2018 15:00:35" />
     <file relUrl="Content/themes/image/mf.gif" publishTime="06/04/2018 15:00:32" />
     <file relUrl="Content/themes/image/my.gif" publishTime="06/04/2018 15:00:34" />
+    <file relUrl="Content/Doc_UK/tickit_user_guide_fichiers/image062.jpg" publishTime="06/04/2018 15:00:32" />
     <file relUrl="Views/Shared/_Layout.cshtml" publishTime="05/10/2019 10:23:55" />
     <file relUrl="Content/themes/remises/20110388.jpg" publishTime="06/04/2018 15:00:35" />
     <file relUrl="Content/Doc_UK/tickit_user_guide_fichiers/plchdr.htm" publishTime="06/04/2018 15:00:32" />
     <file relUrl="Content/themes/image/za.gif" publishTime="06/04/2018 15:00:34" />
     <file relUrl="Content/Doc_UK/tickit_user_guide_fichiers/image036.jpg" publishTime="06/04/2018 15:00:32" />
-    <file relUrl="Content/themes/image/uy.gif" publishTime="06/04/2018 15:00:33" />
+    <file relUrl="Content/themes/image/tv.gif" publishTime="06/04/2018 15:00:33" />
     <file relUrl="Content/Doc_FR/tickit_user_guide_fichiers/image047.png" publishTime="06/04/2018 15:00:31" />
+    <file relUrl="Content/maquette_reglette/images/crops.jpg" publishTime="08/11/2021 17:50:43" />
     <file relUrl="Content/themes/image/gb.gif" publishTime="06/04/2018 15:00:33" />
-    <file relUrl="Content/themes/image/ps.gif" publishTime="06/04/2018 15:00:33" />
     <file relUrl="Content/themes/image/pm.gif" publishTime="06/04/2018 15:00:34" />
+    <file relUrl="Content/themes/remises/20110370.jpg" publishTime="06/04/2018 15:00:34" />
     <file relUrl="Content/themes/image/ca.gif" publishTime="06/04/2018 15:00:34" />
     <file relUrl="Content/themes/image/eg.gif" publishTime="06/04/2018 15:00:34" />
     <file relUrl="Content/themes/image/vc.gif" publishTime="06/04/2018 15:00:33" />
@@ -308,9 +312,11 @@
     <file relUrl="Content/themes/image/kp.gif" publishTime="06/04/2018 15:00:32" />
     <file relUrl="Content/Doc_FR/tickit_user_guide_fichiers/image011.png" publishTime="06/04/2018 15:00:31" />
     <file relUrl="Content/Doc_UK/tickit_user_guide_fichiers/filelist.xml" publishTime="06/04/2018 15:00:32" />
+    <file relUrl="Content/themes/base/jquery.ui.accordion.css" publishTime="06/04/2018 15:00:36" />
     <file relUrl="Content/maquette_reglette/webfonts/dinhabbold/stylesheet.css" publishTime="08/12/2021 01:08:20" />
+    <file relUrl="Content/themes/images/ui-bg_glass_65_ffffff_1x400.png" publishTime="06/04/2018 15:00:34" />
     <file relUrl="Content/themes/image/il.gif" publishTime="06/04/2018 15:00:33" />
-    <file relUrl="Views/Home/RangeDetails.cshtml" publishTime="06/04/2018 15:00:28" />
+    <file relUrl="Content/themes/image/ps.gif" publishTime="06/04/2018 15:00:33" />
     <file relUrl="Content/themes/image/jm.gif" publishTime="06/04/2018 15:00:34" />
     <file relUrl="Content/themes/image/ht.gif" publishTime="06/04/2018 15:00:32" />
     <file relUrl="Content/Doc_FR/tickit_user_guide_fichiers/image001.png" publishTime="06/04/2018 15:00:31" />
@@ -323,9 +329,8 @@
     <file relUrl="Content/themes/image/loader3.gif" publishTime="06/04/2018 15:00:34" />
     <file relUrl="Views/Home/GammePLV.cshtml" publishTime="06/04/2018 15:00:28" />
     <file relUrl="Content/Doc_UK/tickit_user_guide_fichiers/image028.jpg" publishTime="06/04/2018 15:00:31" />
-    <file relUrl="Content/Doc_UK/tickit_user_guide_fichiers/image043.png" publishTime="06/04/2018 15:00:31" />
-    <file relUrl="Content/themes/image/gu.gif" publishTime="06/04/2018 15:00:32" />
-    <file relUrl="Content/themes/image/sy.gif" publishTime="06/04/2018 15:00:34" />
+    <file relUrl="bin/HiQPdf.xml" publishTime="09/01/2021 17:38:45" />
+    <file relUrl="Content/Doc_UK/tickit_user_guide_fichiers/image038.jpg" publishTime="06/04/2018 15:00:32" />
     <file relUrl="Content/themes/image/tz.gif" publishTime="06/04/2018 15:00:33" />
     <file relUrl="Content/Doc_UK/tickit_user_guide_fichiers/image002.jpg" publishTime="06/04/2018 15:00:32" />
     <file relUrl="Content/Doc_FR/tickit_user_guide_fichiers/image028.jpg" publishTime="06/04/2018 15:00:31" />
@@ -333,14 +338,13 @@
     <file relUrl="Content/themes/image/tk.gif" publishTime="06/04/2018 15:00:33" />
     <file relUrl="Content/themes/remises/20110373.jpg" publishTime="06/04/2018 15:00:34" />
     <file relUrl="Content/themes/image/pa.gif" publishTime="06/04/2018 15:00:34" />
-    <file relUrl="Content/themes/image/sm.gif" publishTime="06/04/2018 15:00:34" />
-    <file relUrl="Content/themes/image/gd.gif" publishTime="06/04/2018 15:00:34" />
+    <file relUrl="Content/themes/image/Loader.gif" publishTime="06/04/2018 15:00:33" />
     <file relUrl="Content/themes/image/az.gif" publishTime="06/04/2018 15:00:33" />
     <file relUrl="Content/Doc_FR/tickit_user_guide_fichiers/image014.jpg" publishTime="06/04/2018 15:00:30" />
     <file relUrl="Content/Doc_FR/tickit_user_guide_fichiers/image049.png" publishTime="06/04/2018 15:00:31" />
     <file relUrl="Content/themes/image/mu.gif" publishTime="06/04/2018 15:00:34" />
     <file relUrl="Scripts/raphael-min.js" publishTime="06/04/2018 15:00:28" />
-    <file relUrl="Content/themes/base/jquery.ui.autocomplete.css" publishTime="06/04/2018 15:00:36" />
+    <file relUrl="Content/maquette_reglette/images/flag_france.jpg" publishTime="08/11/2021 17:50:43" />
     <file relUrl="Content/Doc_UK/tickit_user_guide_fichiers/image006.jpg" publishTime="06/04/2018 15:00:32" />
     <file relUrl="Content/Doc_FR/tickit_user_guide_fichiers/colorschememapping.xml" publishTime="06/04/2018 15:00:31" />
     <file relUrl="Content/themes/remises/20110384.jpg" publishTime="06/04/2018 15:00:35" />
@@ -349,40 +353,40 @@
     <file relUrl="Content/themes/image/th.gif" publishTime="06/04/2018 15:00:34" />
     <file relUrl="Content/themes/fonts/Garamond/agaramondpro-regular-webfont.svg" publishTime="06/04/2018 15:00:36" />
     <file relUrl="Views/Home/Errors.cshtml" publishTime="06/04/2018 15:00:28" />
-    <file relUrl="Content/themes/image/ai.gif" publishTime="06/04/2018 15:00:32" />
-    <file relUrl="Scripts/raphael_linechart.js" publishTime="06/04/2018 15:00:28" />
+    <file relUrl="Content/themes/image/de.gif" publishTime="06/04/2018 15:00:32" />
     <file relUrl="Content/themes/image/ba.gif" publishTime="06/04/2018 15:00:33" />
     <file relUrl="Content/themes/remises/20110377.jpg" publishTime="06/04/2018 15:00:35" />
     <file relUrl="Content/themes/image/gn.gif" publishTime="06/04/2018 15:00:33" />
-    <file relUrl="Content/Doc_FR/tickit_user_guide_fichiers/image037.png" publishTime="06/04/2018 15:00:30" />
-    <file relUrl="Content/Doc_FR/tickit_user_guide_fichiers/image048.jpg" publishTime="06/04/2018 15:00:31" />
+    <file relUrl="Content/themes/image/gu.gif" publishTime="06/04/2018 15:00:32" />
     <file relUrl="Content/Doc_UK/tickit_user_guide_fichiers/image027.png" publishTime="06/04/2018 15:00:32" />
-    <file relUrl="Content/themes/images/ui-bg_highlight-soft_75_cccccc_1x100.png" publishTime="06/04/2018 15:00:34" />
+    <file relUrl="Content/themes/base/jquery.ui.autocomplete.css" publishTime="06/04/2018 15:00:36" />
     <file relUrl="Content/themes/images/ui-bg_glass_55_fbf9ee_1x400.png" publishTime="06/04/2018 15:00:34" />
-    <file relUrl="bin/TickitNewFace.pdb" publishTime="02/02/2022 17:33:03" />
+    <file relUrl="bin/TickitNewFace.pdb" publishTime="02/14/2022 16:25:28" />
+    <file relUrl="Content/Doc_UK/tickit_user_guide_fichiers/props004.xml" publishTime="06/04/2018 15:00:32" />
     <file relUrl="Content/themes/image/st.gif" publishTime="06/04/2018 15:00:33" />
-    <file relUrl="Content/Doc_FR/tickit_user_guide_fichiers/image022.jpg" publishTime="06/04/2018 15:00:30" />
+    <file relUrl="packages.config" publishTime="06/04/2018 15:00:37" />
     <file relUrl="Content/themes/image/sl.gif" publishTime="06/04/2018 15:00:33" />
     <file relUrl="Content/themes/image/tg.gif" publishTime="06/04/2018 15:00:33" />
     <file relUrl="Content/Doc_UK/tickit_user_guide_fichiers/image032.jpg" publishTime="06/04/2018 15:00:32" />
-    <file relUrl="Content/maquette_reglette/images/crops.jpg" publishTime="08/11/2021 17:50:43" />
+    <file relUrl="Content/Doc_FR/tickit_user_guide_fichiers/image035.png" publishTime="06/04/2018 15:00:30" />
     <file relUrl="Content/themes/remises/20110380.jpg" publishTime="06/04/2018 15:00:34" />
-    <file relUrl="Content/themes/jquery.ui.dialog.css" publishTime="06/04/2018 15:00:32" />
     <file relUrl="Content/Doc_FR/tickit_user_guide_fichiers/filelist.xml" publishTime="06/04/2018 15:00:31" />
     <file relUrl="Content/themes/image/gl.gif" publishTime="06/04/2018 15:00:34" />
     <file relUrl="Content/Doc_UK/tickit_user_guide_fichiers/image039.png" publishTime="06/04/2018 15:00:32" />
+    <file relUrl="Content/Doc_UK/tickit_user_guide_fichiers/image031.png" publishTime="06/04/2018 15:00:32" />
     <file relUrl="Content/themes/image/pf.gif" publishTime="06/04/2018 15:00:32" />
     <file relUrl="Content/themes/image/af.gif" publishTime="06/04/2018 15:00:33" />
-    <file relUrl="Content/themes/images/ui-bg_glass_65_ffffff_1x400.png" publishTime="06/04/2018 15:00:34" />
+    <file relUrl="Content/themes/image/sy.gif" publishTime="06/04/2018 15:00:34" />
     <file relUrl="Content/Doc_FR/tickit_user_guide_fichiers/image059.png" publishTime="06/04/2018 15:00:31" />
     <file relUrl="Content/themes/image/na.gif" publishTime="06/04/2018 15:00:33" />
-    <file relUrl="bin/itextsharp.xtra.dll" publishTime="06/04/2018 15:00:30" />
+    <file relUrl="Content/themes/image/doc.png" publishTime="06/04/2018 15:00:34" />
+    <file relUrl="Content/themes/image/so.gif" publishTime="06/04/2018 15:00:33" />
     <file relUrl="Content/Doc_FR/tickit_user_guide_fichiers/props004.xml" publishTime="06/04/2018 15:00:31" />
     <file relUrl="Content/themes/image/td.gif" publishTime="06/04/2018 15:00:34" />
     <file relUrl="Content/themes/image/sc.gif" publishTime="06/04/2018 15:00:33" />
     <file relUrl="Content/themes/image/iq.gif" publishTime="06/04/2018 15:00:33" />
     <file relUrl="Scripts/jqueryMultiSelect.js" publishTime="06/04/2018 15:00:28" />
-    <file relUrl="Content/Doc_UK/tickit_user_guide_fichiers/image031.png" publishTime="06/04/2018 15:00:32" />
+    <file relUrl="Content/themes/image/vi.gif" publishTime="06/04/2018 15:00:34" />
     <file relUrl="Content/themes/base/jquery.ui.selectable.css" publishTime="06/04/2018 15:00:36" />
     <file relUrl="Content/themes/image/fj.gif" publishTime="06/04/2018 15:00:34" />
     <file relUrl="Content/themes/image/lt.gif" publishTime="06/04/2018 15:00:33" />
@@ -393,8 +397,9 @@
     <file relUrl="Content/themes/image/br.gif" publishTime="06/04/2018 15:00:34" />
     <file relUrl="Views/Home/EvolutionGraphiquePrix.cshtml" publishTime="06/04/2018 15:00:28" />
     <file relUrl="Content/themes/base/jquery.ui.dialog.css" publishTime="06/04/2018 15:00:36" />
+    <file relUrl="Content/Doc_FR/tickit_user_guide_fichiers/image055.png" publishTime="06/04/2018 15:00:31" />
     <file relUrl="Content/themes/base/jquery.ui.progressbar.css" publishTime="06/04/2018 15:00:36" />
-    <file relUrl="Content/Doc_UK/tickit_user_guide_fichiers/image033.png" publishTime="06/04/2018 15:00:32" />
+    <file relUrl="Content/themes/image/uy.gif" publishTime="06/04/2018 15:00:33" />
     <file relUrl="Content/Doc_FR/tickit_user_guide_fichiers/image018.jpg" publishTime="06/04/2018 15:00:30" />
     <file relUrl="Content/themes/langage/dataTables.en.txt" publishTime="06/04/2018 15:00:32" />
     <file relUrl="Content/themes/image/mc.gif" publishTime="06/04/2018 15:00:33" />
@@ -404,7 +409,6 @@
     <file relUrl="Content/themes/image/nz.gif" publishTime="06/04/2018 15:00:33" />
     <file relUrl="Content/Doc_UK/tickit_user_guide_fichiers/image030.jpg" publishTime="06/04/2018 15:00:32" />
     <file relUrl="Content/themes/image/lk.gif" publishTime="06/04/2018 15:00:32" />
-    <file relUrl="Content/themes/image/print_fav.png" publishTime="06/04/2018 15:00:33" />
     <file relUrl="Content/themes/image/ag.gif" publishTime="06/04/2018 15:00:33" />
     <file relUrl="Content/themes/image/tn.gif" publishTime="06/04/2018 15:00:33" />
     <file relUrl="Content/themes/image/dk.gif" publishTime="06/04/2018 15:00:33" />
@@ -412,13 +416,11 @@
     <file relUrl="Content/themes/image/bt.gif" publishTime="06/04/2018 15:00:33" />
     <file relUrl="Content/themes/image/sb.gif" publishTime="06/04/2018 15:00:32" />
     <file relUrl="Content/themes/image/mx.gif" publishTime="06/04/2018 15:00:33" />
-    <file relUrl="Content/themes/image/so.gif" publishTime="06/04/2018 15:00:33" />
+    <file relUrl="Scripts/raphael_linechart.js" publishTime="06/04/2018 15:00:28" />
     <file relUrl="Content/themes/image/ee.gif" publishTime="06/04/2018 15:00:33" />
     <file relUrl="Content/themes/image/ve.gif" publishTime="06/04/2018 15:00:34" />
-    <file relUrl="Content/themes/image/bn.gif" publishTime="06/04/2018 15:00:34" />
     <file relUrl="Content/themes/image/application_edit.png" publishTime="06/04/2018 15:00:34" />
-    <file relUrl="Content/themes/base/jquery.ui.accordion.css" publishTime="06/04/2018 15:00:36" />
-    <file relUrl="Content/themes/image/ms.gif" publishTime="06/04/2018 15:00:33" />
+    <file relUrl="Content/themes/image/kr.gif" publishTime="06/04/2018 15:00:33" />
     <file relUrl="Content/themes/image/gy.gif" publishTime="06/04/2018 15:00:32" />
     <file relUrl="Views/Home/PLV.cshtml" publishTime="06/04/2018 15:00:28" />
     <file relUrl="Content/themes/image/hm.gif" publishTime="06/04/2018 15:00:33" />
@@ -426,12 +428,11 @@
     <file relUrl="Content/themes/image/po.gif" publishTime="06/04/2018 15:00:33" />
     <file relUrl="Content/Doc_UK/tickit_user_guide_fichiers/image009.png" publishTime="06/04/2018 15:00:32" />
     <file relUrl="Content/Doc_UK/tickit_user_guide_fichiers/image034.jpg" publishTime="06/04/2018 15:00:32" />
-    <file relUrl="Content/Doc_UK/tickit_user_guide_fichiers/image020.jpg" publishTime="06/04/2018 15:00:32" />
     <file relUrl="Content/themes/image/er.gif" publishTime="06/04/2018 15:00:33" />
-    <file relUrl="Content/themes/image/kg.gif" publishTime="06/04/2018 15:00:34" />
+    <file relUrl="Content/themes/image/ly.gif" publishTime="06/04/2018 15:00:33" />
     <file relUrl="Content/Doc_FR/tickit_user_guide_fichiers/image025.png" publishTime="06/04/2018 15:00:31" />
     <file relUrl="Content/maquette_reglette/images/pastille_promo_rouge.jpg" publishTime="08/11/2021 17:50:43" />
-    <file relUrl="bin/HiQPdf.dep" publishTime="09/01/2021 17:38:45" />
+    <file relUrl="Content/themes/image/AJ.gif" publishTime="06/04/2018 15:00:33" />
     <file relUrl="Content/themes/image/au.gif" publishTime="06/04/2018 15:00:32" />
     <file relUrl="Content/themes/images/ui-icons_888888_256x240.png" publishTime="06/04/2018 15:00:34" />
     <file relUrl="Content/themes/image/wales.gif" publishTime="06/04/2018 15:00:33" />
@@ -440,20 +441,18 @@
     <file relUrl="Content/themes/image/no.gif" publishTime="06/04/2018 15:00:34" />
     <file relUrl="Content/themes/image/zm.gif" publishTime="06/04/2018 15:00:34" />
     <file relUrl="Content/themes/image/fr.gif" publishTime="06/04/2018 15:00:34" />
-    <file relUrl="Content/Doc_FR/tickit_user_guide_fichiers/image054.png" publishTime="06/04/2018 15:00:31" />
     <file relUrl="Content/themes/image/cs.gif" publishTime="06/04/2018 15:00:33" />
-    <file relUrl="Content/Doc_UK/tickit_user_guide_fichiers/image062.jpg" publishTime="06/04/2018 15:00:32" />
+    <file relUrl="Content/Doc_FR/tickit_user_guide_fichiers/image031.png" publishTime="06/04/2018 15:00:30" />
+    <file relUrl="bin/fr/TickitNewFace.resources.dll" publishTime="02/14/2022 16:25:30" />
     <file relUrl="Content/Doc_FR/tickit_user_guide_fichiers/image003.png" publishTime="06/04/2018 15:00:31" />
-    <file relUrl="Content/themes/image/cu.gif" publishTime="06/04/2018 15:00:34" />
-    <file relUrl="Content/Doc_UK/tickit_user_guide_fichiers/image051.png" publishTime="06/04/2018 15:00:32" />
     <file relUrl="Content/themes/image/dj.gif" publishTime="06/04/2018 15:00:33" />
     <file relUrl="Content/themes/image/chevalet.png" publishTime="06/04/2018 15:00:33" />
     <file relUrl="Content/Doc_FR/tickit_user_guide_fichiers/props002.xml" publishTime="06/04/2018 15:00:30" />
-    <file relUrl="Content/themes/base/jquery.ui.button.css" publishTime="06/04/2018 15:00:36" />
-    <file relUrl="Content/themes/image/mt.gif" publishTime="06/04/2018 15:00:33" />
-    <file relUrl="Content/Doc_UK/tickit_user_guide_fichiers/image041.png" publishTime="06/04/2018 15:00:32" />
+    <file relUrl="Content/themes/image/ge.gif" publishTime="06/04/2018 15:00:34" />
+    <file relUrl="Content/themes/image/bn.gif" publishTime="06/04/2018 15:00:34" />
+    <file relUrl="Views/Home/MenuSkusgroupe.cshtml" publishTime="06/04/2018 15:00:28" />
     <file relUrl="Content/themes/image/pe.gif" publishTime="06/04/2018 15:00:34" />
-    <file relUrl="Content/themes/remises/20110368.jpg" publishTime="06/04/2018 15:00:35" />
+    <file relUrl="Views/Home/MenuMatiere.cshtml" publishTime="06/04/2018 15:00:28" />
     <file relUrl="Scripts/jquery-1.9.0.ui.js" publishTime="06/04/2018 15:00:28" />
     <file relUrl="Content/themes/image/error.png" publishTime="06/04/2018 15:00:33" />
     <file relUrl="Content/themes/image/kn.gif" publishTime="06/04/2018 15:00:33" />
@@ -461,11 +460,11 @@
     <file relUrl="Content/themes/image/mh.gif" publishTime="06/04/2018 15:00:33" />
     <file relUrl="Content/themes/image/tw.gif" publishTime="06/04/2018 15:00:33" />
     <file relUrl="Content/themes/images/ui-icons_454545_256x240.png" publishTime="06/04/2018 15:00:34" />
-    <file relUrl="Content/themes/image/tv.gif" publishTime="06/04/2018 15:00:33" />
+    <file relUrl="Content/themes/image/ni.gif" publishTime="06/04/2018 15:00:33" />
     <file relUrl="Content/themes/base/jquery.ui.theme.css" publishTime="06/04/2018 15:00:36" />
     <file relUrl="Content/Doc_FR/tickit_user_guide_fichiers/image046.jpg" publishTime="06/04/2018 15:00:31" />
-    <file relUrl="Content/themes/image/cn.gif" publishTime="06/04/2018 15:00:32" />
-    <file relUrl="Content/Doc_UK/tickit_user_guide_fichiers/image047.png" publishTime="06/04/2018 15:00:32" />
+    <file relUrl="Content/themes/image/ye.gif" publishTime="06/04/2018 15:00:33" />
+    <file relUrl="Content/themes/image/cu.gif" publishTime="06/04/2018 15:00:34" />
     <file relUrl="Content/themes/image/eh.gif" publishTime="06/04/2018 15:00:32" />
     <file relUrl="Content/themes/image/es.gif" publishTime="06/04/2018 15:00:34" />
     <file relUrl="Content/themes/image/fi.gif" publishTime="06/04/2018 15:00:34" />
@@ -475,48 +474,49 @@
     <file relUrl="Content/themes/image/ro.gif" publishTime="06/04/2018 15:00:34" />
     <file relUrl="bin/System.Web.Razor.dll" publishTime="01/05/2011 15:45:38" />
     <file relUrl="Content/Doc_UK/tickit_user_guide_fichiers/image007.png" publishTime="06/04/2018 15:00:31" />
-    <file relUrl="bin/HiQPdf.xml" publishTime="09/01/2021 17:38:45" />
+    <file relUrl="Content/themes/base/jquery.ui.base.css" publishTime="06/04/2018 15:00:36" />
     <file relUrl="Content/themes/image/pg.gif" publishTime="06/04/2018 15:00:33" />
-    <file relUrl="Content/themes/image/tt.gif" publishTime="06/04/2018 15:00:34" />
+    <file relUrl="Content/themes/images/ui-bg_highlight-soft_75_cccccc_1x100.png" publishTime="06/04/2018 15:00:34" />
+    <file relUrl="Content/themes/langage/dataTables.fr.txt" publishTime="06/04/2018 15:00:32" />
     <file relUrl="Content/themes/image/se.gif" publishTime="06/04/2018 15:00:34" />
     <file relUrl="Content/Doc_FR/tickit_user_guide_fichiers/image005.png" publishTime="06/04/2018 15:00:31" />
-    <file relUrl="Views/Home/Chevalet.cshtml" publishTime="02/02/2022 15:58:16" />
+    <file relUrl="Views/Home/Chevalet.cshtml" publishTime="02/08/2022 14:52:31" />
     <file relUrl="Content/themes/images/ui-icons_cd0a0a_256x240.png" publishTime="06/04/2018 15:00:34" />
     <file relUrl="Content/themes/image/bf.gif" publishTime="06/04/2018 15:00:34" />
-    <file relUrl="Content/themes/fonts.css" publishTime="06/04/2018 15:00:32" />
-    <file relUrl="Content/themes/images/ui-bg_flat_75_ffffff_40x100.png" publishTime="06/04/2018 15:00:34" />
+    <file relUrl="Content/themes/image/ms.gif" publishTime="06/04/2018 15:00:33" />
+    <file relUrl="Content/themes/fonts/HelveticaBold/helvetica-bold-webfont.svg" publishTime="06/04/2018 15:00:36" />
     <file relUrl="Content/themes/image/bb.gif" publishTime="06/04/2018 15:00:33" />
     <file relUrl="Content/Doc_FR/tickit_user_guide_fichiers/image042.jpg" publishTime="06/04/2018 15:00:31" />
     <file relUrl="Content/themes/image/lu.gif" publishTime="06/04/2018 15:00:33" />
     <file relUrl="Content/Doc_UK/tickit_user_guide_fichiers/image021.png" publishTime="06/04/2018 15:00:32" />
-    <file relUrl="Content/themes/image/tf.gif" publishTime="06/04/2018 15:00:33" />
+    <file relUrl="Views/Home/ImpressionEnMasse.cshtml" publishTime="02/10/2022 11:52:44" />
     <file relUrl="Content/Doc_UK/tickit_user_guide_fichiers/colorschememapping.xml" publishTime="06/04/2018 15:00:32" />
     <file relUrl="Content/themes/image/bs.gif" publishTime="06/04/2018 15:00:34" />
     <file relUrl="Views/_ViewStart.cshtml" publishTime="06/04/2018 15:00:28" />
     <file relUrl="Content/themes/image/ad.gif" publishTime="06/04/2018 15:00:34" />
-    <file relUrl="bin/TickitNewFace.dll" publishTime="02/02/2022 17:33:03" />
-    <file relUrl="Content/Doc_FR/tickit_user_guide_fichiers/image033.png" publishTime="06/04/2018 15:00:30" />
+    <file relUrl="bin/TickitNewFace.dll" publishTime="02/14/2022 16:25:28" />
+    <file relUrl="Content/themes/image/gh.gif" publishTime="06/04/2018 15:00:34" />
     <file relUrl="Content/Doc_FR/tickit_user_guide_fichiers/image030.jpg" publishTime="06/04/2018 15:00:31" />
     <file relUrl="bin/System.Web.Helpers.xml" publishTime="12/19/2010 23:59:38" />
-    <file relUrl="bin/System.Web.WebPages.Deployment.xml" publishTime="12/20/2010 10:52:36" />
+    <file relUrl="Content/Doc_UK/tickit_user_guide_fichiers/image023.png" publishTime="06/04/2018 15:00:32" />
     <file relUrl="bin/System.Web.Mvc.dll" publishTime="06/04/2018 15:00:29" />
-    <file relUrl="Content/themes/image/co.gif" publishTime="06/04/2018 15:00:33" />
+    <file relUrl="Content/themes/image/uz.gif" publishTime="06/04/2018 15:00:34" />
     <file relUrl="Content/themes/images/ui-bg_glass_75_dadada_1x400.png" publishTime="06/04/2018 15:00:34" />
     <file relUrl="Content/themes/image/made_IT.png" publishTime="06/04/2018 15:00:34" />
     <file relUrl="Content/themes/image/et.gif" publishTime="06/04/2018 15:00:33" />
     <file relUrl="Content/themes/image/cl.gif" publishTime="06/04/2018 15:00:33" />
-    <file relUrl="Content/maquette_reglette/webfonts/dinhabmedium/stylesheet.css" publishTime="08/12/2021 01:08:39" />
+    <file relUrl="Content/Doc_FR/tickit_user_guide_fichiers/image048.jpg" publishTime="06/04/2018 15:00:31" />
     <file relUrl="Content/themes/image/sn.gif" publishTime="06/04/2018 15:00:32" />
     <file relUrl="Views/Home/MenuCouleur.cshtml" publishTime="06/04/2018 15:00:28" />
-    <file relUrl="Content/themes/base/jquery.ui.resizable.css" publishTime="06/04/2018 15:00:36" />
-    <file relUrl="Content/Doc_FR/tickit_user_guide_fichiers/image031.png" publishTime="06/04/2018 15:00:30" />
+    <file relUrl="Content/themes/image/ai.gif" publishTime="06/04/2018 15:00:32" />
+    <file relUrl="Content/themes/image/print_fav.png" publishTime="06/04/2018 15:00:33" />
     <file relUrl="Content/themes/image/ligne_verticale.png" publishTime="08/03/2021 01:23:55" />
     <file relUrl="Content/themes/image/bd.gif" publishTime="06/04/2018 15:00:33" />
     <file relUrl="Content/themes/image/sr.gif" publishTime="06/04/2018 15:00:32" />
     <file relUrl="Content/Doc_FR/tickit_user_guide_fichiers/header.htm" publishTime="06/04/2018 15:00:30" />
-    <file relUrl="Content/themes/image/vu.gif" publishTime="06/04/2018 15:00:34" />
+    <file relUrl="Content/themes/image/at.gif" publishTime="06/04/2018 15:00:34" />
     <file relUrl="Scripts/jquery.jeditable.js" publishTime="06/04/2018 15:00:28" />
-    <file relUrl="Content/Doc_FR/tickit_user_guide_fichiers/image012.jpg" publishTime="06/04/2018 15:00:30" />
+    <file relUrl="Content/themes/image/ky.gif" publishTime="06/04/2018 15:00:33" />
     <file relUrl="Content/themes/image/md.gif" publishTime="06/04/2018 15:00:33" />
     <file relUrl="Content/themes/image/ne.gif" publishTime="06/04/2018 15:00:33" />
     <file relUrl="Content/Doc_FR/tickit_user_guide_fichiers/image034.jpg" publishTime="06/04/2018 15:00:31" />
@@ -525,52 +525,52 @@
     <file relUrl="Content/themes/images/ui-icons_222222_256x240.png" publishTime="06/04/2018 15:00:34" />
     <file relUrl="bin/Microsoft.Web.Infrastructure.xml" publishTime="12/20/2010 10:52:36" />
     <file relUrl="Content/themes/image/mr.gif" publishTime="06/04/2018 15:00:33" />
-    <file relUrl="Content/themes/image/remove.png" publishTime="06/04/2018 15:00:34" />
-    <file relUrl="Content/Doc_FR/tickit_user_guide_fichiers/image027.png" publishTime="06/04/2018 15:00:31" />
+    <file relUrl="Content/Doc_FR/tickit_user_guide_fichiers/image037.png" publishTime="06/04/2018 15:00:30" />
+    <file relUrl="Content/Doc_FR/tickit_user_guide_fichiers/image054.png" publishTime="06/04/2018 15:00:31" />
     <file relUrl="Content/themes/image/ae.gif" publishTime="06/04/2018 15:00:32" />
-    <file relUrl="Content/themes/image/lr.gif" publishTime="06/04/2018 15:00:34" />
+    <file relUrl="Content/themes/image/re.gif" publishTime="06/04/2018 15:00:33" />
     <file relUrl="Content/themes/remises/20110386.jpg" publishTime="06/04/2018 15:00:35" />
-    <file relUrl="Content/Doc_FR/tickit_user_guide_fichiers/image019.png" publishTime="06/04/2018 15:00:31" />
-    <file relUrl="Content/themes/image/it.gif" publishTime="06/04/2018 15:00:33" />
-    <file relUrl="Content/themes/image/pk.gif" publishTime="06/04/2018 15:00:33" />
-    <file relUrl="Content/themes/image/wf.gif" publishTime="06/04/2018 15:00:33" />
-    <file relUrl="Content/themes/fonts/DINBold/din-bold-webfont.svg" publishTime="06/04/2018 15:00:35" />
-    <file relUrl="Content/themes/image/cc.gif" publishTime="06/04/2018 15:00:33" />
     <file relUrl="Content/themes/remises/20110387.jpg" publishTime="06/04/2018 15:00:35" />
+    <file relUrl="Content/themes/image/gd.gif" publishTime="06/04/2018 15:00:34" />
+    <file relUrl="Content/themes/langage/dataTablesPLV.fr.txt" publishTime="06/04/2018 15:00:32" />
+    <file relUrl="Content/themes/image/pk.gif" publishTime="06/04/2018 15:00:33" />
+    <file relUrl="Content/themes/fonts/DINBold/din-bold-webfont.svg" publishTime="06/04/2018 15:00:35" />
+    <file relUrl="Content/themes/image/si.gif" publishTime="06/04/2018 15:00:34" />
+    <file relUrl="Content/themes/image/vu.gif" publishTime="06/04/2018 15:00:34" />
     <file relUrl="Content/themes/images/ui-bg_glass_75_e6e6e6_1x400.png" publishTime="06/04/2018 15:00:34" />
     <file relUrl="Content/Doc_UK/tickit_user_guide_fichiers/image050.jpg" publishTime="06/04/2018 15:00:32" />
-    <file relUrl="Views/Home/Index.cshtml" publishTime="09/08/2021 11:47:51" />
-    <file relUrl="Content/themes/remises/20110370.jpg" publishTime="06/04/2018 15:00:34" />
-    <file relUrl="Content/Doc_FR/tickit_user_guide_fichiers/image055.png" publishTime="06/04/2018 15:00:31" />
+    <file relUrl="bin/itextsharp.xtra.dll" publishTime="06/04/2018 15:00:30" />
+    <file relUrl="Content/Doc_UK/tickit_user_guide_fichiers/image052.jpg" publishTime="06/04/2018 15:00:32" />
+    <file relUrl="Content/Doc_UK/tickit_user_guide_fichiers/image019.png" publishTime="06/04/2018 15:00:32" />
     <file relUrl="Content/themes/image/ie.gif" publishTime="06/04/2018 15:00:33" />
     <file relUrl="Content/themes/image/jo.gif" publishTime="06/04/2018 15:00:33" />
     <file relUrl="Content/themes/image/fo.gif" publishTime="06/04/2018 15:00:33" />
     <file relUrl="Content/themes/image/ph.gif" publishTime="06/04/2018 15:00:33" />
     <file relUrl="Content/themes/image/li.gif" publishTime="06/04/2018 15:00:33" />
-    <file relUrl="Content/Doc_FR/tickit_user_guide_fichiers/image015.png" publishTime="06/04/2018 15:00:31" />
+    <file relUrl="Content/themes/jquery.ui.dialog.css" publishTime="06/04/2018 15:00:32" />
     <file relUrl="Content/Doc_UK/tickit_user_guide_fichiers/image018.jpg" publishTime="06/04/2018 15:00:32" />
     <file relUrl="Views/Home/MenuSkusassocie.cshtml" publishTime="06/04/2018 15:00:29" />
     <file relUrl="Content/themes/image/bo.gif" publishTime="06/04/2018 15:00:34" />
     <file relUrl="Content/themes/image/vf.gif" publishTime="06/04/2018 15:00:34" />
-    <file relUrl="Content/themes/image/Loader.gif" publishTime="06/04/2018 15:00:33" />
-    <file relUrl="Content/Doc_UK/tickit_user_guide_fichiers/props004.xml" publishTime="06/04/2018 15:00:32" />
+    <file relUrl="Content/Doc_UK/tickit_user_guide_fichiers/image020.jpg" publishTime="06/04/2018 15:00:32" />
+    <file relUrl="Content/themes/image/ru.gif" publishTime="06/04/2018 15:00:33" />
     <file relUrl="Content/themes/image/gi.gif" publishTime="06/04/2018 15:00:32" />
     <file relUrl="Views/Home/DownloadCenter.cshtml" publishTime="06/04/2018 15:00:28" />
-    <file relUrl="Content/themes/image/printer.png" publishTime="06/04/2018 15:00:33" />
+    <file relUrl="Content/themes/image/sd.gif" publishTime="06/04/2018 15:00:33" />
     <file relUrl="Scripts/jquery.editable-1.3.3.js" publishTime="06/04/2018 15:00:28" />
-    <file relUrl="Content/themes/remises/20110383.jpg" publishTime="06/04/2018 15:00:35" />
-    <file relUrl="Content/Doc_FR/tickit_user_guide_fichiers/image023.png" publishTime="06/04/2018 15:00:31" />
+    <file relUrl="Content/Doc_UK/tickit_user_guide_fichiers/image046.jpg" publishTime="06/04/2018 15:00:32" />
+    <file relUrl="Content/themes/image/table_add.png" publishTime="06/04/2018 15:00:32" />
     <file relUrl="Content/themes/image/ec.gif" publishTime="06/04/2018 15:00:34" />
     <file relUrl="Content/themes/image/zw.gif" publishTime="06/04/2018 15:00:33" />
     <file relUrl="Content/Doc_FR/tickit_user_guide_fichiers/plchdr.htm" publishTime="06/04/2018 15:00:31" />
     <file relUrl="Content/themes/remises/20110374.jpg" publishTime="06/04/2018 15:00:35" />
-    <file relUrl="Content/themes/image/de.gif" publishTime="06/04/2018 15:00:32" />
-    <file relUrl="bin/EntityFramework.xml" publishTime="06/04/2018 15:00:26" />
+    <file relUrl="Content/themes/image/sm.gif" publishTime="06/04/2018 15:00:34" />
+    <file relUrl="Content/themes/image/wf.gif" publishTime="06/04/2018 15:00:33" />
     <file relUrl="Content/themes/base/jquery.ui.core.css" publishTime="06/04/2018 15:00:36" />
     <file relUrl="Content/themes/image/luminaire.png" publishTime="06/04/2018 15:00:32" />
     <file relUrl="Content/Doc_FR/tickit_user_guide_fichiers/image010.jpg" publishTime="06/04/2018 15:00:30" />
-    <file relUrl="Content/themes/image/bh.gif" publishTime="06/04/2018 15:00:33" />
-    <file relUrl="Content/Doc_UK/tickit_user_guide_fichiers/image022.jpg" publishTime="06/04/2018 15:00:32" />
+    <file relUrl="Content/Doc_UK/tickit_user_guide_fichiers/image051.png" publishTime="06/04/2018 15:00:32" />
+    <file relUrl="Content/themes/base/jquery.ui.datepicker.css" publishTime="06/04/2018 15:00:36" />
     <file relUrl="bin/System.Web.WebPages.dll" publishTime="01/05/2011 15:45:38" />
   </publishProfile>
 </publishData>

@@ -81,8 +81,32 @@
             + "&rechercheDate=" + $("#search_input_date_impression_masse").val()
             + "&TypePrix=" + $("#TypePrix").val();
 
+           /* if ($("#Format").val() == "Reglette_new") {
+                alert("0");
+                downloadUrl = '@Url.Content("~/Home/PrintPlvEnMasseRegletteNew?")'
+                + "Format=" + $("#Format").val()
+                + "&Division=" + $("#Division").val()
+                + "&Departement=" + $("#Departement").val()
+                + "&Classe=" + $("#Classe").val()
+                + "&rechercheDate=" + $("#search_input_date_impression_masse").val()
+                + "&TypePrix=" + $("#TypePrix").val();
+            }*/
+
+            //Cillia
+
+            if ($("#Format").val() == "Chevalet_A4") {
+                alert("1");
+                downloadUrl = '@Url.Content("~/Home/PrintPlvEnMasseA4?")'
+                + "Format=" + $("#Format").val()
+                + "&Division=" + $("#Division").val()
+                + "&Departement=" + $("#Departement").val()
+                + "&Classe=" + $("#Classe").val()
+                + "&rechercheDate=" + $("#search_input_date_impression_masse").val()
+                + "&TypePrix=" + $("#TypePrix").val();
+            }
             if ($("#Format").val() == "Reglette_new") {
-                downloadUrl = '@Url.Content("~/Home/PrintPlvEnMasseRegletteNew?")'  
+                alert("0");
+                downloadUrl = '@Url.Content("~/Home/PrintPlvEnMasseRegletteNew?")'
                 + "Format=" + $("#Format").val()
                 + "&Division=" + $("#Division").val()
                 + "&Departement=" + $("#Departement").val()
@@ -223,7 +247,12 @@
                 @if (@ViewBag.viewRegletteNew)
                 {
                     <option style="color:red" value="Reglette_new">Reglette new</option>
-                }                
+                    <option style="color:red" value="Chevalet_A4">Chevalet A4</option>
+                    
+                } 
+                
+                
+                             
 
                 <option value="A5_recto_verso">A5_recto_verso</option>
                 <option value="A5_simple">A5_simple</option>
