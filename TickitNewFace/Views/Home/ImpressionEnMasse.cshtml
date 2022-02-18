@@ -95,7 +95,7 @@
             //Cillia
 
             if ($("#Format").val() == "Chevalet_A4") {
-                alert("1");
+              //  alert("1");
                 downloadUrl = '@Url.Content("~/Home/PrintPlvEnMasseA4?")'
                 + "Format=" + $("#Format").val()
                 + "&Division=" + $("#Division").val()
@@ -105,7 +105,7 @@
                 + "&TypePrix=" + $("#TypePrix").val();
             }
             if ($("#Format").val() == "Reglette_new") {
-                alert("0");
+               // alert("0");
                 downloadUrl = '@Url.Content("~/Home/PrintPlvEnMasseRegletteNew?")'
                 + "Format=" + $("#Format").val()
                 + "&Division=" + $("#Division").val()
@@ -244,9 +244,11 @@
             <select id="Format">
                 <option value="Reglette">Reglette</option>
 
+
+                    <option value="Reglette_new">Reglette rectangulaire</option>
+                
                 @if (@ViewBag.viewRegletteNew)
                 {
-                    <option style="color:red" value="Reglette_new">Reglette new</option>
                     <option style="color:red" value="Chevalet_A4">Chevalet A4</option>
                     
                 } 

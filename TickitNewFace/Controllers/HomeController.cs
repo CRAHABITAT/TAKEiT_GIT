@@ -1786,6 +1786,8 @@ namespace TickitNewFace.Controllers
             return HiqPdfManager.mergePdf(listePathPdfFiles, prefixFileName, "A5.pdf");
         }
 
+        //Cillia 
+        //A5 meuble
         public ActionResult PrintChevaletA5meuble(string format, string dateQuery)
         {
             string prefixFileName = "A5_NEW_MEUBLE";
@@ -1810,8 +1812,7 @@ namespace TickitNewFace.Controllers
         }
 
 
-        //Cillia 
-        //A5 meuble
+      
 
 
 
