@@ -131,32 +131,46 @@ namespace TickitNewFace.PDFUtils
                 string texteDur3 = DAO.ConfigurationBisDao.getValeurByCleAndMagasinId("PLV_A6_TEXTE_DUR_3", magasinId);
                 string texteDur4 = DAO.ConfigurationBisDao.getValeurByCleAndMagasinId("PLV_A6_TEXTE_DUR_4", magasinId);
 
-                string madeIn = DAO.ProduitDao.getMadeInByRangeId(RangeId);
+                //string madeIn = DAO.ProduitDao.getMadeInByRangeId(RangeId);
+                List<string> madeInList = DAO.ProduitDao.getListeMadeIn();
+               //List<string> listePlus = DAO.RangeDao.getPlusByRangeId(RangeId, magasinId);
 
-                List<string> listePlus = DAO.RangeDao.getPlusByRangeId(RangeId, magasinId);
-
+                List<T_Description_Plus> listePlus = DAO.Description_PlusDao.getListePlusBySku(pro.Sku, magasinId);
                 string plus1 = "";
                 string plus2 = "";
                 string plus3 = "";
 
                 if (listePlus.Count == 1)
                 {
-                    plus1 = "&bull; &nbsp; " + listePlus[0];
+                    plus1 = "&bull; &nbsp; " + listePlus[0].Plus;
                 }
                 if (listePlus.Count == 2)
                 {
-                    plus1 = "&bull; &nbsp; " + listePlus[0];
-                    plus2 = "&bull; &nbsp; " + listePlus[1];
+                    plus1 = "&bull; &nbsp; " + listePlus[0].Plus;
+                    plus2 = "&bull; &nbsp; " + listePlus[1].Plus;
 
                 }
                 if (listePlus.Count == 3)
                 {
-                    plus1 = "&bull; &nbsp; " + listePlus[0];
-                    plus2 = "&bull; &nbsp; " + listePlus[1];
-                    plus3 = "&bull; &nbsp; " + listePlus[2];
+                    plus1 = "&bull; &nbsp; " + listePlus[0].Plus;
+                    plus2 = "&bull; &nbsp; " + listePlus[1].Plus;
+                    plus3 = "&bull; &nbsp; " + listePlus[2].Plus;
                 }
 
-                string comp = DAO.RangeDao.getDescriptionCompositionByRangeId(RangeId, magasinId, 1);
+                //string comp1 = DAO.RangeDao.getDescriptionCompositionByRangeId(RangeId, magasinId, 1);
+                //string comp2 = DAO.RangeDao.getDescriptionCompositionByRangeId(RangeId, magasinId, 2);
+
+                //Cillia soit on utilise la table dgccrf
+
+
+             //  T_Description_Dgccrf comp1 = DAO.Description_DgccrfDao.getDgccrfBySku(pro.Sku, magasinId);
+
+              // string comp = comp1.LegalDescription;
+
+
+                //Cillia soit on utilise la table Description_composition_Produit
+
+                string comp = DAO.ProduitDao.getDescriptionCompositionBySku(pro.Sku, magasinId);
 
                 string texte_colis = DAO.ConfigurationBisDao.getValeurByCleAndMagasinId("PLV_A5_TEXTE_DUR_6", magasinId);
 
@@ -189,6 +203,10 @@ namespace TickitNewFace.PDFUtils
                 if (data.Nombre_colis != null && data.Nombre_colis != "" && data.Nombre_colis != "0")
                 {
                     Nombre_colis = data.Nombre_colis + texte_colis;
+                }
+                if (data.Nombre_colis == "0")
+                {
+                    Nombre_colis ="1" + texte_colis;
                 }
 
                 codeHtml = codeHtml + "		<tr>";
@@ -227,7 +245,7 @@ namespace TickitNewFace.PDFUtils
                 codeHtml = codeHtml + "												<td align=\"left\">";
                 codeHtml = codeHtml + "													<table align=\"left\" width=\"700\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\">";
                 codeHtml = codeHtml + "														<tr>";
-                codeHtml = codeHtml + "															<td height=\"50\" style=\"text-align: left; font-family: DINHabrg; font-size: 65px; color: #000000; \">" + descriptionRange + "</td>";
+                codeHtml = codeHtml + "															<td height=\"50\" style=\"text-align: left; font-family: DINHabrg; font-size: 65px; color: #000000; \">" + data.variation + "</td>";
                 codeHtml = codeHtml + "														</tr>";
                 codeHtml = codeHtml + "													</table>";
                 codeHtml = codeHtml + "												</td>";
@@ -313,6 +331,7 @@ namespace TickitNewFace.PDFUtils
                 codeHtml = codeHtml + "														<table>";
                 codeHtml = codeHtml + "															<tr>";
                 codeHtml = codeHtml + "																<td style=\"text-align: left; font-family: DINHabRg; font-size: 30px; padding: 0 0; line-height: 0\">" + data.Taxe_eco + "&nbsp;</td>";
+                codeHtml = codeHtml + "	                                                            <td  width=\"650\"  height=\"22\" valign=\"bottom\" style=\"text-align: right; font-family:DINHabRg; font-size: 30px; padding: 0 0; line-height:22px \"></td>";
                 codeHtml = codeHtml + "															</tr>";
                 codeHtml = codeHtml + "														</table>";
                 codeHtml = codeHtml + "														<table>";
@@ -390,7 +409,7 @@ namespace TickitNewFace.PDFUtils
                 codeHtml = codeHtml + "												<td align=\"left\">";
                 codeHtml = codeHtml + "													<table align=\"left\" width=\"700\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\">";
                 codeHtml = codeHtml + "														<tr>";
-                codeHtml = codeHtml + "															<td height=\"50\" style=\"text-align: left; font-family: DINHabrg; font-size: 65px; color: #000000; \">" + descriptionRange + "</td>";
+                codeHtml = codeHtml + "															<td height=\"50\" style=\"text-align: left; font-family: DINHabrg; font-size: 65px; color: #000000; \">" + data.variation + "</td>";
                 codeHtml = codeHtml + "														</tr>";
                 codeHtml = codeHtml + "													</table>";
                 codeHtml = codeHtml + "												</td>";
@@ -434,7 +453,10 @@ namespace TickitNewFace.PDFUtils
                 codeHtml = codeHtml + "									<td valign=\"top\" style=\"padding: 50px 30px 60px 0px\">";
                 codeHtml = codeHtml + "										<table align=\"center\" width=\"850\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" bgcolor=\"#ffffff\">";
                 codeHtml = codeHtml + "											<tr>";
-                codeHtml = codeHtml + "												<td width=\"850\" style=\"vertical-align: top;text-align: left; font-family: DINHabRg; font-size: 32px; text-align: justify; padding: 0 0\">" + comp + "</td>";
+                codeHtml = codeHtml + "	                                           <td width=\"850\" style=\"text-align: left; font-family: DINHabbold; font-size: 38px; text-align: justify; padding: 0 0 0 0\">";
+                codeHtml = codeHtml + "													  " + texteDur1 + " ";
+                codeHtml = codeHtml + "												</td></tr>";
+                codeHtml = codeHtml + "												<tr><td width=\"850\" style=\"vertical-align: top;text-align: left; font-family: DINHabRg; font-size: 32px; text-align: justify; padding: 0 0\">" + comp+ "</td>";
                 codeHtml = codeHtml + "											</tr>";
                 codeHtml = codeHtml + "										</table>";
                 codeHtml = codeHtml + "									</td>";
@@ -444,16 +466,19 @@ namespace TickitNewFace.PDFUtils
                 codeHtml = codeHtml + "										<table>";
                 codeHtml = codeHtml + "											<tr>";
                 codeHtml = codeHtml + "												<td>";
-                codeHtml = codeHtml + "													<table>";
+                codeHtml = codeHtml + "													<table   width=\"800\" height=\"35\"> ";
                 codeHtml = codeHtml + "														<tr>";
-                codeHtml = codeHtml + "															<td width=\"80\" valign=\"bottom\" style=\"text-align: left; font-family: DINHabbold; font-size: 100px;\">" + prixGauche.Replace(".00", "") + "</td>";
-                codeHtml = codeHtml + "															<td width=\"20\" valign=\"bottom\" style=\"text-align: left; font-family: DINHabbold; font-size: 50px; \">&nbsp;</td>";
-                codeHtml = codeHtml + "															<td width=\"100\" height=\"22\" valign=\"bottom\" style=\"font-family: DINHabRg; font-size: 70px; text-decoration: line-through; text-align: left;\">" + prixDroite.Replace(".00", "") + "</td>";
+                codeHtml = codeHtml + "															<td width=\"200\" valign=\"bottom\" style=\"text-align: left; font-family: DINHabbold; font-size: 100px;  padding:0 0 0 0; line-height:65px;\">" + prixGauche.Replace(".00", "") + "</td>";
+               // codeHtml = codeHtml + "															<td width=\"20\" valign=\"bottom\" style=\"text-align: left; font-family: DINHabbold; font-size: 50px; \">&nbsp;</td>";
+                codeHtml = codeHtml + "															<td width=\"100\" height=\"22\" valign=\"bottom\" style=\"font-family: DINHabRg; font-size: 55px; text-decoration: line-through; text-align: le; line-height:30px;\">" + prixDroite.Replace(".00", "") + "</td>";
+               // codeHtml = codeHtml + "	                                                        <td width=\"20\" valign=\"bottom\" style=\"text-align: left; font-family: DINHabbold; font-size: 50px; \">&nbsp;</td>";
+                codeHtml = codeHtml + "                                                         <td width=\"50\"  height=\"22\"  valign=\"bottom\" style=\"text-align: right; font-family:  DINHabRg; font-size: 28px; padding: 0 0; line-height:30px \">" + Nombre_colis + "</td>";
                 codeHtml = codeHtml + "														</tr>";
                 codeHtml = codeHtml + "													</table>";
-                codeHtml = codeHtml + "													<table>";
+                codeHtml = codeHtml + "													<table   width=\"800\" height=\"100\">";
                 codeHtml = codeHtml + "														<tr>";
-                codeHtml = codeHtml + "															<td style=\"text-align: left; font-family: DINHabRg; font-size: 30px; padding: 0 0; line-height: 0\">" + data.Taxe_eco + "&nbsp;</td>";
+                codeHtml = codeHtml + "															<td  style=\"text-align: left; font-family: DINHabRg; font-size: 30px; padding: 0 0; line-height: 0\">" + data.Taxe_eco + "&nbsp;</td>";
+                codeHtml = codeHtml + "                                                         <td  style=\"text-align: right; font-family:DINHabRg; font-size: 30px; padding: 0 0; line-height:0 \">Réf." + data.sku + "</td>";
                 codeHtml = codeHtml + "														</tr>";
                 codeHtml = codeHtml + "													</table>";
                 codeHtml = codeHtml + "													<table>";
@@ -499,7 +524,7 @@ namespace TickitNewFace.PDFUtils
                 codeHtml = codeHtml + "				</table>";
                 codeHtml = codeHtml + "			</td>";
                 codeHtml = codeHtml + "		</tr>";
-            }
+           }
 
             //Cillia
             codeHtml = codeHtml + "			<tr><td align=\"center\" style=\"padding: 0 0 20px 0\" valign=\"top\">";

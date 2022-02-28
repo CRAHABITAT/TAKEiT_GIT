@@ -85,7 +85,8 @@ namespace TickitNewFace.PDFUtils
             }
           
 
-            string comp = DAO.RangeDao.getDescriptionCompositionByRangeId(RangeId, magasinId, 1);
+            string comp1 = DAO.RangeDao.getDescriptionCompositionByRangeId(RangeId, magasinId, 1);
+            string comp2 = DAO.RangeDao.getDescriptionCompositionByRangeId(RangeId, magasinId, 2);
 
             if (madeIn != "")
             {
@@ -471,7 +472,7 @@ namespace TickitNewFace.PDFUtils
             codeHtml = codeHtml + "																			<td width=\"20\" valign=\"bottom\" style=\"text-align: left; font-family: DINHabbold; font-size: 55px; padding:0 0 0 0; line-height:65px;\">&nbsp;</td>";
             codeHtml = codeHtml + "																			<td width=\"100\" height=\"22\" valign=\"bottom\" style=\"font-family: DINHabRg; font-size: 32px; text-decoration: line-through; text-align: left; line-height:30px;\">" + pro4.prixDroite + "</td>";
             codeHtml = codeHtml + "																			<td width=\"10\" valign=\"bottom\" style=\"text-align: left; font-family: DINHabbold; font-size: 55px; padding:0 0 0 0; line-height:65px;\">&nbsp;</td>";
-            codeHtml = codeHtml + "																			<td width=\"100\" height=\"22\" valign=\"bottom\" style=\"text-align: right; font-family: DINHabRg; font-size: 18px; padding: 0 0; line-height:30px\">" + pro4.Nombre_colis + "</td>";
+            codeHtml = codeHtml + "																			<td height=\"22\" valign=\"bottom\" style=\"text-align: right; font-family: DINHabRg; font-size: 18px; padding: 0 0; line-height:30px\">" + pro4.Nombre_colis + "</td>";
             codeHtml = codeHtml + "																		</tr>";
             codeHtml = codeHtml + "																	</table>";
             codeHtml = codeHtml + "";
@@ -615,7 +616,10 @@ namespace TickitNewFace.PDFUtils
             codeHtml = codeHtml + "													<td valign=\"top\" style=\"padding: 50px 30px 60px 0px\">";
             codeHtml = codeHtml + "														<table align=\"center\" width=\"800\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" bgcolor=\"#ffffff\">";
             codeHtml = codeHtml + "															<tr>";
-            codeHtml = codeHtml + "																<td width=\"800\" style=\"vertical-align: top;text-align: left; font-family: DINHabRg; font-size: 32px; text-align: justify; padding: 0 0\">" + comp + "</td>";
+            codeHtml = codeHtml + "	                                                <td width=\"800\" style=\"text-align: left; font-family: DINHabbold; font-size: 38px; text-align: justify; padding: 0 0 0 0\">";
+            codeHtml = codeHtml + "													  " + texteDur1 + " ";
+            codeHtml = codeHtml + "												</td></tr>";
+            codeHtml = codeHtml + "																<td width=\"800\" style=\"vertical-align: top;text-align: left; font-family: DINHabRg; font-size: 32px; text-align: justify; padding: 0 0\">" + comp1 +comp2+ "</td>";
             codeHtml = codeHtml + "															</tr>";
             codeHtml = codeHtml + "														</table>";
             codeHtml = codeHtml + "													</td>";
@@ -656,12 +660,13 @@ namespace TickitNewFace.PDFUtils
             codeHtml = codeHtml + "					</tr>";
             codeHtml = codeHtml + "			</table>";
             /*codeHtml = codeHtml + "			<table width=\"100%\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\">";
-	       codeHtml = codeHtml + "			<tr>";
-		   codeHtml = codeHtml + "			<td style=\"font-size: 1px; padding-bottom: 10px\"> </td> </tr></table>";*/
+	         codeHtml = codeHtml + "			<tr>";
+		     codeHtml = codeHtml + "			<td style=\"font-size: 1px; padding-bottom: 10px\"> </td> </tr></table>";*/
             codeHtml = codeHtml + "	</body>";
             codeHtml = codeHtml + "</html>";
             return codeHtml;
         }
+
 
         static public List<T_Produit_A4> getTableauProduitsFromChevalet(TickitDataChevalet chevalet, int magasinId, int RangeId)
         {
@@ -730,6 +735,47 @@ namespace TickitNewFace.PDFUtils
 
             return listeProduitsA4;
         }
+
+        public static List<TickitDataChevalet> splitChevaletA6(TickitDataChevalet chevalet)
+        {
+            List<TickitDataChevalet> chevalets = new List<TickitDataChevalet>();
+
+            int nbLoops;
+            int nbPartieEntiere;
+            int nbMaxPlvParPage = 8;
+
+            nbPartieEntiere = chevalet.produitsData.Count % nbMaxPlvParPage;
+            nbLoops = chevalet.produitsData.Count / nbMaxPlvParPage;
+
+            if (nbPartieEntiere != 0) nbLoops++;
+
+            for (int i = 1; i <= nbLoops; i++)
+            {
+                TickitDataChevalet chevaletCurrentPage = new TickitDataChevalet();
+                chevaletCurrentPage.originePanier = chevalet.originePanier;
+                chevaletCurrentPage.pourcentageReduction = chevalet.pourcentageReduction;
+                chevaletCurrentPage.rangeChevalet = chevalet.rangeChevalet;
+                chevaletCurrentPage.typePrix = chevalet.typePrix;
+                chevaletCurrentPage.formatImpressionEtiquettesSimples = chevalet.formatImpressionEtiquettesSimples;
+                chevaletCurrentPage.produitsData = new List<TickitDataProduit>();
+
+                int nbMaxIterationsProduitsParChevalet;
+
+                if (i < nbLoops) nbMaxIterationsProduitsParChevalet = nbMaxPlvParPage; else nbMaxIterationsProduitsParChevalet = nbPartieEntiere;
+                if ((i == nbLoops) && (nbPartieEntiere == 0)) nbMaxIterationsProduitsParChevalet = nbMaxPlvParPage;
+
+                for (int i_pro = 0; i_pro < nbMaxIterationsProduitsParChevalet; i_pro++)
+                {
+                    int pos = ((i - 1) * nbMaxPlvParPage) + i_pro;
+                    chevaletCurrentPage.produitsData.Add(chevalet.produitsData[((i - 1) * nbMaxPlvParPage) + i_pro]);
+                }
+                chevalets.Add(chevaletCurrentPage);
+            }
+
+            return chevalets;
+        }
+        
+
 
 
         /// <summary>

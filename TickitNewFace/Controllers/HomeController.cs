@@ -1835,16 +1835,35 @@ namespace TickitNewFace.Controllers
 
             TickitDataChevalet chevaletToPrint = (TickitDataChevalet)Session["Chevalet"];
 
-            List<string> listePathPdfFiles = new List<string>();
+            //List<string> listePathPdfFiles = new List<string>();
 
-            string htmlCode = PDFUtils.PlvChevaletA6Utils.getHtmlA6(chevaletToPrint, format, langageId, dateObj);
+            List<TickitDataChevalet> chevalets = PDFUtils.PlvChevaletA6Utils.splitChevaletA6(chevaletToPrint);
+
+            List<string> listePathPdfFiles = new List<string>();
+            string urlTest = "http://2997fr-mssql04/product/Content/maquette_A6/maquette.html";
+            urlTest = "";
+            int iteration = 1;
+            foreach (TickitDataChevalet currentChevalet in chevalets)
+            {
+                string htmlCode = PDFUtils.PlvChevaletA6Utils.getHtmlA6(currentChevalet, format, langageId, dateObj);
+                HiqPdfManager.ConvertToPdf(PlvChevaletA6Utils.getHtmlToPdfModel(), htmlCode, iteration.ToString(), prefixFileName, urlTest);
+                listePathPdfFiles.Add(Const.ApplicationConsts.dossierTraitementPdf + prefixFileName + Const.ApplicationConsts.SessionID + "_" + iteration + ".pdf");
+                iteration++;
+            }
+
+            return HiqPdfManager.mergePdf(listePathPdfFiles, prefixFileName, "A6.pdf");
+        }
+
+
+
+        /*    string htmlCode = PDFUtils.PlvChevaletA6Utils.getHtmlA6(chevaletToPrint, format, langageId, dateObj);
             string urlTest = "http://2997fr-mssql04/product/Content/maquette_A6/maquette.html";
             urlTest = "";
             HiqPdfManager.ConvertToPdf(PlvChevaletA6Utils.getHtmlToPdfModel(), htmlCode, "1", prefixFileName, urlTest);
             listePathPdfFiles.Add(Const.ApplicationConsts.dossierTraitementPdf + prefixFileName + Const.ApplicationConsts.SessionID + "_1" + ".pdf");
 
             return HiqPdfManager.mergePdf(listePathPdfFiles, prefixFileName, "A6.pdf");
-        }
+        }*/
 
         /// <summary>
         /// Cette methode vérifie s'il y'a des produits qui existent
@@ -2028,6 +2047,60 @@ namespace TickitNewFace.Controllers
             return HiqPdfManager.mergePdf(listePathPdfFiles, prefixFileName, "REGLETTE.pdf");
 
             }
+//Cillia
+        public ActionResult PrintPlvEnMasseA6rectoverso(string Division, string Departement, string Classe, string Format, string rechercheDate, string TypePrix)
+        {
+            string[] split = rechercheDate.Split(ApplicationConsts.separateurDate);
+            DateTime datePrint = new DateTime(int.Parse(split[2]), int.Parse(split[1]), int.Parse(split[0]));
+
+            this.setLang();
+            int langageId = (int)Session["langueId"];
+            string magId = langageId.ToString();
+            if (langageId == 4 || langageId == 5 || langageId == 6) // pays avec plusieurs magasin
+            {
+                magId = (string)Session["magid"];
+            }
+            this.setDecimalFormat();
+
+            Division = Division == "" ? "%" : Division;
+            Departement = Departement == "" ? "%" : Departement;
+            Classe = Classe == "" ? "%" : Classe;
+
+            //TOREMOVE
+            // magId = "MH117";
+            List<string> ProduitsMagasin = DAO.Produit_MagasinDao.getSkusByMagasinIdDivision(magId, langageId, Division + Departement + Classe, datePrint, TypePrix);
+
+            TickitDataChevalet chevaletToPrint = new TickitDataChevalet();
+            chevaletToPrint.originePanier = "CHEVALET";
+            chevaletToPrint.typePrix = TypePrix;
+            chevaletToPrint.produitsData = new List<TickitDataProduit>();
+
+            foreach (string pro in ProduitsMagasin)
+            {
+                TickitDataProduit dataProduit = Managers.TickitDataManager.getTickitDataPourChevalet(pro, langageId, datePrint, Const.ApplicationConsts.format_A5_recto_verso, null);
+                chevaletToPrint.produitsData.Add(dataProduit);
+            }
+            string prefixFileName = "REGLETTE_NEW_";
+            DateTime dateObj = new DateTime(int.Parse(split[2]), int.Parse(split[1]), int.Parse(split[0]));
+
+            this.setLang();
+            this.setDecimalFormat();
+
+            List<TickitDataChevalet> chevalets = PDFUtils.PlvA6RectoVerso.splitChevalet(chevaletToPrint);
+
+            List<string> listePathPdfFiles = new List<string>();
+            int iteration = 1;
+            foreach (TickitDataChevalet currentChevalet in chevalets)
+            {
+                string htmlCode = PDFUtils.PlvA6RectoVerso.getHtmlA6(currentChevalet, Format, langageId, dateObj);
+                HiqPdfManager.ConvertToPdf(PlvA6RectoVerso.getHtmlToPdfModel(), htmlCode, iteration.ToString(), prefixFileName, "");
+                listePathPdfFiles.Add(Const.ApplicationConsts.dossierTraitementPdf + prefixFileName + Const.ApplicationConsts.SessionID + "_" + iteration + ".pdf");
+                iteration++;
+            }
+
+            return HiqPdfManager.mergePdf(listePathPdfFiles, prefixFileName, "A6_recto_verso.pdf");
+
+        }
 
 
 

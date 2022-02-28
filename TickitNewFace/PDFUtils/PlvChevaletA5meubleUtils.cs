@@ -672,11 +672,11 @@ codeHtml = codeHtml + "								<tr>";
 codeHtml = codeHtml + "									<td align=\"center\" style=\"padding: 0 0 0 100px\">";
 codeHtml = codeHtml + "										<table align=\"left\" width=\"1300\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" bgcolor=\"#ffffff\">";
 codeHtml = codeHtml + "											<tr>";
-codeHtml = codeHtml + "												<td width=\"500\" style=\"vertical-align: top;text-align: left; font-family: DINHabRg; font-size: 22px; text-align: justify; padding: 0 0\">";
+codeHtml = codeHtml + "												<td width=\"1300\" style=\"vertical-align: top;text-align: left; font-family: DINHabRg; font-size: 22px; text-align: justify; padding: 0 0\">";
 codeHtml = codeHtml + "													<br>";
-codeHtml = codeHtml + "													" + comp1 + "</td> ";
-codeHtml = codeHtml + "											   <td width=\"550\" style=\"vertical-align: top;text-align: left; font-family: DINHabRg; font-size: 22px; text-align: justify; padding: 0 20px\">";
-codeHtml = codeHtml + "												<br>" + comp2 + "</td>";
+codeHtml = codeHtml + "													" + comp1 +""+comp2+  "</td> ";
+//codeHtml = codeHtml + "											   <td width=\"1300\" style=\"vertical-align: top;text-align: left; font-family: DINHabRg; font-size: 22px; text-align: justify; padding: 0 20px\">";
+//codeHtml = codeHtml + "												<br>" + comp2 + "</td>";
 //codeHtml = codeHtml + "													 Fixe existe en plusieurs versions, tissu A Ancio : composé de 77% de polyester, 17% d’acrylique, 6% de coton. ";
 //codeHtml = codeHtml + "													<strong>Structure :</strong>";
 //codeHtml = codeHtml + "													 En bois de pin, panneaux de particules et contreplaqué. ";
@@ -1228,11 +1228,11 @@ codeHtml = codeHtml + "								<tr>";
 codeHtml = codeHtml + "									<td align=\"center\" style=\"padding: 0 0 0 100px\">";
 codeHtml = codeHtml + "										<table align=\"left\" width=\"1300\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" bgcolor=\"#ffffff\">";
 codeHtml = codeHtml + "											<tr>";
-codeHtml = codeHtml + "												<td width=\"500\" style=\"vertical-align: top;text-align: left; font-family: DINHabRg; font-size: 22px; text-align: justify; padding: 0 0\">";
+codeHtml = codeHtml + "												<td width=\"1300\" style=\"vertical-align: top;text-align: left; font-family: DINHabRg; font-size: 22px; text-align: justify; padding: 0 0\">";
 codeHtml = codeHtml + "													<br>";
-codeHtml = codeHtml + "												" + comp1 +" </td> ";            
-codeHtml = codeHtml + "											   <td width=\"550\" style=\"vertical-align: top;text-align: left; font-family: DINHabRg; font-size: 22px; text-align: justify; padding: 0 20px\">";
-codeHtml = codeHtml + "												<br>" + comp2 + "</td>";
+codeHtml = codeHtml + "												" + comp1+""+comp2 +" </td> ";            
+//codeHtml = codeHtml + "											   <td width=\"\" style=\"vertical-align: top;text-align: left; font-family: DINHabRg; font-size: 22px; text-align: justify; padding: 0 20px\">";
+//codeHtml = codeHtml + "												<br>" + comp2 + "</td>";
 //codeHtml = codeHtml + "													 Fixe existe en plusieurs versions, tissu A Ancio : composé de 77% de polyester, 17% d’acrylique, 6% de coton. ";
 //codeHtml = codeHtml + "													<strong>Structure :</strong>";
 //codeHtml = codeHtml + "													 En bois de pin, panneaux de particules et contreplaqué. ";
@@ -1328,6 +1328,8 @@ codeHtml = codeHtml + "</html>";
             listeProduitsA4.Add(pro7);
             listeProduitsA4.Add(pro8);
 
+            string texte_colis = DAO.ConfigurationBisDao.getValeurByCleAndMagasinId("PLV_A5_TEXTE_DUR_6", magasinId);
+
             string APartirDe = "";
             if (DAO.RangeDao.isRangeBarAtissu(RangeId))
             {
@@ -1369,8 +1371,18 @@ codeHtml = codeHtml + "</html>";
                 listeProduitsA4[i].Dimenions = data.dimension;
                 listeProduitsA4[i].DimensionsDeplie = DAO.ProduitDao.getDrescriptionConvertibleBySku(data.sku, magasinId, "L");
                 listeProduitsA4[i].DimensionsCouchage = DAO.ProduitDao.getDrescriptionConvertibleBySku(data.sku, magasinId, "C");
-                listeProduitsA4[i].Nombre_colis = data.Nombre_colis;
+                //listeProduitsA4[i].Nombre_colis = data.Nombre_colis;
 
+                if (data.Nombre_colis != null && data.Nombre_colis != "" && data.Nombre_colis != "0")
+                {
+                    listeProduitsA4[i].Nombre_colis = data.Nombre_colis + texte_colis;
+                }
+                if (data.Nombre_colis == "0")
+                {
+                    listeProduitsA4[i].Nombre_colis = "1" + texte_colis;
+                }
+
+                
                 i++;
             }
 

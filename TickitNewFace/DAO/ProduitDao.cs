@@ -900,5 +900,40 @@ namespace TickitNewFace.DAO
                 }
             return madeInOut;
         }
+
+        //Cillia 
+        //description composition d'un produit
+
+        public static string getDescriptionCompositionBySku(string sku, int langageId)
+        {
+            string sqlQuery = "";
+            sqlQuery = sqlQuery + " select '<strong>' + commposition_key + '</strong>' + ' ' + commposition_value + ' ' from Description_Composition_Produit ";
+            sqlQuery = sqlQuery + " where ";
+            sqlQuery = sqlQuery + " LangageId = " + langageId;
+            sqlQuery = sqlQuery + " and Sku = " + sku;
+
+           
+            SqlConnection connection;
+            Const.ApplicationConsts.connections.TryGetValue(HttpContext.Current.Session.SessionID, out connection);
+
+            SqlCommand cmd = new SqlCommand(sqlQuery, connection);
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            string DesccompoProduit = "";
+
+            while (reader.Read())
+            {
+                DesccompoProduit = DesccompoProduit + (string)reader.GetValue(0);
+            }
+
+            reader.Dispose();
+            reader.Close();
+            cmd.Dispose();
+
+            return DesccompoProduit;
+        }
+
+
+
     }
 }

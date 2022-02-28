@@ -474,17 +474,7 @@ namespace TickitNewFace.Managers
                 data.aMonterSoiMeme = Resources.Langue.TickitDataManager_aMonterSoiMeme;
             }
 
-            //Cillia ajouter le nombre de colis pour les A5 meuble
-            data.Nombre_colis = "";
-            if (produit.Nombre_colis != null && produit.Nombre_colis != 0)
-            {
-                data.Nombre_colis = produit.Nombre_colis + " colis";
-            }
-
-            else
-            {
-                data.Nombre_colis = "";
-            }
+            
 
             return data;
         }
