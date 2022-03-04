@@ -516,7 +516,7 @@ namespace TickitNewFace.PDFUtils
             codeHtml = codeHtml + "				</table>";
             codeHtml = codeHtml + "				<table align=\"center\" width=\"1500\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\">";
             codeHtml = codeHtml + "					<tr>";
-            codeHtml = codeHtml + "						<td style=\"padding:40px 0 0 0\"> &nbsp;";
+            codeHtml = codeHtml + "						<td style=\"padding:5px 0 0 0\"> &nbsp;";
             codeHtml = codeHtml + "							<table align=\"left\" width=\"1500\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\">";
             codeHtml = codeHtml + "								<tr>";
             codeHtml = codeHtml + "									<td align=\"center\" style=\"padding:20px 0 0 0\" width=\"400\">";
@@ -891,7 +891,7 @@ namespace TickitNewFace.PDFUtils
             codeHtml = codeHtml + "				</table>";
             codeHtml = codeHtml + "				<table align=\"center\" width=\"1500\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\">";
             codeHtml = codeHtml + "					<tr>";
-            codeHtml = codeHtml + "						<td style=\"padding:40px 0 0 0\"> &nbsp;";
+            codeHtml = codeHtml + "						<td style=\"padding:5px 0 0 0\"> &nbsp;";
             codeHtml = codeHtml + "							<table align=\"left\" width=\"1500\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\">";
             codeHtml = codeHtml + "								<tr>";
             codeHtml = codeHtml + "									<td align=\"center\" style=\"padding:20px 0 0 0\" width=\"400\">";
