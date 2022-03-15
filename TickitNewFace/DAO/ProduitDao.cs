@@ -912,6 +912,7 @@ namespace TickitNewFace.DAO
             sqlQuery = sqlQuery + " where ";
             sqlQuery = sqlQuery + " LangageId = " + langageId;
             sqlQuery = sqlQuery + " and Sku = " + sku;
+            sqlQuery = sqlQuery + " Order by Ordre asc";
 
            
             SqlConnection connection;

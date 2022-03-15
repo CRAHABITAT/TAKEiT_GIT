@@ -2099,9 +2099,64 @@ namespace TickitNewFace.Controllers
             }
 
             return HiqPdfManager.mergePdf(listePathPdfFiles, prefixFileName, "A6_recto_verso.pdf");
+            }
+
+        //Cillia 
+        //Impression en masse A7_recto-verso
+
+        public ActionResult PrintPlvEnMasseA7rectoverso(string Division, string Departement, string Classe, string Format, string rechercheDate, string TypePrix)
+        {
+            string[] split = rechercheDate.Split(ApplicationConsts.separateurDate);
+            DateTime datePrint = new DateTime(int.Parse(split[2]), int.Parse(split[1]), int.Parse(split[0]));
+
+            this.setLang();
+            int langageId = (int)Session["langueId"];
+            string magId = langageId.ToString();
+            if (langageId == 4 || langageId == 5 || langageId == 6) // pays avec plusieurs magasin
+            {
+                magId = (string)Session["magid"];
+            }
+            this.setDecimalFormat();
+
+            Division = Division == "" ? "%" : Division;
+            Departement = Departement == "" ? "%" : Departement;
+            Classe = Classe == "" ? "%" : Classe;
+
+            //TOREMOVE
+            // magId = "MH117";
+            List<string> ProduitsMagasin = DAO.Produit_MagasinDao.getSkusByMagasinIdDivision(magId, langageId, Division + Departement + Classe, datePrint, TypePrix);
+
+            TickitDataChevalet chevaletToPrint = new TickitDataChevalet();
+            chevaletToPrint.originePanier = "CHEVALET";
+            chevaletToPrint.typePrix = TypePrix;
+            chevaletToPrint.produitsData = new List<TickitDataProduit>();
+
+            foreach (string pro in ProduitsMagasin)
+            {
+                TickitDataProduit dataProduit = Managers.TickitDataManager.getTickitDataPourChevalet(pro, langageId, datePrint, Const.ApplicationConsts.format_A5_recto_verso, null);
+                chevaletToPrint.produitsData.Add(dataProduit);
+            }
+            string prefixFileName = "REGLETTE_NEW_";
+            DateTime dateObj = new DateTime(int.Parse(split[2]), int.Parse(split[1]), int.Parse(split[0]));
+
+            this.setLang();
+            this.setDecimalFormat();
+
+            List<TickitDataChevalet> chevalets = PDFUtils.PlvA7RectoVerso.splitChevalet(chevaletToPrint);
+
+            List<string> listePathPdfFiles = new List<string>();
+            int iteration = 1;
+            foreach (TickitDataChevalet currentChevalet in chevalets)
+            {
+                string htmlCode = PDFUtils.PlvA7RectoVerso.getHtmlA7(currentChevalet, Format, langageId, dateObj);
+                HiqPdfManager.ConvertToPdf(PlvA7RectoVerso.getHtmlToPdfModel(), htmlCode, iteration.ToString(), prefixFileName, "");
+                listePathPdfFiles.Add(Const.ApplicationConsts.dossierTraitementPdf + prefixFileName + Const.ApplicationConsts.SessionID + "_" + iteration + ".pdf");
+                iteration++;
+            }
+
+            return HiqPdfManager.mergePdf(listePathPdfFiles, prefixFileName, "A7_recto_verso.pdf");
 
         }
-
 
 
         //Cillia 

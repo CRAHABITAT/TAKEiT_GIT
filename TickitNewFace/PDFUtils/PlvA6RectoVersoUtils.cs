@@ -192,6 +192,14 @@ namespace TickitNewFace.PDFUtils
                 {
                     prixGauche = data.prix;
                 }
+//Cillia
+
+                if (chevalet.typePrix == ApplicationConsts.typePrix_permanent && data.pourcentage != null)
+                {
+                    prixGauche = data.prixPermanent;
+                    prixDroite = "";
+
+                }
 
                 string Orientation = DAO.ProduitDao.getOrientationBySku(data.sku, magasinId);
 

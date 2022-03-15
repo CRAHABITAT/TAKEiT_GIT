@@ -181,6 +181,14 @@ namespace TickitNewFace.PDFUtils
                     prixGauche = data.prix;
                 }
 
+                //Cillia 
+                if (chevalet.typePrix == ApplicationConsts.typePrix_permanent && data.pourcentage != null)
+                {
+                    prixGauche =  data.prixPermanent;
+                    prixDroite = "";
+
+                }
+
                 string Orientation = DAO.ProduitDao.getOrientationBySku(data.sku, magasinId);
 
                 string DimensionsDeplie = DAO.ProduitDao.getDrescriptionConvertibleBySku(data.sku, magasinId, "L");
@@ -202,11 +210,11 @@ namespace TickitNewFace.PDFUtils
                     codeHtml = codeHtml + "	<table>";
                     codeHtml = codeHtml + "		<tr>";
                 }
-                codeHtml = codeHtml + "			<td>";
+                codeHtml = codeHtml + "			<td align=\"center\" style=\"padding:0 0 0 25px\">";
                 codeHtml = codeHtml + "				<div class=\"divReglette\">";
                 codeHtml = codeHtml + "					<table align=\"left\" width=\"450\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" bgcolor=\"#ffffff\">";
                 codeHtml = codeHtml + "						<tr>";
-                codeHtml = codeHtml + "							<td align=\"center\">";
+                codeHtml = codeHtml + "							<td align=\"center\" padding=\"0 0 0 0\">";
                 codeHtml = codeHtml + "								<table width=\"350\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" bgcolor=\"ffffff\" align=\"left\">";
                 codeHtml = codeHtml + "									<tr>";
                 codeHtml = codeHtml + "										<td align=\"left\" padding=\"0 0 0 0\">";
@@ -306,7 +314,7 @@ namespace TickitNewFace.PDFUtils
                 //codeHtml = codeHtml + "											<td align=\"left\" style=\"padding:0px 0 0 0\" width=\"100\"><hr width=\"100\"> </td>";
                 //codeHtml = codeHtml + "											<td height=\"10\" valign=\"bottom\" style=\"text-align: right; font-family: DINHabRg; font-size: 8px;\" width=\"300\">" + texteDur2 + "</td>";			
                 //codeHtml = codeHtml + "                                     <td align=\"left\" style=\"padding:0px 0 0 0\" width=\"100\"><hr width=\"100\"> </td></tr></table>";
-                codeHtml = codeHtml + "									  <td width=\"40\" align=\"center\" style=\"padding:5px 0 0 0px\">" + imageMadeIn + "</td>";
+                codeHtml = codeHtml + "									  <td width=\"40\" align=\"center\" style=\"padding:20px 0 0 30px\">" + imageMadeIn + "</td>";
 
                 codeHtml = codeHtml + "	                                   <td width=\"350\" align=\"right\" style=\"text-align: right; font-family: DINHabRg; font-size: 7px; padding:0 0 0 0\">" + texteDur3 + "";
                 codeHtml = codeHtml + "											<br><strong>" + texteDur4 + "</strong> </td>";
@@ -322,11 +330,11 @@ namespace TickitNewFace.PDFUtils
                 codeHtml = codeHtml + "					</table>";
                 codeHtml = codeHtml + "				</div>";
                 codeHtml = codeHtml + "			</td>";
-                codeHtml = codeHtml + "			<td>";
+                codeHtml = codeHtml + "			<td align=\"center\" style=\"padding:0 0 0 20px\">";
                 codeHtml = codeHtml + "				<div class=\"divReglette\">";
                 codeHtml = codeHtml + "					<table align=\"left\" width=\"450\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" bgcolor=\"#ffffff\">";
                 codeHtml = codeHtml + "						<tr>";
-                codeHtml = codeHtml + "							<td align=\"center\">";
+                codeHtml = codeHtml + "							<td align=\"center\"  padding=\"0 0 0 0\">";
                 codeHtml = codeHtml + "								<table width=\"350\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" bgcolor=\"ffffff\" align=\"left\">";
                 codeHtml = codeHtml + "									<tr>";
                 codeHtml = codeHtml + "										<td align=\"left\" padding=\"0 0 0 0\">";
@@ -378,7 +386,7 @@ namespace TickitNewFace.PDFUtils
                 codeHtml = codeHtml + "							<td align=\"center\" style=\"padding: 0 0 0 20px\">";
                 codeHtml = codeHtml + "								<table width=\"320\" height=\"240\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" bgcolor=\"ffffff\" align=\"left\" class=\"full\">";
                 codeHtml = codeHtml + "									<tr>";
-                codeHtml = codeHtml + "										<td width=\"150\" style=\"text-align: left; font-family: DINHabRg; font-size: 16px; text-align: justify; padding: 0 0 0 35px\"> " + comp + "";
+                codeHtml = codeHtml + "										<td width=\"150\" style=\"text-align: left; font-family: DINHabRg; font-size: 14px; text-align: justify; padding: 0 0 0 35px\"> " + comp + "";
                 codeHtml = codeHtml + "											<br> </td>";
                 codeHtml = codeHtml + "									</tr>";
                 codeHtml = codeHtml + "								</table>";

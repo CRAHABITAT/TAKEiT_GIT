@@ -388,7 +388,7 @@ namespace TickitNewFace.Managers
             data.dimension = "";
 
             // Diamètre
-            if (produit.Diametre != null)
+            if (produit.Diametre != null && produit.Diametre != 0)
             {
                 if (produit.Diametre == (int)produit.Diametre)
                 {
@@ -405,7 +405,7 @@ namespace TickitNewFace.Managers
 
 
             // Longueur
-            if (produit.Longueur != null)
+            if (produit.Longueur != null && produit.Longueur != 0 )
             {
                 if (produit.Longueur == (int)produit.Longueur)
                 {
@@ -422,7 +422,7 @@ namespace TickitNewFace.Managers
             }
 
             // Hauteur
-            if (produit.Hauteur != null)
+            if (produit.Hauteur != null && produit.Hauteur != 0 && data.dimension != "")
             {
                 if (produit.Hauteur == (int)produit.Hauteur)
                 {
@@ -434,9 +434,25 @@ namespace TickitNewFace.Managers
                 }
             }
 
+            else
+            {
+                if (produit.Hauteur != null && produit.Hauteur != 0)
+                {
+                    if (produit.Hauteur == (int)produit.Hauteur)
+                    {
+                        data.dimension = data.dimension + ApplicationConsts.symboleDimensionHauteur + " " + (int)produit.Hauteur;
+                    }
+                    else
+                    {
+                        data.dimension = data.dimension + ApplicationConsts.symboleDimensionHauteur + " " + produit.Hauteur;
+                    }
+
+                }
+            }
+
 
             // Profondeur
-            if (produit.Profondeur != null)
+            if (produit.Profondeur != null && produit.Profondeur !=0)
             {
                 if (produit.Profondeur == (int)produit.Profondeur)
                 {
@@ -468,6 +484,10 @@ namespace TickitNewFace.Managers
             {
                 data.dimension = data.dimension + " " + ApplicationConsts.dimensionUniteMesure;
             }
+            //else
+            //{
+             //   data.dimension = "";
+           // }
 
             if (produit.Self_Assembly == "YES")
             {
