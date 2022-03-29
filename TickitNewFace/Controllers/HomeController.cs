@@ -434,7 +434,7 @@ namespace TickitNewFace.Controllers
                 Boolean viewRegletteNew = false;
                 if (
                     userName == "msridi" ||
-                    userName == "crabehi" ||
+                   // userName == "crabehi" ||
                     userName == "cpauthenet" ||
                     userName == "mbastide" ||
                     userName == "oouba" ||
@@ -570,7 +570,7 @@ namespace TickitNewFace.Controllers
                 Boolean viewRegletteNew = false;
                 if (
                     userName == "msridi" ||
-                    userName == "crabehi" ||
+                  //  userName == "crabehi" ||
                     userName == "cpauthenet" ||
                     userName == "mbastide" ||
                     userName == "oouba" ||
@@ -1477,7 +1477,7 @@ namespace TickitNewFace.Controllers
                 Boolean viewRegletteNew = false;
                 if (
                     userName == "msridi" ||
-                    userName == "crabehi" ||
+                  //  userName == "crabehi" ||
                     userName == "cpauthenet" ||
                     userName == "mbastide" ||
                     userName == "oouba" ||
@@ -1554,7 +1554,7 @@ namespace TickitNewFace.Controllers
                 Boolean viewRegletteNew = false;
                 if (
                     userName == "msridi" ||
-                    userName == "crabehi" ||
+                   // userName == "crabehi" ||
                     userName == "cpauthenet" ||
                     userName == "mbastide" ||
                     userName == "oouba" ||

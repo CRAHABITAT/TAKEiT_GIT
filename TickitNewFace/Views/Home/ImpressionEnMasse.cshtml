@@ -94,7 +94,7 @@
 
             //Cillia
 
-            if ($("#Format").val() == "Chevalet_A4") {
+           /* if ($("#Format").val() == "Chevalet_A4") {
               //  alert("1");
                 downloadUrl = '@Url.Content("~/Home/PrintPlvEnMasseA4?")'
                 + "Format=" + $("#Format").val()
@@ -103,7 +103,7 @@
                 + "&Classe=" + $("#Classe").val()
                 + "&rechercheDate=" + $("#search_input_date_impression_masse").val()
                 + "&TypePrix=" + $("#TypePrix").val();
-            }
+            }*/
             if ($("#Format").val() == "Reglette_new") {
                // alert("0");
                 downloadUrl = '@Url.Content("~/Home/PrintPlvEnMasseRegletteNew?")'
@@ -270,14 +270,13 @@
 
                     <option value="Reglette_new">Reglette rectangulaire</option>
                 
-                @if (@ViewBag.viewRegletteNew)
-                {
-                    <option style="color:red" value="Chevalet_A4">Chevalet A4</option>
+            
+               
                     <option style="color:red" value="A6_recto_verso">A6_recto_verso</option>
                     <option style="color:red" value="A7_recto_verso">A7_recto_verso</option>
-                } 
-                
-                
+               
+                  @if (@ViewBag.viewRegletteNew)
+                  { }
                              
 
                 <option value="A5_recto_verso">A5_recto_verso</option>

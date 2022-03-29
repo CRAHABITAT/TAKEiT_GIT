@@ -289,9 +289,9 @@ namespace TickitNewFace.PDFUtils
                 if (chevalet.typePrix == ApplicationConsts.typePrix_solde) typePastille = ApplicationConsts.typePastilleSoldeReglette;
 
                 string pourcentagetexte = "";
-                if (chevalet.pourcentageReduction != null)
+                if (data.pourcentage != null)
                 {
-                    pourcentagetexte = "-" + chevalet.pourcentageReduction + "%";
+                    pourcentagetexte = "-" + data.pourcentage + "%";
                 }
 
                 codeHtml = codeHtml + "															<td width=\"200\" height=\"160\" align=\"center\" valign=\"top\" class=\"" + typePastille + "\" style=\"text-align: center; font-family: dinhabbold; font-size: 40pt; color: #FFFFFF; line-height: 120px;\">" + pourcentagetexte + " &nbsp;&nbsp;</td>";
