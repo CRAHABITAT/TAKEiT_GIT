@@ -153,7 +153,7 @@ namespace TickitNewFace.PDFUtils
                     plus3 = "&bull; &nbsp; " + listePlus[2].Plus;
                 }
 
-               // string comp = DAO.RangeDao.getDescriptionCompositionByRangeId(RangeId, magasinId, 1);
+                // string comp = DAO.RangeDao.getDescriptionCompositionByRangeId(RangeId, magasinId, 1);
 
                 //Cillia on utilise la table Description_Composition_Produit
 
@@ -184,8 +184,8 @@ namespace TickitNewFace.PDFUtils
                 //Cillia 
                 if (chevalet.typePrix == ApplicationConsts.typePrix_permanent && data.pourcentage != null)
                 {
-                    prixGauche =  data.prixPermanent;
-                    prixDroite ="";
+                    prixGauche = data.prixPermanent;
+                    prixDroite = "";
 
                 }
 
@@ -207,12 +207,12 @@ namespace TickitNewFace.PDFUtils
 
                 if (iteration == 1 || iteration == 3)
                 {
-                    codeHtml = codeHtml + "	<table>";
-                    codeHtml = codeHtml + "		<tr>";
+                codeHtml = codeHtml + "	<table>";
+                codeHtml = codeHtml + "		<tr>";
                 }
-                codeHtml = codeHtml + "			<td align=\"center\" style=\"padding:40px 0 0 25px\">";
+                codeHtml = codeHtml + "			<td align=\"left\" style=\"padding:40px 0 30px 25px\">";
                 codeHtml = codeHtml + "				<div class=\"divReglette\">";
-                codeHtml = codeHtml + "					<table align=\"left\" width=\"450\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" bgcolor=\"#ffffff\">";
+                codeHtml = codeHtml + "					<table align=\"left\" width=\"325\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" bgcolor=\"#ffffff\">";
                 codeHtml = codeHtml + "						<tr>";
                 codeHtml = codeHtml + "							<td align=\"center\" padding=\"0 0 0 0\">";
                 codeHtml = codeHtml + "								<table width=\"350\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" bgcolor=\"ffffff\" align=\"left\">";
@@ -275,9 +275,9 @@ namespace TickitNewFace.PDFUtils
                 codeHtml = codeHtml + "						</tr>";
                 codeHtml = codeHtml + "						<tr>";
                 codeHtml = codeHtml + "							<td align=\"left\" style=\"padding: 0 0 0 50px\">";
-                codeHtml = codeHtml + "								<table width=\"350\" height=\"240\">";
-                codeHtml = codeHtml + "									<tr width=\"200\" height=\"240\">";
-                codeHtml = codeHtml + "										<td align=\"left\"  height=\"240\" >";
+                codeHtml = codeHtml + "								<table width=\"350\" height=\"245\">";
+                codeHtml = codeHtml + "									<tr width=\"200\" height=\"245\">";
+                codeHtml = codeHtml + "										<td align=\"left\"  height=\"245\" >";
                 codeHtml = codeHtml + "											<object data=\"" + baseUrlImages + "filaires/" + "filaire_A7_" + data.sku + ".png\" width=\"140\" border=\"0\" alt=\"montino\" style=\"display:block height:auto\" type=\"image/png\"><img src=\"http://ean.habitat.fr/TAKEIT/A7/images/blanc.png\" width=\"140\" border=\"0\" alt=\"montino\" style=\"display:block height:auto\"> </object>";
                 codeHtml = codeHtml + "										</td>";
                 codeHtml = codeHtml + "									</tr>";
@@ -289,7 +289,7 @@ namespace TickitNewFace.PDFUtils
                 codeHtml = codeHtml + "								<table width=\"350\" height=\"35\">";
                 codeHtml = codeHtml + "									<tr width=\"350\" height=\"35\">";
                 codeHtml = codeHtml + "										<td style=\"text-align: left; font-family: DINHabbold; font-size: 28px; padding: 0 0px\" width=\"266\">" + prixGauche.Replace(".00", "") + " <span style=\"font-family: DINHabRg; font-size: 20px; text-decoration: line-through; text-align: left; line-height:20px;\">" + prixDroite.Replace(".00", "") + "</span></td>";
-              //  codeHtml = codeHtml + "										<td height=\"22\" valign=\"bottom\" style=\"font-family: DINHabRg; font-size: 14px; text-align: left; line-height:20px;\">" + Nombre_colis + "</td>";
+                //  codeHtml = codeHtml + "										<td height=\"22\" valign=\"bottom\" style=\"font-family: DINHabRg; font-size: 14px; text-align: left; line-height:20px;\">" + Nombre_colis + "</td>";
                 codeHtml = codeHtml + "									</tr>";
                 codeHtml = codeHtml + "								</table>";
                 codeHtml = codeHtml + "								<table width=\"325\" height=\"18\">";
@@ -307,21 +307,21 @@ namespace TickitNewFace.PDFUtils
                 codeHtml = codeHtml + "							</td>";
                 codeHtml = codeHtml + "						</tr>";
                 codeHtml = codeHtml + "						<tr>";
-                codeHtml = codeHtml + "							<td align=\"left\" style=\"padding: 5px 0 20px 20px\">";
+                codeHtml = codeHtml + "							<td align=\"left\" style=\"padding: 0px 0 0px 20px\">";
                 codeHtml = codeHtml + "								<table align=\"left\" width=\"350\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" bgcolor=\"ffffff\">";
                 codeHtml = codeHtml + "									<tr>";
 
                 //codeHtml = codeHtml + "											<td align=\"left\" style=\"padding:0px 0 0 0\" width=\"100\"><hr width=\"100\"> </td>";
                 //codeHtml = codeHtml + "											<td height=\"10\" valign=\"bottom\" style=\"text-align: right; font-family: DINHabRg; font-size: 8px;\" width=\"300\">" + texteDur2 + "</td>";			
                 //codeHtml = codeHtml + "                                     <td align=\"left\" style=\"padding:0px 0 0 0\" width=\"100\"><hr width=\"100\"> </td></tr></table>";
-                codeHtml = codeHtml + "									  <td width=\"40\" align=\"center\" style=\"padding:20px 0 0 30px\">" + imageMadeIn + "</td>";
+                codeHtml = codeHtml + "									  <td width=\"40\" align=\"center\" style=\"padding:10px 0 0 0px\">" + imageMadeIn + "</td>";
 
                 codeHtml = codeHtml + "	                                   <td width=\"350\" align=\"right\" style=\"text-align: right; font-family: DINHabRg; font-size: 7px; padding:0 0 0 0\">" + texteDur3 + "";
                 codeHtml = codeHtml + "											<br><strong>" + texteDur4 + "</strong> </td>";
                 codeHtml = codeHtml + "										<td width=\"55\" align=\"left\"><img src=\"" + baseUrlImages + "Camion_livraison.png\" width=\"40\" border=\"0\" alt=\"camion\" title=\"camion livraison\" style=\"display:block; padding: 5px 0 0px 10px\"></td>";
                 //codeHtml = codeHtml + "									</tr></table>";
 
-               // codeHtml = codeHtml + "										<td width=\"800\" align=\"right\" style=\"text-align: right; font-family: DINHabRg; font-size: 14px; padding: 5px 0 0px 0px\"> </td>";
+                // codeHtml = codeHtml + "										<td width=\"800\" align=\"right\" style=\"text-align: right; font-family: DINHabRg; font-size: 14px; padding: 5px 0 0px 0px\"> </td>";
                 //codeHtml = codeHtml + "										<td align=\"left\" width=\"50\" border=\"0\" alt=\"\" title=\"\" style=\"display:block; padding: 5px 0 0 10px\"></td>";
                 codeHtml = codeHtml + "									</tr>";
                 codeHtml = codeHtml + "								</table>";
@@ -330,9 +330,9 @@ namespace TickitNewFace.PDFUtils
                 codeHtml = codeHtml + "					</table>";
                 codeHtml = codeHtml + "				</div>";
                 codeHtml = codeHtml + "			</td>";
-                codeHtml = codeHtml + "			<td align=\"center\" style=\"padding:40px 0 0 60px\">";
+                codeHtml = codeHtml + "			<td align=\"right\" style=\"padding:40px 0 30px 70px\">";
                 codeHtml = codeHtml + "				<div class=\"divReglette\">";
-                codeHtml = codeHtml + "					<table align=\"left\" width=\"450\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" bgcolor=\"#ffffff\">";
+                codeHtml = codeHtml + "					<table align=\"left\" width=\"325\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" bgcolor=\"#ffffff\">";
                 codeHtml = codeHtml + "						<tr>";
                 codeHtml = codeHtml + "							<td align=\"center\"  padding=\"0 0 0 0\">";
                 codeHtml = codeHtml + "								<table width=\"350\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" bgcolor=\"ffffff\" align=\"left\">";
@@ -430,27 +430,36 @@ namespace TickitNewFace.PDFUtils
                 codeHtml = codeHtml + "				</div>";
                 codeHtml = codeHtml + "			</td>";
 
-                if (chevalet.produitsData.Count == 1 || (chevalet.produitsData.Count == 3 && iteration == 3))
+                 if (chevalet.produitsData.Count == 1 || (chevalet.produitsData.Count == 3 && iteration == 3))
                 {
-                    codeHtml = codeHtml + "  			<td>";
-                    codeHtml = codeHtml + "				<div class=\"divReglette\">";
-                    codeHtml = codeHtml + "			</td>";
-                    codeHtml = codeHtml + "			<td>";
-                    codeHtml = codeHtml + "				<div class=\"divReglette\">";
-                    codeHtml = codeHtml + "			</td>";
+                    codeHtml = codeHtml + "  			<td  align=\"left\" style=\"padding: 40px 0 30px 70px\">";
+                     codeHtml = codeHtml + "				<div class=\"divReglette\">";
+                      codeHtml = codeHtml + "					<table align=\"left\" width=\"325\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" bgcolor=\"#ffffff\"></table></div>";
+                     codeHtml = codeHtml + "			</td>";
+                     codeHtml = codeHtml + "			<td  align=\"right\" style=\"padding: 40px 0 30px 70px\">";
+                     codeHtml = codeHtml + "				<div class=\"divReglette\"></div>";
+                     codeHtml = codeHtml + "					<table align=\"left\" width=\"325\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" bgcolor=\"#ffffff\"></table></div>";
+                     codeHtml = codeHtml + "			</td>";
 
-                    codeHtml = codeHtml + "		</tr>";
-                    codeHtml = codeHtml + "	</table>";
-                }
+                     codeHtml = codeHtml + "		</tr>";
+                     codeHtml = codeHtml + "	</table>";
+                 }
 
-                if (iteration == 2 || iteration == 4)
-                {
-                    codeHtml = codeHtml + "		</tr>";
-                    codeHtml = codeHtml + "	</table>";
-                }
+                 if (iteration == 2 || iteration == 4)
+                 {
+                     codeHtml = codeHtml + "		</tr>";
+                     codeHtml = codeHtml + "	</table>";
+                 }
 
-                iteration ++;
-            }
+                 iteration ++;
+             }
+                codeHtml = codeHtml + "		</tr>";
+                codeHtml = codeHtml + "	</table>";
+               // codeHtml = codeHtml + "</body>";
+               // codeHtml = codeHtml + "";
+                //codeHtml = codeHtml + "</html>";
+                //return codeHtml;
+            
             codeHtml = codeHtml + "</body>";
             codeHtml = codeHtml + "";
             codeHtml = codeHtml + "</html>";

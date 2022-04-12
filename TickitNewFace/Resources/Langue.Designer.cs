@@ -196,7 +196,7 @@ namespace TickitNewFace.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Réglette new.
         /// </summary>
         public static string Chevalet_ImprimerReglette653 {
             get {
