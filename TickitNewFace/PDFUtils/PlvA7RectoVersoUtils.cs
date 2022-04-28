@@ -65,6 +65,19 @@ namespace TickitNewFace.PDFUtils
             codeHtml = codeHtml + "		background-size: 80%;";
             codeHtml = codeHtml + "	}";
             codeHtml = codeHtml + "	";
+            //Cillia 
+
+            codeHtml = codeHtml + "	.promo_bleue {";
+            codeHtml = codeHtml + "		background-image: url(" + baseUrlImages + "pastille_bleue.jpg);";
+            codeHtml = codeHtml + "		background-repeat: no-repeat;";
+            codeHtml = codeHtml + "		background-origin: border-box;";
+            codeHtml = codeHtml + "		padding-top: 18px;";
+            codeHtml = codeHtml + "		padding-right: 11px;";
+            codeHtml = codeHtml + "		background-size: 80%;";
+            codeHtml = codeHtml + "	}";
+            codeHtml = codeHtml + "	";
+
+
 
             foreach (TickitDataProduit data in chevalet.produitsData)
             {
@@ -189,6 +202,13 @@ namespace TickitNewFace.PDFUtils
 
                 }
 
+
+                //Cillia
+
+                 T_Prix prix= DAO.PrixDao.getPrixBySkuAndDate(pro.Sku, magasinId, dateQuery);
+
+                string  typeTarifCbr = prix.TypeTarifCbr;
+
                 string Orientation = DAO.ProduitDao.getOrientationBySku(data.sku, magasinId);
 
                 string DimensionsDeplie = DAO.ProduitDao.getDrescriptionConvertibleBySku(data.sku, magasinId, "L");
@@ -238,9 +258,7 @@ namespace TickitNewFace.PDFUtils
                 codeHtml = codeHtml + "											<table align=\"right\" width=\"80\" heigth=\"80\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" valign=\"top\">";
                 codeHtml = codeHtml + "												<tr>";
 
-                string typePastille = "";
-                if (chevalet.typePrix == ApplicationConsts.typePrix_demarqueLocale || chevalet.typePrix == ApplicationConsts.typePrix_promo) typePastille = ApplicationConsts.typePastillePromoReglette;
-                if (chevalet.typePrix == ApplicationConsts.typePrix_solde) typePastille = ApplicationConsts.typePastilleSoldeReglette;
+
 
                 string pourcentagetexte = "";
                 if (data.pourcentage != null)
@@ -248,6 +266,23 @@ namespace TickitNewFace.PDFUtils
                     pourcentagetexte = "-" + data.pourcentage + "%";
                 }
 
+
+              string typePastille = "";
+
+              //  if (typeTarifCbr == "HABHFR" && chevalet.typePrix == ApplicationConsts.typePrix_promo)
+               // { typePastille = ApplicationConsts.typePastillePromoHab;
+
+               // codeHtml = codeHtml + "										     <td width=\"80\" height=\"80\" align=\"center\" valign=\"top\" class=\"" + typePastille + "\" style=\"text-align: center; font-family: dinhabbold; font-size: 14pt; color: #FFFFFF; line-height: 50px; \">" + pourcentagetexte + " &nbsp;</td>";
+                
+              //  }
+
+                if (chevalet.typePrix == ApplicationConsts.typePrix_demarqueLocale || chevalet.typePrix == ApplicationConsts.typePrix_promo) { typePastille = ApplicationConsts.typePastillePromoReglette; }
+                else  if (chevalet.typePrix == ApplicationConsts.typePrix_solde) { typePastille = ApplicationConsts.typePastilleSoldeReglette; }
+               
+           
+
+               
+                
                 codeHtml = codeHtml + "													<td width=\"80\" height=\"80\" align=\"center\" valign=\"top\" class=\"" + typePastille + "\" style=\"text-align: center; font-family: dinhabbold; font-size: 18pt; color: #FFFFFF; line-height: 60px; \">" + pourcentagetexte + " &nbsp;</td>";
                 codeHtml = codeHtml + "												</tr>";
                 codeHtml = codeHtml + "											</table>";
@@ -403,7 +438,7 @@ namespace TickitNewFace.PDFUtils
                 codeHtml = codeHtml + "								<table width=\"325\" height=\"18\">";
                 codeHtml = codeHtml + "									<tr>";
                 codeHtml = codeHtml + "										<td style=\"text-align: left; font-family: DINHabRg; font-size: 11px; padding: 0 0px; line-height: 1\" valign=\"top\">" + data.Taxe_eco + " &nbsp;</td>";
-                codeHtml = codeHtml + "										<td width=\"68\" valign=\"top\" style=\"font-family: DINHabRg; font-size: 11px; text-align: left; line-height:1;\">Réf. " + data.sku + "</td>";
+                codeHtml = codeHtml + "										<td width=\"68\" valign=\"top\" style=\"font-family: DINHabRg; font-size: 11px; text-align: left; line-height:1;\">Réf. " + data.sku +"</td>";
                 codeHtml = codeHtml + "									</tr>";
                 codeHtml = codeHtml + "								</table>";
                 codeHtml = codeHtml + "								<table width=\"350\" height=\"20\">";

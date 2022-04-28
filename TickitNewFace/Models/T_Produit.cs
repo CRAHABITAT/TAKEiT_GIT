@@ -21,5 +21,9 @@
         public int? Nombre_colis { get; set; }
         public int? Division { get; set; }
         public string Made_In { get; set; }
+
+        //Cillia 
+
+        public string typeTarifCbr { get; set; }
     }
 }

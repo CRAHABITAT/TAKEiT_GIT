@@ -56,6 +56,8 @@ namespace TickitNewFace.Const
         public const int codePays_DE = 5;
         public const int codePays_ES = 6;
 
+        public const int codePays_CT = 26;
+
         // Dimensions
         public const string symboleDimensionProfondeur = "P";
         public const string symboleDimensionDiametre = "D";
@@ -93,5 +95,8 @@ namespace TickitNewFace.Const
         public const string typePastillePromoReglette = "promo_rose";
         public const string typePastilleSoldeReglette = "promo_rouge";
         
+
+        //Cillia 
+        public const string typePastillePromoHab = "promo_bleue";
     }
 }

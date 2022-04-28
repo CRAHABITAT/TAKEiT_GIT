@@ -38,5 +38,9 @@ namespace TickitNewFace.Models
         public string prixSoldePrecedent { get; set; }
 
         public string typeTarifCbr { get; set; }
+        //Cillia 
+       // public string Type_promo { get; set; }
+
+    
     }
 }
