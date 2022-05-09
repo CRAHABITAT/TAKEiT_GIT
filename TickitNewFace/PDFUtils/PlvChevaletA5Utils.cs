@@ -503,7 +503,7 @@ namespace TickitNewFace.PDFUtils
             codeHtml = codeHtml + "								<td align=\"center\" style=\"padding: 0 0 0 100px\">";
             codeHtml = codeHtml + "									<table align=\"left\" width=\"1300\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" bgcolor=\"#ffffff\">";
             codeHtml = codeHtml + "										<tr>";
-            codeHtml = codeHtml + "											<td width=\"500\" style=\"vertical-align: top;text-align: left; font-family: DINHabRg; font-size: 22px; text-align: justify; padding: 0 0\">";
+            codeHtml = codeHtml + "											<td width=\"500\" style=\"vertical-align: top;text-align: left; font-family: DINHabRg; font-size: 25px; text-align: justify; padding: 0 0\">";
             codeHtml = codeHtml + "												<br>" + comp1 + comp2 +"</td>";
             //codeHtml = codeHtml + "											<td width=\"550\" style=\"vertical-align: top;text-align: left; font-family: DINHabRg; font-size: 22px; text-align: justify; padding: 0 20px\">";
             //codeHtml = codeHtml + "												<br>" + comp2 + "</td>";
@@ -521,7 +521,7 @@ namespace TickitNewFace.PDFUtils
             codeHtml = codeHtml + "								<tr>";
             codeHtml = codeHtml + "									<td align=\"center\" style=\"padding:20px 0 0 0\" width=\"400\">";
             codeHtml = codeHtml + "										<hr width=\"400\"> </td>";
-            codeHtml = codeHtml + "									<td height=\"10\" valign=\"bottom\" style=\"text-align: center; font-family: dinhabbold; font-size: 18px;\" width=\"250\"> " + texteDur2 + " </td>";
+            codeHtml = codeHtml + "									<td height=\"10\" valign=\"bottom\" style=\"text-align: center; font-family: dinhabbold; font-size: 18px;\" width=\"300\"> " + texteDur2 + " </td>";
             codeHtml = codeHtml + "									<td align=\"center\" style=\"padding:20px 0 0 0\" width=\"400\">";
             codeHtml = codeHtml + "										<hr width=\"400\"> </td>";
             codeHtml = codeHtml + "								</tr>";
@@ -878,7 +878,7 @@ namespace TickitNewFace.PDFUtils
             codeHtml = codeHtml + "								<td align=\"center\" style=\"padding: 0 0 0 100px\">";
             codeHtml = codeHtml + "									<table align=\"left\" width=\"1300\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" bgcolor=\"#ffffff\">";
             codeHtml = codeHtml + "										<tr>";
-            codeHtml = codeHtml + "											<td width=\"500\" style=\"vertical-align: top;text-align: left; font-family: DINHabRg; font-size: 22px; text-align: justify; padding: 0 0\">";
+            codeHtml = codeHtml + "											<td width=\"500\" style=\"vertical-align: top;text-align: left; font-family: DINHabRg; font-size: 25px; text-align: justify; padding: 0 0\">";
             codeHtml = codeHtml + "												<br>" + comp1 +comp2+ "</td>";
             //codeHtml = codeHtml + "											<td width=\"550\" style=\"vertical-align: top;text-align: left; font-family: DINHabRg; font-size: 22px; text-align: justify; padding: 0 20px\">";
             //codeHtml = codeHtml + "												<br>" + comp2 + "</td>";
@@ -896,7 +896,7 @@ namespace TickitNewFace.PDFUtils
             codeHtml = codeHtml + "								<tr>";
             codeHtml = codeHtml + "									<td align=\"center\" style=\"padding:20px 0 0 0\" width=\"400\">";
             codeHtml = codeHtml + "										<hr width=\"400\"> </td>";
-            codeHtml = codeHtml + "									<td height=\"10\" valign=\"bottom\" style=\"text-align: center; font-family: dinhabbold; font-size: 18px;\" width=\"250\"> " + texteDur2 + " </td>";
+            codeHtml = codeHtml + "									<td height=\"10\" valign=\"bottom\" style=\"text-align: center; font-family: dinhabbold; font-size: 18px;\" width=\"300\"> " + texteDur2 + " </td>";
             codeHtml = codeHtml + "									<td align=\"center\" style=\"padding:20px 0 0 0\" width=\"400\">";
             codeHtml = codeHtml + "										<hr width=\"400\"> </td>";
             codeHtml = codeHtml + "								</tr>";
