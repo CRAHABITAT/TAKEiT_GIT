@@ -10,5 +10,9 @@ namespace TickitNewFace.Models
         public string formatImpressionEtiquettesSimples { get; set; }
         public string originePanier { get; set; }
         public List<TickitDataProduit> produitsData { get; set; }
+
+        // Cillia
+
+        public string typeTarifCbr { get; set; }
     }
 }

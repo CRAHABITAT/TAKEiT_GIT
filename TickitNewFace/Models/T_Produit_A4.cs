@@ -19,7 +19,12 @@ namespace TickitNewFace.Models
         public string DimensionsDeplie { get; set; }
         public string DimensionsCouchage { get; set; }
         public string Nombre_colis { get; set; }
-        
+
+        //Cillia 12/05/22
+
+        public string typeTarifCbr { get; set; }
+
+        //
         static public T_Produit_A4 initializeProduit()
         {
             T_Produit_A4 pro = new T_Produit_A4();
@@ -35,6 +40,7 @@ namespace TickitNewFace.Models
             pro.DimensionsDeplie = "";
             pro.DimensionsCouchage = "";
             pro.Nombre_colis = "";
+            pro.typeTarifCbr = "";
 
             return pro;
         }

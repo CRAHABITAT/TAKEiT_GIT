@@ -68,6 +68,18 @@ namespace TickitNewFace.PDFUtils
             codeHtml = codeHtml + "	}";
             codeHtml = codeHtml + "	";
 
+            //CILLIA 12/05/2022
+
+            codeHtml = codeHtml + "	.promo_bleue {";
+            codeHtml = codeHtml + "		background-image: url(" + baseUrlImages + "pastille_bleue.png);";
+            codeHtml = codeHtml + "		background-repeat: no-repeat;";
+            codeHtml = codeHtml + "		background-origin: border-box;";
+            codeHtml = codeHtml + "		padding-top: 18px;";
+            codeHtml = codeHtml + "		padding-right: 11px;";
+            codeHtml = codeHtml + "		background-size: 80%;";
+            codeHtml = codeHtml + "	}";
+            codeHtml = codeHtml + "	";
+
             foreach (TickitDataProduit data in chevalet.produitsData)
             {
                 if (data.Made_In != "")
@@ -180,6 +192,9 @@ namespace TickitNewFace.PDFUtils
                     APartirDe = DAO.ConfigurationBisDao.getValeurByCleAndMagasinId("PLV_A6_TEXTE_DUR_5", magasinId);
                 }
 
+                T_Prix prix = DAO.PrixDao.getPrixBySkuAndDate(data.sku, magasinId, dateQuery);
+
+                string typeTarifCbr = prix.TypeTarifCbr;
 
                 string prixDroite = "";
                 string prixGauche = "";
@@ -285,8 +300,17 @@ namespace TickitNewFace.PDFUtils
                 codeHtml = codeHtml + "														<tr>";
 
                 string typePastille = "";
-                if (chevalet.typePrix == ApplicationConsts.typePrix_demarqueLocale || chevalet.typePrix == ApplicationConsts.typePrix_promo) typePastille = ApplicationConsts.typePastillePromoReglette;
-                if (chevalet.typePrix == ApplicationConsts.typePrix_solde) typePastille = ApplicationConsts.typePastilleSoldeReglette;
+
+
+                if (typeTarifCbr == "HABHFR" && chevalet.typePrix == ApplicationConsts.typePrix_promo)
+                {
+                    typePastille = ApplicationConsts.typePastillePromoHab;
+
+                    // codeHtml = codeHtml + "										     <td width=\"80\" height=\"80\" align=\"center\" valign=\"top\" class=\"" + typePastille + "\" style=\"text-align: center; font-family: dinhabbold; font-size: 14pt; color: #FFFFFF; line-height: 50px; \">" + pourcentagetexte + " &nbsp;</td>";
+
+                }
+                else  if (chevalet.typePrix == ApplicationConsts.typePrix_demarqueLocale || chevalet.typePrix == ApplicationConsts.typePrix_promo) typePastille = ApplicationConsts.typePastillePromoReglette;
+                else  if (chevalet.typePrix == ApplicationConsts.typePrix_solde) typePastille = ApplicationConsts.typePastilleSoldeReglette;
 
                 string pourcentagetexte = "";
                 if (data.pourcentage != null)
@@ -294,7 +318,7 @@ namespace TickitNewFace.PDFUtils
                     pourcentagetexte = "-" + data.pourcentage + "%";
                 }
 
-                codeHtml = codeHtml + "															<td width=\"200\" height=\"160\" align=\"center\" valign=\"top\" class=\"" + typePastille + "\" style=\"text-align: center; font-family: dinhabbold; font-size: 40pt; color: #FFFFFF; line-height: 120px;\">" + pourcentagetexte + " &nbsp;&nbsp;</td>";
+                codeHtml = codeHtml + "															<td width=\"200\" height=\"160\" align=\"center\" valign=\"top\" class=\"" + typePastille + "\" style=\"text-align: top; font-family: dinhabbold; font-size: 40pt; color: #FFFFFF; line-height: 110px;\">" + pourcentagetexte + " &nbsp;&nbsp;</td>";
                 codeHtml = codeHtml + "														</tr>";
                 codeHtml = codeHtml + "													</table>";
                 codeHtml = codeHtml + "												</td>";
@@ -447,7 +471,7 @@ namespace TickitNewFace.PDFUtils
                 codeHtml = codeHtml + "												<td align=\"center\" style=\"padding: 0 0 0 0\">";
                 codeHtml = codeHtml + "													<table align=\"center\" width=\"200\" heigth=\"150\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" valign=\"top\">";
                 codeHtml = codeHtml + "														<tr>";
-                codeHtml = codeHtml + "															<td width=\"200\" height=\"160\" align=\"center\" valign=\"top\" class=\"" + typePastille + "\" style=\"text-align: center; font-family: dinhabbold; font-size: 40pt; color: #FFFFFF; line-height: 120px;\">" + pourcentagetexte + " &nbsp;&nbsp;</td>";
+                codeHtml = codeHtml + "															<td width=\"200\" height=\"160\" align=\"center\" valign=\"top\" class=\"" + typePastille + "\" style=\"text-align: top; font-family: dinhabbold; font-size: 40pt; color: #FFFFFF; line-height: 110px;\">" + pourcentagetexte + " &nbsp;&nbsp;</td>";
                 codeHtml = codeHtml + "														</tr>";
                 codeHtml = codeHtml + "													</table>";
                 codeHtml = codeHtml + "												</td>";

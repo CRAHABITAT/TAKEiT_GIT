@@ -39,7 +39,7 @@ namespace TickitNewFace.PDFUtils
 
             bool isbarATissu = DAO.RangeDao.isRangeBarAtissu(RangeId);
 
-            List<T_Produit_A4> lista = getTableauProduitsFromChevalet(chevalet, magasinId, RangeId);
+            List<T_Produit_A4> lista = getTableauProduitsFromChevalet(chevalet, magasinId, RangeId, dateQuery);
 
             T_Produit_A4 pro1 = lista[0];
             T_Produit_A4 pro2 = lista[1];
@@ -47,8 +47,8 @@ namespace TickitNewFace.PDFUtils
             T_Produit_A4 pro4 = lista[3];
             T_Produit_A4 pro5 = lista[4];
             T_Produit_A4 pro6 = lista[5];
-            T_Produit_A4 pro7 = lista[6];
-            T_Produit_A4 pro8 = lista[7];
+            //T_Produit_A4 pro7 = lista[6];
+            //T_Produit_A4 pro8 = lista[7];
 
             string texteDur1 = DAO.ConfigurationBisDao.getValeurByCleAndMagasinId("PLV_A5_TEXTE_DUR_1", magasinId);
             string texteDur2 = DAO.ConfigurationBisDao.getValeurByCleAndMagasinId("PLV_A5_TEXTE_DUR_2", magasinId);
@@ -84,64 +84,77 @@ namespace TickitNewFace.PDFUtils
             string comp1 = DAO.RangeDao.getDescriptionCompositionByRangeId(RangeId, magasinId, 1);
             string comp2 = DAO.RangeDao.getDescriptionCompositionByRangeId(RangeId, magasinId, 2);
 
+
             if (madeIn != "")
             {
                 imageMadeIn = "<object data=\"" + baseUrlImages + "Flag_" + madeIn + ".png\" width=\"75\" border=\"0\" alt=\"drapeau\" title=\"flag\" style=\"display:block\"><img src=\"" + baseUrlImages + "blanc.png\" width=\"75\" border=\"0\" alt=\"drapeau\" title=\"flag\" style=\"display:block\"/> </object>";
             }
 
 
-            string codeHtml = "";
-            codeHtml = codeHtml + "<!DOCTYPE html>";
-            codeHtml = codeHtml + "<html lang=\"fr\">";
-            codeHtml = codeHtml + "	<head>";
-            codeHtml = codeHtml + "		<meta charset=\"UTF-8\">";
-            codeHtml = codeHtml + "		<title>Habitat</title>";
-            codeHtml = codeHtml + "		<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">";
-            codeHtml = codeHtml + "		<style>";
-            codeHtml = codeHtml + "			.divReglette";
-            codeHtml = codeHtml + "			{";
-            codeHtml = codeHtml + "				grid-area: auto;";
-            codeHtml = codeHtml + "				width: 650px;";
-            codeHtml = codeHtml + "				height: 400px;";
-            codeHtml = codeHtml + "				margin: 0px;";
-            codeHtml = codeHtml + "				padding: 0px;";
-            codeHtml = codeHtml + "				background-repeat: no-repeat;";
-            codeHtml = codeHtml + "				background-size: cover;";
-            codeHtml = codeHtml + "			}";
-            codeHtml = codeHtml + "";
-            codeHtml = codeHtml + "			.promo_rose";
-            codeHtml = codeHtml + "			{";
-            codeHtml = codeHtml + "				background-image: url(" + baseUrlImages + "pastille_rose.png);";
-            codeHtml = codeHtml + "				background-repeat: no-repeat;";
-            codeHtml = codeHtml + "				background-origin: border-box;";
-            codeHtml = codeHtml + "				padding-top: 18px;";
-            codeHtml = codeHtml + "				padding-right: 11px;";
-            codeHtml = codeHtml + "				background-size: 80%;";
-            codeHtml = codeHtml + "			}";
-            codeHtml = codeHtml + "";
-            codeHtml = codeHtml + "			#flag_EU";
-            codeHtml = codeHtml + "			{";
-            codeHtml = codeHtml + "				background-image: url(" + baseUrlImages + "flag_" + madeIn + ".jpg);";
-            codeHtml = codeHtml + "				background-repeat: no-repeat;";
-            codeHtml = codeHtml + "				background-origin: border-box;";
-            codeHtml = codeHtml + "				background-size: 90%;";
-            codeHtml = codeHtml + "			}";
-            codeHtml = codeHtml + "";
-            codeHtml = codeHtml + "			.filet";
-            codeHtml = codeHtml + "			{";
-            codeHtml = codeHtml + "				background-image: url(" + baseUrlImages + "filet.jpg);";
-            codeHtml = codeHtml + "				background-repeat: no-repeat;";
-            codeHtml = codeHtml + "				background-size: contain;";
-            codeHtml = codeHtml + "			}";
-            codeHtml = codeHtml + "";
-            codeHtml = codeHtml + "			html, body";
-            codeHtml = codeHtml + "			{";
-            codeHtml = codeHtml + "				height: 100%;";
-            codeHtml = codeHtml + "			}";
-            codeHtml = codeHtml + "";
-            codeHtml = codeHtml + "			.contenu";
-            codeHtml = codeHtml + "			{";
-            codeHtml = codeHtml + "				min-height: 100%;";
+                string codeHtml = "";
+                codeHtml = codeHtml + "<!DOCTYPE html>";
+                codeHtml = codeHtml + "<html lang=\"fr\">";
+                codeHtml = codeHtml + "	<head>";
+                codeHtml = codeHtml + "		<meta charset=\"UTF-8\">";
+                codeHtml = codeHtml + "		<title>Habitat</title>";
+                codeHtml = codeHtml + "		<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">";
+                codeHtml = codeHtml + "		<style>";
+                codeHtml = codeHtml + "			.divReglette";
+                codeHtml = codeHtml + "			{";
+                codeHtml = codeHtml + "				grid-area: auto;";
+                codeHtml = codeHtml + "				width: 650px;";
+                codeHtml = codeHtml + "				height: 400px;";
+                codeHtml = codeHtml + "				margin: 0px;";
+                codeHtml = codeHtml + "				padding: 0px;";
+                codeHtml = codeHtml + "				background-repeat: no-repeat;";
+                codeHtml = codeHtml + "				background-size: cover;";
+                codeHtml = codeHtml + "			}";
+                codeHtml = codeHtml + "";
+                codeHtml = codeHtml + "			.promo_rose";
+                codeHtml = codeHtml + "			{";
+                codeHtml = codeHtml + "				background-image: url(" + baseUrlImages + "pastille_rose.png);";
+                codeHtml = codeHtml + "				background-repeat: no-repeat;";
+                codeHtml = codeHtml + "				background-origin: border-box;";
+                codeHtml = codeHtml + "				padding-top: 18px;";
+                codeHtml = codeHtml + "				padding-right: 11px;";
+                codeHtml = codeHtml + "				background-size: 80%;";
+                codeHtml = codeHtml + "			}";
+                codeHtml = codeHtml + "";
+                //Cillia 12/05/22 (pastille bleue pour les promo avec la carte habitat)
+
+                codeHtml = codeHtml + "	.promo_bleue {";
+                codeHtml = codeHtml + "		background-image: url(" + baseUrlImages + "pastille_bleue.png);";
+                codeHtml = codeHtml + "		background-repeat: no-repeat;";
+                codeHtml = codeHtml + "		background-origin: border-box;";
+                codeHtml = codeHtml + "		padding-top: 18px;";
+                codeHtml = codeHtml + "		padding-right: 11px;";
+                codeHtml = codeHtml + "		background-size: 80%;";
+                codeHtml = codeHtml + "	}";
+                codeHtml = codeHtml + "	";
+               //
+                codeHtml = codeHtml + "			#flag_EU";
+                codeHtml = codeHtml + "			{";
+                codeHtml = codeHtml + "				background-image: url(" + baseUrlImages + "flag_" + madeIn + ".jpg);";
+                codeHtml = codeHtml + "				background-repeat: no-repeat;";
+                codeHtml = codeHtml + "				background-origin: border-box;";
+                codeHtml = codeHtml + "				background-size: 90%;";
+                codeHtml = codeHtml + "			}";
+                codeHtml = codeHtml + "";
+                codeHtml = codeHtml + "			.filet";
+                codeHtml = codeHtml + "			{";
+                codeHtml = codeHtml + "				background-image: url(" + baseUrlImages + "filet.jpg);";
+                codeHtml = codeHtml + "				background-repeat: no-repeat;";
+                codeHtml = codeHtml + "				background-size: contain;";
+                codeHtml = codeHtml + "			}";
+                codeHtml = codeHtml + "";
+                codeHtml = codeHtml + "			html, body";
+                codeHtml = codeHtml + "			{";
+                codeHtml = codeHtml + "				height: 100%;";
+                codeHtml = codeHtml + "			}";
+                codeHtml = codeHtml + "";
+                codeHtml = codeHtml + "			.contenu";
+                codeHtml = codeHtml + "			{";
+                codeHtml = codeHtml + "				min-height: 100%;";
                 codeHtml = codeHtml + "				position: relative;";
                 codeHtml = codeHtml + "			}";
                 codeHtml = codeHtml + "";
@@ -246,8 +259,19 @@ namespace TickitNewFace.PDFUtils
                 
                 
                 string typePastille = "";
-                if (chevalet.typePrix == ApplicationConsts.typePrix_demarqueLocale || chevalet.typePrix == ApplicationConsts.typePrix_promo) typePastille = ApplicationConsts.typePastillePromoReglette;
-                if (chevalet.typePrix == ApplicationConsts.typePrix_solde) typePastille = ApplicationConsts.typePastilleSoldeReglette;
+                
+                 //cillia 12/05/22
+                //string typeTarifCbr="HABHFR";
+               // chevalet.typeTarifCbr = "";
+
+             if ((pro1.typeTarifCbr == "HABHFR") && (pro2.typeTarifCbr =="" || pro2.typeTarifCbr == "HABHFR") && (pro3.typeTarifCbr == "" || pro3.typeTarifCbr == "HABHFR")
+                    && (pro4.typeTarifCbr =="" || pro4.typeTarifCbr == "HABHFR") && (pro5.typeTarifCbr == "" || pro5.typeTarifCbr == "HABHFR")
+                    && (pro6.typeTarifCbr == "" || pro6.typeTarifCbr == "HABHFR") && (chevalet.typePrix == ApplicationConsts.typePrix_promo))
+                //if ((pro1.typeTarifCbr == "HABHFR") && (pro2.typeTarifCbr == "" || pro2.typeTarifCbr == "HABHFR") && (chevalet.typePrix == ApplicationConsts.typePrix_promo))
+                { typePastille = ApplicationConsts.typePastillePromoHab; }
+
+                else if (chevalet.typePrix == ApplicationConsts.typePrix_demarqueLocale || chevalet.typePrix == ApplicationConsts.typePrix_promo) { typePastille = ApplicationConsts.typePastillePromoReglette; }
+                else if (chevalet.typePrix == ApplicationConsts.typePrix_solde) { typePastille = ApplicationConsts.typePastilleSoldeReglette; }
                 
                 string pourcentagetexte = "";
                 if (chevalet.pourcentageReduction != null)
@@ -1366,7 +1390,9 @@ namespace TickitNewFace.PDFUtils
             return codeHtml;
         }
 
-        static public List<T_Produit_A4> getTableauProduitsFromChevalet(TickitDataChevalet chevalet, int magasinId, int RangeId)
+       
+
+        static public List<T_Produit_A4> getTableauProduitsFromChevalet(TickitDataChevalet chevalet, int magasinId, int RangeId, DateTime dateQuery)
         {
             List<T_Produit_A4> listeProduitsA4 = new List<T_Produit_A4>();
 
@@ -1376,8 +1402,8 @@ namespace TickitNewFace.PDFUtils
             T_Produit_A4 pro4 = Models.T_Produit_A4.initializeProduit();
             T_Produit_A4 pro5 = Models.T_Produit_A4.initializeProduit();
             T_Produit_A4 pro6 = Models.T_Produit_A4.initializeProduit();
-            T_Produit_A4 pro7 = Models.T_Produit_A4.initializeProduit();
-            T_Produit_A4 pro8 = Models.T_Produit_A4.initializeProduit();
+           // T_Produit_A4 pro7 = Models.T_Produit_A4.initializeProduit();
+            //T_Produit_A4 pro8 = Models.T_Produit_A4.initializeProduit();
 
             listeProduitsA4.Add(pro1);
             listeProduitsA4.Add(pro2);
@@ -1385,8 +1411,8 @@ namespace TickitNewFace.PDFUtils
             listeProduitsA4.Add(pro4);
             listeProduitsA4.Add(pro5);
             listeProduitsA4.Add(pro6);
-            listeProduitsA4.Add(pro7);
-            listeProduitsA4.Add(pro8);
+           // listeProduitsA4.Add(pro7);
+           // listeProduitsA4.Add(pro8);
 
             string texte_colis = DAO.ConfigurationBisDao.getValeurByCleAndMagasinId("PLV_A5_TEXTE_DUR_6", magasinId);
 
@@ -1421,6 +1447,16 @@ namespace TickitNewFace.PDFUtils
                     Nombre_colis = "";
                 }
                 */
+               string typeTarifCbr = "";
+                T_Prix prix= DAO.PrixDao.getPrixBySkuAndDate(data.sku, magasinId, dateQuery);
+
+                data.typeTarifCbr = prix.TypeTarifCbr;
+
+                typeTarifCbr = data.typeTarifCbr;
+
+
+              
+
                 listeProduitsA4[i].Sku = data.sku;
                 listeProduitsA4[i].Variation = data.variation;
                 listeProduitsA4[i].Orientation = DAO.ProduitDao.getOrientationBySku(data.sku, magasinId);
@@ -1431,7 +1467,7 @@ namespace TickitNewFace.PDFUtils
                 listeProduitsA4[i].Dimenions = data.dimension;
                 listeProduitsA4[i].DimensionsDeplie = DAO.ProduitDao.getDrescriptionConvertibleBySku(data.sku, magasinId, "L");
                 listeProduitsA4[i].DimensionsCouchage = DAO.ProduitDao.getDrescriptionConvertibleBySku(data.sku, magasinId, "C");
-                //listeProduitsA4[i].Nombre_colis = data.Nombre_colis;
+                listeProduitsA4[i].typeTarifCbr = data.typeTarifCbr;
 
                 if (data.Nombre_colis != null && data.Nombre_colis != "" && data.Nombre_colis != "0")
                 {

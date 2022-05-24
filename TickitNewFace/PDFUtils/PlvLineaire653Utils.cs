@@ -29,9 +29,12 @@ namespace TickitNewFace.PDFUtils
             string baseUrlFonts = "http://ean.habitat.fr/TAKEIT/webfonts/";
             string baseUrlImages = "http://ean.habitat.fr/TAKEIT/REGLETTE/images/";
 
-            string typePastille = "";
-            if (chevalet.typePrix == ApplicationConsts.typePrix_demarqueLocale || chevalet.typePrix == ApplicationConsts.typePrix_promo) typePastille = ApplicationConsts.typePastillePromoReglette;
-            if (chevalet.typePrix == ApplicationConsts.typePrix_solde) typePastille = ApplicationConsts.typePastilleSoldeReglette;
+
+
+
+          //  string typePastille = "";
+            //if (chevalet.typePrix == ApplicationConsts.typePrix_demarqueLocale || chevalet.typePrix == ApplicationConsts.typePrix_promo) typePastille = ApplicationConsts.typePastillePromoReglette;
+//            if (chevalet.typePrix == ApplicationConsts.typePrix_solde) typePastille = ApplicationConsts.typePastilleSoldeReglette;
 
             string codeHtml = "";
             codeHtml = codeHtml + "<html>";
@@ -81,6 +84,18 @@ namespace TickitNewFace.PDFUtils
             codeHtml = codeHtml + "			background-size: 80%;";
             codeHtml = codeHtml + "		}";
             codeHtml = codeHtml + "		";
+            //Cillia 12/05/22 
+
+            codeHtml = codeHtml + "	.promo_bleue {";
+            codeHtml = codeHtml + "		background-image: url(" + baseUrlImages + "pastille_bleue.jpg);";
+            codeHtml = codeHtml + "		background-repeat: no-repeat;";
+            codeHtml = codeHtml + "		background-origin: border-box;";
+            codeHtml = codeHtml + "		padding-top: 18px;";
+            codeHtml = codeHtml + "		padding-right: 11px;";
+            codeHtml = codeHtml + "		background-size: 80%;";
+            codeHtml = codeHtml + "	}";
+            codeHtml = codeHtml + "	";
+
             codeHtml = codeHtml + "";
 
             List<string> madeInList = DAO.ProduitDao.getListeMadeIn();
@@ -172,6 +187,26 @@ namespace TickitNewFace.PDFUtils
                 codeHtml = codeHtml + "									</tr>";
                 codeHtml = codeHtml + "								</table>";
                 codeHtml = codeHtml + "							</td>";
+
+
+                T_Prix prix = DAO.PrixDao.getPrixBySkuAndDate(data.sku, magasinId, dateQuery);
+
+                string typeTarifCbr = prix.TypeTarifCbr;
+
+                string typePastille = "";
+
+                if (typeTarifCbr == "HABHFR" && chevalet.typePrix == ApplicationConsts.typePrix_promo)
+                {
+                    typePastille = ApplicationConsts.typePastillePromoHab;
+
+                    // codeHtml = codeHtml + "										     <td width=\"80\" height=\"80\" align=\"center\" valign=\"top\" class=\"" + typePastille + "\" style=\"text-align: center; font-family: dinhabbold; font-size: 14pt; color: #FFFFFF; line-height: 50px; \">" + pourcentagetexte + " &nbsp;</td>";
+
+                }
+
+                else if (chevalet.typePrix == ApplicationConsts.typePrix_demarqueLocale || chevalet.typePrix == ApplicationConsts.typePrix_promo) { typePastille = ApplicationConsts.typePastillePromoReglette; }
+                else if (chevalet.typePrix == ApplicationConsts.typePrix_solde) { typePastille = ApplicationConsts.typePastilleSoldeReglette; }
+               
+           
 
                 string pourcentagetexte = "";
                 string widthPromo = "70";

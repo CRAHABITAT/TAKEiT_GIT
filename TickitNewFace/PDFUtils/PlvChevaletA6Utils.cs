@@ -42,7 +42,7 @@ namespace TickitNewFace.PDFUtils
 
             bool isbarATissu = DAO.RangeDao.isRangeBarAtissu(RangeId);
 
-            List<T_Produit_A4> lista = getTableauProduitsFromChevalet(chevalet, magasinId, RangeId);
+            List<T_Produit_A4> lista = getTableauProduitsFromChevalet(chevalet, magasinId, RangeId, dateQuery);
 
             T_Produit_A4 pro1 = lista[0];
             T_Produit_A4 pro2 = lista[1];
@@ -139,6 +139,20 @@ namespace TickitNewFace.PDFUtils
             codeHtml = codeHtml + "		padding-right: 11px;";
             codeHtml = codeHtml + "		background-size: 80%;";
             codeHtml = codeHtml + "	}";
+
+            //Cillia 
+
+            codeHtml = codeHtml + "	.promo_bleue {";
+            codeHtml = codeHtml + "		background-image: url(" + baseUrlImages + "pastille_bleue.png);";
+            codeHtml = codeHtml + "		background-repeat: no-repeat;";
+            codeHtml = codeHtml + "		background-origin: border-box;";
+            codeHtml = codeHtml + "		padding-top: 18px;";
+            codeHtml = codeHtml + "		padding-right: 11px;";
+            codeHtml = codeHtml + "		background-size: 80%;";
+            codeHtml = codeHtml + "	}";
+            codeHtml = codeHtml + "	";
+            //
+
 
             codeHtml = codeHtml + "	";
             codeHtml = codeHtml + "	#flag_" + madeIn + " {";
@@ -255,8 +269,14 @@ namespace TickitNewFace.PDFUtils
             codeHtml = codeHtml + "														<tr>";
 
             string typePastille = "";
-            if (chevalet.typePrix == ApplicationConsts.typePrix_demarqueLocale || chevalet.typePrix == ApplicationConsts.typePrix_promo) typePastille = ApplicationConsts.typePastillePromoReglette;
-            if (chevalet.typePrix == ApplicationConsts.typePrix_solde) typePastille = ApplicationConsts.typePastilleSoldeReglette;
+
+            if ((pro1.typeTarifCbr == "HABHFR") && (pro2.typeTarifCbr == "" || pro2.typeTarifCbr == "HABHFR") && (pro3.typeTarifCbr == "" || pro3.typeTarifCbr == "HABHFR")
+                   && (pro4.typeTarifCbr == "" || pro4.typeTarifCbr == "HABHFR")  && (chevalet.typePrix == ApplicationConsts.typePrix_promo))
+            //if ((pro1.typeTarifCbr == "HABHFR") && (pro2.typeTarifCbr == "" || pro2.typeTarifCbr == "HABHFR") && (chevalet.typePrix == ApplicationConsts.typePrix_promo))
+            { typePastille = ApplicationConsts.typePastillePromoHab; }
+
+            else if (chevalet.typePrix == ApplicationConsts.typePrix_demarqueLocale || chevalet.typePrix == ApplicationConsts.typePrix_promo) typePastille = ApplicationConsts.typePastillePromoReglette;
+            else if (chevalet.typePrix == ApplicationConsts.typePrix_solde) typePastille = ApplicationConsts.typePastilleSoldeReglette;
 
             string pourcentagetexte = "";
             if (chevalet.pourcentageReduction != null)
@@ -668,7 +688,7 @@ namespace TickitNewFace.PDFUtils
         }
 
 
-        static public List<T_Produit_A4> getTableauProduitsFromChevalet(TickitDataChevalet chevalet, int magasinId, int RangeId)
+        static public List<T_Produit_A4> getTableauProduitsFromChevalet(TickitDataChevalet chevalet, int magasinId, int RangeId, DateTime dateQuery)
         {
             List<T_Produit_A4> listeProduitsA4 = new List<T_Produit_A4>();
 
@@ -713,6 +733,12 @@ namespace TickitNewFace.PDFUtils
                     prixGauche = data.prix;
                 }
 
+                string typeTarifCbr = "";
+                T_Prix prix = DAO.PrixDao.getPrixBySkuAndDate(data.sku, magasinId, dateQuery);
+
+                data.typeTarifCbr = prix.TypeTarifCbr;
+
+                typeTarifCbr = data.typeTarifCbr;
                 listeProduitsA4[i].Sku = data.sku;
                 listeProduitsA4[i].Variation = data.variation;
                 listeProduitsA4[i].Orientation = DAO.ProduitDao.getOrientationBySku(data.sku, magasinId);
@@ -723,6 +749,8 @@ namespace TickitNewFace.PDFUtils
                 listeProduitsA4[i].Dimenions = data.dimension;
                 listeProduitsA4[i].DimensionsDeplie = DAO.ProduitDao.getDrescriptionConvertibleBySku(data.sku, magasinId, "L");
                 listeProduitsA4[i].DimensionsCouchage = DAO.ProduitDao.getDrescriptionConvertibleBySku(data.sku, magasinId, "C");
+                listeProduitsA4[i].typeTarifCbr = data.typeTarifCbr;
+
 
 
                 if (data.Nombre_colis != null && data.Nombre_colis != "" && data.Nombre_colis != "0")

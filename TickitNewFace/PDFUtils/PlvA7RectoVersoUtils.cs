@@ -269,21 +269,21 @@ namespace TickitNewFace.PDFUtils
 
               string typePastille = "";
 
-              //  if (typeTarifCbr == "HABHFR" && chevalet.typePrix == ApplicationConsts.typePrix_promo)
-               // { typePastille = ApplicationConsts.typePastillePromoHab;
+                if (typeTarifCbr == "HABHFR" && chevalet.typePrix == ApplicationConsts.typePrix_promo)
+                { typePastille = ApplicationConsts.typePastillePromoHab;
 
                // codeHtml = codeHtml + "										     <td width=\"80\" height=\"80\" align=\"center\" valign=\"top\" class=\"" + typePastille + "\" style=\"text-align: center; font-family: dinhabbold; font-size: 14pt; color: #FFFFFF; line-height: 50px; \">" + pourcentagetexte + " &nbsp;</td>";
                 
-              //  }
+                }
 
-                if (chevalet.typePrix == ApplicationConsts.typePrix_demarqueLocale || chevalet.typePrix == ApplicationConsts.typePrix_promo) { typePastille = ApplicationConsts.typePastillePromoReglette; }
+                else   if (chevalet.typePrix == ApplicationConsts.typePrix_demarqueLocale || chevalet.typePrix == ApplicationConsts.typePrix_promo) { typePastille = ApplicationConsts.typePastillePromoReglette; }
                 else  if (chevalet.typePrix == ApplicationConsts.typePrix_solde) { typePastille = ApplicationConsts.typePastilleSoldeReglette; }
                
            
 
                
                 
-                codeHtml = codeHtml + "													<td width=\"80\" height=\"80\" align=\"center\" valign=\"top\" class=\"" + typePastille + "\" style=\"text-align: center; font-family: dinhabbold; font-size: 18pt; color: #FFFFFF; line-height: 60px; \">" + pourcentagetexte + " &nbsp;</td>";
+                codeHtml = codeHtml + "													<td width=\"80\" height=\"80\" align=\"center\" valign=\"top\" class=\"" + typePastille + "\" style=\"text-align: top; font-family: dinhabbold; font-size: 18pt; color: #FFFFFF; line-height: 50px; \">" + pourcentagetexte + " &nbsp;</td>";
                 codeHtml = codeHtml + "												</tr>";
                 codeHtml = codeHtml + "											</table>";
                 codeHtml = codeHtml + "										</td>";
@@ -392,7 +392,7 @@ namespace TickitNewFace.PDFUtils
                 codeHtml = codeHtml + "										<td align=\"right\" padding=\"0 0 0 90px\">";
                 codeHtml = codeHtml + "											<table align=\"right\" width=\"80\" heigth=\"80\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" valign=\"top\">";
                 codeHtml = codeHtml + "												<tr>";
-                codeHtml = codeHtml + "													<td width=\"80\" height=\"80\" align=\"center\" valign=\"top\" class=\"" + typePastille + "\" style=\"text-align: center; font-family: dinhabbold; font-size: 18pt; color: #FFFFFF; line-height: 60px; \">" + pourcentagetexte + " &nbsp;</td>";
+                codeHtml = codeHtml + "													<td width=\"80\" height=\"80\" align=\"center\" valign=\"top\" class=\"" + typePastille + "\" style=\"text-align: top; font-family: dinhabbold; font-size: 18pt; color: #FFFFFF; line-height: 50px; \">" + pourcentagetexte + " &nbsp;</td>";
                 codeHtml = codeHtml + "												</tr>";
                 codeHtml = codeHtml + "											</table>";
                 codeHtml = codeHtml + "										</td>";

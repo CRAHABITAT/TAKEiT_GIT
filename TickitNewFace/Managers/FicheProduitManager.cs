@@ -88,8 +88,14 @@ namespace TickitNewFace.Managers
         public static T_Prix getPrixBySkuAndDate(string sku, int langageId, DateTime date)
         {
             return PrixDao.getPrixBySkuAndDate(sku, langageId, date);
+     
         }
 
+        //Cillia 
+
+     
+
+        
         /// <summary>
         /// Retourne la description légale d'un produit
         /// </summary>

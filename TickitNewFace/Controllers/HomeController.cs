@@ -1439,8 +1439,18 @@ namespace TickitNewFace.Controllers
                         chevalet.typePrix = typePrixProduit;
                     }
 
+//Cillia
+                  // T_Prix prix = DAO.PrixDao.getPrixBySkuAndDate(dataProduit.sku, langageId, dateObj);
+                   //  typeTarifCbr = prix.TypeTarifCbr;
+                    string typeTarifCbr = "";
+                    chevalet.typeTarifCbr = prixProduit.TypeTarifCbr;
+
+                    typeTarifCbr = chevalet.typeTarifCbr;
+
+                   
+
                     // Si le type de prix du produit est compatible avec celui du chevalet.
-                    if (typePrixProduit == chevalet.typePrix)
+                    if (typePrixProduit == chevalet.typePrix && typeTarifCbr == chevalet.typeTarifCbr )
                     {
                         if (format == chevalet.formatImpressionEtiquettesSimples)
                         {
@@ -1459,6 +1469,28 @@ namespace TickitNewFace.Controllers
                         // type de prix incompatible
                         ViewBag.typePromoPourcentageIncompatible = true;
                     }
+
+                    //Cillia 
+
+                 /*   T_Prix prix = DAO.PrixDao.getPrixBySkuAndDate(dataProduit.sku, langageId, dateObj);
+                    string typeTarifCbr = prix.TypeTarifCbr;
+
+                    if (typePrixProduit == chevalet.typePrix && typeTarifCbr == "HABHFR")
+                    {
+                        chevalet.typePrix = prixProduit.Type_promo;
+                        chevalet.pourcentageReduction = pourcentageReduction;
+                        chevalet.produitsData.Add(dataProduit);
+                    }
+                    else
+                    {
+                        // type de prix incompatible
+                        ViewBag.typePromoPourcentageIncompatible = true;
+                    }
+
+                    //Cillia */
+
+
+
 
                     chevalet.rangeChevalet = ChevaletManager.getRangeOfChevalet(chevalet);
 
