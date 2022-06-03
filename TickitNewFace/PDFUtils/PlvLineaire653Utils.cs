@@ -216,13 +216,24 @@ namespace TickitNewFace.PDFUtils
                     widthPromo = "52";
                 }
 
-                codeHtml = codeHtml + "							<td width=\"" + widthPromo + "\" height=\"79\" valign=\"top\" class=\"" + typePastille + "\" style=\"text-align: center; font-family: dinhabbold; font-size: 12pt; color: #FFFFFF; line-height: 35px;\">" + pourcentagetexte + "</td>";
+                codeHtml = codeHtml + "							<td width=\"" + widthPromo + "\" height=\"79\" valign=\"top\" class=\"" + typePastille + "\" style=\"text-align: center; font-family: dinhabbold; font-size: 12pt; color: #FFFFFF; line-height: 30px;\">" + pourcentagetexte + "</td>";
                 codeHtml = codeHtml + "						</tr>";
-                codeHtml = codeHtml + "						<tr>";
-                codeHtml = codeHtml + "							<td height=\"34\" colspan=\"3\">";
+               //codeHtml = codeHtml + "						<tr><td width=\"100%\"  height=\"22\" style=\" text-align: right; font-family: DINHabbold; font-size: 8px;\"><font color=\"#318CE7\">" + "Prix Habitant " + "</font></tr>";
+                
+                codeHtml = codeHtml + "							<tr><td height=\"34\" colspan=\"3\">";
                 codeHtml = codeHtml + "								<table width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">";
                 codeHtml = codeHtml + "									<tr>";
-                codeHtml = codeHtml + "										<td width=\"34\" height=\"33\" rowspan=\"2\" valign=\"top\"></td>";
+
+                  if (typeTarifCbr == "HABHFR" && chevalet.typePrix == ApplicationConsts.typePrix_promo)
+                {
+
+               codeHtml = codeHtml + "                                  <td width=\"80\" style=\" text-align: right; font-family: DINHabbold; font-size: 8px;\"><font color=\"#318CE7\">" + "Prix Habitant " + "</font></td></tr></table>";
+
+               codeHtml = codeHtml + "								<table width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">";
+               codeHtml = codeHtml + "									<tr>";
+
+                codeHtml = codeHtml + "									<td width=\"34\" height=\"33\" rowspan=\"2\" valign=\"top\"></td>";
+                
                 codeHtml = codeHtml + "										<td width=\"39\" height=\"22\" style=\"font-family: DINHabRg; font-size: 11px; line-height:7px; text-align: left;\">" + data.sku + "</td>";
                 codeHtml = codeHtml + "										<td width=\"16\" height=\"20\" rowspan=\"2\" valign=\"bottom\" id=\"flag_" + data.Made_In + "\"></td>";
 
@@ -247,8 +258,44 @@ namespace TickitNewFace.PDFUtils
 
                }
 
-                codeHtml = codeHtml + "										<td width=\"68\" height=\"22\" valign=\"bottom\" style=\"font-family: DINHabRg; font-size: 11px; text-decoration: line-through; text-align: right; line-height:20px;\">" + prixGauche.Replace(".00", "") + "</td>";
-                codeHtml = codeHtml + "										<td width=\"72\" height=\"22\" style=\"font-family: dinhabbold; font-size: 16px; text-align: right; line-height:-15px;\"><span style=\"font-family: dinhabbold\">" + prixDroite.Replace(".00", "") + "</span></td>";
+                
+                    codeHtml = codeHtml + "										<td width=\"68\" height=\"22\" valign=\"bottom\" style=\"font-family: DINHabRg; font-size: 11px; text-align: right; line-height:20px;\">" + prixGauche.Replace(".00", "") + "</td>";
+
+                    codeHtml = codeHtml + "										<td width=\"72\" height=\"22\" style=\"font-family: dinhabbold; font-size: 16px; text-align: right; line-height:-15px;\"><span style=\"font-family: dinhabbold\"><font color=\"#318CE7\">" + prixDroite.Replace(".00", "") + "</font></span></td>";
+
+                }
+                else
+
+
+                {
+
+                    codeHtml = codeHtml + "										<td width=\"34\" height=\"33\" rowspan=\"2\" valign=\"top\"></td>";
+                    codeHtml = codeHtml + "										<td width=\"39\" height=\"22\" style=\"font-family: DINHabRg; font-size: 11px; line-height:7px; text-align: left;\">" + data.sku + "</td>";
+                    codeHtml = codeHtml + "										<td width=\"16\" height=\"20\" rowspan=\"2\" valign=\"bottom\" id=\"flag_" + data.Made_In + "\"></td>";
+
+                    string prixDroite = "";
+                    string prixGauche = "";
+                    if (data.pourcentage != null)
+                    {
+                        prixGauche = data.prixPermanent;
+                        prixDroite = data.prix;
+                    }
+                    else
+                    {
+                        prixDroite = data.prix;
+                    }
+
+                    // ajouter par Cillia (ne pas afficher de prix barre quand le type_prix est permanent)
+
+                    if (chevalet.typePrix == ApplicationConsts.typePrix_permanent && data.pourcentage != null)
+                    {
+                        prixGauche = "";
+                        prixDroite = data.prixPermanent;
+
+                    }
+                    codeHtml = codeHtml + "										<td width=\"68\" height=\"22\" valign=\"bottom\" style=\"font-family: DINHabRg; font-size: 11px; text-decoration: line-through; text-align: right; line-height:20px;\">" + prixGauche.Replace(".00", "") + "</td>";
+                    codeHtml = codeHtml + "										<td width=\"72\" height=\"22\" style=\"font-family: dinhabbold; font-size: 16px; text-align: right; line-height:-15px;\"><span style=\"font-family: dinhabbold\">" + prixDroite.Replace(".00", "") + "</span></td>";
+                }
                 codeHtml = codeHtml + "										<td> </td>";
                 codeHtml = codeHtml + "									</tr>";
                 codeHtml = codeHtml + "									<tr>";

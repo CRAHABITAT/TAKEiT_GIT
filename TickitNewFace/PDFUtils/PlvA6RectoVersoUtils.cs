@@ -355,9 +355,21 @@ namespace TickitNewFace.PDFUtils
                 codeHtml = codeHtml + "													<td>";
                 codeHtml = codeHtml + "														<table>";
                 codeHtml = codeHtml + "															<tr>";
-                codeHtml = codeHtml + "																<td width=\"80\" valign=\"bottom\" style=\"text-align: left; font-family: DINHabbold; font-size: 100px;\">" + prixGauche.Replace(".00", "") + "</td>";
-                codeHtml = codeHtml + "																<td width=\"20\" valign=\"bottom\" style=\"text-align: left; font-family: DINHabbold; font-size: 50px; \">&nbsp;</td>";
-                codeHtml = codeHtml + "																<td width=\"100\" height=\"22\" valign=\"bottom\" style=\"font-family: DINHabRg; font-size: 70px; text-decoration: line-through; text-align: left;\">" + prixDroite.Replace(".00", "") + "</td>";
+                //Cillia 
+                if (typeTarifCbr == "HABHFR" && chevalet.typePrix == ApplicationConsts.typePrix_promo)
+                {
+                    codeHtml = codeHtml + "                                                             <tr><td width=\"80\" valign=\"bottom\" style=\"text-align: left; font-family: DINHabbold; font-size: 30px;\"><font color=\"#318CE7\">" + "Prix Habitant " + "</font></td></tr>";
+                    codeHtml = codeHtml + "																<td width=\"80\" valign=\"bottom\" style=\"text-align: left; font-family: DINHabbold; font-size: 100px;\"><font color=\"#318CE7\">" + prixGauche.Replace(".00", "") + "</font></td>";
+                    codeHtml = codeHtml + "																<td width=\"20\" valign=\"bottom\" style=\"text-align: left; font-family: DINHabbold; font-size: 50px; \">&nbsp;</td>";
+                    codeHtml = codeHtml + "																<td width=\"100\" height=\"22\" valign=\"bottom\" style=\"font-family: DINHabRg; font-size: 70px; text-align: left;\">" + prixDroite.Replace(".00", "") + "</td>";
+                }
+                else
+                {
+                    codeHtml = codeHtml + "																<td width=\"80\" valign=\"bottom\" style=\"text-align: left; font-family: DINHabbold; font-size: 100px;\">" + prixGauche.Replace(".00", "") + "</td>";
+                    codeHtml = codeHtml + "																<td width=\"20\" valign=\"bottom\" style=\"text-align: left; font-family: DINHabbold; font-size: 50px; \">&nbsp;</td>";
+                    codeHtml = codeHtml + "																<td width=\"100\" height=\"22\" valign=\"bottom\" style=\"font-family: DINHabRg; font-size: 70px; text-decoration: line-through; text-align: left;\">" + prixDroite.Replace(".00", "") + "</td>";
+                }
+                    
                 codeHtml = codeHtml + "															</tr>";
                 codeHtml = codeHtml + "														</table>";
                 codeHtml = codeHtml + "														<table>";
@@ -500,12 +512,34 @@ namespace TickitNewFace.PDFUtils
                 codeHtml = codeHtml + "												<td>";
                 codeHtml = codeHtml + "													<table   width=\"800\" height=\"35\"> ";
                 codeHtml = codeHtml + "														<tr>";
-                codeHtml = codeHtml + "															<td width=\"200\" valign=\"bottom\" style=\"text-align: left; font-family: DINHabbold; font-size: 100px;  padding:0 0 0 0; line-height:65px;\">" + prixGauche.Replace(".00", "") + "</td>";
-                // codeHtml = codeHtml + "															<td width=\"20\" valign=\"bottom\" style=\"text-align: left; font-family: DINHabbold; font-size: 50px; \">&nbsp;</td>";
-                codeHtml = codeHtml + "															<td width=\"100\" height=\"22\" valign=\"bottom\" style=\"font-family: DINHabRg; font-size: 55px; text-decoration: line-through; text-align: le; line-height:30px;\">" + prixDroite.Replace(".00", "") + "</td>";
-                // codeHtml = codeHtml + "	                                                        <td width=\"20\" valign=\"bottom\" style=\"text-align: left; font-family: DINHabbold; font-size: 50px; \">&nbsp;</td>";
-                codeHtml = codeHtml + "                                                         <td width=\"50\"  height=\"22\"  valign=\"bottom\" style=\"text-align: right; font-family:  DINHabRg; font-size: 28px; padding: 0 0; line-height:30px \">" + Nombre_colis + "</td>";
-                codeHtml = codeHtml + "														</tr>";
+                //Cillia 
+
+                if (typeTarifCbr == "HABHFR" && chevalet.typePrix == ApplicationConsts.typePrix_promo)
+                {
+                    codeHtml = codeHtml + "															<tr><td width=\"80\" valign=\"bottom\" style=\"text-align: left; font-family: DINHabbold; font-size: 30px;  padding:0 0 30px 0\"><font color=\"#318CE7\">" + "Prix Habitant" + "</font></td></tr>";
+
+                    codeHtml = codeHtml + "															<td width=\"200\" valign=\"bottom\" style=\"text-align: left; font-family: DINHabbold; font-size: 100px;  padding:0 0 0 0; line-height:65px;\"><font color=\"#318CE7\">" + prixGauche.Replace(".00", "") + "</font></td>";
+                    // codeHtml = codeHtml + "															<td width=\"20\" valign=\"bottom\" style=\"text-align: left; font-family: DINHabbold; font-size: 50px; \">&nbsp;</td>";
+                    codeHtml = codeHtml + "															<td width=\"100\" height=\"22\" valign=\"bottom\" style=\"font-family: DINHabRg; font-size: 55px; text-align: left; line-height:30px;\">" + prixDroite.Replace(".00", "") + "</td>";
+                    // codeHtml = codeHtml + "	                                                        <td width=\"20\" valign=\"bottom\" style=\"text-align: left; font-family: DINHabbold; font-size: 50px; \">&nbsp;</td>";
+                    codeHtml = codeHtml + "                                                         <td width=\"50\"  height=\"22\"  valign=\"bottom\" style=\"text-align: right; font-family:  DINHabRg; font-size: 28px; padding: 0 0; line-height:30px \">" + Nombre_colis + "</td>";
+                    // codeHtml = codeHtml + "		
+                }
+
+                else
+                {
+
+
+
+                    codeHtml = codeHtml + "															<td width=\"200\" valign=\"bottom\" style=\"text-align: left; font-family: DINHabbold; font-size: 100px;  padding:0 0 0 0; line-height:65px;\">" + prixGauche.Replace(".00", "") + "</td>";
+                    // codeHtml = codeHtml + "															<td width=\"20\" valign=\"bottom\" style=\"text-align: left; font-family: DINHabbold; font-size: 50px; \">&nbsp;</td>";
+                    codeHtml = codeHtml + "															<td width=\"100\" height=\"22\" valign=\"bottom\" style=\"font-family: DINHabRg; font-size: 55px; text-decoration: line-through; text-align: le; line-height:30px;\">" + prixDroite.Replace(".00", "") + "</td>";
+
+                    // codeHtml = codeHtml + "	                                                        <td width=\"20\" valign=\"bottom\" style=\"text-align: left; font-family: DINHabbold; font-size: 50px; \">&nbsp;</td>";
+
+                    codeHtml = codeHtml + "                                                         <td width=\"50\"  height=\"22\"  valign=\"bottom\" style=\"text-align: right; font-family:  DINHabRg; font-size: 28px; padding: 0 0; line-height:30px \">" + Nombre_colis + "</td>";
+                }
+                    codeHtml = codeHtml + "														</tr>";
                 codeHtml = codeHtml + "													</table>";
                 codeHtml = codeHtml + "													<table   width=\"800\" height=\"100\">";
                 codeHtml = codeHtml + "														<tr>";
@@ -515,8 +549,8 @@ namespace TickitNewFace.PDFUtils
                 codeHtml = codeHtml + "													</table>";
                 codeHtml = codeHtml + "													<table>";
                 codeHtml = codeHtml + "														<tr>";
-                codeHtml = codeHtml + "															<td style=\"text-align: left; font-family: DINHabbold; font-size: 50px; padding: 0 0 0 0; line-height:28px\">";
-                codeHtml = codeHtml + "																<br>";
+                codeHtml = codeHtml + "															<td style=\"text-align: left; font-family: DINHabbold; font-size: 50px; padding: 0 0 10px 0; line-height:28px\">";
+              //  codeHtml = codeHtml + "																<br>";
                 codeHtml = codeHtml + "																<br> " + data.dimension + " &nbsp;</td>";
                 codeHtml = codeHtml + "														</tr>";
                 codeHtml = codeHtml + "													</table>";
@@ -532,7 +566,7 @@ namespace TickitNewFace.PDFUtils
                 codeHtml = codeHtml + "										<td style=\"padding:0px 0 60px 50px\">";
                 codeHtml = codeHtml + "											<table align=\"left\" width=\"1000\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\">";
                 codeHtml = codeHtml + "												<tr>";
-                codeHtml = codeHtml + "													<td align=\"center\" style=\"padding:0px 0 0 0\" width=\"300\">";
+                codeHtml = codeHtml + "													<td align=\"center\" style=\"padding:25px 0px 0 0\" width=\"300\">";
                 codeHtml = codeHtml + "														<hr width=\"300\"> </td>";
                 codeHtml = codeHtml + "													<td height=\"10\" valign=\"bottom\" style=\"text-align: center; font-family: dinhabbold; font-size: 22px;\" width=\"400\">" + texteDur2 + "</td>";
                 codeHtml = codeHtml + "													<td align=\"center\" style=\"padding:10px 0 0 0\" width=\"300\">";
