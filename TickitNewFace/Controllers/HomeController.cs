@@ -421,8 +421,9 @@ namespace TickitNewFace.Controllers
                 this.setDecimalFormat();
                 //creation liste des magasins a select
                 List<T_magasin> Magasins = new List<T_magasin>();
-                int lid = 4;
-                Magasins = Produit_MagasinDao.selecidMagasins(lid);
+                //int lid = 4;
+                int langageId = (int)Session["langueId"];
+                Magasins = Produit_MagasinDao.selecidMagasins(langageId);
                 ViewBag.listMagasins = Magasins;
                 ViewBag.config = ApplicationConsts.config;
                 ViewBag.positionTabs = 0;

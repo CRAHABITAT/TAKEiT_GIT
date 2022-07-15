@@ -343,7 +343,15 @@ namespace TickitNewFace.Managers
             
             if (produit.Eco_mobilier != null)
             {
-                data.Taxe_eco = "dont " + produit.Eco_mobilier.ToString() + " " + LangueDao.getCodeMonnaieByMagasinId(langageId) + " d'Eco-part"; // Avant eco-mobilier
+                if (langageId == 4)
+                {
+                    data.Taxe_eco = "dont " + produit.Eco_mobilier.ToString() + " " + LangueDao.getCodeMonnaieByMagasinId(langageId) + " d'Eco-part"; // Avant eco-mobilier
+                }
+
+                if (langageId == 33)
+                {
+                    data.Taxe_eco = "dont " + produit.Eco_mobilier.ToString() + " " + LangueDao.getCodeMonnaieByMagasinId(langageId) + " d'Eco-part"; // Avant eco-mobilier
+                }
             }
             
             if (prix.Type_promo == ApplicationConsts.typePrix_promo || prix.Type_promo == ApplicationConsts.typePrix_solde)

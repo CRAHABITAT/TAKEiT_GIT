@@ -302,11 +302,28 @@ namespace TickitNewFace.PDFUtils
             codeHtml = codeHtml + "						<br>" + pro1.APartirDe + "</td>";
             codeHtml = codeHtml + "				</tr>";
             codeHtml = codeHtml + "				<tr>";
-            codeHtml = codeHtml + "					<td width=\"400\">";
-            codeHtml = codeHtml + "						<span style=\"text-align: left; font-family: DINHabbold; font-size: 35px; padding: 0 20px\">" + pro1.prixGauche + "</span>";
-            codeHtml = codeHtml + "						<span style=\"text-align: left; font-family: DINHabRg; text-decoration: line-through; font-size:25px\">" + pro1.prixDroite + "</span>";
-            codeHtml = codeHtml + "					</td>";
-            codeHtml = codeHtml + "				</tr>";
+
+            if (pro1.typeTarifCbr == "HABHFR")
+            {
+                codeHtml = codeHtml + "                <tr> <td style=\"text-align: left; font-family: DINHabbold; font-size: 20px;  padding: 0 20px\"><font color=\"#318CE7\">" + "Prix Habitant " + "</font></td></tr>";
+               
+         
+                codeHtml = codeHtml + "					<td width=\"400\">";
+                codeHtml = codeHtml + "						<span style=\"text-align: left; font-family: DINHabbold; font-size: 35px; padding: 0 20px\"><font color=\"#318CE7\">" + pro1.prixGauche + "</font></span>";
+                codeHtml = codeHtml + "						<span style=\"text-align: left; font-family: DINHabRg; font-size:25px\">" + pro1.prixDroite + "</span>";
+                codeHtml = codeHtml + "					</td>";
+                codeHtml = codeHtml + "				</tr>";
+
+            }
+
+            else
+            {
+                codeHtml = codeHtml + "					<td width=\"400\">";
+                codeHtml = codeHtml + "						<span style=\"text-align: left; font-family: DINHabbold; font-size: 35px; padding: 0 20px\">" + pro1.prixGauche + "</span>";
+                codeHtml = codeHtml + "						<span style=\"text-align: left; font-family: DINHabRg; text-decoration: line-through; font-size:25px\">" + pro1.prixDroite + "</span>";
+                codeHtml = codeHtml + "					</td>";
+                codeHtml = codeHtml + "				</tr>";
+            }
             codeHtml = codeHtml + "				<tr>";
             codeHtml = codeHtml + "					<td width=\"400\" style=\"text-align: left; font-family: DINHabRg; font-size: 12px; padding: 0 20px\">" + pro1.EcoPart + "</td>";
             codeHtml = codeHtml + "				</tr>";
@@ -338,11 +355,26 @@ namespace TickitNewFace.PDFUtils
             codeHtml = codeHtml + "						<br>" + pro2.APartirDe + "</td>";
             codeHtml = codeHtml + "				</tr>";
             codeHtml = codeHtml + "				<tr>";
-            codeHtml = codeHtml + "					<td width=\"400\">";
-            codeHtml = codeHtml + "						<span style=\"text-align: left; font-family: DINHabbold; font-size: 35px; padding: 0 20px\">" + pro2.prixGauche + "</span>";
-            codeHtml = codeHtml + "						<span style=\"text-align: left; font-family: DINHabRg; text-decoration: line-through; font-size:25px\">" + pro2.prixDroite + "</span>";
-            codeHtml = codeHtml + "					</td>";
-            codeHtml = codeHtml + "				</tr>";
+
+            if (pro2.typeTarifCbr == "HABHFR")
+            {
+                codeHtml = codeHtml + "                <tr> <td style=\"text-align: left; font-family: DINHabbold; font-size: 20px;  padding: 0 20px\"><font color=\"#318CE7\">" + "Prix Habitant " + "</font></td></tr>";
+                codeHtml = codeHtml + "					<td width=\"400\">";
+                codeHtml = codeHtml + "						<span style=\"text-align: left; font-family: DINHabbold; font-size: 35px; padding: 0 20px\"><font color=\"#318CE7\">" + pro2.prixGauche + "</font></span>";
+                codeHtml = codeHtml + "						<span style=\"text-align: left; font-family: DINHabRg; font-size:25px\">" + pro2.prixDroite + "</span>";
+                codeHtml = codeHtml + "					</td>";
+                codeHtml = codeHtml + "				</tr>";
+
+            }
+
+            else
+            {
+                codeHtml = codeHtml + "					<td width=\"400\">";
+                codeHtml = codeHtml + "						<span style=\"text-align: left; font-family: DINHabbold; font-size: 35px; padding: 0 20px\">" + pro2.prixGauche + "</span>";
+                codeHtml = codeHtml + "						<span style=\"text-align: left; font-family: DINHabRg; text-decoration: line-through; font-size:25px\">" + pro2.prixDroite + "</span>";
+                codeHtml = codeHtml + "					</td>";
+                codeHtml = codeHtml + "				</tr>";
+            }
             codeHtml = codeHtml + "				<tr>";
             codeHtml = codeHtml + "					<td width=\"400\" style=\"text-align: left; font-family: DINHabRg; font-size: 12px; padding: 0 20px\">" + pro2.EcoPart + "</td>";
             codeHtml = codeHtml + "				</tr>";
@@ -374,11 +406,25 @@ namespace TickitNewFace.PDFUtils
             codeHtml = codeHtml + "						<br>" + pro3.APartirDe + "</td>";
             codeHtml = codeHtml + "				</tr>";
             codeHtml = codeHtml + "				<tr>";
-            codeHtml = codeHtml + "					<td width=\"400\">";
-            codeHtml = codeHtml + "						<span style=\"text-align: left; font-family: DINHabbold; font-size: 35px; padding: 0 20px\">" + pro3.prixGauche + "</span>";
-            codeHtml = codeHtml + "						<span style=\"text-align: left; font-family: DINHabRg; text-decoration: line-through; font-size:25px\">" + pro3.prixDroite + "</span>";
-            codeHtml = codeHtml + "					</td>";
-            codeHtml = codeHtml + "				</tr>";
+            if (pro3.typeTarifCbr == "HABHFR")
+            {
+                codeHtml = codeHtml + "                <tr> <td style=\"text-align: left; font-family: DINHabbold; font-size: 20px;  padding: 0 20px\"><font color=\"#318CE7\">" + "Prix Habitant " + "</font></td></tr>";
+                codeHtml = codeHtml + "					<td width=\"400\">";
+                codeHtml = codeHtml + "						<span style=\"text-align: left; font-family: DINHabbold; font-size: 35px; padding: 0 20px\"><font color=\"#318CE7\">" + pro3.prixGauche + "</font></span>";
+                codeHtml = codeHtml + "						<span style=\"text-align: left; font-family: DINHabRg; font-size:25px\">" + pro3.prixDroite + "</span>";
+                codeHtml = codeHtml + "					</td>";
+                codeHtml = codeHtml + "				</tr>";
+
+            }
+
+            else
+            {
+                codeHtml = codeHtml + "					<td width=\"400\">";
+                codeHtml = codeHtml + "						<span style=\"text-align: left; font-family: DINHabbold; font-size: 35px; padding: 0 20px\">" + pro3.prixGauche + "</span>";
+                codeHtml = codeHtml + "						<span style=\"text-align: left; font-family: DINHabRg; text-decoration: line-through; font-size:25px\">" + pro3.prixDroite + "</span>";
+                codeHtml = codeHtml + "					</td>";
+                codeHtml = codeHtml + "				</tr>";
+            }
             codeHtml = codeHtml + "				<tr>";
             codeHtml = codeHtml + "					<td width=\"400\" style=\"text-align: left; font-family: DINHabRg; font-size: 12px; padding: 0 20px\">" + pro3.EcoPart + "</td>";
             codeHtml = codeHtml + "				</tr>";
@@ -410,11 +456,27 @@ namespace TickitNewFace.PDFUtils
             codeHtml = codeHtml + "						<br>" + pro4.APartirDe + "</td>";
             codeHtml = codeHtml + "				</tr>";
             codeHtml = codeHtml + "				<tr>";
-            codeHtml = codeHtml + "					<td width=\"400\">";
-            codeHtml = codeHtml + "						<span style=\"text-align: left; font-family: DINHabbold; font-size: 35px; padding: 0 20px\">" + pro4.prixGauche + "</span>";
-            codeHtml = codeHtml + "						<span style=\"text-align: left; font-family: DINHabRg; text-decoration: line-through; font-size:25px\">" + pro4.prixDroite + "</span>";
-            codeHtml = codeHtml + "					</td>";
-            codeHtml = codeHtml + "				</tr>";
+
+            if (pro4.typeTarifCbr == "HABHFR")
+            {
+                codeHtml = codeHtml + "                <tr> <td style=\"text-align: left; font-family: DINHabbold; font-size: 20px;  padding: 0 20px\"><font color=\"#318CE7\">" + "Prix Habitant " + "</font></td></tr>";
+                codeHtml = codeHtml + "					<td width=\"400\">";
+                codeHtml = codeHtml + "						<span style=\"text-align: left; font-family: DINHabbold; font-size: 35px; padding: 0 20px\"><font color=\"#318CE7\">" + pro4.prixGauche + "</font></span>";
+                codeHtml = codeHtml + "						<span style=\"text-align: left; font-family: DINHabRg; font-size:25px\">" + pro4.prixDroite + "</span>";
+                codeHtml = codeHtml + "					</td>";
+                codeHtml = codeHtml + "				</tr>";
+
+            }
+            else
+            {
+
+                codeHtml = codeHtml + "					<td width=\"400\">";
+                codeHtml = codeHtml + "						<span style=\"text-align: left; font-family: DINHabbold; font-size: 35px; padding: 0 20px\">" + pro4.prixGauche + "</span>";
+                codeHtml = codeHtml + "						<span style=\"text-align: left; font-family: DINHabRg; text-decoration: line-through; font-size:25px\">" + pro4.prixDroite + "</span>";
+                codeHtml = codeHtml + "					</td>";
+                codeHtml = codeHtml + "				</tr>";
+
+            }
             codeHtml = codeHtml + "				<tr>";
             codeHtml = codeHtml + "					<td width=\"400\" style=\"text-align: left; font-family: DINHabRg; font-size: 12px; padding: 0 20px\">" + pro4.EcoPart + "</td>";
             codeHtml = codeHtml + "				</tr>";
@@ -451,11 +513,26 @@ namespace TickitNewFace.PDFUtils
             codeHtml = codeHtml + "						<br>" + pro5.APartirDe + "</td>";
             codeHtml = codeHtml + "				</tr>";
             codeHtml = codeHtml + "				<tr>";
-            codeHtml = codeHtml + "					<td width=\"400\">";
-            codeHtml = codeHtml + "						<span style=\"text-align: left; font-family: DINHabbold; font-size: 35px; padding: 0 20px\">" + pro5.prixGauche + "</span>";
-            codeHtml = codeHtml + "						<span style=\"text-align: left; font-family: DINHabRg; text-decoration: line-through; font-size:25px\">" + pro5.prixDroite + "</span>";
-            codeHtml = codeHtml + "					</td>";
-            codeHtml = codeHtml + "				</tr>";
+
+            if (pro5.typeTarifCbr == "HABHFR")
+            {
+                codeHtml = codeHtml + "                <tr> <td style=\"text-align: left; font-family: DINHabbold; font-size: 20px;  padding: 0 20px\"><font color=\"#318CE7\">" + "Prix Habitant " + "</font></td></tr>";
+                codeHtml = codeHtml + "					<td width=\"400\">";
+                codeHtml = codeHtml + "						<span style=\"text-align: left; font-family: DINHabbold; font-size: 35px; padding: 0 20px\"><font color=\"#318CE7\">" + pro5.prixGauche + "</font></span>";
+                codeHtml = codeHtml + "						<span style=\"text-align: left; font-family: DINHabRg; font-size:25px\">" + pro5.prixDroite + "</span>";
+                codeHtml = codeHtml + "					</td>";
+                codeHtml = codeHtml + "				</tr>";
+
+            }
+
+            else
+            {
+                codeHtml = codeHtml + "					<td width=\"400\">";
+                codeHtml = codeHtml + "						<span style=\"text-align: left; font-family: DINHabbold; font-size: 35px; padding: 0 20px\">" + pro5.prixGauche + "</span>";
+                codeHtml = codeHtml + "						<span style=\"text-align: left; font-family: DINHabRg; text-decoration: line-through; font-size:25px\">" + pro5.prixDroite + "</span>";
+                codeHtml = codeHtml + "					</td>";
+                codeHtml = codeHtml + "				</tr>";
+            }
             codeHtml = codeHtml + "				<tr>";
             codeHtml = codeHtml + "					<td width=\"400\" style=\"text-align: left; font-family: DINHabRg; font-size: 12px; padding: 0 20px\">" + pro5.EcoPart + "</td>";
             codeHtml = codeHtml + "				</tr>";
@@ -487,11 +564,27 @@ namespace TickitNewFace.PDFUtils
             codeHtml = codeHtml + "						<br>" + pro6.APartirDe + "</td>";
             codeHtml = codeHtml + "				</tr>";
             codeHtml = codeHtml + "				<tr>";
-            codeHtml = codeHtml + "					<td width=\"400\">";
-            codeHtml = codeHtml + "						<span style=\"text-align: left; font-family: DINHabbold; font-size: 35px; padding: 0 20px\">" + pro6.prixGauche + "</span>";
-            codeHtml = codeHtml + "						<span style=\"text-align: left; font-family: DINHabRg; text-decoration: line-through; font-size:25px\">" + pro6.prixDroite + "</span>";
-            codeHtml = codeHtml + "					</td>";
-            codeHtml = codeHtml + "				</tr>";
+
+            if (pro6.typeTarifCbr == "HABHFR")
+            {
+                codeHtml = codeHtml + "                <tr> <td style=\"text-align: left; font-family: DINHabbold; font-size: 20px;  padding: 0 20px\"><font color=\"#318CE7\">" + "Prix Habitant " + "</font></td></tr>";
+                codeHtml = codeHtml + "					<td width=\"400\">";
+                codeHtml = codeHtml + "						<span style=\"text-align: left; font-family: DINHabbold; font-size: 35px; padding: 0 20px\"><font color=\"#318CE7\">" + pro6.prixGauche + "</font></span>";
+                codeHtml = codeHtml + "						<span style=\"text-align: left; font-family: DINHabRg; font-size:25px\">" + pro6.prixDroite + "</span>";
+                codeHtml = codeHtml + "					</td>";
+                codeHtml = codeHtml + "				</tr>";
+
+            }
+
+            else
+            {
+                codeHtml = codeHtml + "					<td width=\"400\">";
+                codeHtml = codeHtml + "						<span style=\"text-align: left; font-family: DINHabbold; font-size: 35px; padding: 0 20px\">" + pro6.prixGauche + "</span>";
+                codeHtml = codeHtml + "						<span style=\"text-align: left; font-family: DINHabRg; text-decoration: line-through; font-size:25px\">" + pro6.prixDroite + "</span>";
+                codeHtml = codeHtml + "					</td>";
+                codeHtml = codeHtml + "				</tr>";
+
+            }
             codeHtml = codeHtml + "				<tr>";
             codeHtml = codeHtml + "					<td width=\"400\" style=\"text-align: left; font-family: DINHabRg; font-size: 12px; padding: 0 20px\">" + pro6.EcoPart + "</td>";
             codeHtml = codeHtml + "				</tr>";
@@ -522,12 +615,26 @@ namespace TickitNewFace.PDFUtils
             codeHtml = codeHtml + "					<td width=\"400\" style=\"text-align: left; font-family: DINHabRg; font-size: 18px; padding: 0 20px\">";
             codeHtml = codeHtml + "						<br>" + pro7.APartirDe + "</td>";
             codeHtml = codeHtml + "				</tr>";
-            codeHtml = codeHtml + "				<tr>";
-            codeHtml = codeHtml + "					<td width=\"400\">";
-            codeHtml = codeHtml + "						<span style=\"text-align: left; font-family: DINHabbold; font-size: 35px; padding: 0 20px\">" + pro7.prixGauche + "</span>";
-            codeHtml = codeHtml + "						<span style=\"text-align: left; font-family: DINHabRg; text-decoration: line-through; font-size:25px\">" + pro7.prixDroite + "</span>";
-            codeHtml = codeHtml + "					</td>";
-            codeHtml = codeHtml + "				</tr>";
+            if (pro7.typeTarifCbr == "HABHFR")
+            {
+                codeHtml = codeHtml + "                <tr> <td style=\"text-align: left; font-family: DINHabbold; font-size: 20px;  padding: 0 20px\"><font color=\"#318CE7\">" + "Prix Habitant " + "</font></td></tr>";
+                codeHtml = codeHtml + "					<td width=\"400\">";
+                codeHtml = codeHtml + "						<span style=\"text-align: left; font-family: DINHabbold; font-size: 35px; padding: 0 20px\"><font color=\"#318CE7\">" + pro7.prixGauche + "</font></span>";
+                codeHtml = codeHtml + "						<span style=\"text-align: left; font-family: DINHabRg; font-size:25px\">" + pro7.prixDroite + "</span>";
+                codeHtml = codeHtml + "					</td>";
+                codeHtml = codeHtml + "				</tr>";
+
+            }
+
+            else
+            {
+                codeHtml = codeHtml + "				<tr>";
+                codeHtml = codeHtml + "					<td width=\"400\">";
+                codeHtml = codeHtml + "						<span style=\"text-align: left; font-family: DINHabbold; font-size: 35px; padding: 0 20px\">" + pro7.prixGauche + "</span>";
+                codeHtml = codeHtml + "						<span style=\"text-align: left; font-family: DINHabRg; text-decoration: line-through; font-size:25px\">" + pro7.prixDroite + "</span>";
+                codeHtml = codeHtml + "					</td>";
+                codeHtml = codeHtml + "				</tr>";
+            }
             codeHtml = codeHtml + "				<tr>";
             codeHtml = codeHtml + "					<td width=\"400\" style=\"text-align: left; font-family: DINHabRg; font-size: 12px; padding: 0 20px\">" + pro7.EcoPart + "</td>";
             codeHtml = codeHtml + "				</tr>";
@@ -559,11 +666,27 @@ namespace TickitNewFace.PDFUtils
             codeHtml = codeHtml + "						<br>" + pro8.APartirDe + "</td>";
             codeHtml = codeHtml + "				</tr>";
             codeHtml = codeHtml + "				<tr>";
-            codeHtml = codeHtml + "					<td width=\"400\">";
-            codeHtml = codeHtml + "						<span style=\"text-align: left; font-family: DINHabbold; font-size: 35px; padding: 0 20px\">" + pro8.prixGauche + "</span>";
-            codeHtml = codeHtml + "						<span style=\"text-align: left; font-family: DINHabRg; text-decoration: line-through; font-size:25px\">" + pro8.prixDroite + "</span>";
-            codeHtml = codeHtml + "					</td>";
-            codeHtml = codeHtml + "				</tr>";
+
+            if (pro8.typeTarifCbr == "HABHFR")
+            {
+                codeHtml = codeHtml + "                <tr> <td style=\"text-align: left; font-family: DINHabbold; font-size: 20px;  padding: 0 20px\"><font color=\"#318CE7\">" + "Prix Habitant " + "</font></td></tr>";
+                codeHtml = codeHtml + "					<td width=\"400\">";
+                codeHtml = codeHtml + "						<span style=\"text-align: left; font-family: DINHabbold; font-size: 35px; padding: 0 20px\"><font color=\"#318CE7\">" + pro8.prixGauche + "</font></span>";
+                codeHtml = codeHtml + "						<span style=\"text-align: left; font-family: DINHabRg; font-size:25px\">" + pro8.prixDroite + "</span>";
+                codeHtml = codeHtml + "					</td>";
+                codeHtml = codeHtml + "				</tr>";
+
+            }
+
+            else
+            {
+                codeHtml = codeHtml + "					<td width=\"400\">";
+                codeHtml = codeHtml + "						<span style=\"text-align: left; font-family: DINHabbold; font-size: 35px; padding: 0 20px\">" + pro8.prixGauche + "</span>";
+                codeHtml = codeHtml + "						<span style=\"text-align: left; font-family: DINHabRg; text-decoration: line-through; font-size:25px\">" + pro8.prixDroite + "</span>";
+                codeHtml = codeHtml + "					</td>";
+                codeHtml = codeHtml + "				</tr>";
+
+            }
             codeHtml = codeHtml + "				<tr>";
             codeHtml = codeHtml + "					<td width=\"400\" style=\"text-align: left; font-family: DINHabRg; font-size: 12px; padding: 0 20px\">" + pro8.EcoPart + "</td>";
             codeHtml = codeHtml + "				</tr>";
