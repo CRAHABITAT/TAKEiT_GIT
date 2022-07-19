@@ -480,7 +480,18 @@ namespace TickitNewFace.PDFUtils
                 codeHtml = codeHtml + "								<table width=\"325\" height=\"18\">";
                 codeHtml = codeHtml + "									<tr>";
                 codeHtml = codeHtml + "										<td style=\"text-align: left; font-family: DINHabRg; font-size: 11px; padding: 0 0px; line-height: 1\" valign=\"top\">" + data.Taxe_eco + " &nbsp;</td>";
-                codeHtml = codeHtml + "										<td width=\"68\" valign=\"top\" style=\"font-family: DINHabRg; font-size: 11px; text-align: left; line-height:1;\">Réf. " + data.sku +"</td>";
+
+
+                if (magasinId == 6 || magasinId == 26 || magasinId == 42)
+                {
+                    codeHtml = codeHtml + "    <td  style=\"text-align: right; font-family:DINHabRg; font-size: 11px; padding: 0 0; line-height:0 \">Ref." + data.sku + "</td>";
+                }
+
+                else
+                {
+
+                    codeHtml = codeHtml + "										<td width=\"68\" valign=\"top\" style=\"font-family: DINHabRg; font-size: 11px; text-align: left; line-height:1;\">Réf. " + data.sku + "</td>";
+                }
                 codeHtml = codeHtml + "									</tr>";
                 codeHtml = codeHtml + "								</table>";
                 codeHtml = codeHtml + "								<table width=\"350\" height=\"20\">";
