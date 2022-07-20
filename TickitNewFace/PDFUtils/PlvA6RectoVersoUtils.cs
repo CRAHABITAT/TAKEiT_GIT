@@ -493,7 +493,7 @@ namespace TickitNewFace.PDFUtils
                 codeHtml = codeHtml + "								</tr>";
                 codeHtml = codeHtml + "							</table>";
                 codeHtml = codeHtml + "							<table width=\"1200\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" bgcolor=\"ffffff\" align=\"left\" style=\"padding-top: 20px;\">";
-                codeHtml = codeHtml + "								<tr style=\"height: 790px;\">";
+                codeHtml = codeHtml + "								<tr style=\"height: 800px;\">";
                 codeHtml = codeHtml + "									<td valign=\"top\" style=\"padding: 50px 30px 60px 0px\">";
                 codeHtml = codeHtml + "										<table align=\"center\" width=\"850\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" bgcolor=\"#ffffff\">";
                 codeHtml = codeHtml + "											<tr>";
@@ -505,7 +505,7 @@ namespace TickitNewFace.PDFUtils
                 codeHtml = codeHtml + "										</table>";
                 codeHtml = codeHtml + "									</td>";
                 codeHtml = codeHtml + "								</tr>";
-                codeHtml = codeHtml + "								<tr valign=\"top\" style=\"height: 365px\">";
+                codeHtml = codeHtml + "								<tr valign=\"top\" style=\"height: 350px\">";
                 codeHtml = codeHtml + "									<td align=\"left\" style=\"padding: 30px 0 0 150px; width : 10000px\" valign=\"top\">";
                 codeHtml = codeHtml + "										<table>";
                 codeHtml = codeHtml + "											<tr>";
@@ -574,10 +574,10 @@ namespace TickitNewFace.PDFUtils
                 codeHtml = codeHtml + "							<div class=\"footer\">";
                 codeHtml = codeHtml + "								<table align=\"left\" width=\"1200\" valign=\"top\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\">";
                 codeHtml = codeHtml + "									<tr style=\"height: 125px;\">";
-                codeHtml = codeHtml + "										<td style=\"padding:0px 0 60px 50px\">";
+                codeHtml = codeHtml + "										<td style=\"padding:0px 0 50px 50px\">";
                 codeHtml = codeHtml + "											<table align=\"left\" width=\"1000\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\">";
                 codeHtml = codeHtml + "												<tr>";
-                codeHtml = codeHtml + "													<td align=\"center\" style=\"padding:25px 0px 0 0\" width=\"300\">";
+                codeHtml = codeHtml + "													<td align=\"center\" style=\"padding:0px 0px 0 0\" width=\"300\">";
                 codeHtml = codeHtml + "														<hr width=\"300\"> </td>";
                 codeHtml = codeHtml + "													<td height=\"10\" valign=\"bottom\" style=\"text-align: center; font-family: dinhabbold; font-size: 22px;\" width=\"400\">" + texteDur2 + "</td>";
                 codeHtml = codeHtml + "													<td align=\"center\" style=\"padding:10px 0 0 0\" width=\"300\">";
